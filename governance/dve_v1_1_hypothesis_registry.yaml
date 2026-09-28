@@ -1,0 +1,19 @@
+registry_id: DVE-POST-VALIDATION-V1.1
+status: frozen_before_new_dev_generation
+predecessor_evidence: immutable v1 confirmatory evidence only
+locked_tuning_prohibited: true
+primary_endpoint:
+  metric: material_risk_recall_at_dev_frozen_threshold
+  target_fpr: 0.05
+primary_hypothesis: >-
+  A transparent aggregation selected using only fresh v1.1 DEV and VALIDATION
+  cases can control false positives near the frozen target without reducing
+  material-risk recall relative to FitOnly on wholly fresh locked cases.
+secondary_hypotheses:
+  - Evidence-component signal is conditional on fault family and truth model.
+  - Full v1 excess false positives are concentrated in identifiable regimes.
+  - Challenger and Greek evidence are useful in specific regimes rather than globally.
+interpretation_rule: >-
+  Preserve and report the fresh locked result whether Full v1.1 DVE wins,
+  ties, or loses. No locked observation may change rules or thresholds.
+

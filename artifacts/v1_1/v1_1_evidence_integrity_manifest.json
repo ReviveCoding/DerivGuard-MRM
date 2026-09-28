@@ -1,0 +1,49 @@
+{
+  "aggregation_design_hash_matched": true,
+  "created_utc": "2026-09-28T00:03:14.839797+00:00",
+  "design_checks": [
+    {
+      "freeze": "artifacts/v1_1/dve_v1_1_design.freeze.json",
+      "matched": true,
+      "module": "src/derivguard/synthetic/dve_v1_1.py",
+      "module_hash": "2c172f3c72e239f55d17580190381396db908985faa695668e32265d228ea58a"
+    },
+    {
+      "freeze": "artifacts/v1_1/dve_v1_1b_design.freeze.json",
+      "matched": true,
+      "module": "src/derivguard/synthetic/dve_v1_1b.py",
+      "module_hash": "6b72e3727353ee473214231f9f901f6ee5672dd4e7c88688089ecbfcfe57f6fe"
+    }
+  ],
+  "evidence_hashes": {
+    "results/v1_1/dve_failure/conditional_evidence_signal.csv": "d9becb2347b0ab7e45757526289c80dccae862f8aff7dc56f6c321140e186f31",
+    "results/v1_1/dve_failure/diagnosis_summary.json": "bf50fea2694b7c3d32cbcd91509470425707b0c192de51826a9b5f0bc65c95ce",
+    "results/v1_1/dve_failure/failure_slices.csv": "b96d70ef3e46972c58f667a8c8f4b54cfaae87d5c4b5ef681b8871534d97c787",
+    "results/v1_1/dve_failure/full_vs_fitonly_evidence_attribution.csv": "a1e113de2776583132b994fd2b3f8a7df9bb980e285295bc69fb1952dcab31c0",
+    "results/v1_1/dve_failure/full_vs_fitonly_summary.json": "4ecc2c65d05c6e1f5faae1b672c081ee9d061e5884d7cda871ff8ab8affa5918",
+    "results/v1_1/dve_failure/v1_full_vs_fitonly_cases.parquet": "22e5d41c2de3d6f996ae9babf53b44aac3cb32b3880efe81b8fcfb66cdf5726c",
+    "results/v1_1/dve_failure/v1_locked_failure_cases.parquet": "7ce06ea66e365f0bf2c244b9f6c44e7fd49679bbdd9d149213f31ba9032afc82",
+    "results/v1_1/dve_v1_1b/confirmatory_metrics.json": "5109c86cf6c7685e045ef09c35da45b8a5c77f3ff6c352b90df8bd5427d96e20",
+    "results/v1_1/dve_v1_1b/dev_calibration_diagnostics.parquet": "1d3d3655a56712717e6c8ea3b2f47e6bd3075d507b97258929f43ec7c2f2ee40",
+    "results/v1_1/dve_v1_1b/dev_provenance.parquet": "2669495d9d75b84a06ecd11c64b80b0d3647c94d10456fcda6cf6a89d7d6fdaa",
+    "results/v1_1/dve_v1_1b/dev_records.parquet": "1928de56637816d902b1e2fb1bbc728b656eabba9e451edbae703d3749581880",
+    "results/v1_1/dve_v1_1b/false_negative_cases.parquet": "e04039cb365eca5a59913acf4b481959e5a1567962825280a620c16d017130a2",
+    "results/v1_1/dve_v1_1b/false_positive_cases.parquet": "e5a108c17bb76d4d578fc22ded031d010d267b0017d5468d79b1c15407f8f9ce",
+    "results/v1_1/dve_v1_1b/locked_baseline_metrics.csv": "11496063d5a2e8f9ac8c8c6663b15738e0d4382fe6ceca7c2a5ffeac7926a6a8",
+    "results/v1_1/dve_v1_1b/locked_scored.parquet": "b88ad979ac960bc3315f951ae5a5a46982e7f7eb5a0d1d1ef189ec98a8e81cf8",
+    "results/v1_1/dve_v1_1b/locked_test_calibration_diagnostics.parquet": "89d482ab386f61993cb9986b16ba4bc318ef8cc1baf87448df7e817202278716",
+    "results/v1_1/dve_v1_1b/locked_test_provenance.parquet": "3b839338137cdef9bbf575bc18da469dbef76c5d2a72589fd6085f1480904149",
+    "results/v1_1/dve_v1_1b/locked_test_records.parquet": "7270722762042ca982e7302715a3412f5d849d012dfb88983c19758108eca03c",
+    "results/v1_1/dve_v1_1b/ood_locked_scored.parquet": "3a56fd8b0d17cfdf65a95774ba6bd6ba8d263aee2f7696b1ea309cbd1e9e9567",
+    "results/v1_1/dve_v1_1b/ood_locked_test_calibration_diagnostics.parquet": "5fa9d7582eea45a490aba721998efed0c459692a717b1651fcde147fc1f0ce80",
+    "results/v1_1/dve_v1_1b/ood_locked_test_provenance.parquet": "f2e2200db514a70fd4a7351cfedf431b3e0509b8892f09c7204fe6ac6290659b",
+    "results/v1_1/dve_v1_1b/ood_locked_test_records.parquet": "95654669fa41d87da0c6039582cb6937ccfc0d059cd5cc82cfff11221a4ca7b8",
+    "results/v1_1/dve_v1_1b/validation_baselines.csv": "c955a0296a4f357e23794b479bfd40f9b042411880929d99826ef0bef9a8e0af",
+    "results/v1_1/dve_v1_1b/validation_calibration_diagnostics.parquet": "ea0c887ee42e4689ab2cd1ccc7ab5ad84b0a6005ea4b73e73c0886876842b02e",
+    "results/v1_1/dve_v1_1b/validation_candidate_selection.csv": "250518f85ae03079cd8044ddf045076f01de58d3844ded37bb0a09d7d1ccfa70",
+    "results/v1_1/dve_v1_1b/validation_provenance.parquet": "f97449c1d2bbbca97e3ed507d5387861c2841c873e73ed2023d85e7092adea7e",
+    "results/v1_1/dve_v1_1b/validation_records.parquet": "51fd32d01ba6197d3281900a9d85b3d4f8be7e6e6ddb5894f0ef751886179163"
+  },
+  "note": "This closure manifest prevents future silent cache substitution. The completed fresh run was generated before this closure and did not reuse v1 locked observations.",
+  "status": "V1_1_EVIDENCE_INTEGRITY_VERIFIED"
+}

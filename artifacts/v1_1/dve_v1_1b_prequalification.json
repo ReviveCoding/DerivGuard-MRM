@@ -1,0 +1,44 @@
+{
+  "cases": [
+    {
+      "fault_id": "F00",
+      "normalized_true_error": 0.04190220177332302,
+      "runtime_seconds": 51.83049239999673,
+      "seed": 116000001,
+      "status": "PASS"
+    },
+    {
+      "fault_id": "F01",
+      "normalized_true_error": 0.17456999296445502,
+      "runtime_seconds": 44.747918399996706,
+      "seed": 116000002,
+      "status": "PASS"
+    },
+    {
+      "fault_id": "F02",
+      "normalized_true_error": 0.12446072859861436,
+      "runtime_seconds": 50.97278420001385,
+      "seed": 116000003,
+      "status": "PASS"
+    },
+    {
+      "fault_id": "F06",
+      "normalized_true_error": 0.043001250747176596,
+      "runtime_seconds": 49.71971459999622,
+      "seed": 116000007,
+      "status": "PASS"
+    },
+    {
+      "fault_id": "F16",
+      "normalized_true_error": 0.6587570171224384,
+      "runtime_seconds": 58.442839399998775,
+      "seed": 116000017,
+      "status": "PASS"
+    }
+  ],
+  "config_hash": "0758e7e7aa85eca7fada060f422de8943663e0c6e9a813491d60421a6e3e82fd",
+  "module_hash": "6b72e3727353ee473214231f9f901f6ee5672dd4e7c88688089ecbfcfe57f6fe",
+  "status": "PASS",
+  "v1_1_failure_hash": "a82e63e60627c6c95416a1090ecf19cf0aa2c703ea7f5e04742e3b88cf706f22",
+  "v1_1_locked_evaluated": false
+}

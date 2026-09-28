@@ -1,0 +1,17 @@
+{
+  "bootstrap_draws": 400,
+  "calibrations": 135,
+  "created_utc": "2026-09-27T23:00:19.778326+00:00",
+  "cuda": "NVIDIA GeForce RTX 4090 Laptop GPU",
+  "methods": {
+    "bootstrap": "CUDA_FP64_LINEARIZED_BID_ASK_QUOTE_BOOTSTRAP",
+    "multistart": "BOUNDED_LOCAL_MULTISTART_DIAGNOSTIC",
+    "profiles": "LOCAL_QUADRATIC_NUISANCE_PROFILE"
+  },
+  "parameters_per_calibration": 5,
+  "source_hashes": {
+    "results/raw/real_model_comparison.parquet": "e0afe691e73213f45fef8f99756060c855d3dc6c3b9f077e6e97a0314c568b16",
+    "src/derivguard/calibration_uncertainty_v1_1.py": "24b94591ad5a7c06ee751784235e18f336fd336d721752ec7bf081b763252155"
+  },
+  "status": "COMPLETE"
+}

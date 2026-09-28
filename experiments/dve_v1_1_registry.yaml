@@ -1,0 +1,40 @@
+registry_id: DVE-POST-VALIDATION-V1.1
+status: frozen_before_new_dev_generation
+developer_release: Developer Model Release v1.1
+objective: C04
+optimizer: O01
+device: cuda
+precision: float64
+target_fpr: 0.05
+materiality_threshold_spread_units: 1.0
+seed_regions:
+  dev: 117m
+  validation: 118m
+  locked_test: 119m
+  ood_locked_test: 120m
+case_counts:
+  dev: 34
+  validation: 17
+  locked_test: 34
+  ood_locked_test: 17
+faults: [F00, F01, F02, F03, F04, F05, F06, F07, F08, F09, F10, F11, F12, F13, F14, F15, F16]
+transparent_candidates:
+  - maximum_evidence_percentile
+  - top_2_evidence_mean
+  - top_3_evidence_mean
+  - logical_two_high_components
+  - materiality_gated_top_2
+selection_rule: >-
+  Using VALIDATION only, retain candidates with FPR no greater than 0.075;
+  maximize material-risk recall, then minimize absolute distance from 0.05 FPR,
+  then use the listed candidate order. If none qualify, minimize FPR distance,
+  then maximize recall, then use listed order.
+required_baselines:
+  - FitOnly
+  - ChallengerOnly
+  - BootstrapOnly
+  - NumericalOnly
+  - NonRegimeDVE
+  - FullV1_1DVE
+locked_tuning_prohibited: true
+

@@ -1,0 +1,8 @@
+{
+  "design_freeze_hash": "97f737aa3555ded29edae00d51840e323423de50ce980d2f96e13f8e29c47be8",
+  "fault_id": "F06",
+  "partition": "VALIDATION",
+  "reason": "bootstrap draw 0 has no converged C04/O01 fit",
+  "seed": 118000007,
+  "status": "CALIBRATION_UNQUALIFIED"
+}

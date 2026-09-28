@@ -1,0 +1,1243 @@
+{
+  "aggregation_candidates": [
+    "maximum_evidence_percentile",
+    "top_2_evidence_mean",
+    "top_3_evidence_mean",
+    "logical_two_high_components",
+    "materiality_gated_top_2"
+  ],
+  "calibration_engine_qualification": {
+    "backend": "torch-cuda-fp64",
+    "engine": "v4_batched_heston_calibration_pricer",
+    "maximum_absolute_error": 1.4210854715202004e-14,
+    "reference": "independent per-contract public heston_price_fixed_quad",
+    "status": "PASS",
+    "tolerance": 5e-07
+  },
+  "config": {
+    "bates_nodes": 128,
+    "bootstrap_draws": 4,
+    "bootstrap_max_iterations": 160,
+    "bootstrap_multistarts": 5,
+    "calibration_nodes": 64,
+    "cases_dev": 34,
+    "cases_locked": 34,
+    "cases_ood": 17,
+    "cases_validation": 17,
+    "contracts_per_case": 25,
+    "device": "cuda",
+    "finite_difference_relative_step": 0.0002,
+    "inference_seed": 20261102,
+    "materiality_threshold": 1.0,
+    "maximum_validation_fpr": 0.075,
+    "minimum_regime_negatives": 5,
+    "primary_max_iterations": 160,
+    "primary_multistarts": 5,
+    "profile": "research",
+    "target_fpr": 0.05,
+    "truth_nodes": 96
+  },
+  "config_hash": "77838c7293a8b1ac853be962230f43f203d3073b40c340489ff5b2f8289999c9",
+  "created_utc": "2026-09-27T20:01:14.620548+00:00",
+  "developer_release_hash": "0fd53ee708e95f9666a95724b80937737d2b1b8406e33abbe304a2ee04efdccf",
+  "experiment_registry_hash": "6b14e907f5a44f808744e0a8b756f24975b26cb6d289eff08d468386b8c0e950",
+  "fault_schedule": [
+    {
+      "calibration_seed": 177000001,
+      "fault_id": "F00",
+      "implementation_label": "canonical Heston truth; no injected fault",
+      "observation_seed": 167000001,
+      "partition": "DEV",
+      "seed": 117000001,
+      "severity": 0.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 177000002,
+      "fault_id": "F01",
+      "implementation_label": "real Heston-on-canonical-Bates truth",
+      "observation_seed": 167000002,
+      "partition": "DEV",
+      "seed": 117000002,
+      "severity": 2.0,
+      "truth_family": "BATES"
+    },
+    {
+      "calibration_seed": 177000003,
+      "fault_id": "F02",
+      "implementation_label": "real Heston-on-SSVI-marginal Dupire LocalVol truth",
+      "observation_seed": 167000003,
+      "partition": "DEV",
+      "seed": 117000003,
+      "severity": 2.0,
+      "truth_family": "LOCALVOL_SSVI"
+    },
+    {
+      "calibration_seed": 177000004,
+      "fault_id": "F03",
+      "implementation_label": "real Heston-on-piecewise two-regime risk-neutral mixture truth",
+      "observation_seed": 167000004,
+      "partition": "DEV",
+      "seed": 117000004,
+      "severity": 2.0,
+      "truth_family": "PIECEWISE_REGIME"
+    },
+    {
+      "calibration_seed": 177000005,
+      "fault_id": "F04",
+      "implementation_label": "controlled proxy: isolated poor-integration-resolution operator",
+      "observation_seed": 167000005,
+      "partition": "DEV",
+      "seed": 117000005,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 177000006,
+      "fault_id": "F05",
+      "implementation_label": "controlled proxy: isolated coarse-PDE-disagreement operator",
+      "observation_seed": 167000006,
+      "partition": "DEV",
+      "seed": 117000006,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 177000007,
+      "fault_id": "F06",
+      "implementation_label": "controlled proxy: isolated insufficient-Monte-Carlo operator",
+      "observation_seed": 167000007,
+      "partition": "DEV",
+      "seed": 117000007,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 177000008,
+      "fault_id": "F07",
+      "implementation_label": "controlled proxy: isolated calibration-local-minimum operator",
+      "observation_seed": 167000008,
+      "partition": "DEV",
+      "seed": 117000008,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 177000009,
+      "fault_id": "F08",
+      "implementation_label": "controlled proxy: isolated sparse-calibration-support operator",
+      "observation_seed": 167000009,
+      "partition": "DEV",
+      "seed": 117000009,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 177000010,
+      "fault_id": "F09",
+      "implementation_label": "controlled proxy: isolated corrupt-quote data-evidence operator",
+      "observation_seed": 167000010,
+      "partition": "DEV",
+      "seed": 117000010,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 177000011,
+      "fault_id": "F10",
+      "implementation_label": "controlled proxy: isolated stale/asynchronous observation operator",
+      "observation_seed": 167000011,
+      "partition": "DEV",
+      "seed": 117000011,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 177000012,
+      "fault_id": "F11",
+      "implementation_label": "controlled proxy: isolated incorrect-rate/forward operator",
+      "observation_seed": 167000012,
+      "partition": "DEV",
+      "seed": 117000012,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 177000013,
+      "fault_id": "F12",
+      "implementation_label": "controlled proxy: isolated wing-extrapolation operator",
+      "observation_seed": 167000013,
+      "partition": "DEV",
+      "seed": 117000013,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 177000014,
+      "fault_id": "F13",
+      "implementation_label": "controlled proxy: isolated maturity-extrapolation operator",
+      "observation_seed": 167000014,
+      "partition": "DEV",
+      "seed": 117000014,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 177000015,
+      "fault_id": "F14",
+      "implementation_label": "controlled proxy: isolated parameter-instability/identifiability operator",
+      "observation_seed": 167000015,
+      "partition": "DEV",
+      "seed": 117000015,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 177000016,
+      "fault_id": "F15",
+      "implementation_label": "controlled proxy: isolated biased-Greeks operator",
+      "observation_seed": 167000016,
+      "partition": "DEV",
+      "seed": 117000016,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 177000017,
+      "fault_id": "F16",
+      "implementation_label": "controlled proxy: combined F04+F09+F14 multiple-mechanism operator",
+      "observation_seed": 167000017,
+      "partition": "DEV",
+      "seed": 117000017,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 177000018,
+      "fault_id": "F00",
+      "implementation_label": "canonical Heston truth; no injected fault",
+      "observation_seed": 167000018,
+      "partition": "DEV",
+      "seed": 117000018,
+      "severity": 0.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 177000019,
+      "fault_id": "F01",
+      "implementation_label": "real Heston-on-canonical-Bates truth",
+      "observation_seed": 167000019,
+      "partition": "DEV",
+      "seed": 117000019,
+      "severity": 2.0,
+      "truth_family": "BATES"
+    },
+    {
+      "calibration_seed": 177000020,
+      "fault_id": "F02",
+      "implementation_label": "real Heston-on-SSVI-marginal Dupire LocalVol truth",
+      "observation_seed": 167000020,
+      "partition": "DEV",
+      "seed": 117000020,
+      "severity": 2.0,
+      "truth_family": "LOCALVOL_SSVI"
+    },
+    {
+      "calibration_seed": 177000021,
+      "fault_id": "F03",
+      "implementation_label": "real Heston-on-piecewise two-regime risk-neutral mixture truth",
+      "observation_seed": 167000021,
+      "partition": "DEV",
+      "seed": 117000021,
+      "severity": 2.0,
+      "truth_family": "PIECEWISE_REGIME"
+    },
+    {
+      "calibration_seed": 177000022,
+      "fault_id": "F04",
+      "implementation_label": "controlled proxy: isolated poor-integration-resolution operator",
+      "observation_seed": 167000022,
+      "partition": "DEV",
+      "seed": 117000022,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 177000023,
+      "fault_id": "F05",
+      "implementation_label": "controlled proxy: isolated coarse-PDE-disagreement operator",
+      "observation_seed": 167000023,
+      "partition": "DEV",
+      "seed": 117000023,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 177000024,
+      "fault_id": "F06",
+      "implementation_label": "controlled proxy: isolated insufficient-Monte-Carlo operator",
+      "observation_seed": 167000024,
+      "partition": "DEV",
+      "seed": 117000024,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 177000025,
+      "fault_id": "F07",
+      "implementation_label": "controlled proxy: isolated calibration-local-minimum operator",
+      "observation_seed": 167000025,
+      "partition": "DEV",
+      "seed": 117000025,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 177000026,
+      "fault_id": "F08",
+      "implementation_label": "controlled proxy: isolated sparse-calibration-support operator",
+      "observation_seed": 167000026,
+      "partition": "DEV",
+      "seed": 117000026,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 177000027,
+      "fault_id": "F09",
+      "implementation_label": "controlled proxy: isolated corrupt-quote data-evidence operator",
+      "observation_seed": 167000027,
+      "partition": "DEV",
+      "seed": 117000027,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 177000028,
+      "fault_id": "F10",
+      "implementation_label": "controlled proxy: isolated stale/asynchronous observation operator",
+      "observation_seed": 167000028,
+      "partition": "DEV",
+      "seed": 117000028,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 177000029,
+      "fault_id": "F11",
+      "implementation_label": "controlled proxy: isolated incorrect-rate/forward operator",
+      "observation_seed": 167000029,
+      "partition": "DEV",
+      "seed": 117000029,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 177000030,
+      "fault_id": "F12",
+      "implementation_label": "controlled proxy: isolated wing-extrapolation operator",
+      "observation_seed": 167000030,
+      "partition": "DEV",
+      "seed": 117000030,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 177000031,
+      "fault_id": "F13",
+      "implementation_label": "controlled proxy: isolated maturity-extrapolation operator",
+      "observation_seed": 167000031,
+      "partition": "DEV",
+      "seed": 117000031,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 177000032,
+      "fault_id": "F14",
+      "implementation_label": "controlled proxy: isolated parameter-instability/identifiability operator",
+      "observation_seed": 167000032,
+      "partition": "DEV",
+      "seed": 117000032,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 177000033,
+      "fault_id": "F15",
+      "implementation_label": "controlled proxy: isolated biased-Greeks operator",
+      "observation_seed": 167000033,
+      "partition": "DEV",
+      "seed": 117000033,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 177000034,
+      "fault_id": "F16",
+      "implementation_label": "controlled proxy: combined F04+F09+F14 multiple-mechanism operator",
+      "observation_seed": 167000034,
+      "partition": "DEV",
+      "seed": 117000034,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 178000001,
+      "fault_id": "F00",
+      "implementation_label": "canonical Heston truth; no injected fault",
+      "observation_seed": 168000001,
+      "partition": "VALIDATION",
+      "seed": 118000001,
+      "severity": 0.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 178000002,
+      "fault_id": "F01",
+      "implementation_label": "real Heston-on-canonical-Bates truth",
+      "observation_seed": 168000002,
+      "partition": "VALIDATION",
+      "seed": 118000002,
+      "severity": 2.0,
+      "truth_family": "BATES"
+    },
+    {
+      "calibration_seed": 178000003,
+      "fault_id": "F02",
+      "implementation_label": "real Heston-on-SSVI-marginal Dupire LocalVol truth",
+      "observation_seed": 168000003,
+      "partition": "VALIDATION",
+      "seed": 118000003,
+      "severity": 2.0,
+      "truth_family": "LOCALVOL_SSVI"
+    },
+    {
+      "calibration_seed": 178000004,
+      "fault_id": "F03",
+      "implementation_label": "real Heston-on-piecewise two-regime risk-neutral mixture truth",
+      "observation_seed": 168000004,
+      "partition": "VALIDATION",
+      "seed": 118000004,
+      "severity": 2.0,
+      "truth_family": "PIECEWISE_REGIME"
+    },
+    {
+      "calibration_seed": 178000005,
+      "fault_id": "F04",
+      "implementation_label": "controlled proxy: isolated poor-integration-resolution operator",
+      "observation_seed": 168000005,
+      "partition": "VALIDATION",
+      "seed": 118000005,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 178000006,
+      "fault_id": "F05",
+      "implementation_label": "controlled proxy: isolated coarse-PDE-disagreement operator",
+      "observation_seed": 168000006,
+      "partition": "VALIDATION",
+      "seed": 118000006,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 178000007,
+      "fault_id": "F06",
+      "implementation_label": "controlled proxy: isolated insufficient-Monte-Carlo operator",
+      "observation_seed": 168000007,
+      "partition": "VALIDATION",
+      "seed": 118000007,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 178000008,
+      "fault_id": "F07",
+      "implementation_label": "controlled proxy: isolated calibration-local-minimum operator",
+      "observation_seed": 168000008,
+      "partition": "VALIDATION",
+      "seed": 118000008,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 178000009,
+      "fault_id": "F08",
+      "implementation_label": "controlled proxy: isolated sparse-calibration-support operator",
+      "observation_seed": 168000009,
+      "partition": "VALIDATION",
+      "seed": 118000009,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 178000010,
+      "fault_id": "F09",
+      "implementation_label": "controlled proxy: isolated corrupt-quote data-evidence operator",
+      "observation_seed": 168000010,
+      "partition": "VALIDATION",
+      "seed": 118000010,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 178000011,
+      "fault_id": "F10",
+      "implementation_label": "controlled proxy: isolated stale/asynchronous observation operator",
+      "observation_seed": 168000011,
+      "partition": "VALIDATION",
+      "seed": 118000011,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 178000012,
+      "fault_id": "F11",
+      "implementation_label": "controlled proxy: isolated incorrect-rate/forward operator",
+      "observation_seed": 168000012,
+      "partition": "VALIDATION",
+      "seed": 118000012,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 178000013,
+      "fault_id": "F12",
+      "implementation_label": "controlled proxy: isolated wing-extrapolation operator",
+      "observation_seed": 168000013,
+      "partition": "VALIDATION",
+      "seed": 118000013,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 178000014,
+      "fault_id": "F13",
+      "implementation_label": "controlled proxy: isolated maturity-extrapolation operator",
+      "observation_seed": 168000014,
+      "partition": "VALIDATION",
+      "seed": 118000014,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 178000015,
+      "fault_id": "F14",
+      "implementation_label": "controlled proxy: isolated parameter-instability/identifiability operator",
+      "observation_seed": 168000015,
+      "partition": "VALIDATION",
+      "seed": 118000015,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 178000016,
+      "fault_id": "F15",
+      "implementation_label": "controlled proxy: isolated biased-Greeks operator",
+      "observation_seed": 168000016,
+      "partition": "VALIDATION",
+      "seed": 118000016,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 178000017,
+      "fault_id": "F16",
+      "implementation_label": "controlled proxy: combined F04+F09+F14 multiple-mechanism operator",
+      "observation_seed": 168000017,
+      "partition": "VALIDATION",
+      "seed": 118000017,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 179000001,
+      "fault_id": "F00",
+      "implementation_label": "canonical Heston truth; no injected fault",
+      "observation_seed": 169000001,
+      "partition": "LOCKED_TEST",
+      "seed": 119000001,
+      "severity": 0.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 179000002,
+      "fault_id": "F01",
+      "implementation_label": "real Heston-on-canonical-Bates truth",
+      "observation_seed": 169000002,
+      "partition": "LOCKED_TEST",
+      "seed": 119000002,
+      "severity": 2.0,
+      "truth_family": "BATES"
+    },
+    {
+      "calibration_seed": 179000003,
+      "fault_id": "F02",
+      "implementation_label": "real Heston-on-SSVI-marginal Dupire LocalVol truth",
+      "observation_seed": 169000003,
+      "partition": "LOCKED_TEST",
+      "seed": 119000003,
+      "severity": 2.0,
+      "truth_family": "LOCALVOL_SSVI"
+    },
+    {
+      "calibration_seed": 179000004,
+      "fault_id": "F03",
+      "implementation_label": "real Heston-on-piecewise two-regime risk-neutral mixture truth",
+      "observation_seed": 169000004,
+      "partition": "LOCKED_TEST",
+      "seed": 119000004,
+      "severity": 2.0,
+      "truth_family": "PIECEWISE_REGIME"
+    },
+    {
+      "calibration_seed": 179000005,
+      "fault_id": "F04",
+      "implementation_label": "controlled proxy: isolated poor-integration-resolution operator",
+      "observation_seed": 169000005,
+      "partition": "LOCKED_TEST",
+      "seed": 119000005,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 179000006,
+      "fault_id": "F05",
+      "implementation_label": "controlled proxy: isolated coarse-PDE-disagreement operator",
+      "observation_seed": 169000006,
+      "partition": "LOCKED_TEST",
+      "seed": 119000006,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 179000007,
+      "fault_id": "F06",
+      "implementation_label": "controlled proxy: isolated insufficient-Monte-Carlo operator",
+      "observation_seed": 169000007,
+      "partition": "LOCKED_TEST",
+      "seed": 119000007,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 179000008,
+      "fault_id": "F07",
+      "implementation_label": "controlled proxy: isolated calibration-local-minimum operator",
+      "observation_seed": 169000008,
+      "partition": "LOCKED_TEST",
+      "seed": 119000008,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 179000009,
+      "fault_id": "F08",
+      "implementation_label": "controlled proxy: isolated sparse-calibration-support operator",
+      "observation_seed": 169000009,
+      "partition": "LOCKED_TEST",
+      "seed": 119000009,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 179000010,
+      "fault_id": "F09",
+      "implementation_label": "controlled proxy: isolated corrupt-quote data-evidence operator",
+      "observation_seed": 169000010,
+      "partition": "LOCKED_TEST",
+      "seed": 119000010,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 179000011,
+      "fault_id": "F10",
+      "implementation_label": "controlled proxy: isolated stale/asynchronous observation operator",
+      "observation_seed": 169000011,
+      "partition": "LOCKED_TEST",
+      "seed": 119000011,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 179000012,
+      "fault_id": "F11",
+      "implementation_label": "controlled proxy: isolated incorrect-rate/forward operator",
+      "observation_seed": 169000012,
+      "partition": "LOCKED_TEST",
+      "seed": 119000012,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 179000013,
+      "fault_id": "F12",
+      "implementation_label": "controlled proxy: isolated wing-extrapolation operator",
+      "observation_seed": 169000013,
+      "partition": "LOCKED_TEST",
+      "seed": 119000013,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 179000014,
+      "fault_id": "F13",
+      "implementation_label": "controlled proxy: isolated maturity-extrapolation operator",
+      "observation_seed": 169000014,
+      "partition": "LOCKED_TEST",
+      "seed": 119000014,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 179000015,
+      "fault_id": "F14",
+      "implementation_label": "controlled proxy: isolated parameter-instability/identifiability operator",
+      "observation_seed": 169000015,
+      "partition": "LOCKED_TEST",
+      "seed": 119000015,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 179000016,
+      "fault_id": "F15",
+      "implementation_label": "controlled proxy: isolated biased-Greeks operator",
+      "observation_seed": 169000016,
+      "partition": "LOCKED_TEST",
+      "seed": 119000016,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 179000017,
+      "fault_id": "F16",
+      "implementation_label": "controlled proxy: combined F04+F09+F14 multiple-mechanism operator",
+      "observation_seed": 169000017,
+      "partition": "LOCKED_TEST",
+      "seed": 119000017,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 179000018,
+      "fault_id": "F00",
+      "implementation_label": "canonical Heston truth; no injected fault",
+      "observation_seed": 169000018,
+      "partition": "LOCKED_TEST",
+      "seed": 119000018,
+      "severity": 0.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 179000019,
+      "fault_id": "F01",
+      "implementation_label": "real Heston-on-canonical-Bates truth",
+      "observation_seed": 169000019,
+      "partition": "LOCKED_TEST",
+      "seed": 119000019,
+      "severity": 2.0,
+      "truth_family": "BATES"
+    },
+    {
+      "calibration_seed": 179000020,
+      "fault_id": "F02",
+      "implementation_label": "real Heston-on-SSVI-marginal Dupire LocalVol truth",
+      "observation_seed": 169000020,
+      "partition": "LOCKED_TEST",
+      "seed": 119000020,
+      "severity": 2.0,
+      "truth_family": "LOCALVOL_SSVI"
+    },
+    {
+      "calibration_seed": 179000021,
+      "fault_id": "F03",
+      "implementation_label": "real Heston-on-piecewise two-regime risk-neutral mixture truth",
+      "observation_seed": 169000021,
+      "partition": "LOCKED_TEST",
+      "seed": 119000021,
+      "severity": 2.0,
+      "truth_family": "PIECEWISE_REGIME"
+    },
+    {
+      "calibration_seed": 179000022,
+      "fault_id": "F04",
+      "implementation_label": "controlled proxy: isolated poor-integration-resolution operator",
+      "observation_seed": 169000022,
+      "partition": "LOCKED_TEST",
+      "seed": 119000022,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 179000023,
+      "fault_id": "F05",
+      "implementation_label": "controlled proxy: isolated coarse-PDE-disagreement operator",
+      "observation_seed": 169000023,
+      "partition": "LOCKED_TEST",
+      "seed": 119000023,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 179000024,
+      "fault_id": "F06",
+      "implementation_label": "controlled proxy: isolated insufficient-Monte-Carlo operator",
+      "observation_seed": 169000024,
+      "partition": "LOCKED_TEST",
+      "seed": 119000024,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 179000025,
+      "fault_id": "F07",
+      "implementation_label": "controlled proxy: isolated calibration-local-minimum operator",
+      "observation_seed": 169000025,
+      "partition": "LOCKED_TEST",
+      "seed": 119000025,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 179000026,
+      "fault_id": "F08",
+      "implementation_label": "controlled proxy: isolated sparse-calibration-support operator",
+      "observation_seed": 169000026,
+      "partition": "LOCKED_TEST",
+      "seed": 119000026,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 179000027,
+      "fault_id": "F09",
+      "implementation_label": "controlled proxy: isolated corrupt-quote data-evidence operator",
+      "observation_seed": 169000027,
+      "partition": "LOCKED_TEST",
+      "seed": 119000027,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 179000028,
+      "fault_id": "F10",
+      "implementation_label": "controlled proxy: isolated stale/asynchronous observation operator",
+      "observation_seed": 169000028,
+      "partition": "LOCKED_TEST",
+      "seed": 119000028,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 179000029,
+      "fault_id": "F11",
+      "implementation_label": "controlled proxy: isolated incorrect-rate/forward operator",
+      "observation_seed": 169000029,
+      "partition": "LOCKED_TEST",
+      "seed": 119000029,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 179000030,
+      "fault_id": "F12",
+      "implementation_label": "controlled proxy: isolated wing-extrapolation operator",
+      "observation_seed": 169000030,
+      "partition": "LOCKED_TEST",
+      "seed": 119000030,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 179000031,
+      "fault_id": "F13",
+      "implementation_label": "controlled proxy: isolated maturity-extrapolation operator",
+      "observation_seed": 169000031,
+      "partition": "LOCKED_TEST",
+      "seed": 119000031,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 179000032,
+      "fault_id": "F14",
+      "implementation_label": "controlled proxy: isolated parameter-instability/identifiability operator",
+      "observation_seed": 169000032,
+      "partition": "LOCKED_TEST",
+      "seed": 119000032,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 179000033,
+      "fault_id": "F15",
+      "implementation_label": "controlled proxy: isolated biased-Greeks operator",
+      "observation_seed": 169000033,
+      "partition": "LOCKED_TEST",
+      "seed": 119000033,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 179000034,
+      "fault_id": "F16",
+      "implementation_label": "controlled proxy: combined F04+F09+F14 multiple-mechanism operator",
+      "observation_seed": 169000034,
+      "partition": "LOCKED_TEST",
+      "seed": 119000034,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 180000001,
+      "fault_id": "F00",
+      "implementation_label": "canonical Heston truth; no injected fault",
+      "observation_seed": 170000001,
+      "partition": "OOD_LOCKED_TEST",
+      "seed": 120000001,
+      "severity": 0.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 180000002,
+      "fault_id": "F01",
+      "implementation_label": "real Heston-on-canonical-Bates truth",
+      "observation_seed": 170000002,
+      "partition": "OOD_LOCKED_TEST",
+      "seed": 120000002,
+      "severity": 2.0,
+      "truth_family": "BATES"
+    },
+    {
+      "calibration_seed": 180000003,
+      "fault_id": "F02",
+      "implementation_label": "real Heston-on-SSVI-marginal Dupire LocalVol truth",
+      "observation_seed": 170000003,
+      "partition": "OOD_LOCKED_TEST",
+      "seed": 120000003,
+      "severity": 2.0,
+      "truth_family": "LOCALVOL_SSVI"
+    },
+    {
+      "calibration_seed": 180000004,
+      "fault_id": "F03",
+      "implementation_label": "real Heston-on-piecewise two-regime risk-neutral mixture truth",
+      "observation_seed": 170000004,
+      "partition": "OOD_LOCKED_TEST",
+      "seed": 120000004,
+      "severity": 2.0,
+      "truth_family": "PIECEWISE_REGIME"
+    },
+    {
+      "calibration_seed": 180000005,
+      "fault_id": "F04",
+      "implementation_label": "controlled proxy: isolated poor-integration-resolution operator",
+      "observation_seed": 170000005,
+      "partition": "OOD_LOCKED_TEST",
+      "seed": 120000005,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 180000006,
+      "fault_id": "F05",
+      "implementation_label": "controlled proxy: isolated coarse-PDE-disagreement operator",
+      "observation_seed": 170000006,
+      "partition": "OOD_LOCKED_TEST",
+      "seed": 120000006,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 180000007,
+      "fault_id": "F06",
+      "implementation_label": "controlled proxy: isolated insufficient-Monte-Carlo operator",
+      "observation_seed": 170000007,
+      "partition": "OOD_LOCKED_TEST",
+      "seed": 120000007,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 180000008,
+      "fault_id": "F07",
+      "implementation_label": "controlled proxy: isolated calibration-local-minimum operator",
+      "observation_seed": 170000008,
+      "partition": "OOD_LOCKED_TEST",
+      "seed": 120000008,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 180000009,
+      "fault_id": "F08",
+      "implementation_label": "controlled proxy: isolated sparse-calibration-support operator",
+      "observation_seed": 170000009,
+      "partition": "OOD_LOCKED_TEST",
+      "seed": 120000009,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 180000010,
+      "fault_id": "F09",
+      "implementation_label": "controlled proxy: isolated corrupt-quote data-evidence operator",
+      "observation_seed": 170000010,
+      "partition": "OOD_LOCKED_TEST",
+      "seed": 120000010,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 180000011,
+      "fault_id": "F10",
+      "implementation_label": "controlled proxy: isolated stale/asynchronous observation operator",
+      "observation_seed": 170000011,
+      "partition": "OOD_LOCKED_TEST",
+      "seed": 120000011,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 180000012,
+      "fault_id": "F11",
+      "implementation_label": "controlled proxy: isolated incorrect-rate/forward operator",
+      "observation_seed": 170000012,
+      "partition": "OOD_LOCKED_TEST",
+      "seed": 120000012,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 180000013,
+      "fault_id": "F12",
+      "implementation_label": "controlled proxy: isolated wing-extrapolation operator",
+      "observation_seed": 170000013,
+      "partition": "OOD_LOCKED_TEST",
+      "seed": 120000013,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 180000014,
+      "fault_id": "F13",
+      "implementation_label": "controlled proxy: isolated maturity-extrapolation operator",
+      "observation_seed": 170000014,
+      "partition": "OOD_LOCKED_TEST",
+      "seed": 120000014,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 180000015,
+      "fault_id": "F14",
+      "implementation_label": "controlled proxy: isolated parameter-instability/identifiability operator",
+      "observation_seed": 170000015,
+      "partition": "OOD_LOCKED_TEST",
+      "seed": 120000015,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 180000016,
+      "fault_id": "F15",
+      "implementation_label": "controlled proxy: isolated biased-Greeks operator",
+      "observation_seed": 170000016,
+      "partition": "OOD_LOCKED_TEST",
+      "seed": 120000016,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    },
+    {
+      "calibration_seed": 180000017,
+      "fault_id": "F16",
+      "implementation_label": "controlled proxy: combined F04+F09+F14 multiple-mechanism operator",
+      "observation_seed": 170000017,
+      "partition": "OOD_LOCKED_TEST",
+      "seed": 120000017,
+      "severity": 2.0,
+      "truth_family": "HESTON"
+    }
+  ],
+  "freeze_hash": "97f737aa3555ded29edae00d51840e323423de50ce980d2f96e13f8e29c47be8",
+  "hypothesis_registry_hash": "d12c6ef208ac9a1d5d42f7b47f28492d6c997d47b8966dbcfbe099e6772d0ae7",
+  "locked_tuning_prohibited": true,
+  "materiality_definition": "median absolute truth error / observed bid-ask spread >= 1.0",
+  "module_hash": "2c172f3c72e239f55d17580190381396db908985faa695668e32265d228ea58a",
+  "schema_version": "1.1",
+  "seed_overlap_with_v1": false,
+  "seed_registry": {
+    "dev": [
+      117000001,
+      117000002,
+      117000003,
+      117000004,
+      117000005,
+      117000006,
+      117000007,
+      117000008,
+      117000009,
+      117000010,
+      117000011,
+      117000012,
+      117000013,
+      117000014,
+      117000015,
+      117000016,
+      117000017,
+      117000018,
+      117000019,
+      117000020,
+      117000021,
+      117000022,
+      117000023,
+      117000024,
+      117000025,
+      117000026,
+      117000027,
+      117000028,
+      117000029,
+      117000030,
+      117000031,
+      117000032,
+      117000033,
+      117000034
+    ],
+    "locked": [
+      119000001,
+      119000002,
+      119000003,
+      119000004,
+      119000005,
+      119000006,
+      119000007,
+      119000008,
+      119000009,
+      119000010,
+      119000011,
+      119000012,
+      119000013,
+      119000014,
+      119000015,
+      119000016,
+      119000017,
+      119000018,
+      119000019,
+      119000020,
+      119000021,
+      119000022,
+      119000023,
+      119000024,
+      119000025,
+      119000026,
+      119000027,
+      119000028,
+      119000029,
+      119000030,
+      119000031,
+      119000032,
+      119000033,
+      119000034
+    ],
+    "observation_offset": 50000000,
+    "ood": [
+      120000001,
+      120000002,
+      120000003,
+      120000004,
+      120000005,
+      120000006,
+      120000007,
+      120000008,
+      120000009,
+      120000010,
+      120000011,
+      120000012,
+      120000013,
+      120000014,
+      120000015,
+      120000016,
+      120000017
+    ],
+    "validation": [
+      118000001,
+      118000002,
+      118000003,
+      118000004,
+      118000005,
+      118000006,
+      118000007,
+      118000008,
+      118000009,
+      118000010,
+      118000011,
+      118000012,
+      118000013,
+      118000014,
+      118000015,
+      118000016,
+      118000017
+    ]
+  },
+  "selection_rule": "On VALIDATION, retain candidates with FPR<=0.075; maximize recall, then minimize |FPR-0.05|, then preregistered order. If none qualify, minimize |FPR-0.05|, then maximize recall, then preregistered order.",
+  "status": "FROZEN_BEFORE_NEW_DEV_GENERATION",
+  "synthetic_parameter_ranges": {
+    "heston_calibration_bounds": [
+      [
+        0.0025,
+        0.5
+      ],
+      [
+        0.05,
+        10.0
+      ],
+      [
+        0.0025,
+        0.5
+      ],
+      [
+        0.05,
+        2.5
+      ],
+      [
+        -0.999,
+        0.999
+      ]
+    ],
+    "source": "inherited qualified confirmatory generator; unchanged"
+  },
+  "truth_engine_qualification": [
+    {
+      "engine": "HESTON_FIXED_QUAD",
+      "evidence": "Torch CUDA FP64 versus bounded NumPy FP64 spot check",
+      "measured_error": 7.105427357601002e-15,
+      "status": "PASS",
+      "tolerance": 5e-07
+    },
+    {
+      "engine": "BATES_CF",
+      "evidence": "Torch CUDA FP64 versus bounded NumPy FP64 spot check",
+      "measured_error": 1.4210854715202004e-14,
+      "status": "PASS",
+      "tolerance": 5e-07
+    },
+    {
+      "engine": "LOCALVOL_SSVI_MARGINAL",
+      "evidence": "Torch CUDA FP64 versus bounded NumPy FP64 spot check",
+      "measured_error": 1.4210854715202004e-14,
+      "status": "PASS",
+      "tolerance": 5e-07
+    },
+    {
+      "engine": "PIECEWISE_REGIME_MARGINAL",
+      "evidence": "Torch CUDA FP64 versus bounded NumPy FP64 spot check",
+      "measured_error": 4.4291619261116466e-08,
+      "status": "PASS",
+      "tolerance": 5e-07
+    }
+  ]
+}

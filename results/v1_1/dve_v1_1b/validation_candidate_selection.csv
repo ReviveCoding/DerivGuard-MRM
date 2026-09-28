@@ -1,0 +1,6 @@
+candidate,baseline,observations,positives,negatives,recall,false_positive_rate,material_risk_miss_rate,auroc,auprc
+maximum_evidence_percentile,maximum_evidence_percentile,17,2,15,1.0,0.13333333333333333,0.0,0.9666666666666667,0.8333333333333333
+top_2_evidence_mean,top_2_evidence_mean,17,2,15,1.0,0.06666666666666667,0.0,1.0,1.0
+top_3_evidence_mean,top_3_evidence_mean,17,2,15,1.0,0.0,0.0,1.0,1.0
+logical_two_high_components,logical_two_high_components,17,2,15,0.0,0.0,1.0,0.85,0.7
+materiality_gated_top_2,materiality_gated_top_2,17,2,15,1.0,0.06666666666666667,0.0,1.0,1.0

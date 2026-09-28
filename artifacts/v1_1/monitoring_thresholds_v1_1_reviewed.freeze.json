@@ -1,0 +1,49 @@
+{
+  "E_form": {
+    "amber": 4.409221287917649,
+    "cusum_amber": 1.5862851886932687,
+    "cusum_red": 3.1725703773865375,
+    "dev_mad": 0.4279738806672788,
+    "dev_median": 2.505679061485727,
+    "red": 5.678249438872264
+  },
+  "E_greek": {
+    "amber": 0.43792509288406595,
+    "cusum_amber": 0.1481826981291296,
+    "cusum_red": 0.2963653962582592,
+    "dev_mad": 0.03997914424096306,
+    "dev_median": 0.26010585512911044,
+    "red": 0.5564712513873696
+  },
+  "calibration_loss": {
+    "amber": 2.718253349564078,
+    "cusum_amber": 1.2653329452632154,
+    "cusum_red": 2.5306658905264308,
+    "dev_mad": 0.3413821516965373,
+    "dev_median": 1.1998538152482197,
+    "red": 3.7305197057746504
+  },
+  "parameter_jump_score_v1_1": {
+    "amber": 4.688247265719777,
+    "cusum_amber": 2.6200535700133107,
+    "cusum_red": 5.2401071400266215,
+    "dev_mad": 0.7068807689230571,
+    "dev_median": 1.5441829817038037,
+    "red": 6.784290121730425
+  },
+  "portfolio_materiality": {
+    "amber": null,
+    "dev_mad": null,
+    "dev_median": null,
+    "red": null,
+    "status": "UNAVAILABLE_NO_DEV_REFERENCE_DISTRIBUTION"
+  },
+  "spread_normalized_error": {
+    "amber": 2.408075259010591,
+    "cusum_amber": 0.9903409798788445,
+    "cusum_red": 1.980681959757689,
+    "dev_mad": 0.26719033586371094,
+    "dev_median": 1.2196660831559776,
+    "red": 3.2003480429136664
+  }
+}

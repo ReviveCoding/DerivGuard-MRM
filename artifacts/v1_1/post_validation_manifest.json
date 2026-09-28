@@ -1,0 +1,28 @@
+{
+  "config": {
+    "bootstrap_draws": 400,
+    "cusum_h_mad": 5.0,
+    "cusum_k_mad": 0.5,
+    "ewma_lambda": 0.2,
+    "minimum_slice_dates": 3,
+    "minimum_slice_rows": 12,
+    "seed": 20261101,
+    "tree_max_depth": 3,
+    "tree_min_leaf": 20
+  },
+  "contract_model_rows": 9720,
+  "created_utc": "2026-09-27T23:59:31.553520+00:00",
+  "hedge_outcomes": "UNAVAILABLE",
+  "models": [
+    "M00_BS_FLAT",
+    "M02_SVI",
+    "M03_SSVI",
+    "M10_HESTON",
+    "M21_BATES"
+  ],
+  "status": "REAL_POST_VALIDATION_ANALYTICS_COMPLETE",
+  "temporal_oos": "UNAVAILABLE",
+  "unique_market_dates": 126,
+  "v1_artifacts_modified": false,
+  "zero_dte_pricing": "UNAVAILABLE_SEPARATELY_IDENTIFIED"
+}

@@ -1,0 +1,19 @@
+{
+  "cases": 51,
+  "comparison_counts": {
+    "FULL_EXCESS_FALSE_POSITIVE": 5,
+    "FULL_LOST_FITONLY_TRUE_POSITIVE": 4,
+    "FULL_REMOVED_FITONLY_FALSE_POSITIVE": 1,
+    "SAME_CLASSIFICATION": 41
+  },
+  "fitonly_false_negatives": 0,
+  "fitonly_false_positives": 2,
+  "fitonly_fpr": 0.04878048780487805,
+  "fitonly_recall": 1.0,
+  "full_false_negatives": 4,
+  "full_false_positives": 6,
+  "full_fpr": 0.14634146341463414,
+  "full_recall": 0.6,
+  "negatives": 41,
+  "positives": 10
+}

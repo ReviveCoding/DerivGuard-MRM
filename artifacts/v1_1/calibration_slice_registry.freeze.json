@@ -1,0 +1,21 @@
+{
+  "liquidity_thresholds": [
+    0.013061373090919749,
+    0.03710270554242185
+  ],
+  "status": "FROZEN_FROM_DEV",
+  "support_thresholds": {
+    "maturity_support_days": [
+      310.0,
+      343.0
+    ],
+    "moneyness_support": [
+      0.5877866649021191,
+      0.6554068525770983
+    ]
+  },
+  "vix_thresholds": [
+    23.87,
+    26.82
+  ]
+}

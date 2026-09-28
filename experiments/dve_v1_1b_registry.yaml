@@ -1,0 +1,27 @@
+registry_id: DVE-POST-VALIDATION-V1.1B
+status: frozen_before_new_dev_generation
+developer_release: Developer Model Release v1.1
+objective: C04
+optimizer: O01
+device: cuda
+precision: float64
+bootstrap_multistarts: 8
+bootstrap_max_iterations: 240
+target_fpr: 0.05
+materiality_threshold_spread_units: 1.0
+seed_regions:
+  prequalification: 116m
+  dev: 121m
+  validation: 122m
+  locked_test: 123m
+  ood_locked_test: 124m
+case_counts: {dev: 34, validation: 17, locked_test: 34, ood_locked_test: 17}
+transparent_candidates:
+  - maximum_evidence_percentile
+  - top_2_evidence_mean
+  - top_3_evidence_mean
+  - logical_two_high_components
+  - materiality_gated_top_2
+selection_rule: unchanged from DVE-POST-VALIDATION-V1.1
+locked_tuning_prohibited: true
+

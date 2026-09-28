@@ -1,0 +1,43 @@
+{
+  "aggregate_rows": 240,
+  "bates_status": "EXCLUDED_UNQUALIFIED_FIXED_SENSITIVITY",
+  "contract_scenario_rows": 155520,
+  "cpu_gpu_max_absolute_error": 9.094947017729282e-13,
+  "created_utc": "2026-09-27T23:35:02.502014+00:00",
+  "cuda_device": "NVIDIA GeForce RTX 4090 Laptop GPU",
+  "localvol_status": "UNAVAILABLE_NO_CONTRACT_LEVEL_QUALIFICATION",
+  "models": [
+    "M00_BS_FLAT",
+    "M02_SVI",
+    "M03_SSVI",
+    "M10_HESTON"
+  ],
+  "scenarios": [
+    "SPOT_-10%",
+    "SPOT_-5%",
+    "SPOT_+5%",
+    "SPOT_+10%",
+    "VOL_-50%",
+    "VOL_-20%",
+    "VOL_+20%",
+    "VOL_+50%",
+    "RATE_-200BP",
+    "RATE_-100BP",
+    "RATE_+100BP",
+    "RATE_+200BP",
+    "RHO_-0.20",
+    "RHO_+0.20",
+    "VOL_OF_VOL_-50%",
+    "VOL_OF_VOL_-20%",
+    "VOL_OF_VOL_+20%",
+    "VOL_OF_VOL_+50%",
+    "SPREAD_X2",
+    "SPREAD_X4"
+  ],
+  "source_hashes": {
+    "results/v1_1/calibration_deep_dive.parquet": "f11a11117a2e37b8aed41492d7104b864f4a147f1d93ed8878f84c965abb5d49",
+    "results/v1_1/contract_model_results_sliced.parquet": "777179d6d16ad847453998ddf812b44074554a03017a9965a84b3c0c076e0ef1",
+    "src/derivguard/stress_v1_1.py": "5d38424483cf2e8fa0db710f4a96c377963641b9aecdc5cf726c51ac345725b2"
+  },
+  "status": "COMPLETE"
+}

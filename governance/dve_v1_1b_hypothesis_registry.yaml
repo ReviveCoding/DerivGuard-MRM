@@ -1,0 +1,14 @@
+registry_id: DVE-POST-VALIDATION-V1.1B
+status: frozen_before_new_dev_generation
+predecessor: DVE-POST-VALIDATION-V1.1
+remediation_basis:
+  partition: VALIDATION
+  seed: 118000007
+  fault: F06
+  failure: bootstrap draw 0 had no converged C04/O01 fit among 5 starts
+  locked_v1_1_evaluated: false
+hypothesis_change: none
+aggregation_change: none
+locked_tuning_prohibited: true
+interpretation_rule: preserve results whether favorable or unfavorable
+

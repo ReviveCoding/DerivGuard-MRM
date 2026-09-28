@@ -1,0 +1,90 @@
+## absolute_error
+
+```text
+|--- dte <= 378.50
+|   |--- settlement_code <= 0.50
+|   |   |--- dte <= 18.00
+|   |   |   |--- value: [0.38]
+|   |   |--- dte >  18.00
+|   |   |   |--- value: [0.75]
+|   |--- settlement_code >  0.50
+|   |   |--- relative_spread <= 0.04
+|   |   |   |--- value: [2.19]
+|   |   |--- relative_spread >  0.04
+|   |   |   |--- value: [0.72]
+|--- dte >  378.50
+|   |--- value: [4.31]
+
+```
+
+## heston_svi_difference
+
+```text
+|--- dte <= 378.50
+|   |--- settlement_code <= 0.50
+|   |   |--- relative_spread <= 0.03
+|   |   |   |--- value: [0.86]
+|   |   |--- relative_spread >  0.03
+|   |   |   |--- value: [0.40]
+|   |--- settlement_code >  0.50
+|   |   |--- relative_spread <= 0.03
+|   |   |   |--- value: [2.47]
+|   |   |--- relative_spread >  0.03
+|   |   |   |--- value: [1.01]
+|--- dte >  378.50
+|   |--- value: [4.93]
+
+```
+
+## challenger_dispersion
+
+```text
+|--- dte <= 103.00
+|   |--- relative_spread <= 0.06
+|   |   |--- dte <= 29.50
+|   |   |   |--- value: [1.63]
+|   |   |--- dte >  29.50
+|   |   |   |--- value: [2.98]
+|   |--- relative_spread >  0.06
+|   |   |--- relative_spread <= 0.10
+|   |   |   |--- value: [0.74]
+|   |   |--- relative_spread >  0.10
+|   |   |   |--- value: [0.19]
+|--- dte >  103.00
+|   |--- log_moneyness <= -0.14
+|   |   |--- log_moneyness <= -0.21
+|   |   |   |--- value: [2.09]
+|   |   |--- log_moneyness >  -0.21
+|   |   |   |--- value: [4.14]
+|   |--- log_moneyness >  -0.14
+|   |   |--- log_moneyness <= 0.17
+|   |   |   |--- value: [8.70]
+|   |   |--- log_moneyness >  0.17
+|   |   |   |--- value: [3.38]
+
+```
+
+## greek_disagreement
+
+```text
+|--- relative_spread <= 0.15
+|   |--- log_moneyness <= -0.07
+|   |   |--- relative_spread <= 0.09
+|   |   |   |--- value: [2.20]
+|   |   |--- relative_spread >  0.09
+|   |   |   |--- value: [8.42]
+|   |--- log_moneyness >  -0.07
+|   |   |--- dte <= 203.50
+|   |   |   |--- value: [0.31]
+|   |   |--- dte >  203.50
+|   |   |   |--- value: [2.21]
+|--- relative_spread >  0.15
+|   |--- log_moneyness <= -0.17
+|   |   |--- value: [133.57]
+|   |--- log_moneyness >  -0.17
+|   |   |--- log_moneyness <= -0.13
+|   |   |   |--- value: [26.14]
+|   |   |--- log_moneyness >  -0.13
+|   |   |   |--- value: [5.45]
+
+```

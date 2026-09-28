@@ -1,0 +1,95 @@
+{
+  "config": {
+    "bootstrap_draws": 400,
+    "cusum_h_mad": 5.0,
+    "cusum_k_mad": 0.5,
+    "ewma_lambda": 0.2,
+    "minimum_slice_dates": 3,
+    "minimum_slice_rows": 12,
+    "seed": 20261101,
+    "tree_max_depth": 3,
+    "tree_min_leaf": 20
+  },
+  "created_utc": "2026-09-27T23:01:27.582946+00:00",
+  "dev_bin_counts": {
+    "maturity": {
+      "0DTE": 0,
+      "1-7D": 462,
+      "180D+": 522,
+      "31-60D": 30,
+      "61-90D": 0,
+      "8-30D": 36,
+      "91-180D": 6
+    },
+    "moneyness": {
+      "atm": 117,
+      "call_wing": 151,
+      "deep_call_wing": 98,
+      "deep_put_wing": 206,
+      "near_atm_call": 117,
+      "near_atm_put": 143,
+      "put_wing": 224
+    }
+  },
+  "dev_source_hash": "0b3e6cec91698c16905d53a38b6ffbd3f022b62017976cf3d91b8b9320792c47",
+  "learned_thresholds": {
+    "positive_open_interest": [
+      84.0,
+      383.40000000000055
+    ],
+    "positive_volume": [
+      95.5,
+      409.0
+    ],
+    "relative_spread": [
+      0.013061373090919749,
+      0.03710270554242185
+    ],
+    "vix": [
+      23.87,
+      26.82
+    ]
+  },
+  "maturity_edges_days": [
+    -0.5,
+    0.5,
+    7.5,
+    30.5,
+    60.5,
+    90.5,
+    180.5,
+    "inf"
+  ],
+  "maturity_labels": [
+    "0DTE",
+    "1-7D",
+    "8-30D",
+    "31-60D",
+    "61-90D",
+    "91-180D",
+    "180D+"
+  ],
+  "moneyness_edges": [
+    "-inf",
+    -0.15,
+    -0.05,
+    -0.015,
+    0.015,
+    0.05,
+    0.15,
+    "inf"
+  ],
+  "moneyness_labels": [
+    "deep_put_wing",
+    "put_wing",
+    "near_atm_put",
+    "atm",
+    "near_atm_call",
+    "call_wing",
+    "deep_call_wing"
+  ],
+  "schema_version": "1.0",
+  "sparse_rule": "Retain mandatory economic labels; mark cells sparse unless they contain at least 12 rows and 3 market dates. No post-DEV boundary movement is permitted.",
+  "status": "FROZEN_FROM_DEV_BEFORE_VALIDATION_OR_LOCKED_SLICE_EVALUATION",
+  "zero_dte_rule": "0DTE remains a separate domain and is never merged; pricing is UNAVAILABLE because released surfaces excluded sub-7D quotes and EOD files lack settlement-relative time."
+}

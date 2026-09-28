@@ -1,0 +1,1099 @@
+{
+  "checkpoint_surfaces": [
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\a139e0d3aaeed5cd36d34c42399f56ff62920c962d841c1b7c3f04bede13e722.json",
+      "checkpoint_hash": "23773eebce4b7245c30fdb434baa5b97170854c4637b04a13ae23eba75506db6",
+      "quote_date": "2022-07-01",
+      "settlement_class": "AM",
+      "source_rows": 30,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\c18e96d6271643ff1bef3adb3457ad1037217d8c9008a6bf11f96a2195d14a5d.json",
+      "checkpoint_hash": "b7b75c728bd5ba27507c7f4ab859c859e5d044edd0fcca0b5a520da8fa1b709f",
+      "quote_date": "2022-07-01",
+      "settlement_class": "PM",
+      "source_rows": 30,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\a83e5dd3c15cdb20cea5ac64bb9c538a776437b400f85ccb33c7ece99302a1d0.json",
+      "checkpoint_hash": "cdf8530702e39f2eca0d5b633ece894aff4158f1428b32928a530ad6ff116176",
+      "quote_date": "2022-07-05",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\c0d71921fa1c264a35487b6b6bc27737c1df12811ac5e9cba4d0da21055a3045.json",
+      "checkpoint_hash": "30d547fc60efacad919acb46260c140306c221c77b11fc538135edd3fab15ccb",
+      "quote_date": "2022-07-06",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\88f82ec192d97c86c695a4aca6fe559c7d5752df23e0eb0db105eefd9057ab7e.json",
+      "checkpoint_hash": "c14f7b8052e4295cbbaae5e594b6f326201bb681a090f2dc7248b6f39806c5d4",
+      "quote_date": "2022-07-07",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\e48db94cc461a11cf6e0c18f88af2a7c1ae5a43838a6a06da1430fbab7eae883.json",
+      "checkpoint_hash": "2a34b718106146418bfb4f1459287a2d6a4e89a2d3941c8af5cec21c95ee0e10",
+      "quote_date": "2022-07-08",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\653b55a5be16d2b45b6afd54f8934c25b8a76dc3e311bc75d2627fcf25391f6e.json",
+      "checkpoint_hash": "6fb77be811bc5290c803a7a2bfcd3cba9efeecdec227929ba014d6eac4c6be4a",
+      "quote_date": "2022-07-11",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\19a76972dcd23e8d9f8520c53e51a9b3fd22842ec3ed39ec840d6a80f357ea99.json",
+      "checkpoint_hash": "2995bb10e3558b856b2076ac4aeb886ec398132ed51beacd9e0d1dcd2e47fc78",
+      "quote_date": "2022-07-12",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\e773cce3922fe3eb7decf4de029afeec120b1620a16d92209f7a3758c4a37bbc.json",
+      "checkpoint_hash": "dfec24f758a44846b1cdc174d9cf935add9e2efde6365d97fd204742ca5f6369",
+      "quote_date": "2022-07-13",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\f4ff42099dcb6d74b6163c4c7b6dba8190f4646c53d6532707dc2eeb48b7a663.json",
+      "checkpoint_hash": "25828d64f44701cf2018e83fe23a216f4106f5687d4269e685e56585a42cc193",
+      "quote_date": "2022-07-14",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\628d0d967b2cd38d8214ef726a7341683e387750e3659618831a13c3dd7f5b5e.json",
+      "checkpoint_hash": "80146fb205ecd247a9be4a15cbb5b6065aa8cfec3b6aaf91ea4a3622b35beb6a",
+      "quote_date": "2022-07-15",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\cf3cdc3e92435cfa586810cae731d2b12a785a8690109ecfa3366ac06fc6ee98.json",
+      "checkpoint_hash": "498878c048b9d5f8fd970bf04d92d2361d20fb1bd1af298d93465ac2c4dfed71",
+      "quote_date": "2022-07-18",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\05534c5d734f4010559110847b1e15feeed529a4a139b7bec261db971d21437d.json",
+      "checkpoint_hash": "bbb3d566132b602e24bf145697b96d46fc50825fb86be1d2b6f83ad98e33dfb0",
+      "quote_date": "2022-07-19",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\f015fd36470355e49985e91b2f98edea8beab9e7ac1d097473c802321645a6ca.json",
+      "checkpoint_hash": "c857521c4115389ce4ec9e4e8b522131761d7819721ad275f616c1ae5572fca2",
+      "quote_date": "2022-07-20",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\d2b2e14f09fcef211ef8ef0bb27371119e4ce800d9e7d4027fe29c8cb437cc8f.json",
+      "checkpoint_hash": "cba2f781371c336e72ba7139d2428fae7d0560ed48c24566b068971bc038e2f2",
+      "quote_date": "2022-07-21",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\3b0006b133c2d40865fbea2b7a5cb6a4815c03c907cdba59d68648d7866e5c76.json",
+      "checkpoint_hash": "f1d1835dda29f84f3a9a0f52cabacb1009652ada3e456b09fee4495a58292a04",
+      "quote_date": "2022-07-22",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\4bce84fb8ea4bb472cc882a9071ab7bedce97ae13ce7d13f5161d8439fc1c8ef.json",
+      "checkpoint_hash": "771b926aeb3b53404c301eb304740b47bd560b88618a8053d80f425fe4ffece4",
+      "quote_date": "2022-07-25",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\0b1001f2344bf25466ce15389b7ba1abd14038f2fa51e22bcdba7ff9e4657685.json",
+      "checkpoint_hash": "c61a64cf7ca14f636adcaeba2ff120ccb8dc2b8384a83a42ac233b8c0066cfe3",
+      "quote_date": "2022-07-26",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\b8b24b3a57b2b2e94a544ebe69a81e197c4dd8df5c6b26c135bd6341a8f3a2b8.json",
+      "checkpoint_hash": "99889a1f21ea0a481bd866112b646eaf4346b274cb3a4728ed8200fe1bf6a98f",
+      "quote_date": "2022-07-27",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\39c3aac3ecedadc21acb7c2a9bb36f49666db6e5c74e309fd5f2e4039fe5b496.json",
+      "checkpoint_hash": "865e90c9cdad5531807237a1c160adf42d76d5e2990cc81fbc4b469de7568322",
+      "quote_date": "2022-07-28",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\8c95aa3f903fd2c698ee57f0b02f57850562383c39b7fb3f894e4552d0b90fd9.json",
+      "checkpoint_hash": "07102c20f28e0bd217108d971ed92d974408968578c121c5d960b4ba07f2343e",
+      "quote_date": "2022-07-29",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\6312a54e4931c91261e97091a62963d4cf6b56f702848e3871cd2f15bd58c534.json",
+      "checkpoint_hash": "b9a9f20c511d6674e3c33e67b017d2c2cd5b1567d639095badd483af30de937d",
+      "quote_date": "2022-08-01",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\d326fda84b8f632ce9125779a08c3d28ebe0a32aeccafc85b7b38faddd65270d.json",
+      "checkpoint_hash": "77dd2aba87d2515fccd604cf4d09925527e8d6ca2c4ab02a362a223be188c99b",
+      "quote_date": "2022-08-02",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\3bac8cc05bb81d2d6ad01205686cef72b9225cc3d4ca20116da46f87e07daf6b.json",
+      "checkpoint_hash": "5c59a092f2f6f9da4335a527b6154e1f19b3878ae538e3aa83ea8bafca9360be",
+      "quote_date": "2022-08-03",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\f1bd41b498152e6dee30932d6613b37b1cf36e7af029aede7055bb5dd8a5d0de.json",
+      "checkpoint_hash": "711080ef99693316af9b06409d404f8e25a625bde777f014d45a7f9f43232ebd",
+      "quote_date": "2022-08-04",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\0ea6dd1e87e7552792689f4030390304a6be1138936b585be580d2d55fa2d722.json",
+      "checkpoint_hash": "b373bc53a58eb1844c853c0a7323c6987ff9f87e36700b16121b9fca51b25e2c",
+      "quote_date": "2022-08-05",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\440722e5cc0d9ce5b85b64a5aa45852212c8956bfe2d31c2418214290d83d9b4.json",
+      "checkpoint_hash": "80f5dee2a847a4ca83531573929dd55556720f884e3a2cfcad1acdd825493c66",
+      "quote_date": "2022-08-08",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\a05e627ccb2e02e9366d107ace5f50866c0081fea2411e292511089e846f4506.json",
+      "checkpoint_hash": "4641682a3c20000a0888148bba97af5fed3883d545ef32fb9f4ed53069a41bc6",
+      "quote_date": "2022-08-09",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\3cf25bc39bbd7a75b737c7ee34293d47ee9ed6f514bedbcc2db532629e8ec3ee.json",
+      "checkpoint_hash": "fe129766ab3ebfd97905ce7b82d3fdfe7e7834244c7b52d6f483ec5b42a3b7f5",
+      "quote_date": "2022-08-10",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\26fd3e8b0aec00ff08341a6abe9faa43ae53a6d4a362607c0023c0a61282bf7c.json",
+      "checkpoint_hash": "ba530e2196cd475c0ba07acf8046fecc99367dc4b3e3cb30fb09b2c09fe7e5ad",
+      "quote_date": "2022-08-11",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\90a44ae5bd7f69ae2e17bc3f78dffe921d070317f06ebe51d1b7ec61f282c035.json",
+      "checkpoint_hash": "832fc19a1604e1d1189db5181b5ef18c77c129479704af33df35f9958e4ba095",
+      "quote_date": "2022-08-12",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\072b6a7896b55ace82b43bf1e7e37d2dd67b2189e468515a3702b0ba9f8fdf2d.json",
+      "checkpoint_hash": "e2b05bd897f2ad7b97bd57850502206e4e38de7c0717d9d1432650032a9ce816",
+      "quote_date": "2022-08-15",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\5a5fc9ec948bc23691a4b526663d07a94cff1876433de76ac7c01c13cd3379b3.json",
+      "checkpoint_hash": "70f479d97fd2810c612ed0bbee282eb1d8cdd755b4ca15af1e10dcabafeb7cef",
+      "quote_date": "2022-08-16",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\4762d2c2a5698177a21fd2bdbf3af97906f8c78e80587ed872c30b746b9d53a4.json",
+      "checkpoint_hash": "ff2ce642aec0e4bfd9edca43d890e8c3920e517484cfd94adb1f4c2526cdcb46",
+      "quote_date": "2022-08-17",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\4c879ef0c0c12f9c8abb61cbeead8aaa9b190093095395b0c22cff616fbce5c3.json",
+      "checkpoint_hash": "af03278346fd7eb960b08bc6d360ebd87b9c3ab4ba0652b825795c34c95dd08a",
+      "quote_date": "2022-08-18",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\f328cf3db3985a22763ba506ac957ca38e102755177be530135567122f34d9b5.json",
+      "checkpoint_hash": "3fd55d329d40962375be36f8c51d27e92473864e23e5f216d959646ddb15ed55",
+      "quote_date": "2022-08-19",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\5e503b28f5c5bddc1eab3fcb2878bab257f42ab78c06f76ce9e03f254d2bf329.json",
+      "checkpoint_hash": "172c3dddb903b90fe1326df596ee956986ad1115e91d4f8844bc3ee461af95df",
+      "quote_date": "2022-08-22",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\e0e744abd5162a9ab8e73ce651657029ddd608b5d69edc155027b89afbdda687.json",
+      "checkpoint_hash": "7b65454da00bf7a541952fd1f7da2897447d13c9eb3826ac40402b9fec1cf30b",
+      "quote_date": "2022-08-23",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\3d26d2e3672dc4c41020744cd6e5281ec9c4a41cd6cca7ceaedb29f9b4a919d1.json",
+      "checkpoint_hash": "2fa0293bc3aeea1372b7bd7f18bb9b80aade98dba8e9fe1ea002e0ac1f086605",
+      "quote_date": "2022-08-24",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\bac63c33eb12a096580eeb1b0739957e3e2e39cd3e22209331a8c0730926efcb.json",
+      "checkpoint_hash": "ac4c6bbb2b53344a3a0d6138144d7df16ea177eb6094391b9aabce08d7047b3e",
+      "quote_date": "2022-08-25",
+      "settlement_class": "AM",
+      "source_rows": 30,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\a0ce4c9e81b8a5dea3636484ae3747793de37f0f993aaca959deaf580bc87252.json",
+      "checkpoint_hash": "82a19157eac746d9c255eb028f41252e33ccfd9850f10ed0f2e96fee051116b5",
+      "quote_date": "2022-08-25",
+      "settlement_class": "PM",
+      "source_rows": 30,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\f421fee978cb8f1900eb2a350a8acdf69b86aa0243c3423090339d95f2e138aa.json",
+      "checkpoint_hash": "ce9f526b57f27a6dfb5a9a8c945eb0a7da19801e14106a74358254e11eb219cc",
+      "quote_date": "2022-08-26",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\c3efdabd8c03dd08469e924ee78b65a06e64dcd87589a32e636886d398c82fbd.json",
+      "checkpoint_hash": "8dc9d2a961f7c7685cf36732f2479b0afbe3de14e565f0f496c74008234afd8a",
+      "quote_date": "2022-08-29",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\595517baf48aa814720d7b98ed2c6d122553f31769f11e52e157d8c72e265a0e.json",
+      "checkpoint_hash": "bcc356d936e1ac2c24808b9b40a50aa6049c705f195877492dec06bad4746d1e",
+      "quote_date": "2022-08-30",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\6f1e2775615e5be52454304318b3742d745a6c647ede51f3a6284b8c68fbe0d9.json",
+      "checkpoint_hash": "2cd9e3b6101087fba471a100c6dc23462a224d600e6b429783d615ca1e823a85",
+      "quote_date": "2022-08-31",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\fecf4313633de5410837ee5845c9ecf512957f48a1022e2fa10ec87a1ea08d1e.json",
+      "checkpoint_hash": "3d2be8933cd814306c13c3778ceaf2f0d1b8cd9c8dd4d534fa9a70d3997ef574",
+      "quote_date": "2022-09-01",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\8a995cd552aa6906fa5a005ec4f818b2435a7b7a0dc82257c2b196fc72bbf421.json",
+      "checkpoint_hash": "291d9a084f0bdf85ba0d7ee20777425b32b481e40d42141d5d1956a79e506465",
+      "quote_date": "2022-09-02",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\11eb917c970d38a2be40265a2e1692b935848f2b712ec7c9f0f23cfc2832162c.json",
+      "checkpoint_hash": "104b6d4510fc02dbb9793853268e40578cab3b98bb49fa16e94feab630e58a06",
+      "quote_date": "2022-09-06",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\dfed6940da08536c1ff7ab468b1447822bcd50a4a3b003d6efed7c4d03a66bf3.json",
+      "checkpoint_hash": "d5aacc57b9a02ba39bf4f65eb10af8977a110682bc646d2b8b6432ea0c2aee20",
+      "quote_date": "2022-09-07",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\ba4b4482e6eccffb2b7850f82ce7237eb0a1b733129e596a8f0393e9c102cd98.json",
+      "checkpoint_hash": "feeae5660294759913ff7186b058503da223c6f44b79e7f414fcfcd893e24ed1",
+      "quote_date": "2022-09-08",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\5dd412438d6df077d58b1103fe94df2b9ce3cc12e342ee96e0b37f093b3c9919.json",
+      "checkpoint_hash": "ac22c7171e6c54599fa0bcf468248b702fbadbbbb4cb7c18d0e34dfae0323d0b",
+      "quote_date": "2022-09-09",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\659046e5810cbe4ddd4d1e9bfa6e68c481459fe634979c362dc1e3e4db794414.json",
+      "checkpoint_hash": "44f2398a18128a883a174313e89ad06478c7e1380638c71ce5adab904135c89e",
+      "quote_date": "2022-09-12",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\27f6db8606bf168872a4f87f2703d7a26285d0d949d11f1a5a2f0fe15a2d443a.json",
+      "checkpoint_hash": "2d770e9acf4d56fb35c3e155acfdf31e605fb8779f421d4c9c2dd9b862a41389",
+      "quote_date": "2022-09-13",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\ee06ccff4a0237dbc994917dadac69ee448efffc1861b100926da2287dcc448d.json",
+      "checkpoint_hash": "fc6cc412cc4c6d7e0ea6ee680f45c46b4ab4c87e84c477d919a258684bda0c2f",
+      "quote_date": "2022-09-14",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\25c35a0f03e4dc226ca98be2657495add92adc3ec0bd7e50698f2b1946768c54.json",
+      "checkpoint_hash": "84d50567707aab50ac09c350be4f3d9fab2cc49e9c77f9a3760c69e181af6dc9",
+      "quote_date": "2022-09-15",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\a05702944ea2d981818fb9c160b264794495d0011eb3b31835b4eb4a5a8da0cb.json",
+      "checkpoint_hash": "53842c94649dfa47574eb361d3cf989a6fc700939ab9be65cd2a8c220adc8895",
+      "quote_date": "2022-09-16",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\fd9284f8192c323c3a169e7c4eec56a3c40b43b4d31e408432aad106e375be99.json",
+      "checkpoint_hash": "4443475e5d274946154cd4669ee0c06d43cc9baa482b0718966f19de93df987d",
+      "quote_date": "2022-09-19",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\6b479bc743b3bafa60bc6057aff3d92c72a33c6eda821c5eed9020fc2fd2e6f0.json",
+      "checkpoint_hash": "5b27cdce628fed1d1ecf65b7d304508b50cfbea41210c2c75c42981a1711edc4",
+      "quote_date": "2022-09-20",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\2994c9d65ffe89b8642c1b2c933281416f83d8841119821fb3e1db0cf53f750f.json",
+      "checkpoint_hash": "fe066f7a4b81453de1c3d85b388bebd828a6f2a957645fbf175fa5e8c4466bc3",
+      "quote_date": "2022-09-21",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\bea5989afbf23a85d1c221153392c14e3f10f513a34164b54b1798eede997cff.json",
+      "checkpoint_hash": "f13393003ed3fbe70745ec687516f2b1ec21bca89655c613840b3309bc268a87",
+      "quote_date": "2022-09-22",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\93fb3f3477b9e4d79b204f7e2c00c8f0980690fd08165cd429ab004e8a42f7db.json",
+      "checkpoint_hash": "217126a55ce3b9c386d1ff190db0d8c0c3948bb89614d5b00e3c2b81de63a747",
+      "quote_date": "2022-09-23",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\06489d805159546086f48fdbab372bae09ffd97bce9d3c0ddd82e5ae61c9b8be.json",
+      "checkpoint_hash": "3f8b28e474a9b4db9b79998bd97b5ea2c377275d06ae3512dc5735a36339a360",
+      "quote_date": "2022-09-26",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\7794ab7663305bdb65f705ee1447dbaa09fcb1c26cb50b1fcfa7871ae8985351.json",
+      "checkpoint_hash": "dc6fef7d85d9e4a41fb499436a9333ba60bf047d7c49086c011a17eaa6677cb4",
+      "quote_date": "2022-09-27",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\d937bc1033e3c9efcb184a6f67b794298c9df998a37eb36981477e8ef865905a.json",
+      "checkpoint_hash": "afa22b9fa6d15f338ba9a99b2c1ad552eec99c4f1ce176c4e2ecc860bc99fd39",
+      "quote_date": "2022-09-28",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\86439a888d80fa059b83489b5da6602b6c7635116768d3cf296a39ae0cbd5992.json",
+      "checkpoint_hash": "f14e3697d3975fa70fc346a861046c3de88219280d9850d9389601821e42abaa",
+      "quote_date": "2022-09-29",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\eedefd600735131704041fd375a381dadc943ed1ea129c75823e0421fb171394.json",
+      "checkpoint_hash": "95e8069793d578b6a405d6b3569c056461deabba2e06de65013dc1844162000b",
+      "quote_date": "2022-09-30",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\105b418d46dc4cc95541c9726591de0d593a0f682429402e75e3cec229bc6760.json",
+      "checkpoint_hash": "bbc9a81ac9855362010e2045efa8f4efa864d629ba1291a1767be23ddb812937",
+      "quote_date": "2022-10-03",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\eb608b20f114e5291fdae15c1cd09703bfff37e6f44f79c4280b21b37eec0e94.json",
+      "checkpoint_hash": "f9be105128a0bfa7d14ee529b4dd698fdbb68c7b2241e283e8a90565c8a4e8b3",
+      "quote_date": "2022-10-04",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\7fbc47c83d27af5bc985d6e326a66c264479f627cbf32671044dcae9df83527c.json",
+      "checkpoint_hash": "0228330f54df879c52abe2afc674cd9345b2aa0fbc6bb86a37c7dece7f0001b8",
+      "quote_date": "2022-10-05",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\3eae0133847e96e4d9e71f911364c648a5dee977ee376e80b0c698d3f719a453.json",
+      "checkpoint_hash": "0302632da731b0e40071716fbf69cfaa5dcfdb55e1a4fd23d8977bfedf858340",
+      "quote_date": "2022-10-06",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\7b80c4445d0c05d88ebf143c6fa49744b84c87355919570dd21bf1dd225aa2d8.json",
+      "checkpoint_hash": "4f6d20df87100cb33676da393820a26f477b27071d4192276bd268e20d634477",
+      "quote_date": "2022-10-07",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\571f38b941871e3f56d9b2e15cd3212234e5f06f2e7037ff60977a5bb49bb412.json",
+      "checkpoint_hash": "fa6dac8d1d97e95fe2155eae16633178da0265baaa1aa4f69ce508e6b815e560",
+      "quote_date": "2022-10-10",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\00e51e56ea96d58e64691fe1f0db484bfb85ae022a4d765d19f3b68bd1070a67.json",
+      "checkpoint_hash": "9a04011a01d19c389569b51448f4b28f91cc086bb4eb2ae5e44377dfa956ab39",
+      "quote_date": "2022-10-11",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\aabcc82e0266bc45b48dbac6ce5baa120534b7e78aa46465eebf4b1cdc9ba56c.json",
+      "checkpoint_hash": "d3b4264e862b609b20350fbf251a9b749add9a81a1e1d01d2aeeff41b5e2effe",
+      "quote_date": "2022-10-12",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\b6d17c549e45a14c1e5f39fedc8bfd99a7568834320ceaef3ac90a1a8e8a644f.json",
+      "checkpoint_hash": "e624bc60bdd6607d34d323b2db75b107091526573bf4206fa8526647cf358889",
+      "quote_date": "2022-10-13",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\fae32e110ea9ded3d944c0ef59ee7f0940c5b593e5f7b38845b6adf53bfeab1f.json",
+      "checkpoint_hash": "72fdc6cbc4e290eb66077f92746471d81e06b8ff65e51cb9fd1544c39dd8a1ac",
+      "quote_date": "2022-10-14",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\10e70ec52e3e73c8639b35071295092dd3b80173d063d4b1a9d08a0d57829f86.json",
+      "checkpoint_hash": "b77b29b99b452539f632d4324531e3fac692492f0b2fd0263efc8a428cef3603",
+      "quote_date": "2022-10-17",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\208b65123215d92d1e92f5b44e3bf55a80b09378c5e782124fc85b88e0dfd758.json",
+      "checkpoint_hash": "e650806f97a0f64fad621cf9861f38eb165465cb1879d87b189c2f967e62e494",
+      "quote_date": "2022-10-18",
+      "settlement_class": "AM",
+      "source_rows": 30,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\3418fdaed88995d1a907d67b508cbc0d6a41e560b13618dcbc13dc06e3d8a797.json",
+      "checkpoint_hash": "5b420e4b4d44b50d715badc7ee9808826bb8b72df175fe53783031c729112ab3",
+      "quote_date": "2022-10-18",
+      "settlement_class": "PM",
+      "source_rows": 30,
+      "split": "DEV"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\a14574ce35bd20c84b7deb3f553c27a56248fcda07bac8828e615f61eb294d21.json",
+      "checkpoint_hash": "3e18256e15367ef2858b3ce6241b911a1351f926d48535a82549d22fca67748c",
+      "quote_date": "2022-10-19",
+      "settlement_class": "AM",
+      "source_rows": 30,
+      "split": "VALIDATION"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\a9b5098a6e056d6a0f49af8e7f72b76d9771dccc0fc9ef612243871e7e8788a2.json",
+      "checkpoint_hash": "8102462d32fc8ca6a50d99474304dad86828eee16dcd2a1f23656df9a7d0b104",
+      "quote_date": "2022-10-19",
+      "settlement_class": "PM",
+      "source_rows": 30,
+      "split": "VALIDATION"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\d4874b3666af4b5098e39cb0ea70ca977caaad3aa1658b0b38a94f083672df76.json",
+      "checkpoint_hash": "83826e78d7e2430da626ffa4ed735984a81c2ace1a4d1d532d76d7e97944b805",
+      "quote_date": "2022-10-20",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "VALIDATION"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\155675dec9d48456a3e9879d6a12456c2743c7f7bbeca9277393afd8064aca6a.json",
+      "checkpoint_hash": "b74ae84fee8fd4cdb308cd32c710410252a39e31a9af6af8547dbed1dda55c94",
+      "quote_date": "2022-10-21",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "VALIDATION"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\8c50f99313acf713f47b8de517f0562248fbd037d47c1c8baf12883d7316e5b5.json",
+      "checkpoint_hash": "901f7932fdf3ac4d09f5a32142b46e0b1296c7cc5f3c1cb552082ffa022ef85a",
+      "quote_date": "2022-10-24",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "VALIDATION"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\3f3ec7f487c614dbb309e55deefef68349501fde006cfdc0fc5d727a583719bc.json",
+      "checkpoint_hash": "d25d6c274af4278440ef9584f8bbc56d5670319d9034fb713094d6d46e3b2367",
+      "quote_date": "2022-10-25",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "VALIDATION"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\0d2503208ae058ca49218877ddd243ae33fb698d84606ed5ff700e37a31f7c93.json",
+      "checkpoint_hash": "b24eb9882a450e8fcfe61458e2c532dfbbc48cb4bd04254b3c5daeed7b07ef44",
+      "quote_date": "2022-10-26",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "VALIDATION"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\c34b125ed0df2863e7cd7bfedebd2caf8d80007f3dce3f9985ea6fbde19bc768.json",
+      "checkpoint_hash": "1c8209b5a0a5be4881cd1ad9b6685ba5399c3b2f3439cc2537c55de8ad825b49",
+      "quote_date": "2022-10-27",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "VALIDATION"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\244b4133e37bf8b63aed0603be3814fc280c46c2fd050724879f81284a7386c2.json",
+      "checkpoint_hash": "00ca23f1c1423d0db467c4386a7a6bb8dd92ab64c5bc162d9cc9c75241a66168",
+      "quote_date": "2022-10-28",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "VALIDATION"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\8ecff5230d8d261545d16aec863b3586c36411211d9b8f7a15845d1794f29e0f.json",
+      "checkpoint_hash": "47a357bf73a09ae247f23a5dbd34f9b06bae25de245d1ba7b7635634a8cf66d6",
+      "quote_date": "2022-10-31",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "VALIDATION"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\801f1c9303bd1a034a3ef4925f9e8ad9fbbbeab3995d811703b5e2fdfa8f185c.json",
+      "checkpoint_hash": "eb291250dce8123dd97e4f6151bd742274222eaa57dad44bba68be5739c4c73e",
+      "quote_date": "2022-11-01",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "VALIDATION"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\51c88dcef0b3b731ffb1b887baf3b78777237c904f20aa087149b95e34270c0d.json",
+      "checkpoint_hash": "89627e5f1b39c4954b7ce56bc1584558b743c4ab7ff105525184adb448877436",
+      "quote_date": "2022-11-02",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "VALIDATION"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\b1024738112d4249653401e08ec2707dc582dc5bf14daba07a4460a48ca019f4.json",
+      "checkpoint_hash": "0b6af8c8ffd381b1c5fa1a3c40e7df4ee909ad9081b1d4395ce720f98243212c",
+      "quote_date": "2022-11-03",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "VALIDATION"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\588124936f8c965d147a4e75b4eb203c03b213df4d03b73a3e3edd15a95df097.json",
+      "checkpoint_hash": "07d4cc438d63f583e258e3b02cb61c2503e78462aa15d792ad77e4a9399811e3",
+      "quote_date": "2022-11-04",
+      "settlement_class": "AM",
+      "source_rows": 30,
+      "split": "VALIDATION"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\ad11474fe7086d3dc49a3753f4327dc13f3a20138b67bfce83d9e6b8781538d7.json",
+      "checkpoint_hash": "83518f5e55d67eb99ca61d54e961f0b2a42cd16ee24a67e4fa9872a2228beb82",
+      "quote_date": "2022-11-04",
+      "settlement_class": "PM",
+      "source_rows": 30,
+      "split": "VALIDATION"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\81cfb8cae10d88094e8baca12c40ef61b58f0ea6b58540dcfee76ca524c7b57a.json",
+      "checkpoint_hash": "44c2e3f98acb3a782f344055089b8ecf20dc80eb6734e1734f7e6d5a189f9d4c",
+      "quote_date": "2022-11-07",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "VALIDATION"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\37fe2351824549dd9fb8dab889ccc7468c7dd840ce2b5a3a57ff508c70b03da3.json",
+      "checkpoint_hash": "abfc73dbcbd3b6ab8dcd8d3004b2b575e23d2a5faaa690d5990baf445c005598",
+      "quote_date": "2022-11-08",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "VALIDATION"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\2aa0cd867f416284250afb510fbc32c8f540c2a480db6a4077f7c5d8fbccd580.json",
+      "checkpoint_hash": "d3a661fe68129f313b70685ebbcc9f2e9a22ae2290f54f66866d6e4dc2223662",
+      "quote_date": "2022-11-09",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "VALIDATION"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\f9c7f8cea2a0d5de3c8024f170ad188ab1397495f144babc932df039c3f0cbf8.json",
+      "checkpoint_hash": "bba779c60fed567cf683bbd5b5fdd74718641f4aaf08c13a4554ff0345dda5c6",
+      "quote_date": "2022-11-10",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "VALIDATION"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\746e89c4635a8d96e528e90396c70feadff24fedd049fd751e5f773a79079f5b.json",
+      "checkpoint_hash": "432976774d66ff10297d80dac6c26569e169cd15044059376d74a2c0149a0db4",
+      "quote_date": "2022-11-11",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "VALIDATION"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\162e51759c76979896f92e51ff2e436f6899df1d0495c49a8b50db0a89158686.json",
+      "checkpoint_hash": "5364ac42d3d8ebfd30d1b2a9bf9e64668bf2847e3ebaa145611be8983fc571d0",
+      "quote_date": "2022-11-14",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "VALIDATION"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\3c29ec28c36917656d266a5529fcc2874dd53473ffb971d64d35b07738509414.json",
+      "checkpoint_hash": "6021a0e022149b9a0691c8d333baa36a621fbc69161a3b68e1e082566221c87e",
+      "quote_date": "2022-11-15",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "VALIDATION"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\bddc080a1172d36d8a2a17a0242efbf0c751e45c4beeee05e25abf7166c3c6e9.json",
+      "checkpoint_hash": "c78280b2ad43f60d0c150ec48c855b3ab5cca815f510cda7f606c344370229d2",
+      "quote_date": "2022-11-16",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "VALIDATION"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\a6393e3a1182014036f168bbd58baba1aee203015baf18a716d9b6c31e34c7c0.json",
+      "checkpoint_hash": "fb78d05811573cce7e4e424379a0ee993e0e0419f2c40f5852becf4364d0baa1",
+      "quote_date": "2022-11-17",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "VALIDATION"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\8b7284d74bdde1af41ad6319d4e566e42153a272cba16b7f9c47dfdba2f1d1a0.json",
+      "checkpoint_hash": "3afe957795f67b7c9f9186d6226883f1cf50e17d45c12fe7e9dffc4d3447cccd",
+      "quote_date": "2022-11-18",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "VALIDATION"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\f4f1879c948bbc70f60c20a282345c0ec905cec6805c454011be70170c79ee42.json",
+      "checkpoint_hash": "51849741faf5b04292abd394138d2c0e28fd262c23b5d6575804c3791e751a20",
+      "quote_date": "2022-11-21",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "VALIDATION"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\acb45ec02ff28ffd906da44ba627b6830c3813ea60004508974f770157278a59.json",
+      "checkpoint_hash": "d49b6413850a507583269216e38671e259880c674afc90dd6c54f52ec010e4fc",
+      "quote_date": "2022-11-22",
+      "settlement_class": "AM",
+      "source_rows": 30,
+      "split": "VALIDATION"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\36168e9b65afe51acc1fbeaa10f5e7c047b7edac82e22d117d5f25584e36bedc.json",
+      "checkpoint_hash": "b02066f9ac72343352841ddaa8397cb8a7aff8e21a66083ac58fa13d1fe47579",
+      "quote_date": "2022-11-22",
+      "settlement_class": "PM",
+      "source_rows": 30,
+      "split": "VALIDATION"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\8e940d5d3085ecab55d094744d23c87cf710fe4631c99aa5d995ffdcff7f0cae.json",
+      "checkpoint_hash": "d604b1c9eb24cdedc0e34d82741f6d13e46e89046dfcd9d21b50427061919780",
+      "quote_date": "2022-11-23",
+      "settlement_class": "AM",
+      "source_rows": 30,
+      "split": "LOCKED_TEST"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\f1424d40ddbfbe393a306ded64b489cc513ba52c0d79962e7c5aedb7b499b0f1.json",
+      "checkpoint_hash": "d15b14985f2e045f1d24cc0a787240f2f93b6a7a1d2f3d4e3a9a7e4451cc3531",
+      "quote_date": "2022-11-23",
+      "settlement_class": "PM",
+      "source_rows": 30,
+      "split": "LOCKED_TEST"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\f254c197417b9275a92ecfd48ec27fc3ac85fa1e30a883a30501f06ad86aa482.json",
+      "checkpoint_hash": "b165b33e5486d45ef002566446747105eed6c8e83e3974ee7c5ff97eb4817527",
+      "quote_date": "2022-11-25",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "LOCKED_TEST"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\8ba30ab23dfc9fba76f2eb2eb02bb4a24d889aab6fa004887ab320934b4f6f03.json",
+      "checkpoint_hash": "f74fccf49b67c0a9aacf1a67dedb3b4825437109a39edcaa24e9e7650d4e601e",
+      "quote_date": "2022-11-28",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "LOCKED_TEST"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\487e1a6c914ba9df1a57bd7bfe3363a7fa9bf418503ac503753001b2c435f824.json",
+      "checkpoint_hash": "8623b57d0d3b6f775760de2655ddbca5c6a91a17405ab897d1f8d32179929448",
+      "quote_date": "2022-11-29",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "LOCKED_TEST"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\134e211678aad4da43cf0ebd8bb02d9938182964677076cf49f7838b2c8e69f0.json",
+      "checkpoint_hash": "9377b9b035ebf4f364f8d79429e064102d8da851a7aa748260c98c8d8fc231af",
+      "quote_date": "2022-11-30",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "LOCKED_TEST"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\85fea9a15e405ab5c65ee83109d79f9989e35308a0051af6addb209aace9b150.json",
+      "checkpoint_hash": "787ac9e12f58aa6771d974f4fbd85e1237666f695579abf6aea39010ee542945",
+      "quote_date": "2022-12-01",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "LOCKED_TEST"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\a04aa8203ceb389d6a3b06eac91ea6509abf5fe4771bc68000f62109e2880528.json",
+      "checkpoint_hash": "91ed1ecf9d1696450866b57634d54b50f29763ea9f03810a94dcdd560e340abf",
+      "quote_date": "2022-12-02",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "LOCKED_TEST"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\5001271717ba96743c38e537d99efa274ca892e7999f32553fcc1169b2fb8f16.json",
+      "checkpoint_hash": "161f67ed2328ef7e206c99dfc40ed2c82dfd53e49bd0e3ee6e1f2bfe9ba3abdc",
+      "quote_date": "2022-12-05",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "LOCKED_TEST"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\c9dcf9c2012bb2749a378f9fef43d685643a63a13e6dcf3a7582ab12342e519d.json",
+      "checkpoint_hash": "fda605f8f51f4ae2ff08fb1147d613baa249ef0d90fd9f35ae8e55edff7c29fb",
+      "quote_date": "2022-12-06",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "LOCKED_TEST"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\78fd16578ac208ac05f2e977c8744bc1799d7589072af780daa7dc4ac6f27018.json",
+      "checkpoint_hash": "d7edb0d42da69cce223ffb129beb18c8c9b1fc3e8f12834b6999c20abbb3adb7",
+      "quote_date": "2022-12-07",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "LOCKED_TEST"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\1e2edfa41cc68f666f5e12b657ab9ad0b2ae277a1105620a6bcb9ced8cbb3eff.json",
+      "checkpoint_hash": "94edf18cc665bacd056467cacc9ef20d44f4dc50891863048ee64ec66c053875",
+      "quote_date": "2022-12-08",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "LOCKED_TEST"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\f138d30dbf5a793655acf08d7aa044ef4dadbac603a90a02bba56b2b3388f94b.json",
+      "checkpoint_hash": "b9965c6599c6a51cb598d9432b550ff138a5b02861bf7455962dfd00aec74fbe",
+      "quote_date": "2022-12-09",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "LOCKED_TEST"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\f2c5d4843cf849a017194d20b637ef7c0966d7c72a5404842d80e501491e6765.json",
+      "checkpoint_hash": "e9994d85a57c8ff57fc2b9f7b62d824990dbaea4184a942c8f3b82c60a3d071a",
+      "quote_date": "2022-12-12",
+      "settlement_class": "AM",
+      "source_rows": 30,
+      "split": "LOCKED_TEST"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\ebaf5e3aff84b67799f99f00b0390239dcfdd1894c6defcb8b326f34afe036b5.json",
+      "checkpoint_hash": "210c8d7da530ead10c154b7b9b493fc7b585d9a55199ab4930937e7005abf73b",
+      "quote_date": "2022-12-12",
+      "settlement_class": "PM",
+      "source_rows": 30,
+      "split": "LOCKED_TEST"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\7320c8e0cf73c96a2f6b3e5f6be25fa72264832a971e3d8e38c8ea79f3a657ec.json",
+      "checkpoint_hash": "62be981d152b51b63f69e0940414f6b412f77090c9d63f2ec2ed6b8810d03179",
+      "quote_date": "2022-12-13",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "LOCKED_TEST"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\dbf7cb8fd95ec529510b51e08f82d5ba4388fb2520221047c2b39d1574eb5627.json",
+      "checkpoint_hash": "7a43e783ba3f21dc7c7a255592950ae64505f33bf2da10a4c6a7743c5fa31b60",
+      "quote_date": "2022-12-14",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "LOCKED_TEST"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\32afe0c1a304c66d8da6755cad8c3643aa091d4b06dd70ce3db789e865765c32.json",
+      "checkpoint_hash": "0f6d6aa46c572b588543d944756e255cb6c3070bb90e1857280c0a656415b6ca",
+      "quote_date": "2022-12-15",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "LOCKED_TEST"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\64d20e2473a12476f11a71d8bf56468d525a765f7eaacbed5a04a9f80e933886.json",
+      "checkpoint_hash": "7dc7082ace158e302862193ad50205affbd4c2d8a789fe1d38554c012445c56d",
+      "quote_date": "2022-12-16",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "LOCKED_TEST"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\c67d52001ea2e5915bf8c97a5bad5d29f406ff369671b1b369fc15220b9188fb.json",
+      "checkpoint_hash": "7ac184c7f6315a529217db6e5da2eb7712b77ecc338e82a0a4048ad98a7e998a",
+      "quote_date": "2022-12-19",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "LOCKED_TEST"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\652ea210c780b798b41d7db4f64c7d89088d9d6ad84a424838f12f696cbcafa3.json",
+      "checkpoint_hash": "564c2905705c968187c839ec17e3dc0dfe0daf498c077a908efe8b2eb62f8cf3",
+      "quote_date": "2022-12-20",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "LOCKED_TEST"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\a7089fff2b84c712b80f6a8d4040c848c1331b7615e8e1f4456145dfe71c4daa.json",
+      "checkpoint_hash": "58e207ab34830841808ae8b766705b908bed5adcfe75933766c63b2964998d46",
+      "quote_date": "2022-12-21",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "LOCKED_TEST"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\493e4939233786ea797ddc4406c9d65800efd24017b69d529b4ca1097097ab8d.json",
+      "checkpoint_hash": "bcd02f8846d7a6b56b04af39f0c6736bb1defde39d290924de869369d1f8622c",
+      "quote_date": "2022-12-22",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "LOCKED_TEST"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\893485e8c40016fe66cb8211e60c1fce3e47b8bb430b1a2fd078155000ff1c5b.json",
+      "checkpoint_hash": "9085e31f1bb26b024302681c9cef93a4f0740fe387274131f150d57ff960794d",
+      "quote_date": "2022-12-23",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "LOCKED_TEST"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\800e2c4d440d48ed3029bb8b85473cff7afffa78893ff012c8353184229a6f45.json",
+      "checkpoint_hash": "2e9cc3df03b0ed12b3b7cd094f8d8fd6c05810327ea9099ea8304a3c304b671e",
+      "quote_date": "2022-12-27",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "LOCKED_TEST"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\a6b2d2bcdc2951c486c57d8d362c9c789f16a3ae3efc487bb7abfe5d69f851a7.json",
+      "checkpoint_hash": "916f4fb59f61b1d850eb3df6521474d097ce34058de60aa99c06e8735ae8bd23",
+      "quote_date": "2022-12-28",
+      "settlement_class": "PM",
+      "source_rows": 12,
+      "split": "LOCKED_TEST"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\b9ff8f52b57dc0d79289ef980dbc45224bb49899fb643ad8ca5a68c91a18062b.json",
+      "checkpoint_hash": "1de6f3cd0022af91f29897d9fbb455b364e010890639653732a3d1d3cc1628fb",
+      "quote_date": "2022-12-30",
+      "settlement_class": "AM",
+      "source_rows": 30,
+      "split": "LOCKED_TEST"
+    },
+    {
+      "checkpoint": "artifacts\\checkpoints\\empirical_real_calibrations\\4a137cf6bb3b83f3\\90b3af283f4c90834838dcb8f761bb98bc7e515e103cccb7fbbd67b3c2595dcb.json",
+      "checkpoint_hash": "30e9b8e6837183097c9ef1cb0f5b1ca418ea50fb2c5d9f49ae191d3a59de8778",
+      "quote_date": "2022-12-30",
+      "settlement_class": "PM",
+      "source_rows": 30,
+      "split": "LOCKED_TEST"
+    }
+  ],
+  "created_utc": "2026-09-27T23:46:39.864445+00:00",
+  "developer_model_modified": false,
+  "limitations": [
+    "The reconstructed population is the deterministic released-calibration quote sample, not the full option universe.",
+    "Bates is the fixed predeclared jump sensitivity, not an independently calibrated production challenger.",
+    "SVI/SSVI Greeks hold each fitted volatility surface fixed under the analytic Black-Scholes risk calculation.",
+    "Timestamp-free EOD data do not support synchronized temporal or P&L inference."
+  ],
+  "rows": 9720,
+  "source_hashes": {
+    "artifacts/model_releases/model_release_v1.1.json": "0fd53ee708e95f9666a95724b80937737d2b1b8406e33abbe304a2ee04efdccf",
+    "results/raw/real_model_comparison.parquet": "e0afe691e73213f45fef8f99756060c855d3dc6c3b9f077e6e97a0314c568b16",
+    "src/derivguard/post_validation_v1_1.py": "b7fdcf4acb513d4cb53c9da90339bcf2ecae800b9f1cd8920e3877cf90fb48ab"
+  },
+  "status": "COMPLETE"
+}

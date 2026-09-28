@@ -95,6 +95,7 @@ def test_freeze_is_immutable_and_precedes_bounded_execution(tmp_path: Path) -> N
     assert {item["freeze_hash"] for item in result.provenance} == {payload["freeze_hash"]}
 
 
+@pytest.mark.gpu
 def test_research_entrypoint_freezes_before_executor_is_called(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:

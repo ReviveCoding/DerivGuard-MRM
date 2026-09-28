@@ -1,0 +1,14 @@
+{
+  "false_negatives": 4,
+  "false_positive_concentration": {
+    "LONG|MID|LIQUID": 1,
+    "LONG|WING|LIQUID": 3,
+    "LONG|WING|WIDE": 1,
+    "SHORT|MID|WIDE": 1
+  },
+  "false_positives": 6,
+  "locked_cases": 51,
+  "source_hash": "215144ecbfc85d917d93e577eebe4b92da38761f174bd7abf0494802f64182ca",
+  "status": "DESCRIPTIVE_DIAGNOSIS_OF_IMMUTABLE_V1_RESULT",
+  "tuning_use": "PROHIBITED"
+}
