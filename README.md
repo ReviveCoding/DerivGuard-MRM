@@ -65,7 +65,7 @@ These figures show the project at the level where model-risk conclusions are act
 
 ## Evidence and reports
 
-- [Technical report](reports/TECHNICAL_REPORT.md)
+- [v1 technical report (historical baseline)](reports/TECHNICAL_REPORT.md)
 - [Final v1.1 acceptance report](reports/v1_1/FINAL_V1_1_ACCEPTANCE_REPORT.md)
 - [Independent scientific/code re-review](reports/v1_1/INDEPENDENT_REVIEW.md)
 - [Post-validation analytics](reports/v1_1/POST_VALIDATION_ANALYTICS.md)
@@ -75,6 +75,8 @@ These figures show the project at the level where model-risk conclusions are act
 - [Calibration diagnostics](reports/v1_1/CALIBRATION_DIAGNOSTICS.md)
 - [Publication provenance and data exclusions](docs/PUBLICATION_PROVENANCE.md)
 - [v1.1 release notes](docs/releases/DERIVGUARD_V1_1.md)
+
+The historical v1 technical report remains preserved for provenance. The accepted v1.1 extension is documented by the v1.1 acceptance, independent-review, confirmatory, and post-validation reports above.
 
 ## CPU-safe reproduction
 

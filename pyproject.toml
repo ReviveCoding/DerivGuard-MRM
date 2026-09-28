@@ -60,7 +60,7 @@ derivguard = "derivguard.__main__:main"
 [project.urls]
 Homepage = "https://github.com/ReviveCoding/DerivGuard-MRM"
 Repository = "https://github.com/ReviveCoding/DerivGuard-MRM"
-Documentation = "https://github.com/ReviveCoding/DerivGuard-MRM/blob/main/reports/TECHNICAL_REPORT.md"
+Documentation = "https://github.com/ReviveCoding/DerivGuard-MRM#evidence-and-reports"
 "Release Notes" = "https://github.com/ReviveCoding/DerivGuard-MRM/releases"
 
 [tool.hatch.build.targets.wheel]
