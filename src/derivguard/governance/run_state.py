@@ -10,6 +10,7 @@ from __future__ import annotations
 import hashlib
 import json
 import os
+import sys
 import tempfile
 import threading
 import uuid
@@ -65,7 +66,7 @@ def _advisory_lock(lock_path: Path) -> Iterator[None]:
             lock_file.write(b"0")
             lock_file.flush()
         lock_file.seek(0)
-        if os.name == "nt":
+        if sys.platform == "win32":
             import msvcrt
 
             msvcrt.locking(lock_file.fileno(), msvcrt.LK_LOCK, 1)
