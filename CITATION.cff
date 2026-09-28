@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you reference DerivGuard-MRM, please cite this software release."
+title: "DerivGuard-MRM: Evidence-Controlled Model-Risk Validation for SPX Option Pricing"
+type: software
+authors:
+  - family-names: "Bae"
+    given-names: "Jinwoo"
+version: 1.1.0
+date-released: 2026-09-28
+url: "https://github.com/ReviveCoding/DerivGuard-MRM"
+repository-code: "https://github.com/ReviveCoding/DerivGuard-MRM"
+abstract: >-
+  Research software for model-risk validation of SPX option-pricing models,
+  including Heston calibration, SVI/SSVI challengers, uncertainty-aware
+  slicing, Greek and valuation disagreement, stress testing, DVE diagnostics,
+  fresh locked/OOD evaluation, and evidence-integrity controls.
+keywords:
+  - quantitative finance
+  - derivatives
+  - options pricing
+  - Heston model
+  - SVI
+  - SSVI
+  - model risk management
+  - model validation
+  - stress testing
+  - out-of-distribution validation
