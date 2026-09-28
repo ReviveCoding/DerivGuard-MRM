@@ -1,0 +1,239 @@
+schema_version: '1.0'
+registry_status: DRAFT_NOT_FROZEN_BEFORE_LOCKED_EVALUATION
+created_at: '2026-09-27T00:00:00-04:00'
+freeze_requirements:
+- Resolve methodology review findings.
+- Record DEV/VALIDATION/LOCKED TEST split hashes.
+- Freeze material-error definitions and thresholds using DEV/VALIDATION only.
+- Freeze DVE score construction, regimes, and thresholds before LOCKED TEST.
+global_rules:
+  primary_synthetic_endpoint: recall_at_fixed_5_percent_false_positive_rate
+  secondary_detection_metrics:
+  - AUPRC
+  - AUROC
+  - false_alarm_rate
+  - material_risk_miss_rate
+  real_sampling_unit: market_date_surface
+  synthetic_sampling_unit: independently_seeded_scenario_surface
+  uncertainty: date_or_scenario_level_bootstrap_95_percent_CI
+  multiplicity: Holm_adjustment_for_declared_exploratory_families_where_appropriate
+  locked_test_rule: No post-hoc threshold or preferred materiality selection.
+  interpretation_rule: Effect sizes and uncertainty govern interpretation; statistical
+    significance alone is insufficient.
+hypotheses:
+- hypothesis_id: H01
+  statement: Fit-only validation misses some material model-form risk.
+  experiment_ids:
+  - S02
+  - S03
+  - S10
+  - V00
+  - V06
+  - P01
+  - P02
+  - P03
+  - P04
+  - P05
+  - P06
+  primary_metric: recall_at_fixed_5_percent_false_positive_rate
+  secondary_metrics:
+  - AUPRC
+  - material_risk_miss_rate
+  - false_alarm_rate
+  statistical_procedure: Paired locked-scenario comparison of V06 Full DVE versus
+    V00 FitOnly, with stratified scenario bootstrap confidence intervals by true DGP
+    and pre-registered material-error threshold.
+  comparison: V06_minus_V00_on_material_model_form_faults
+  interpretation_rule: Support requires a positive, practically material recall difference
+    on at least one pre-registered model-form category without an unacceptable increase
+    in locked-test false alarms; otherwise report null or adverse evidence.
+  status: NOT_EVALUATED_CONFIRMATORILY
+- hypothesis_id: H02
+  statement: Independent numerical engines detect implementation and numerical risk.
+  experiment_ids:
+  - N02
+  - N03
+  - N04
+  - N05
+  - N07
+  - N08
+  - N09
+  - N10
+  - S05
+  - V04
+  - V06
+  primary_metric: recall_at_fixed_5_percent_false_positive_rate
+  secondary_metrics:
+  - AUPRC
+  - material_risk_miss_rate
+  - engine_disagreement_absolute_error
+  statistical_procedure: Paired locked-scenario comparison for numerical-fault scenarios,
+    with bootstrap confidence intervals and convergence evidence required for each
+    independent engine before its disagreement is admissible.
+  comparison: V04_and_V06_versus_V00_on_numerical_faults
+  interpretation_rule: Support requires incremental detection of material injected
+    numerical faults after excluding failures caused by an unqualified reference engine.
+  status: NOT_EVALUATED_CONFIRMATORILY
+- hypothesis_id: H03
+  statement: Heterogeneous challenger disagreement contains model-form information
+    beyond developer calibration RMSE.
+  experiment_ids:
+  - M02
+  - M03
+  - M04
+  - M05
+  - S02
+  - S03
+  - S09
+  - V00
+  - V02
+  - V06
+  - A06
+  primary_metric: recall_at_fixed_5_percent_false_positive_rate
+  secondary_metrics:
+  - AUPRC
+  - partial_rank_association
+  - material_risk_miss_rate
+  statistical_procedure: Locked-scenario paired comparison plus a transparent regression/rank
+    analysis of true error on challenger disagreement conditional on developer calibration
+    RMSE, fitted only on DEV/VALIDATION.
+  comparison: challenger_evidence_increment_beyond_fit_error
+  interpretation_rule: Support requires useful incremental locked-test discrimination
+    or conditional association; shared challenger failures and null increments must
+    be retained.
+  status: NOT_EVALUATED_CONFIRMATORILY
+- hypothesis_id: H04
+  statement: Bootstrap and identifiability diagnostics reveal unstable calibrations
+    that ordinary fit metrics miss.
+  experiment_ids:
+  - C03
+  - C05
+  - C06
+  - C07
+  - S06
+  - V00
+  - V03
+  - V06
+  - A03
+  - A04
+  - A05
+  primary_metric: recall_at_fixed_5_percent_false_positive_rate
+  secondary_metrics:
+  - AUPRC
+  - parameter_dispersion
+  - Greek_uncertainty
+  - material_risk_miss_rate
+  statistical_procedure: Paired locked-scenario comparison on calibration and unstable-parameter
+    faults, stratified by surface coverage, with scenario-level bootstrap CIs.
+  comparison: calibration_uncertainty_and_identifiability_evidence_versus_fit_only
+  interpretation_rule: Support requires incremental identification of materially unstable
+    cases at the fixed FPR; instability without economic materiality is not counted
+    as a material-risk detection.
+  status: NOT_EVALUATED_CONFIRMATORILY
+- hypothesis_id: H05
+  statement: Regime-conditioned validation reduces false alarms relative to global
+    thresholds without an excessive increase in material-risk misses.
+  experiment_ids:
+  - S01
+  - S02
+  - S03
+  - S04
+  - S07
+  - S10
+  - V05
+  - V06
+  - A09
+  primary_metric: false_alarm_rate
+  secondary_metrics:
+  - recall_at_fixed_5_percent_false_positive_rate
+  - material_risk_miss_rate
+  - AUPRC
+  statistical_procedure: Paired locked-scenario global-versus-regime threshold comparison
+    with bootstrap CIs stratified by volatility, maturity, moneyness, and liquidity
+    regime.
+  comparison: V06_regime_conditioned_minus_V05_global
+  interpretation_rule: Support requires a practically meaningful false-alarm reduction
+    while the increase in material-risk miss rate remains below the pre-frozen non-inferiority
+    margin; otherwise regime conditioning is neutral or harmful.
+  status: NOT_EVALUATED_CONFIRMATORILY
+- hypothesis_id: H06
+  statement: Greek disagreement contains useful information beyond price disagreement.
+  experiment_ids:
+  - S02
+  - S03
+  - S09
+  - P01
+  - P02
+  - P03
+  - P04
+  - P05
+  - P06
+  - A07
+  primary_metric: recall_at_fixed_5_percent_false_positive_rate
+  secondary_metrics:
+  - AUPRC
+  - delta_materiality
+  - gamma_materiality
+  - vega_materiality
+  statistical_procedure: Paired locked-scenario ablation of E_greek, plus transparent
+    conditional association of future/true material error with Greek disagreement
+    after controlling for price disagreement.
+  comparison: Full_DVE_versus_remove_E_greek
+  interpretation_rule: Support requires incremental detection or materiality ordering
+    not explained by price disagreement; isolated noisy Greeks count against the hypothesis.
+  status: NOT_EVALUATED_CONFIRMATORILY
+- hypothesis_id: H07
+  statement: Risk evidence plus economic materiality produces more useful finding
+    prioritization than fit-error ranking alone.
+  experiment_ids:
+  - V00
+  - V06
+  - P01
+  - P02
+  - P03
+  - P04
+  - P05
+  - P06
+  - A11
+  primary_metric: recall_at_fixed_5_percent_false_positive_rate
+  secondary_metrics:
+  - AUPRC
+  - top_decile_material_error_capture
+  - material_risk_miss_rate
+  statistical_procedure: Locked-scenario paired ranking comparison using pre-frozen
+    capacity/top-k and materiality thresholds, with scenario bootstrap confidence
+    intervals.
+  comparison: evidence_materiality_matrix_versus_fit_error_ranking
+  interpretation_rule: Support requires improved capture of pre-defined economically
+    material cases at equal review capacity or fixed FPR; arbitrary composite-score
+    gains are insufficient.
+  status: NOT_EVALUATED_CONFIRMATORILY
+- hypothesis_id: H08
+  statement: High DVE evidence is associated with larger subsequent real-market pricing
+    or hedge-proxy deterioration, subject to data limitations.
+  experiment_ids:
+  - R01
+  - R02
+  - R03
+  - R04
+  - R05
+  - R06
+  - R07
+  - R08
+  primary_metric: date_level_Spearman_correlation
+  secondary_metrics:
+  - risk_decile_difference
+  - large_error_event_recall
+  - pricing_deterioration
+  - one_day_discrete_hedging_proxy
+  statistical_procedure: Date-level Spearman association and paired high-versus-low
+    risk date comparison with date/block bootstrap 95% CIs; no individual-option IID
+    inference.
+  comparison: prior_frozen_DVE_evidence_versus_subsequent_qualified_outcomes
+  interpretation_rule: Support requires directionally consistent, practically relevant
+    date-level association with uncertainty reported. No causality claim is permitted;
+    insufficient continuity or synchronization yields unavailable, not failure or
+    success.
+  status: NOT_EVALUATED_CONFIRMATORILY
+post_execution_note: No hypothesis receives confirmatory support status. The bounded
+  synthetic results are descriptive because this registry was not frozen before evaluation.

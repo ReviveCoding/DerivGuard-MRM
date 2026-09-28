@@ -1,0 +1,33 @@
+schema_version: '2.0'
+generated_at: '2026-09-27T14:04:06.785323+00:00'
+items:
+- finding_id: FND-001
+  recommendation: retain PDE as a bounded diagnostic and continue boundary/grid research
+  status: OPEN
+- finding_id: FND-002
+  recommendation: accumulate synchronized prospective observations or obtain licensed
+    synchronized history
+  status: USAGE_LIMITATION_APPLIED
+- finding_id: FND-003
+  recommendation: retain unchanged and compare with prospectively frozen studies
+  status: RETAINED_NEGATIVE_RESULT
+- finding_id: FND-004
+  recommendation: do not tune from locked outcomes; retain fault-stratified and ablation
+    results
+  status: EVALUATED
+- finding_id: FND-005
+  recommendation: use qualified QE-M settings and report bias separately from standard
+    error
+  status: REMEDIATED_WITH_LIMITATION
+- finding_id: FND-006
+  recommendation: retain v3 as an oracle-parameter isolation and use release-aligned
+    v6 for the primary confirmatory conclusion
+  status: SUPERSEDED_FOR_PRIMARY_CONFIRMATORY_INFERENCE
+- finding_id: FND-007
+  recommendation: retain selected-fit qualification and continue reporting individual-start
+    convergence separately
+  status: QUALIFIED_WITH_ATTEMPT_DIAGNOSTICS
+- finding_id: FND-008
+  recommendation: preserve v5 as CALIBRATION_UNQUALIFIED history and require v6 prequalification
+    before any new locked generation
+  status: PRESERVED_PARTIAL_CALIBRATION_UNQUALIFIED

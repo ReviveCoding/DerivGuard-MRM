@@ -1,0 +1,27 @@
+registry_id: SYN-CONFIRMATORY-V6
+status: frozen_before_execution
+predecessor: SYN-CONFIRMATORY-V5
+remediation_basis:
+  evidence: v5 VALIDATION seed 104000002, F01 Bates, bootstrap draw 1
+  outcome: CALIBRATION_UNQUALIFIED
+  locked_v5_evaluated: false
+  change: bootstrap O01 increased from 3 starts/80 iterations to 5 starts/160 iterations
+locked_tuning_prohibited: true
+primary_endpoint:
+  metric: recall_at_dev_5pct_fpr
+  target_fpr: 0.05
+secondary_endpoints:
+  - auprc
+  - auroc
+  - false_alarm_rate
+  - material_risk_miss_rate
+hypotheses:
+  H01: Fit-only validation misses some material model-form risk.
+  H02: Independent numerical engines detect implementation and numerical risk.
+  H03: Challenger disagreement adds information beyond calibration RMSE.
+  H04: Bootstrap and identifiability evidence detects unstable calibration.
+  H05: Regime conditioning reduces false alarms without excessive misses.
+  H06: Greek disagreement adds information beyond price disagreement.
+  H07: Evidence plus materiality improves prioritization over fit ranking.
+  H08: Real outcome association remains subject to public-data limitations.
+interpretation_rule: Preserve the locked result regardless of whether V06 beats V00.

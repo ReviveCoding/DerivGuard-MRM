@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0",
+  "reconciled_at": "2026-09-27T08:12:00+00:00",
+  "bootstrap_file_present": false,
+  "bootstrap_file_expected": "BOOTSTRAP_ENVIRONMENT.json",
+  "action": "Recorded absence; re-measured the environment instead of assuming bootstrap observations.",
+  "measured_environment": "artifacts/system/environment.json",
+  "measured_hardware": "artifacts/system/hardware_profile.json",
+  "repository": "C:\\Users\\bjw-0\\Downloads\\DerivGuard-MRM"
+}

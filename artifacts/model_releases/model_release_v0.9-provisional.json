@@ -1,0 +1,32 @@
+{
+  "config_sha256": "1ca4fc50ef908b9b6ccd76fb9a4b861dc49e0014a4996e99555adc5b5f2de3e7",
+  "constraints": "bounded parameters; Feller condition monitored, not automatically imposed",
+  "intended_use": "European SPXW vanilla-option research valuation, Greeks, and model-risk research",
+  "known_limitations": [
+    "Empirical objective/optimizer selection was not completed across all 127 historical dates.",
+    "The independent PDE engine does not meet the provisional accuracy tolerance."
+  ],
+  "methodology": "Little-Heston-Trap-style stable characteristic function with FP64 Gauss-Legendre integration",
+  "model_id": "M10",
+  "numerical_tolerances_file": "configs\\numerical_tolerances.yaml",
+  "objective": "C04 robust spread-normalized loss (implementation available; empirical selection incomplete)",
+  "optimizer": "O03 differential evolution plus bounded local refinement (implementation available; empirical selection incomplete)",
+  "parameter_schema": [
+    "v0",
+    "kappa",
+    "theta",
+    "sigma_v",
+    "rho"
+  ],
+  "prohibited_use": [
+    "live trading",
+    "brokerage execution",
+    "regulatory capital",
+    "American or exotic options",
+    "production institutional valuation"
+  ],
+  "release_id": "Developer Model Release v0.9-provisional",
+  "released_at": "2026-09-27T07:45:33.907495+00:00",
+  "source_sha256": "3c26669dbeab23c12d3edfe3d6bb5862a0e4e1775c816fd6f618456a7bda34e8",
+  "status": "SUPERSEDED_PROVISIONAL_PRE_VALIDATION"
+}

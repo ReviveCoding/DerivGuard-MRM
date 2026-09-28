@@ -1,0 +1,65 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+*.egg-info/
+
+# Virtual environments / local Python
+.venv/
+venv/
+.python/
+
+# Project-local generated output
+build/
+dist/
+.cache/
+.tmp/
+.bootstrap_backups/
+publication-staging-*/
+
+# Secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Codex/local execution state
+.codex/
+codex_logs/
+
+# Raw, vendor-derived, and intermediate market data
+data/raw/
+data/vendor/
+data/normalized/
+data/quality_flagged/
+data/filtered/
+data/processed/
+artifacts/checkpoints/empirical_real_calibrations/
+
+# Contract-level derived research tables are not publication artifacts
+results/raw/
+results/failures/
+results/v1_1/contract_model_results.parquet
+results/v1_1/contract_model_results_sliced.parquet
+results/v1_1/residual_records.parquet
+results/v1_1/challenger_disagreement.parquet
+results/v1_1/low_value_high_greek_cases.parquet
+results/v1_1/stress_contract_results.parquet
+
+# Heavy binary checkpoints
+*.pt
+*.pth
+*.ckpt
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

@@ -1,0 +1,72 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "derivguard-mrm"
+version = "0.1.0"
+description = "Independent, regime-aware validation and model-risk attribution for equity derivatives pricing models"
+readme = "README.md"
+requires-python = ">=3.12,<3.14"
+license = { text = "Proprietary research project; data retain their source licenses" }
+authors = [{ name = "DerivGuard-MRM Research" }]
+dependencies = [
+  "numpy>=2.1,<3",
+  "scipy>=1.14,<2",
+  "pandas>=3.0,<4",
+  "polars>=1.8,<2",
+  "pyarrow>=25,<26",
+  "statsmodels>=0.14,<1",
+  "scikit-learn>=1.5,<2",
+  "pydantic>=2.9,<3",
+  "PyYAML>=6.0,<7",
+  "typer>=0.12,<1",
+  "rich>=15,<16",
+  "joblib>=1.4,<2",
+  "matplotlib>=3.9,<4",
+  "seaborn>=0.13,<1",
+]
+
+[project.optional-dependencies]
+# Install CUDA PyTorch from the official PyTorch Windows wheel index selected
+# during environment qualification; do not assume PyPI resolves a CUDA build.
+gpu = [
+  "torch==2.14.0+cu130",
+  "cupy-cuda13x[ctk]>=14.2,<15",
+]
+oracle = ["QuantLib>=1.37,<2"]
+dev = [
+  "build>=1.2,<2",
+  "mypy>=1.13,<2",
+  "pytest>=9,<10",
+  "pytest-cov>=6,<8",
+  "ruff>=0.8,<1",
+]
+
+[project.scripts]
+derivguard = "derivguard.__main__:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/derivguard"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra --strict-markers"
+markers = [
+  "gpu: requires a qualified CUDA device",
+  "numerical: numerical agreement or convergence test",
+  "integration: multi-component integration test",
+  "slow: bounded but non-smoke test",
+]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "RUF"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+packages = ["derivguard"]

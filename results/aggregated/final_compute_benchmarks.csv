@@ -1,0 +1,9 @@
+workload,backend,runtime_seconds,throughput_per_second,absolute_error,relative_error,peak_memory_bytes,peak_memory_kind,status,selected_backend,best_objective,successful_draws,price,speedup_vs_cpu,passes_cpu_gpu_accuracy,faster_than_cpu,selection_match_fraction,setup_seconds,notes
+synthetic_heston_truth_and_greeks,numpy-cpu-fp64,4.126651200000197,11.63170756956578,0.0,0.0,231355,python_tracemalloc,MEASURED,False,,,,,,,,,
+heston_population_evaluation,numpy-cpu-fp64,4.556444399997417,1348.4198336763382,0.0,0.0,286638,python_tracemalloc,MEASURED,False,0.07984022588397974,,,,,,,,
+bootstrap_population_calibration,numpy-cpu-fp64,4.566405999998096,86110.60864937631,0.0,0.0,12978344,python_tracemalloc,MEASURED,False,,64.0,,,,,,,
+heston_pde_mcs_representative_grid,scipy-sparse-cpu-fp64,4.2884393999993335,77440.75851929995,0.005874731509448949,0.0007118428462522839,5775440,python_tracemalloc,MEASURED,True,,,8.246974251069057,,,,,,
+synthetic_heston_truth_and_greeks,torch-cuda-fp64,0.09441370000422467,508.40079350615616,7.719425099139698e-11,2.341328596564797e-12,827392,torch_cuda_max_memory_allocated,MEASURED,True,,,,43.708182179233994,True,True,,,
+heston_population_evaluation,torch-cuda-fp64,0.03735449999658158,164478.17533529442,8.526512829121202e-14,2.992117978968005e-15,10151424,torch_cuda_max_memory_allocated,MEASURED,True,,,,121.97846043754811,True,True,,,
+bootstrap_population_calibration,torch-cuda-fp64,0.0824921000021277,4766710.994020735,2.5579538487363607e-13,5.8512510333479e-15,16246272,torch_cuda_max_memory_allocated,MEASURED,True,,,,55.355676481509335,True,True,1.0,,
+heston_pde_mcs_representative_grid,cupyx-sparse-cuda-fp64,24.295897399999376,,2.859934511434403e-13,3.4678591497526134e-14,1789440,cupy_memory_pool_allocated_after_run,MEASURED,False,,,8.246974251069343,0.176508787858128,True,False,,21.741110000002664,cupyx sparse MCS uses spsolve per directional stage; no reusable GPU LU

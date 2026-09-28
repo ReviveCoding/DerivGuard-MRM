@@ -1,0 +1,86 @@
+[
+  {
+    "auprc": 0.9965602304523057,
+    "auroc": 0.9986161563743297,
+    "baseline": "V00",
+    "false_alarm_rate": 0.04878048780487805,
+    "locked_false_positive_rate": 0.04878048780487805,
+    "material_risk_miss_rate": 0.0,
+    "negatives": 246,
+    "observations": 340,
+    "positives": 94,
+    "recall_at_dev_5pct_fpr": 1.0
+  },
+  {
+    "auprc": 0.27647058823529413,
+    "auroc": 0.5,
+    "baseline": "V01",
+    "false_alarm_rate": 0.0,
+    "locked_false_positive_rate": 0.0,
+    "material_risk_miss_rate": 1.0,
+    "negatives": 246,
+    "observations": 340,
+    "positives": 94,
+    "recall_at_dev_5pct_fpr": 0.0
+  },
+  {
+    "auprc": 0.9864711827754974,
+    "auroc": 0.9947673412904342,
+    "baseline": "V02",
+    "false_alarm_rate": 0.07317073170731707,
+    "locked_false_positive_rate": 0.07317073170731707,
+    "material_risk_miss_rate": 0.010638297872340385,
+    "negatives": 246,
+    "observations": 340,
+    "positives": 94,
+    "recall_at_dev_5pct_fpr": 0.9893617021276596
+  },
+  {
+    "auprc": 0.3810127566290161,
+    "auroc": 0.5362177823905898,
+    "baseline": "V03",
+    "false_alarm_rate": 0.04878048780487805,
+    "locked_false_positive_rate": 0.04878048780487805,
+    "material_risk_miss_rate": 0.8404255319148937,
+    "negatives": 246,
+    "observations": 340,
+    "positives": 94,
+    "recall_at_dev_5pct_fpr": 0.1595744680851064
+  },
+  {
+    "auprc": 0.2746047691192938,
+    "auroc": 0.3964495761978896,
+    "baseline": "V04",
+    "false_alarm_rate": 0.04878048780487805,
+    "locked_false_positive_rate": 0.04878048780487805,
+    "material_risk_miss_rate": 0.9574468085106383,
+    "negatives": 246,
+    "observations": 340,
+    "positives": 94,
+    "recall_at_dev_5pct_fpr": 0.0425531914893617
+  },
+  {
+    "auprc": 0.8185153923104506,
+    "auroc": 0.9227642276422764,
+    "baseline": "V05",
+    "false_alarm_rate": 0.052845528455284556,
+    "locked_false_positive_rate": 0.052845528455284556,
+    "material_risk_miss_rate": 0.43617021276595747,
+    "negatives": 246,
+    "observations": 340,
+    "positives": 94,
+    "recall_at_dev_5pct_fpr": 0.5638297872340425
+  },
+  {
+    "auprc": 0.8185153923104506,
+    "auroc": 0.9227642276422764,
+    "baseline": "V06",
+    "false_alarm_rate": 0.06097560975609756,
+    "locked_false_positive_rate": 0.06097560975609756,
+    "material_risk_miss_rate": 0.43617021276595747,
+    "negatives": 246,
+    "observations": 340,
+    "positives": 94,
+    "recall_at_dev_5pct_fpr": 0.5638297872340425
+  }
+]

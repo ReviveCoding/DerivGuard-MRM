@@ -1,0 +1,103 @@
+fault_id,implementation_label,partition,seed,severity,truth_family
+F00,canonical Heston truth; no injected fault,DEV,83000001,0.0,HESTON
+F01,real Heston-on-canonical-Bates truth,DEV,83000002,2.0,BATES
+F02,real Heston-on-SSVI-marginal Dupire LocalVol truth,DEV,83000003,2.0,LOCALVOL_SSVI
+F03,real Heston-on-piecewise two-regime risk-neutral mixture truth,DEV,83000004,2.0,PIECEWISE_REGIME
+F04,controlled proxy: isolated poor-integration-resolution operator,DEV,83000005,2.0,HESTON
+F05,controlled proxy: isolated coarse-PDE-disagreement operator,DEV,83000006,2.0,HESTON
+F06,controlled proxy: isolated insufficient-Monte-Carlo operator,DEV,83000007,2.0,HESTON
+F07,controlled proxy: isolated calibration-local-minimum operator,DEV,83000008,2.0,HESTON
+F08,controlled proxy: isolated sparse-calibration-support operator,DEV,83000009,2.0,HESTON
+F09,controlled proxy: isolated corrupt-quote data-evidence operator,DEV,83000010,2.0,HESTON
+F10,controlled proxy: isolated stale/asynchronous observation operator,DEV,83000011,2.0,HESTON
+F11,controlled proxy: isolated incorrect-rate/forward operator,DEV,83000012,2.0,HESTON
+F12,controlled proxy: isolated wing-extrapolation operator,DEV,83000013,2.0,HESTON
+F13,controlled proxy: isolated maturity-extrapolation operator,DEV,83000014,2.0,HESTON
+F14,controlled proxy: isolated parameter-instability/identifiability operator,DEV,83000015,2.0,HESTON
+F15,controlled proxy: isolated biased-Greeks operator,DEV,83000016,2.0,HESTON
+F16,controlled proxy: combined F04+F09+F14 multiple-mechanism operator,DEV,83000017,2.0,HESTON
+F00,canonical Heston truth; no injected fault,DEV,83000018,0.0,HESTON
+F01,real Heston-on-canonical-Bates truth,DEV,83000019,2.0,BATES
+F02,real Heston-on-SSVI-marginal Dupire LocalVol truth,DEV,83000020,2.0,LOCALVOL_SSVI
+F03,real Heston-on-piecewise two-regime risk-neutral mixture truth,DEV,83000021,2.0,PIECEWISE_REGIME
+F04,controlled proxy: isolated poor-integration-resolution operator,DEV,83000022,2.0,HESTON
+F05,controlled proxy: isolated coarse-PDE-disagreement operator,DEV,83000023,2.0,HESTON
+F06,controlled proxy: isolated insufficient-Monte-Carlo operator,DEV,83000024,2.0,HESTON
+F07,controlled proxy: isolated calibration-local-minimum operator,DEV,83000025,2.0,HESTON
+F08,controlled proxy: isolated sparse-calibration-support operator,DEV,83000026,2.0,HESTON
+F09,controlled proxy: isolated corrupt-quote data-evidence operator,DEV,83000027,2.0,HESTON
+F10,controlled proxy: isolated stale/asynchronous observation operator,DEV,83000028,2.0,HESTON
+F11,controlled proxy: isolated incorrect-rate/forward operator,DEV,83000029,2.0,HESTON
+F12,controlled proxy: isolated wing-extrapolation operator,DEV,83000030,2.0,HESTON
+F13,controlled proxy: isolated maturity-extrapolation operator,DEV,83000031,2.0,HESTON
+F14,controlled proxy: isolated parameter-instability/identifiability operator,DEV,83000032,2.0,HESTON
+F15,controlled proxy: isolated biased-Greeks operator,DEV,83000033,2.0,HESTON
+F16,controlled proxy: combined F04+F09+F14 multiple-mechanism operator,DEV,83000034,2.0,HESTON
+F00,canonical Heston truth; no injected fault,VALIDATION,84000001,0.0,HESTON
+F01,real Heston-on-canonical-Bates truth,VALIDATION,84000002,2.0,BATES
+F02,real Heston-on-SSVI-marginal Dupire LocalVol truth,VALIDATION,84000003,2.0,LOCALVOL_SSVI
+F03,real Heston-on-piecewise two-regime risk-neutral mixture truth,VALIDATION,84000004,2.0,PIECEWISE_REGIME
+F04,controlled proxy: isolated poor-integration-resolution operator,VALIDATION,84000005,2.0,HESTON
+F05,controlled proxy: isolated coarse-PDE-disagreement operator,VALIDATION,84000006,2.0,HESTON
+F06,controlled proxy: isolated insufficient-Monte-Carlo operator,VALIDATION,84000007,2.0,HESTON
+F07,controlled proxy: isolated calibration-local-minimum operator,VALIDATION,84000008,2.0,HESTON
+F08,controlled proxy: isolated sparse-calibration-support operator,VALIDATION,84000009,2.0,HESTON
+F09,controlled proxy: isolated corrupt-quote data-evidence operator,VALIDATION,84000010,2.0,HESTON
+F10,controlled proxy: isolated stale/asynchronous observation operator,VALIDATION,84000011,2.0,HESTON
+F11,controlled proxy: isolated incorrect-rate/forward operator,VALIDATION,84000012,2.0,HESTON
+F12,controlled proxy: isolated wing-extrapolation operator,VALIDATION,84000013,2.0,HESTON
+F13,controlled proxy: isolated maturity-extrapolation operator,VALIDATION,84000014,2.0,HESTON
+F14,controlled proxy: isolated parameter-instability/identifiability operator,VALIDATION,84000015,2.0,HESTON
+F15,controlled proxy: isolated biased-Greeks operator,VALIDATION,84000016,2.0,HESTON
+F16,controlled proxy: combined F04+F09+F14 multiple-mechanism operator,VALIDATION,84000017,2.0,HESTON
+F00,canonical Heston truth; no injected fault,LOCKED_TEST,85000001,0.0,HESTON
+F01,real Heston-on-canonical-Bates truth,LOCKED_TEST,85000002,2.0,BATES
+F02,real Heston-on-SSVI-marginal Dupire LocalVol truth,LOCKED_TEST,85000003,2.0,LOCALVOL_SSVI
+F03,real Heston-on-piecewise two-regime risk-neutral mixture truth,LOCKED_TEST,85000004,2.0,PIECEWISE_REGIME
+F04,controlled proxy: isolated poor-integration-resolution operator,LOCKED_TEST,85000005,2.0,HESTON
+F05,controlled proxy: isolated coarse-PDE-disagreement operator,LOCKED_TEST,85000006,2.0,HESTON
+F06,controlled proxy: isolated insufficient-Monte-Carlo operator,LOCKED_TEST,85000007,2.0,HESTON
+F07,controlled proxy: isolated calibration-local-minimum operator,LOCKED_TEST,85000008,2.0,HESTON
+F08,controlled proxy: isolated sparse-calibration-support operator,LOCKED_TEST,85000009,2.0,HESTON
+F09,controlled proxy: isolated corrupt-quote data-evidence operator,LOCKED_TEST,85000010,2.0,HESTON
+F10,controlled proxy: isolated stale/asynchronous observation operator,LOCKED_TEST,85000011,2.0,HESTON
+F11,controlled proxy: isolated incorrect-rate/forward operator,LOCKED_TEST,85000012,2.0,HESTON
+F12,controlled proxy: isolated wing-extrapolation operator,LOCKED_TEST,85000013,2.0,HESTON
+F13,controlled proxy: isolated maturity-extrapolation operator,LOCKED_TEST,85000014,2.0,HESTON
+F14,controlled proxy: isolated parameter-instability/identifiability operator,LOCKED_TEST,85000015,2.0,HESTON
+F15,controlled proxy: isolated biased-Greeks operator,LOCKED_TEST,85000016,2.0,HESTON
+F16,controlled proxy: combined F04+F09+F14 multiple-mechanism operator,LOCKED_TEST,85000017,2.0,HESTON
+F00,canonical Heston truth; no injected fault,LOCKED_TEST,85000018,0.0,HESTON
+F01,real Heston-on-canonical-Bates truth,LOCKED_TEST,85000019,2.0,BATES
+F02,real Heston-on-SSVI-marginal Dupire LocalVol truth,LOCKED_TEST,85000020,2.0,LOCALVOL_SSVI
+F03,real Heston-on-piecewise two-regime risk-neutral mixture truth,LOCKED_TEST,85000021,2.0,PIECEWISE_REGIME
+F04,controlled proxy: isolated poor-integration-resolution operator,LOCKED_TEST,85000022,2.0,HESTON
+F05,controlled proxy: isolated coarse-PDE-disagreement operator,LOCKED_TEST,85000023,2.0,HESTON
+F06,controlled proxy: isolated insufficient-Monte-Carlo operator,LOCKED_TEST,85000024,2.0,HESTON
+F07,controlled proxy: isolated calibration-local-minimum operator,LOCKED_TEST,85000025,2.0,HESTON
+F08,controlled proxy: isolated sparse-calibration-support operator,LOCKED_TEST,85000026,2.0,HESTON
+F09,controlled proxy: isolated corrupt-quote data-evidence operator,LOCKED_TEST,85000027,2.0,HESTON
+F10,controlled proxy: isolated stale/asynchronous observation operator,LOCKED_TEST,85000028,2.0,HESTON
+F11,controlled proxy: isolated incorrect-rate/forward operator,LOCKED_TEST,85000029,2.0,HESTON
+F12,controlled proxy: isolated wing-extrapolation operator,LOCKED_TEST,85000030,2.0,HESTON
+F13,controlled proxy: isolated maturity-extrapolation operator,LOCKED_TEST,85000031,2.0,HESTON
+F14,controlled proxy: isolated parameter-instability/identifiability operator,LOCKED_TEST,85000032,2.0,HESTON
+F15,controlled proxy: isolated biased-Greeks operator,LOCKED_TEST,85000033,2.0,HESTON
+F16,controlled proxy: combined F04+F09+F14 multiple-mechanism operator,LOCKED_TEST,85000034,2.0,HESTON
+F00,canonical Heston truth; no injected fault,OOD_LOCKED_TEST,86000001,0.0,HESTON
+F01,real Heston-on-canonical-Bates truth,OOD_LOCKED_TEST,86000002,2.0,BATES
+F02,real Heston-on-SSVI-marginal Dupire LocalVol truth,OOD_LOCKED_TEST,86000003,2.0,LOCALVOL_SSVI
+F03,real Heston-on-piecewise two-regime risk-neutral mixture truth,OOD_LOCKED_TEST,86000004,2.0,PIECEWISE_REGIME
+F04,controlled proxy: isolated poor-integration-resolution operator,OOD_LOCKED_TEST,86000005,2.0,HESTON
+F05,controlled proxy: isolated coarse-PDE-disagreement operator,OOD_LOCKED_TEST,86000006,2.0,HESTON
+F06,controlled proxy: isolated insufficient-Monte-Carlo operator,OOD_LOCKED_TEST,86000007,2.0,HESTON
+F07,controlled proxy: isolated calibration-local-minimum operator,OOD_LOCKED_TEST,86000008,2.0,HESTON
+F08,controlled proxy: isolated sparse-calibration-support operator,OOD_LOCKED_TEST,86000009,2.0,HESTON
+F09,controlled proxy: isolated corrupt-quote data-evidence operator,OOD_LOCKED_TEST,86000010,2.0,HESTON
+F10,controlled proxy: isolated stale/asynchronous observation operator,OOD_LOCKED_TEST,86000011,2.0,HESTON
+F11,controlled proxy: isolated incorrect-rate/forward operator,OOD_LOCKED_TEST,86000012,2.0,HESTON
+F12,controlled proxy: isolated wing-extrapolation operator,OOD_LOCKED_TEST,86000013,2.0,HESTON
+F13,controlled proxy: isolated maturity-extrapolation operator,OOD_LOCKED_TEST,86000014,2.0,HESTON
+F14,controlled proxy: isolated parameter-instability/identifiability operator,OOD_LOCKED_TEST,86000015,2.0,HESTON
+F15,controlled proxy: isolated biased-Greeks operator,OOD_LOCKED_TEST,86000016,2.0,HESTON
+F16,controlled proxy: combined F04+F09+F14 multiple-mechanism operator,OOD_LOCKED_TEST,86000017,2.0,HESTON

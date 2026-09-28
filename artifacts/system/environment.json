@@ -1,0 +1,27 @@
+{
+  "architecture": [
+    "64bit",
+    "WindowsPE"
+  ],
+  "captured_at": "2026-09-27T07:45:31.548958+00:00",
+  "cuda_device_count": 1,
+  "cupy": "14.2.0",
+  "cupy_fp64_smoke_sum": 523776.0,
+  "cupy_runtime": 13020,
+  "disk_free_bytes": 78371188736,
+  "disk_reserve_bytes": 21474836480,
+  "git_commit": null,
+  "gpu_name": "NVIDIA GeForce RTX 4090 Laptop GPU",
+  "gpu_total_memory_bytes": 17170956288,
+  "numpy": "2.5.3",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "quantlib": "1.43",
+  "scipy": "1.18.1",
+  "sys_executable": "C:\\Users\\bjw-0\\Downloads\\DerivGuard-MRM\\.venv\\Scripts\\python.exe",
+  "torch": "2.14.0+cu130",
+  "torch_cuda_available": true,
+  "torch_cuda_runtime": "13.0",
+  "torch_fp64_smoke_seconds": 0.36405720000038855,
+  "torch_fp64_smoke_sum": 3.333328333335e+17
+}

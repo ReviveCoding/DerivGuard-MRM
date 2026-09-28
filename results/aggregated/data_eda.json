@@ -1,0 +1,76 @@
+{
+  "captured_at": "2026-09-27T07:45:33.895552+00:00",
+  "coverage": [
+    {
+      "dates": 127,
+      "expirations": 163,
+      "median_open_interest": 20.0,
+      "median_relative_spread": 0.01211167911915068,
+      "median_volume": 0.0,
+      "rows": 1531527,
+      "settlement_class": "PM",
+      "strikes": 527,
+      "underlying": "SPXW"
+    },
+    {
+      "dates": 127,
+      "expirations": 25,
+      "median_open_interest": 124.0,
+      "median_relative_spread": 0.011370814908401661,
+      "median_volume": 0.0,
+      "rows": 813978,
+      "settlement_class": "AM",
+      "strikes": 498,
+      "underlying": "SPX"
+    }
+  ],
+  "daily_surfaces": 127,
+  "eda_sample_rows": 200000,
+  "limitations": [
+    "All 4,294,301 source rows lack quote_time; historical observations are not treated as synchronized NBBO.",
+    "Vendor IV and underlying_close are descriptive fields, not independently reconstructed intraday state.",
+    "Static-arbitrage flags can reflect asynchrony and quote quality and are classified as data evidence."
+  ],
+  "processing_summary": {
+    "cboe_marking": {
+      "classification": "PROSPECTIVE_LOCKED_TEST",
+      "dataset": "cboe_marking_1500ct",
+      "quality_summary": {
+        "BUTTERFLY_CONVEXITY_VIOLATION": 5105,
+        "EXTREME_RELATIVE_SPREAD": 12242,
+        "ROWS_EXCLUDED": 51684,
+        "ROWS_INCLUDED": 29206,
+        "ROWS_TOTAL": 80890,
+        "SETTLEMENT_AMBIGUOUS": 51684,
+        "STRIKE_MONOTONICITY_VIOLATION": 22763
+      },
+      "rows_by_stage": {
+        "filtered": 29206,
+        "normalized": 80890,
+        "processed": 29206,
+        "quality_flagged": 80890
+      }
+    },
+    "historical_spx_sample": {
+      "daily_files_processed": 127,
+      "daily_files_resumed": 0,
+      "dataset": "historical_spx_sample",
+      "quality_summary": {
+        "BUTTERFLY_CONVEXITY_VIOLATION": 570764,
+        "EXTREME_RELATIVE_SPREAD": 9112,
+        "MISSING_CRITICAL": 135982,
+        "ROWS_EXCLUDED": 135982,
+        "ROWS_INCLUDED": 2345505,
+        "ROWS_TOTAL": 2481487,
+        "SPARSE_STRIKE_SLICE": 3,
+        "STRIKE_MONOTONICITY_VIOLATION": 377765
+      },
+      "rows_by_stage": {
+        "filtered": 2345505,
+        "normalized": 2481487,
+        "processed": 2345505,
+        "quality_flagged": 2481487
+      }
+    }
+  }
+}

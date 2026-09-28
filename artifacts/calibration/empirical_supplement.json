@@ -1,0 +1,54 @@
+{
+  "run_id": "empirical-supplement-20260927T095103Z",
+  "status": "COMPLETE_WITH_RECORDED_UNAVAILABLE_RESULTS",
+  "started_at": "2026-09-27T09:03:27.532346+00:00",
+  "ended_at": "2026-09-27T09:51:03.346001+00:00",
+  "runtime_seconds": 2855.8146345999994,
+  "selected_method_config_hash": "09ec0054ef5ea798e27ebf873cbad11ca82cfb649980aa6a435c941a7dca3e7b",
+  "selection_status": "SELECTED_ON_DEV_CONFIRMED_ON_VALIDATION",
+  "selected_objective": "C04",
+  "selected_optimizer": "O01",
+  "selected_feller_treatment": "unconstrained",
+  "representative_dates_per_split": 2,
+  "config": {
+    "seed": 20260927,
+    "max_expiries": 3,
+    "quotes_per_expiry": 10,
+    "representative_dates_per_split": 2,
+    "quadrature_nodes": 48,
+    "local_iterations": 75,
+    "de_iterations": 20,
+    "de_population": 5,
+    "multistarts": 5,
+    "bootstrap_draws": 2,
+    "relative_spread_limit": 0.25,
+    "maximum_abs_log_moneyness": 0.35
+  },
+  "measured_rows": 108,
+  "unavailable_records": 6,
+  "split_rows": {
+    "DEV": 36,
+    "LOCKED_TEST": 36,
+    "VALIDATION": 36
+  },
+  "experiment_rows": {
+    "liquidity_filter": 54,
+    "near_expiry_1_to_7d": 18,
+    "settlement_robustness": 36
+  },
+  "source_hash": "eabd9a672b8c4ab7d1b7c2f920ee18245901a88f8856b750f66fed5911b11fcb",
+  "outputs": [
+    "results/raw/empirical_supplement.parquet",
+    "results/aggregated/near_expiry_study.csv",
+    "results/aggregated/liquidity_filter_study.csv",
+    "results/aggregated/am_pm_robustness.csv",
+    "reports/tables/EMPIRICAL_SUPPLEMENT.csv",
+    "results/EMPIRICAL_SUPPLEMENT_AVAILABILITY.json"
+  ],
+  "limitations": [
+    "historical EOD option quotes have no synchronized quote timestamps",
+    "results are cross-sectional research and are not live or realized P&L",
+    "0DTE continuous-time calibration is unavailable without defensible timestamps",
+    "Treasury or external-rate assumptions are not introduced in this supplement"
+  ]
+}

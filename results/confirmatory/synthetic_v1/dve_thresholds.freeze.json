@@ -1,0 +1,174 @@
+{
+  "design_freeze_hash": "a20eab8f26363a80de3972f431149c4192a5361587022af3f7b511b6a66c3068",
+  "frozen_utc": "2026-09-27T08:25:33.113509+00:00",
+  "status": "FROZEN_BEFORE_LOCKED_GENERATION",
+  "thresholds": {
+    "config_hash": "198f1fd15993d7da4e788df0330a9f1e2fd6e67b55066a93c72e2cb7ae8e445d",
+    "dev_case_ids": [
+      "DEV-BATES-73000002",
+      "DEV-BATES-73000006",
+      "DEV-BATES-73000010",
+      "DEV-BATES-73000014",
+      "DEV-BATES-73000018",
+      "DEV-BATES-73000022",
+      "DEV-BATES-73000026",
+      "DEV-BATES-73000030",
+      "DEV-HESTON-73000001",
+      "DEV-HESTON-73000005",
+      "DEV-HESTON-73000009",
+      "DEV-HESTON-73000013",
+      "DEV-HESTON-73000017",
+      "DEV-HESTON-73000021",
+      "DEV-HESTON-73000025",
+      "DEV-HESTON-73000029",
+      "DEV-LOCALVOL_SSVI-73000003",
+      "DEV-LOCALVOL_SSVI-73000007",
+      "DEV-LOCALVOL_SSVI-73000011",
+      "DEV-LOCALVOL_SSVI-73000015",
+      "DEV-LOCALVOL_SSVI-73000019",
+      "DEV-LOCALVOL_SSVI-73000023",
+      "DEV-LOCALVOL_SSVI-73000027",
+      "DEV-LOCALVOL_SSVI-73000031",
+      "DEV-PIECEWISE_REGIME-73000004",
+      "DEV-PIECEWISE_REGIME-73000008",
+      "DEV-PIECEWISE_REGIME-73000012",
+      "DEV-PIECEWISE_REGIME-73000016",
+      "DEV-PIECEWISE_REGIME-73000020",
+      "DEV-PIECEWISE_REGIME-73000024",
+      "DEV-PIECEWISE_REGIME-73000028",
+      "DEV-PIECEWISE_REGIME-73000032"
+    ],
+    "evidence_dimensions": [
+      "E_data",
+      "E_num",
+      "E_cal",
+      "E_ident",
+      "E_param",
+      "E_form",
+      "E_greek",
+      "E_extra",
+      "E_outcome"
+    ],
+    "evidence_scales": {
+      "E_cal": 0.23165539008919978,
+      "E_data": 0.34996432124900473,
+      "E_extra": 1e-12,
+      "E_form": 1.7389690782473697,
+      "E_greek": 0.21786360278539404,
+      "E_ident": 1e-12,
+      "E_num": 0.020894515813902243,
+      "E_outcome": 1e-12,
+      "E_param": 1e-12
+    },
+    "global_thresholds": {
+      "V00": 0.8483634409868012,
+      "V01": 0.0,
+      "V02": 1.0,
+      "V03": 1.0,
+      "V04": 1.0,
+      "V05": 0.3974119299148444,
+      "V06": 0.3974119299148444
+    },
+    "regime_fallbacks": {
+      "V06": [
+        "LONG|MID|LIQUID",
+        "LONG|MID|WIDE"
+      ]
+    },
+    "regime_thresholds": {
+      "V06": {
+        "LONG|MID|LIQUID": 0.3974119299148444,
+        "LONG|MID|WIDE": 0.3974119299148444,
+        "SHORT|MID|LIQUID": 0.3974119299148444
+      }
+    },
+    "target_fpr": 0.05
+  },
+  "validation_diagnostics": {
+    "V00": {
+      "auprc": 1.0,
+      "auroc": 1.0,
+      "baseline": "V00",
+      "false_alarm_rate": 0.0,
+      "locked_false_positive_rate": 0.0,
+      "material_risk_miss_rate": 0.0,
+      "negatives": 4,
+      "observations": 16,
+      "positives": 12,
+      "recall_at_dev_5pct_fpr": 1.0
+    },
+    "V01": {
+      "auprc": 0.75,
+      "auroc": 0.5,
+      "baseline": "V01",
+      "false_alarm_rate": 0.0,
+      "locked_false_positive_rate": 0.0,
+      "material_risk_miss_rate": 1.0,
+      "negatives": 4,
+      "observations": 16,
+      "positives": 12,
+      "recall_at_dev_5pct_fpr": 0.0
+    },
+    "V02": {
+      "auprc": 1.0,
+      "auroc": 1.0,
+      "baseline": "V02",
+      "false_alarm_rate": 0.0,
+      "locked_false_positive_rate": 0.0,
+      "material_risk_miss_rate": 0.25,
+      "negatives": 4,
+      "observations": 16,
+      "positives": 12,
+      "recall_at_dev_5pct_fpr": 0.75
+    },
+    "V03": {
+      "auprc": 0.8417059792059791,
+      "auroc": 0.5833333333333334,
+      "baseline": "V03",
+      "false_alarm_rate": 0.0,
+      "locked_false_positive_rate": 0.0,
+      "material_risk_miss_rate": 0.8333333333333334,
+      "negatives": 4,
+      "observations": 16,
+      "positives": 12,
+      "recall_at_dev_5pct_fpr": 0.16666666666666666
+    },
+    "V04": {
+      "auprc": 0.6845682095682094,
+      "auroc": 0.3333333333333333,
+      "baseline": "V04",
+      "false_alarm_rate": 0.0,
+      "locked_false_positive_rate": 0.0,
+      "material_risk_miss_rate": 1.0,
+      "negatives": 4,
+      "observations": 16,
+      "positives": 12,
+      "recall_at_dev_5pct_fpr": 0.0
+    },
+    "V05": {
+      "auprc": 0.9880952380952381,
+      "auroc": 0.9583333333333334,
+      "baseline": "V05",
+      "false_alarm_rate": 0.0,
+      "locked_false_positive_rate": 0.0,
+      "material_risk_miss_rate": 0.25,
+      "negatives": 4,
+      "observations": 16,
+      "positives": 12,
+      "recall_at_dev_5pct_fpr": 0.75
+    },
+    "V06": {
+      "auprc": 0.9880952380952381,
+      "auroc": 0.9583333333333334,
+      "baseline": "V06",
+      "false_alarm_rate": 0.0,
+      "locked_false_positive_rate": 0.0,
+      "material_risk_miss_rate": 0.25,
+      "negatives": 4,
+      "observations": 16,
+      "positives": 12,
+      "recall_at_dev_5pct_fpr": 0.75
+    }
+  },
+  "validation_role": "confirmation only; no locked-test selection"
+}

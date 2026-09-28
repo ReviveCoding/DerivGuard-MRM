@@ -1,0 +1,50 @@
+{
+  "config_sha256": "7ef34c0f3c48e80d23a22a166a2213c504059ec952be5f94a5e29adab145fa32",
+  "constraints": "unconstrained",
+  "cross_date_warm_start": false,
+  "execution_evidence": "artifacts\\calibration\\empirical_methodology.json",
+  "execution_evidence_hash": "a5c8156b3cb2eb92f15905eca6db51cc0e37ebe0f80466d88d6595208d02d319",
+  "intended_use": "European SPXW vanilla-option research valuation, Greeks, and model-risk research",
+  "known_limitations": [
+    "Public historical quotes are standing EOD observations without quote timestamps.",
+    "Version 1.0 validation evidence is method-variant and retained as historical evidence.",
+    "Non-converged real-date calibrations are retained as failures and excluded from model comparisons.",
+    "The model remains restricted to European vanilla research use."
+  ],
+  "methodology": "Little-Heston-Trap-style stable characteristic function with FP64 Gauss-Legendre integration",
+  "model_id": "M10",
+  "numerical_tolerances_file": "configs\\numerical_tolerances.yaml",
+  "objective": "C04",
+  "optimizer": "O01",
+  "parameter_schema": [
+    "v0",
+    "kappa",
+    "theta",
+    "sigma_v",
+    "rho"
+  ],
+  "prior_release_hash": "8bbf7405e6daa498ec0668c4aa5635697a8a36ba25e9eab5e55c1428a5859c1c",
+  "prohibited_use": [
+    "live trading",
+    "brokerage execution",
+    "regulatory capital",
+    "American or exotic options",
+    "production institutional valuation"
+  ],
+  "real_date_convergence_rate": 0.9926470588235294,
+  "real_date_execution_conformant": true,
+  "real_date_jobs_converged": 135,
+  "real_date_jobs_expected": 136,
+  "release_id": "Developer Model Release v1.1",
+  "released_at": "2026-09-27T12:39:23.897555+00:00",
+  "selection_evidence": "results\\aggregated\\developer_method_selection.json",
+  "selection_evidence_hash": "1b5e122cd1c675d106939571f21aa9e1839ea0619da50d4646911755edcd2309",
+  "source_hashes": {
+    "development/calibration.py": "721d1a717801e10412c2bd89b39ebb1dad8a2131bb216f77716c86b0c8e6627e",
+    "development/heston_cf.py": "dacce10ee6d00ca7d94586f92893a1af92f8929e2d9b9ccb21f32a1b9065a2b2",
+    "empirical.py": "0425617ecfbad68a5a0b897a32189c7a0c00825ac2404269477069ab86529b9c"
+  },
+  "source_sha256": "dacce10ee6d00ca7d94586f92893a1af92f8929e2d9b9ccb21f32a1b9065a2b2",
+  "status": "FROZEN_BEFORE_CONFIRMATORY_V5_LOCKED_TEST",
+  "supersedes_for_new_validation": "Developer Model Release v1.0"
+}

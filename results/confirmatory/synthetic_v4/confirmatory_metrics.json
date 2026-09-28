@@ -1,0 +1,11 @@
+{
+  "developer_release_hash": "0fd53ee708e95f9666a95724b80937737d2b1b8406e33abbe304a2ee04efdccf",
+  "developer_release_id": "Developer Model Release v1.1",
+  "fault_id": "F01",
+  "freeze_hash": "f84977ac62dd5d224a4d48f94241cb4ecc7eb140677fdc67759ab19d5e739853",
+  "locked_evaluation_complete": false,
+  "partition": "VALIDATION",
+  "reason": "bootstrap draw 1 has no converged C04/O01 fit",
+  "seed": 104000002,
+  "status": "CALIBRATION_UNQUALIFIED"
+}

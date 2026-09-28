@@ -1,0 +1,41 @@
+schema_version: "4.0"
+registry_id: SYN-CONFIRMATORY-V4-EXPERIMENTS
+status: PRE_EXECUTION_CANDIDATE
+split_policy:
+  unit: independently_seeded_surface
+  order: [DEV, VALIDATION, DVE_THRESHOLD_FREEZE, LOCKED_TEST, OOD_LOCKED_TEST]
+  locked_tuning: prohibited
+truth_families:
+  F00: canonical_heston
+  F01: canonical_bates
+  F02: ssvi_marginal_localvol
+  F03: piecewise_regime
+fault_operators:
+  genuine: [F00, F01, F02, F03]
+  controlled_proxy: [F04, F05, F06, F07, F08, F09, F10, F11, F12, F13, F14, F15, F16]
+calibration:
+  model: Heston
+  inputs: observable_mid_quotes_only
+  objective: C04_Huber_spread_normalized_price
+  optimizer: frozen_CUDA_population_prescreen_then_bounded_local_refinement
+  parameter_order: [v0, kappa, theta, sigma_v, rho]
+  bounds:
+    v0: [0.0025, 0.5]
+    kappa: [0.05, 10.0]
+    theta: [0.0025, 0.5]
+    sigma_v: [0.05, 2.5]
+    rho: [-0.999, 0.999]
+  bootstrap: observable_bid_ask_uniform_perturbation_then_Heston_recalibration
+baselines: [V00, V01, V02, V03, V04, V05, V06]
+ablations: [A01, A02, A03, A04, A05, A06, A07, A08, A09, A10, A11]
+required_outputs:
+  - full_evidence_score_records
+  - calibration_diagnostics
+  - bootstrap_calibration_diagnostics
+  - T07_SYNTHETIC_FAULT_DETECTION
+  - T08_DVE_BASELINES
+  - T09_DVE_ABLATION
+  - stratified_metrics
+  - statistical_inference
+  - false_positive_cases
+  - false_negative_cases

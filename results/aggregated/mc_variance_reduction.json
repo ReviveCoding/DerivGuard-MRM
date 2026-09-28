@@ -1,0 +1,27 @@
+{
+  "artifact": "results\\aggregated\\mc_variance_reduction.csv",
+  "backend": "torch-cuda-fp64",
+  "experiment_id": "N06",
+  "generated_at": "2026-09-27T12:38:00.179733+00:00",
+  "median_standard_error": {
+    "antithetic": 0.018383145969082488,
+    "antithetic_control": 0.013574316031670532,
+    "none": 0.022703324998261016
+  },
+  "median_variance_reduction_ratio": {
+    "antithetic": 1.5201489314611834,
+    "antithetic_control": 2.793991408578577,
+    "none": 1.0
+  },
+  "methods": [
+    "none",
+    "antithetic",
+    "antithetic_control"
+  ],
+  "paths_per_run": 150000,
+  "rows": 15,
+  "scheme": "qe_m",
+  "seeds": 5,
+  "status": "MEASURED",
+  "steps": 128
+}

@@ -1,0 +1,5 @@
+workload,cpu_backend,cpu_seconds,cpu_peak_memory_bytes,gpu_backend,gpu_seconds,gpu_peak_memory_bytes,speedup,absolute_error,relative_error,accuracy_pass,gpu_status,selected_backend,availability_note
+synthetic_heston_truth_and_greeks,numpy-cpu-fp64,4.126651200000197,231355,torch-cuda-fp64,0.09441370000422467,827392,43.708182179233994,7.719425099139698e-11,2.341328596564797e-12,True,MEASURED,torch-cuda-fp64,
+heston_population_evaluation,numpy-cpu-fp64,4.556444399997417,286638,torch-cuda-fp64,0.03735449999658158,10151424,121.97846043754811,8.526512829121202e-14,2.992117978968005e-15,True,MEASURED,torch-cuda-fp64,
+bootstrap_population_calibration,numpy-cpu-fp64,4.566405999998096,12978344,torch-cuda-fp64,0.0824921000021277,16246272,55.355676481509335,2.5579538487363607e-13,5.8512510333479e-15,True,MEASURED,torch-cuda-fp64,
+heston_pde_mcs_representative_grid,scipy-sparse-cpu-fp64,4.2884393999993335,5775440,cupyx-sparse-cuda-fp64,24.295897399999376,1789440,0.176508787858128,2.859934511434403e-13,3.4678591497526134e-14,True,MEASURED,scipy-sparse-cpu-fp64,cupyx sparse MCS uses spsolve per directional stage; no reusable GPU LU

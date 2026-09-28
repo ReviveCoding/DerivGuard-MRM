@@ -1,0 +1,161 @@
+{
+  "schema_version": "1.0",
+  "review_id": "DERIVGUARD-FINAL-INDEPENDENT-REVIEW-20260927",
+  "reviewed_at": "2026-09-27T10:03:44.8190124Z",
+  "disposition": "NOT_READY_FOR_FINAL_ACCEPTANCE",
+  "critical_count": 0,
+  "high_count": 4,
+  "unresolved_critical_count": 0,
+  "unresolved_high_count": 3,
+  "medium_count": 4,
+  "scope": [
+    "developer_validator_independence",
+    "heston_characteristic_function",
+    "monte_carlo_full_truncation_qe_qem",
+    "pde_nonuniform_mcs_hv",
+    "calibration_selection_and_leakage",
+    "locked_test_and_freeze_discipline",
+    "dve_baselines_and_ablations",
+    "synthetic_fault_validity",
+    "statistics",
+    "phase_gate_status_logic",
+    "gpu_correctness",
+    "precision_sensitivity",
+    "report_claims"
+  ],
+  "findings": [
+    {
+      "finding_id": "FR-H01",
+      "severity": "HIGH",
+      "status": "OPEN",
+      "title": "Corrected v4 accepts overwhelmingly non-converged calibrations",
+      "evidence": [
+        "src/derivguard/synthetic/confirmatory_v4.py:471",
+        "src/derivguard/synthetic/confirmatory_v4.py:720",
+        "results/confirmatory/synthetic_v3/calibration_diagnostics.parquet",
+        "src/derivguard/governance/gates.py:832"
+      ],
+      "measured": {
+        "calibrations": 510,
+        "optimizer_successes": 20,
+        "success_rate": 0.0392156862745098,
+        "primary_successes": 16,
+        "primary_total": 102,
+        "bootstrap_successes": 4,
+        "bootstrap_total": 408,
+        "iteration_limit_failures": 490
+      },
+      "impact": "Developer values, bootstrap E_cal, material labels, and v4 detection metrics depend on optimizer-unqualified fits.",
+      "resolution_required": "Classify v4 confirmatory gates PARTIAL, or run a new pre-frozen untouched-seed study with release-conformant calibration and frozen convergence/admissibility criteria. Do not tune or overwrite v4."
+    },
+    {
+      "finding_id": "FR-H02",
+      "severity": "HIGH",
+      "status": "OPEN",
+      "title": "Measured real and synthetic programs do not implement frozen release optimizer O01",
+      "evidence": [
+        "artifacts/model_releases/model_release_v1.0.json",
+        "src/derivguard/empirical.py:1315",
+        "experiments/confirmatory_v4_registry.yaml",
+        "src/derivguard/synthetic/confirmatory_v4.py:455"
+      ],
+      "impact": "Real and locked v4 metrics are method-variant evidence, not clean validation evidence for frozen Developer Model Release v1.0.",
+      "resolution_required": "Execute C04/O01/unconstrained for applicable studies and a new locked design, or version/freeze the actually executed methodology before new locked evaluation."
+    },
+    {
+      "finding_id": "FR-H03",
+      "severity": "HIGH",
+      "status": "OPEN",
+      "title": "Evidence gates can pass failed calibration and unresolved review findings",
+      "evidence": [
+        "src/derivguard/governance/gates.py:743",
+        "src/derivguard/governance/gates.py:832",
+        "src/derivguard/governance/gates.py:915",
+        "src/derivguard/pipeline.py",
+        "reports/FINAL_ACCEPTANCE_REPORT.md"
+      ],
+      "impact": "PASS labels do not currently establish scientific acceptability or full-release integrity.",
+      "resolution_required": "Gate calibration admissibility and release conformance, verify all release hashes, block unresolved Critical/High review findings, and order tests before final report/gate generation."
+    },
+    {
+      "finding_id": "FR-H04",
+      "severity": "HIGH",
+      "status": "ACCEPTED_WITH_USAGE_LIMITATION",
+      "title": "PDE remains unqualified in difficult regimes",
+      "evidence": [
+        "results/aggregated/numerical_remediation_qualification.json",
+        "results/aggregated/pde_adi_convergence.csv",
+        "src/derivguard/validation/heston_pde.py"
+      ],
+      "impact": "PDE cannot serve as a qualified independent valuation oracle.",
+      "resolution_required": "Keep Numerical/Independence acceptance PARTIAL, retain use limitation, and do not weaken tolerances."
+    },
+    {
+      "finding_id": "FR-M01",
+      "severity": "MEDIUM",
+      "status": "OPEN",
+      "title": "Canonical truth qualification wording overstates LocalVol/regime scope",
+      "evidence": [
+        "src/derivguard/synthetic/confirmatory.py:224",
+        "src/derivguard/synthetic/confirmatory.py:526",
+        "src/derivguard/synthetic/confirmatory.py:560",
+        "src/derivguard/governance/gates.py:753"
+      ],
+      "resolution_required": "Describe these as qualified marginal controlled DGP constructions unless independently validating Dupire/regime-switch dynamics."
+    },
+    {
+      "finding_id": "FR-M02",
+      "severity": "MEDIUM",
+      "status": "OPEN",
+      "title": "F04-F16 are primarily controlled perturbation proxies",
+      "evidence": [
+        "src/derivguard/synthetic/faults.py:150",
+        "experiments/confirmatory_v4_registry.yaml"
+      ],
+      "resolution_required": "Retain controlled-proxy terminology and avoid generalization to actual pipeline-engine faults."
+    },
+    {
+      "finding_id": "FR-M03",
+      "severity": "MEDIUM",
+      "status": "OPEN",
+      "title": "GPU QE-M lacks a direct CPU/GPU agreement test",
+      "evidence": [
+        "tests/gpu/test_heston_gpu.py:41",
+        "tests/numerical/test_heston_mc.py",
+        "results/aggregated/mc_qe_qem_audit.csv"
+      ],
+      "resolution_required": "Add a bounded distributional/common-case QE-M CPU/GPU and martingale-parity check."
+    },
+    {
+      "finding_id": "FR-M04",
+      "severity": "MEDIUM",
+      "status": "OPEN",
+      "title": "Confirmatory uncertainty intervals are small-sample descriptive intervals",
+      "evidence": [
+        "src/derivguard/synthetic/confirmatory_v3.py:382",
+        "results/confirmatory/synthetic_v3/statistical_inference.json"
+      ],
+      "resolution_required": "Qualify inference as descriptive; consider more replicates and fault-stratified resampling in a future frozen study."
+    }
+  ],
+  "reviewed_areas_without_material_defect": [
+    "developer_heston_cf_mathematics_and_quantlib_agreement",
+    "physical_developer_validator_separation",
+    "mc_qe_qem_coefficients_and_antithetic_ci_units",
+    "pde_split_equation_structure",
+    "design_and_threshold_freeze_linkage",
+    "dev_only_dve_threshold_fitting",
+    "date_level_real_market_inference",
+    "gpu_fp64_accuracy_and_backend_selection",
+    "n10_precision_sensitivity",
+    "negative_result_preservation"
+  ],
+  "test_evidence": {
+    "canonical_summary": "artifacts/tests/final_test_summary.json",
+    "canonical_status": "PASS",
+    "reviewer_subset_passed": 21,
+    "reviewer_subset_setup_errors": 7,
+    "setup_error_cause": "Windows pytest temporary-directory ACL; no assertion failure in the seven affected tests"
+  },
+  "scientific_results_modified": false
+}

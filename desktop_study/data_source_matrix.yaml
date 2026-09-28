@@ -1,0 +1,373 @@
+schema_version: "1.0"
+as_of_date: "2026-09-27"
+purpose: >-
+  Source-selection and access matrix for public/optional DerivGuard-MRM inputs.
+  This is a desktop-study artifact, not a download manifest. Actual acquisition
+  status, file hashes, row counts, and observed date ranges belong in raw-data manifests.
+
+sources:
+  - source_id: "DS-HISTORICALDATA-SPX-SAMPLE"
+    name: "HistoricalData.net free US options sample"
+    provider: "HistoricalData.net"
+    authority: "third-party market-data provider"
+    url: "https://historicaldata.net/samples.html"
+    documentation_urls:
+      - "https://historicaldata.net/options.html"
+      - "https://historicaldata.net/faq.html"
+    access_class: "public_free_download"
+    authentication: "none documented for the free sample"
+    paid: false
+    desktop_access_status: "download link and documentation accessible; archive not downloaded or inspected in Phase 01"
+    documented_coverage:
+      underlyings: ["TSLA", "KO", "SPY", "SPX", "SPXW"]
+      start_date: "2022-07-01"
+      end_date: "2022-12-30"
+      trading_days: 127
+      frequency: "one end-of-day chain file per trading date"
+      documented_size: "239 MB ZIP"
+      documented_columns: 34
+    expected_fields:
+      - "contract"
+      - "underlying"
+      - "expiration"
+      - "type"
+      - "strike"
+      - "style"
+      - "quote_date"
+      - "bid"
+      - "bid_size"
+      - "ask"
+      - "ask_size"
+      - "quote_time"
+      - "volume"
+      - "open_interest"
+      - "underlying_close"
+      - "settlement_time"
+      - "iv_bid"
+      - "iv_ask"
+      - "iv"
+      - "iv_flag"
+      - "delta"
+      - "gamma"
+      - "theta"
+      - "vega"
+      - "rho"
+    timing_semantics: >-
+      Provider documentation says rows contain each contract's last standing
+      end-of-day quote and are not synchronized to one market-close timestamp.
+      Ongoing quote_time capture began 2026-08-06; historical sample quote_time
+      must be treated as unavailable unless the downloaded file proves otherwise.
+    license_and_redistribution: >-
+      Provider FAQ permits derived statistics, charts, model outputs, and research
+      that do not enable reconstruction of a substantial part of the data, with
+      credit/link for public research; raw redistribution is restricted. Verify
+      the license packaged with the actual download.
+    permitted_project_uses:
+      - "cross-sectional SPX/SPXW surface research"
+      - "calibration and challenger comparison"
+      - "quote-quality/asynchrony sensitivity"
+      - "qualified next-date outcome and hedging-proxy work"
+    prohibited_or_invalid_inferences:
+      - "synchronized NBBO surface"
+      - "actual execution prices"
+      - "actual trading P&L"
+      - "provider verification claims represented as project observations before download validation"
+    required_acquisition_checks:
+      - "download through documented public link"
+      - "archive SHA-256 and byte count"
+      - "run packaged verification script in a controlled environment"
+      - "independently compute schema, row count, dates, roots, settlement labels, and missing quote_time"
+      - "preserve vendor README/license without republishing raw rows"
+    planned_provider_adapter: "PublicSPXSampleProvider"
+    priority: "core"
+
+  - source_id: "DS-CBOE-MARKS"
+    name: "Cboe proprietary index marking prices"
+    provider: "Cboe Global Markets"
+    authority: "exchange primary source"
+    url: "https://www.cboe.com/markets/us/options/market-statistics/product-data/proprietary-index-marking-prices/"
+    access_class: "public_free_rotating_csv"
+    authentication: "none"
+    paid: false
+    desktop_access_status: "page and current CSV links accessible; no complete public historical archive promised"
+    documented_coverage:
+      classes_include: ["SPX", "SPXW", "XSP", "VIX", "VIXW"]
+      publication_times: ["3:00 p.m. CT", "3:15 p.m. CT", "end of month"]
+      cadence: "each trading day; normally published about 15 minutes after close"
+    expected_fields:
+      - "indicative marking price"
+      - "actual BBO at the marking time"
+      - "contract identifiers and timestamps, subject to schema inspection"
+    timing_semantics: >-
+      Official Cboe indicative marks aligned to stated times. Cboe explicitly
+      says they are not actual OPRA NBBO updates and may differ from the book BBO.
+    license_and_redistribution: "Cboe page supplies an as-is disclaimer; inspect terms and each downloaded file before redistribution."
+    permitted_project_uses:
+      - "prospective synchronized-time validation dataset"
+      - "mark-versus-BBO study"
+      - "prospective locked-test outcomes after project start"
+    prohibited_or_invalid_inferences:
+      - "actual OPRA NBBO update"
+      - "historical observations not actually archived by the collector"
+      - "retroactive tuning with prospective locked files"
+    required_acquisition_checks:
+      - "collect prospectively with UTC retrieval timestamp"
+      - "archive exact bytes and SHA-256 immutably"
+      - "schema/version detection and row/date/class validation"
+      - "label only post-start observations PROSPECTIVE_LOCKED_TEST"
+    planned_provider_adapter: "CboeMarkingProvider"
+    priority: "core prospective"
+
+  - source_id: "DS-CBOE-DATASHOP-SAMPLE"
+    name: "Cboe DataShop Option Quote Intervals sample"
+    provider: "Cboe DataShop"
+    authority: "exchange primary source"
+    url: "https://datashop.cboe.com/option-quote-intervals"
+    file_specification_url: "https://datashop.cboe.com/documents/Option_Quotes_Layout.pdf"
+    access_class: "public_documentation_and_sample; paid_full_history"
+    authentication: "sample may be public; full purchase/account required for historical orders"
+    paid: "full data paid; sample free if link remains accessible"
+    desktop_access_status: "product page, schema PDF, and sample link visible; sample file not downloaded in Phase 01"
+    documented_coverage:
+      historical_start: "2012-01"
+      frequency: "1-minute or custom N-minute interval summaries"
+      assets: "listed U.S. stock, ETF, and index options disseminated over OPRA"
+    expected_fields:
+      - "underlying_symbol"
+      - "quote_datetime"
+      - "root"
+      - "expiration"
+      - "strike"
+      - "option_type"
+      - "bid_size"
+      - "bid"
+      - "ask_size"
+      - "ask"
+      - "OHLC"
+      - "trade_volume"
+      - "optional open_interest"
+      - "optional IV and Greeks"
+    timing_semantics: "interval NBBO snapshots; exact sample methodology must be verified from packaged docs"
+    methodology_breaks:
+      - effective_date: "2026-06-22"
+        description: >-
+          NBBO bid/ask sizes are captured at the time of the most recent price
+          change within the interval; before that date the latest price and size
+          were used whether or not price changed.
+    index_underlying_limit: >-
+      Documentation says ^SPX/^OEX underlying bid, ask, and active underlying
+      price depend on an active Cboe Global Indices Feed license for relevant access.
+    license_and_redistribution: "Exchange product terms apply; do not purchase or redistribute automatically."
+    permitted_project_uses:
+      - "schema and adapter integration test using a legitimate free sample"
+      - "future compatibility with licensed full quote-interval history"
+    prohibited_or_invalid_inferences:
+      - "claim of full historical access from the sample"
+      - "automatic purchase"
+      - "unlicensed index fields"
+    required_acquisition_checks:
+      - "follow official sample link only"
+      - "record sample terms, file hash, schema version, and date coverage"
+      - "encode 2026-06-22 methodology break"
+    planned_provider_adapter: "CboeDataShopSampleProvider"
+    priority: "integration"
+
+  - source_id: "DS-CBOE-VIX"
+    name: "Cboe VIX Index historical daily closes"
+    provider: "Cboe Global Markets"
+    authority: "index administrator / exchange primary source"
+    url: "https://www.cboe.com/tradable_products/vix/vix_historical_data"
+    access_class: "public_free_download"
+    authentication: "none"
+    paid: false
+    desktop_access_status: "page and historical-data links accessible"
+    documented_coverage:
+      start: "1990"
+      end: "present, updated daily"
+      frequency: "daily"
+    timing_semantics: "official daily index values; inspect downloaded schema and timezone"
+    license_and_redistribution: "Cboe terms apply; preserve attribution and do not assume raw redistribution rights."
+    permitted_project_uses:
+      - "DEV-only regime construction"
+      - "validation and locked-period regime labels using frozen thresholds"
+      - "parameter/liquidity stability covariate"
+    prohibited_or_invalid_inferences:
+      - "causal driver of model errors"
+      - "threshold tuning on LOCKED TEST"
+    required_acquisition_checks:
+      - "SHA-256, schema, dates, duplicates, missing sessions"
+      - "document VIX methodology and any series breaks"
+    planned_provider_adapter: "CboeVixProvider"
+    priority: "core covariate"
+
+  - source_id: "DS-NYFED-SOFR"
+    name: "SOFR, SOFR averages, and SOFR index"
+    provider: "Federal Reserve Bank of New York"
+    authority: "official reference-rate administrator"
+    url: "https://www.newyorkfed.org/markets/reference-rates"
+    methodology_url: "https://www.newyorkfed.org/markets/reference-rates/additional-information-about-reference-rates"
+    access_class: "public_official_api_or_download"
+    authentication: "none for documented public market-data API/downloads"
+    paid: false
+    desktop_access_status: "methodology and public data pages accessible"
+    documented_coverage:
+      SOFR_first_value_date: "2018-04-02"
+      frequency: "business daily"
+    methodology: >-
+      SOFR is a volume-weighted median of qualifying overnight Treasury repo
+      transactions; published averages compound realized overnight SOFR.
+    license_and_redistribution: "Official-source terms apply; retain source attribution."
+    permitted_project_uses:
+      - "rate consistency check"
+      - "discount-curve sensitivity"
+      - "synthetic rate scenarios"
+    prohibited_or_invalid_inferences:
+      - "exact SPX derivatives discount curve without curve construction and justification"
+    required_acquisition_checks:
+      - "capture observation date, publication date, revision status, and methodology version"
+    planned_provider_adapter: "NewYorkFedRatesProvider"
+    priority: "core covariate"
+
+  - source_id: "DS-TREASURY-PAR"
+    name: "Daily Treasury par yield curve"
+    provider: "U.S. Department of the Treasury"
+    authority: "official government source"
+    url: "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve"
+    methodology_url: "https://home.treasury.gov/policy-issues/financing-the-government/interest-rate-statistics/treasury-yield-curve-methodology"
+    feed_url: "https://home.treasury.gov/treasury-daily-interest-rate-xml-feed"
+    access_class: "public_official_csv_xml"
+    authentication: "none"
+    paid: false
+    desktop_access_status: "methodology, table, CSV link, and XML feed documentation accessible"
+    documented_coverage:
+      start: "1990"
+      frequency: "daily trading days"
+    methodology: >-
+      Par curve derived from indicative bid-side prices for recently auctioned
+      Treasuries using monotone-convex interpolation since 2021-12-06.
+    methodology_breaks:
+      - effective_date: "2021-12-06"
+        description: "monotone-convex method replaced quasi-cubic Hermite spline"
+      - effective_date: "2025-02-18"
+        description: "1.5-month constant-maturity series began; methodology page revised"
+    license_and_redistribution: "U.S. government source; retain provenance and official methodology links."
+    permitted_project_uses:
+      - "external rate-curve consistency"
+      - "sensitivity inputs"
+      - "public-covariate comparison"
+    prohibited_or_invalid_inferences:
+      - "exact collateralized derivatives zero curve"
+      - "transaction-based curve"
+    required_acquisition_checks:
+      - "parse par yields as par yields, not discount factors"
+      - "record methodology breaks and any missing tenors"
+    planned_provider_adapter: "TreasuryCurveProvider"
+    priority: "core covariate"
+
+  - source_id: "DS-FRED"
+    name: "Federal Reserve Economic Data API"
+    provider: "Federal Reserve Bank of St. Louis"
+    authority: "official economic-data aggregator"
+    url: "https://fred.stlouisfed.org/docs/api/fred/"
+    access_class: "public_api_with_key_for_v1"
+    authentication: "FRED API key required for Version 1 requests"
+    paid: false
+    desktop_access_status: "API documentation accessible; no key or series data assumed"
+    documented_coverage: "series dependent"
+    timing_semantics: "series-dependent observation, release, and vintage dates"
+    license_and_redistribution: "varies by underlying series/source; retain source and release metadata."
+    permitted_project_uses:
+      - "documented public macro/market covariates where primary source delivery is impractical"
+      - "cross-checks against primary providers"
+    prohibited_or_invalid_inferences:
+      - "FRED as original source for every aggregated series"
+      - "latest-revised value as contemporaneously available without ALFRED/vintage handling"
+    required_acquisition_checks:
+      - "series ID, source, release, units, frequency, seasonal adjustment, vintage/revision metadata"
+      - "skip automatically if a required key is absent; prefer keyless primary sources"
+    planned_provider_adapter: "FredProvider"
+    priority: "supplementary covariate"
+
+  - source_id: "DS-MASSIVE"
+    name: "Massive Options and Indices REST APIs"
+    provider: "Massive"
+    authority: "commercial market-data API"
+    url: "https://massive.com/docs/rest/quickstart"
+    options_url: "https://massive.com/docs/rest/options"
+    indices_url: "https://massive.com/docs/rest/indices/overview"
+    access_class: "optional_authenticated_api"
+    authentication: "MASSIVE_API_KEY and appropriate plan required"
+    paid: "plan dependent; no purchase authorized"
+    desktop_access_status: "documentation accessible; key and entitlements not assumed"
+    documented_coverage: "endpoint and plan dependent"
+    timing_semantics: "endpoint dependent; trades, quotes, snapshots, and aggregates are distinct"
+    license_and_redistribution: "commercial plan terms apply; cache only as permitted."
+    permitted_project_uses:
+      - "SPX index reference/aggregate history if an existing valid key authorizes it"
+      - "optional option reference or aggregate integration"
+    prohibited_or_invalid_inferences:
+      - "trade aggregates as synchronized NBBO midpoint observations"
+      - "automatic purchase, authentication bypass, or use outside plan entitlement"
+    required_acquisition_checks:
+      - "detect key without printing it"
+      - "confirm endpoint entitlement and rate limits"
+      - "cache requests with query and response hashes"
+      - "record upstream source_feed for index data"
+    planned_provider_adapter: "MassiveProvider"
+    priority: "optional"
+
+  - source_id: "DS-QUANTLIB"
+    name: "QuantLib implementation oracle"
+    provider: "QuantLib project / installed QuantLib Python package"
+    authority: "third-party open-source numerical library"
+    url: "https://www.quantlib.org/"
+    source_url: "https://github.com/lballabio/QuantLib"
+    access_class: "open_source_software"
+    authentication: "none"
+    paid: false
+    desktop_access_status: "public source and documentation accessible; installed package availability/version must be verified"
+    expected_capabilities:
+      - "analytic Heston"
+      - "finite-difference Heston"
+      - "Monte Carlo Heston"
+      - "Bates"
+    license_and_redistribution: "QuantLib open-source license; preserve notices as applicable."
+    permitted_project_uses:
+      - "external numerical oracle"
+      - "representative convention and price cross-checks"
+    prohibited_or_invalid_inferences:
+      - "replacement for self-written developer and validator engines"
+      - "proof of correctness based only on agreement"
+    required_acquisition_checks:
+      - "record QuantLib/Python wrapper version"
+      - "match curves, dates, day counts, evaluation date, parameter order, integration settings"
+    planned_provider_adapter: null
+    priority: "core numerical oracle"
+
+observation_type_rules:
+  - type: "historical_standing_eod_quote"
+    source: "DS-HISTORICALDATA-SPX-SAMPLE"
+    synchronized: false
+    valid_label: "historical EOD standing quote"
+  - type: "cboe_indicative_mark"
+    source: "DS-CBOE-MARKS"
+    synchronized: "to stated mark time, subject to file validation"
+    valid_label: "Cboe indicative marking price"
+  - type: "interval_nbbo_snapshot"
+    source: "DS-CBOE-DATASHOP-SAMPLE"
+    synchronized: "interval methodology dependent"
+    valid_label: "DataShop interval NBBO snapshot"
+  - type: "trade_or_aggregate"
+    source: "DS-MASSIVE"
+    synchronized: false
+    valid_label: "trade/aggregate observation; not NBBO"
+
+global_lineage_requirements:
+  - "source and provider"
+  - "retrieval timestamp in UTC"
+  - "source URL and query parameters"
+  - "SHA-256 and byte count"
+  - "row count, minimum/maximum date, and schema version"
+  - "license/source and redistribution notes"
+  - "known issues and methodology breaks"
+  - "immutable RAW artifact"

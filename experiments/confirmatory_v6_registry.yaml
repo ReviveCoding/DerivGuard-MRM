@@ -1,0 +1,26 @@
+registry_id: SYN-CONFIRMATORY-V6
+status: frozen_before_execution
+developer_release: Developer Model Release v1.1
+objective: C04
+optimizer: O01
+primary_multistarts: 5
+primary_max_iterations: 160
+bootstrap_draws: 4
+bootstrap_multistarts: 5
+bootstrap_max_iterations: 160
+materiality_threshold_spread_units: 1.0
+target_fpr: 0.05
+seed_regions:
+  prequalification: 101m
+  dev: 107m
+  validation: 108m
+  locked_test: 109m
+  ood_locked_test: 110m
+baselines: [V00, V01, V02, V03, V04, V05, V06]
+faults: [F00, F01, F02, F03, F04, F05, F06, F07, F08, F09, F10, F11, F12, F13, F14, F15, F16]
+truths:
+  - HESTON
+  - BATES
+  - LOCALVOL_SSVI
+  - PIECEWISE_REGIME
+locked_tuning_prohibited: true

@@ -1,0 +1,482 @@
+schema_version: "1.0"
+as_of_date: "2026-09-27"
+purpose: >-
+  Pre-implementation methodology comparison. Selections are design hypotheses
+  and must be confirmed by DEV-only evidence, numerical tests, and benchmarks.
+
+methods:
+  - method_id: "F0"
+    title: "Ordinary least-squares put-call-parity forward/discount estimation"
+    category: "market_preprocessing"
+    role: "transparent baseline"
+    formula: "C(K,T)-P(K,T) = D(T) * (F(T)-K)"
+    assumptions:
+      - "matched European calls and puts refer to the same expiry and settlement convention"
+      - "regression errors are sufficiently well behaved for unweighted least squares"
+    strengths:
+      - "simple and auditable"
+      - "jointly estimates slope -D and intercept D*F"
+    weaknesses:
+      - "sensitive to wide spreads, outliers, stale quotes, and strike imbalance"
+    implementation_implications:
+      - "require matched put-call pairs and explicit settlement grouping"
+      - "derive F and D only if the fitted slope/intercept satisfy sanity constraints"
+    selection_rule: "baseline only unless DEV stability unexpectedly dominates robust alternatives"
+    related_experiment_ids: ["D04"]
+
+  - method_id: "F1"
+    title: "Spread-weighted least-squares parity estimation"
+    category: "market_preprocessing"
+    role: "liquidity-aware estimator"
+    assumptions:
+      - "quoted spread is a useful proxy for observation uncertainty"
+      - "weight floor/cap prevents singular influence"
+    strengths:
+      - "downweights visibly noisy strikes"
+    weaknesses:
+      - "spread may reflect legitimate state dependence rather than pure noise"
+      - "very tight stale quotes can receive excessive weight"
+    implementation_implications:
+      - "pre-register bid-ask floor and cap; sensitivity-test both"
+    selection_rule: "compare on DEV parity residual, subset stability, and date stability"
+    related_experiment_ids: ["D03", "D04", "C09"]
+
+  - method_id: "F2"
+    title: "Huber robust parity regression"
+    category: "market_preprocessing"
+    role: "outlier-resistant estimator"
+    assumptions:
+      - "most pairs follow one parity line and contamination is sparse"
+    strengths:
+      - "limits influence of isolated bad/asynchronous pairs"
+    weaknesses:
+      - "Huber threshold introduces a tuning choice"
+      - "does not model heteroskedastic spreads directly"
+    implementation_implications:
+      - "scale residuals robustly and freeze threshold on DEV"
+    selection_rule: "compare on DEV; report strike-level residuals"
+    related_experiment_ids: ["D04"]
+
+  - method_id: "F3"
+    title: "Spread-weighted robust parity regression"
+    category: "market_preprocessing"
+    role: "candidate developer forward method"
+    assumptions:
+      - "spread reflects uncertainty and residual outliers remain after weighting"
+    strengths:
+      - "addresses heteroskedasticity and isolated contamination"
+    weaknesses:
+      - "most complex of the four and can double-downweight valid wing quotes"
+    implementation_implications:
+      - "freeze weight formula, spread floor/cap, robust scale, and convergence rules"
+    selection_rule: "select only if DEV evidence improves stability without systematic parity bias"
+    related_experiment_ids: ["D03", "D04", "C09"]
+
+  - method_id: "M00"
+    title: "Black-Scholes flat-volatility baseline"
+    category: "pricing_model"
+    role: "foundation, limit case, and simple baseline"
+    assumptions:
+      - "constant lognormal volatility and deterministic curves"
+      - "European exercise"
+    strengths:
+      - "analytic prices and Greeks"
+      - "strong invariant and regression-test foundation"
+    weaknesses:
+      - "cannot represent smile/skew or stochastic volatility"
+    implementation_implications:
+      - "implement calls, puts, delta, gamma, vega, and theta with robust expiry handling"
+      - "require bounds, parity, monotonicity, convexity, and finite-difference Greek checks"
+    selection_rule: "mandatory; expensive work blocked if foundation fails"
+    related_experiment_ids: ["N01", "M01", "P01-P06"]
+
+  - method_id: "M01"
+    title: "Black-Scholes with market-IV interpolation"
+    category: "pricing_reference"
+    role: "surface interpolation reference"
+    assumptions:
+      - "interpolated market IV is a useful cross-sectional reference"
+      - "interpolation/extrapolation conventions are explicitly controlled"
+    strengths:
+      - "near-market fit and transparent price conversion"
+    weaknesses:
+      - "not a self-contained dynamic model"
+      - "inherits data noise and extrapolation risk"
+    implementation_implications:
+      - "keep interpolation reference distinct from arbitrage-aware SSVI"
+    selection_rule: "reference only"
+    related_experiment_ids: ["M01", "S09"]
+
+  - method_id: "M02"
+    title: "Raw SVI smile"
+    category: "pricing_model"
+    role: "parsimonious per-expiry surface fit"
+    assumptions:
+      - "total variance versus log-forward-moneyness follows raw SVI"
+    strengths:
+      - "fast and flexible skew/wing fit"
+    weaknesses:
+      - "unconstrained calibration can violate butterfly or calendar arbitrage"
+    implementation_implications:
+      - "fit in total variance; run analytic/discrete arbitrage tests"
+      - "never feed unchecked raw SVI directly to Dupire"
+    selection_rule: "retain as baseline even if SSVI is preferred"
+    related_experiment_ids: ["M02", "C08"]
+    primary_reference: "Gatheral 2004 conference item; later slide URL returned HTTP 502 during the study"
+    supporting_reference: "https://doi.org/10.1137/120900320"
+
+  - method_id: "M03"
+    title: "Arbitrage-aware SSVI surface"
+    category: "pricing_model"
+    role: "smooth surface and LocalVol input"
+    assumptions:
+      - "SSVI functional restrictions adequately represent the observed surface"
+      - "calibrated functions satisfy no-static-arbitrage conditions"
+    strengths:
+      - "smooth across strikes/maturities"
+      - "explicit static-arbitrage conditions"
+    weaknesses:
+      - "constraints can reduce fit"
+      - "finite grids and extrapolation still require diagnostics"
+    implementation_implications:
+      - "report fit and all residual arbitrage diagnostics"
+      - "use total-variance derivatives for Dupire with denominator safeguards"
+    selection_rule: "preferred smooth surface if DEV checks pass"
+    related_experiment_ids: ["M02", "M04", "C08", "S03"]
+    primary_reference: "https://doi.org/10.1080/14697688.2013.819986"
+
+  - method_id: "M10"
+    title: "Developer Heston characteristic-function model"
+    category: "pricing_model"
+    role: "primary developer model"
+    assumptions:
+      - "square-root stochastic variance with constant parameters per calibration"
+      - "constant spot/variance correlation and diffusion-only spot dynamics"
+      - "European payoff and consistent deterministic curves"
+    strengths:
+      - "structural smile/skew with semi-analytic vanilla pricing"
+      - "well suited to batched GPU calibration"
+    weaknesses:
+      - "parameter identifiability and instability"
+      - "branch, quadrature, cancellation, and tail-truncation errors"
+      - "misses jumps and richer surface dynamics"
+    implementation_implications:
+      - "stable trap-resistant complex-log formulation"
+      - "explicit quadrature/tail tolerances and FP64 default"
+      - "GPU vectorization over parameters, contracts, and nodes"
+      - "no reuse in M11/M12"
+    selection_rule: "freeze v1.0 after DEV objective/optimizer/Feller studies"
+    related_experiment_ids: ["N02", "N03", "N09", "N10", "C01-C09", "M03", "S01-S10"]
+    primary_reference: "https://doi.org/10.1093/rfs/6.2.327"
+
+  - method_id: "M11"
+    title: "Independent Heston Monte Carlo validator"
+    category: "independent_numerical_validator"
+    role: "stochastic independent challenge"
+    assumptions:
+      - "discretization bias and sampling uncertainty are quantified"
+      - "random-number and payoff implementation are independent of M10"
+    strengths:
+      - "conceptually distinct from Fourier integration"
+      - "confidence intervals expose sampling uncertainty"
+      - "GPU-friendly path batching"
+    weaknesses:
+      - "computationally expensive"
+      - "small discrepancies can be hidden by sampling error"
+    implementation_implications:
+      - "compare full-truncation Euler and QE-type schemes"
+      - "test path/time-step convergence, antithetic/control variates, and seeds"
+      - "use one coordinated GPU executor and adaptive path chunks"
+    selection_rule: "research-scale execution only after CPU/reference agreement"
+    related_experiment_ids: ["N04", "N05", "N06", "N09", "N10"]
+    primary_references:
+      - "https://doi.org/10.1080/14697680802392496"
+      - "https://doi.org/10.21314/JCF.2008.189"
+
+  - method_id: "M12"
+    title: "Independent Heston PDE validator"
+    category: "independent_numerical_validator"
+    role: "deterministic independent challenge"
+    assumptions:
+      - "finite spatial domain and boundaries approximate the infinite-domain problem"
+      - "nonuniform grids resolve payoff and variance-boundary behavior"
+    strengths:
+      - "independent of developer Fourier kernel and MC sampling"
+      - "deterministic convergence study"
+    weaknesses:
+      - "two-dimensional mixed derivative and degenerate v=0 boundary are demanding"
+      - "grid/boundary errors can dominate"
+    implementation_implications:
+      - "benchmark Modified Craig-Sneyd and Hundsdorfer-Verwer"
+      - "separate spot, variance, and time convergence"
+      - "benchmark CPU vs CuPy before selecting backend"
+    selection_rule: "backend chosen by accuracy and end-to-end benchmark, not GPU mandate alone"
+    related_experiment_ids: ["N07", "N08", "N09", "N10"]
+    primary_references:
+      - "https://www.global-sci.com/ijnam/article/view/9955"
+      - "https://doi.org/10.1016/j.apnum.2005.11.011"
+
+  - method_id: "M20"
+    title: "Dupire Local Volatility challenger"
+    category: "challenger_model"
+    role: "model-form challenge"
+    assumptions:
+      - "a smooth arbitrage-aware surface supports stable derivatives"
+      - "one-factor Markov diffusion is an adequate challenger representation"
+    strengths:
+      - "fits contemporaneous vanilla surface in the ideal construction"
+      - "different dynamics and Greeks from Heston"
+    weaknesses:
+      - "high sensitivity to surface noise and extrapolation"
+      - "surface fit does not validate future dynamics"
+    implementation_implications:
+      - "derive only from SSVI/equivalent smooth surface"
+      - "flag negative/undefined local variance and regularization dependence"
+      - "keep code separate from Heston developer"
+    selection_rule: "include when the surface passes derivative/arbitrage sanity tests"
+    related_experiment_ids: ["M04", "S03", "S09", "A06", "A07"]
+    primary_reference: "https://www.risk.net/sites/default/files/import_unmanaged/risk.net/data/Pay_per_view/risk/technical/1994/risk_0194_volatility.pdf"
+
+  - method_id: "M21"
+    title: "Bates stochastic-volatility-with-jumps challenger"
+    category: "challenger_model"
+    role: "jump-risk model-form challenge and synthetic truth"
+    assumptions:
+      - "jump intensity and jump-size distribution are stable enough to estimate"
+      - "surface coverage identifies additional parameters"
+    strengths:
+      - "represents discontinuous returns and short-maturity tails"
+    weaknesses:
+      - "more parameters, weak identification, higher calibration cost"
+    implementation_implications:
+      - "use stable transform logic and global-plus-local calibration"
+      - "record nonconvergence and flat profiles honestly"
+    selection_rule: "execute when numerically practical; never fabricate unavailable Bates results"
+    related_experiment_ids: ["M05", "S02", "S10", "A06"]
+    primary_reference: "https://doi.org/10.1093/rfs/9.1.69"
+
+  - method_id: "M90"
+    title: "QuantLib Heston external oracle"
+    category: "external_oracle"
+    role: "third-party implementation cross-check"
+    assumptions:
+      - "dates, curves, day count, evaluation date, parameters, and integration settings match"
+    strengths:
+      - "mature independent codebase and multiple Heston engines"
+    weaknesses:
+      - "shared published formulas limit conceptual independence"
+      - "convention mismatch can create false discrepancies"
+    implementation_implications:
+      - "pin QuantLib version and serialize complete case conventions"
+      - "do not wrap QuantLib as the project implementation"
+    selection_rule: "mandatory representative cross-check if compatible package is available"
+    related_experiment_ids: ["N02", "N03", "N08"]
+    primary_reference: "https://github.com/lballabio/QuantLib/blob/master/ql/pricingengines/vanilla/analytichestonengine.hpp"
+
+  - method_id: "C00"
+    title: "Raw price RMSE"
+    category: "calibration_objective"
+    role: "baseline objective"
+    assumptions:
+      - "absolute price errors are the relevant homogeneous scale"
+    strengths: ["simple", "direct valuation interpretation"]
+    weaknesses:
+      - "expensive/ITM options dominate"
+      - "ignores spread and vega heteroskedasticity"
+    implementation_implications: ["report currency units and per-date aggregation"]
+    selection_rule: "baseline; choose developer objective on DEV only"
+    related_experiment_ids: ["C01"]
+
+  - method_id: "C01"
+    title: "Implied-volatility RMSE"
+    category: "calibration_objective"
+    role: "surface-shape objective"
+    assumptions:
+      - "IV inversion is reliable and IV errors are comparably meaningful"
+    strengths: ["normalizes much of the price scale", "direct smile interpretation"]
+    weaknesses:
+      - "unstable near bounds or very low vega"
+      - "can overemphasize economically tiny prices"
+    implementation_implications: ["exclude only through auditable IV status codes"]
+    selection_rule: "compare on DEV"
+    related_experiment_ids: ["C01"]
+
+  - method_id: "C02"
+    title: "Vega-weighted IV loss"
+    category: "calibration_objective"
+    role: "price-scale-aware IV objective"
+    assumptions:
+      - "first-order vega mapping gives an appropriate economic scale"
+    strengths: ["reduces low-vega IV domination", "connects IV residual to price sensitivity"]
+    weaknesses: ["weight floors/caps required", "model/market vega choice matters"]
+    implementation_implications: ["document exact vega source and scaling"]
+    selection_rule: "compare on DEV and stress weight floor"
+    related_experiment_ids: ["C01", "C09"]
+
+  - method_id: "C03"
+    title: "Spread-normalized price loss"
+    category: "calibration_objective"
+    role: "quote-uncertainty-aware objective"
+    assumptions:
+      - "bid-ask spread is an appropriate error scale"
+    strengths: ["economically interpretable relative to quoted uncertainty"]
+    weaknesses: ["tight stale quotes can dominate", "spread floor is consequential"]
+    implementation_implications: ["pre-register and sensitivity-test spread floor"]
+    selection_rule: "compare on DEV; never tune floor on locked data"
+    related_experiment_ids: ["C01", "C09"]
+
+  - method_id: "C04"
+    title: "Huber-style robust calibration loss"
+    category: "calibration_objective"
+    role: "outlier-resistant objective"
+    assumptions:
+      - "bulk residuals are informative and gross contamination is sparse"
+    strengths: ["bounded outlier influence"]
+    weaknesses: ["threshold and residual scale choices can mask real model misspecification"]
+    implementation_implications: ["report raw residuals alongside robust objective"]
+    selection_rule: "select only from DEV evidence"
+    related_experiment_ids: ["C01", "C09"]
+
+  - method_id: "O00"
+    title: "Bounded local optimizer"
+    category: "optimizer"
+    role: "fast local baseline/refinement"
+    assumptions: ["initialization is near an adequate basin"]
+    strengths: ["fast", "mature convergence diagnostics"]
+    weaknesses: ["local minima", "initialization sensitivity"]
+    implementation_implications: ["explicit bounds and termination criteria"]
+    selection_rule: "baseline and refinement stage"
+    related_experiment_ids: ["C02", "C03"]
+
+  - method_id: "O01"
+    title: "Multi-start bounded local optimization"
+    category: "optimizer"
+    role: "local-minimum and identifiability probe"
+    assumptions: ["start design covers relevant parameter space"]
+    strengths: ["simple parallelism", "solution-dispersion evidence"]
+    weaknesses: ["can miss narrow basins", "cost grows with starts"]
+    implementation_implications: ["reproducible stratified start design"]
+    selection_rule: "mandatory diagnostic even if not final optimizer"
+    related_experiment_ids: ["C02", "C03", "C06"]
+
+  - method_id: "O02"
+    title: "Differential Evolution"
+    category: "optimizer"
+    role: "global population baseline"
+    assumptions: ["bounded parameter domain is defensible"]
+    strengths: ["less initialization-sensitive", "population evaluations batch well on GPU"]
+    weaknesses: ["many objective evaluations", "stochastic convergence"]
+    implementation_implications: ["single GPU executor evaluates population in large batches"]
+    selection_rule: "compare objective, runtime, and failure rate on DEV"
+    related_experiment_ids: ["C02", "C03", "N09"]
+
+  - method_id: "O03"
+    title: "Differential Evolution plus local refinement"
+    category: "optimizer"
+    role: "candidate developer calibration method"
+    assumptions: ["global stage reaches a useful basin and local stage can polish it"]
+    strengths: ["global exploration plus precise convergence"]
+    weaknesses: ["highest baseline cost", "requires careful handoff and reproducibility"]
+    implementation_implications: ["store population seed, best candidate, and refinement trace"]
+    selection_rule: "candidate final method if DEV reliability gain justifies cost"
+    related_experiment_ids: ["C02", "C03"]
+
+  - method_id: "UNC-BOOT"
+    title: "Quote-uncertainty bootstrap calibration"
+    category: "uncertainty"
+    role: "E_cal"
+    assumptions:
+      - "resampling/perturbation model realistically represents quote uncertainty"
+      - "bootstrap replicates preserve surface structure where required"
+    strengths: ["parameter, price, and Greek uncertainty distributions"]
+    weaknesses: ["results depend on observation model", "expensive repeated calibration"]
+    implementation_implications:
+      - "estimate observation model from real data where possible"
+      - "GPU-batch pricing/populations; checkpoint every replicate batch"
+    selection_rule: "mandatory calibration gate component"
+    related_experiment_ids: ["C05", "A03"]
+
+  - method_id: "IDENT-PROFILE"
+    title: "Profile-objective identifiability analysis"
+    category: "identifiability"
+    role: "E_ident"
+    formula: "PL(theta_j) = min_{theta_-j} Loss(theta)"
+    assumptions: ["conditional optimizations are solved sufficiently well"]
+    strengths: ["reveals flat/asymmetric/nonunique parameter directions"]
+    weaknesses: ["computationally expensive", "optimizer failure can mimic non-identification"]
+    implementation_implications:
+      - "combine with multistart dispersion and parameter correlation"
+      - "store conditional optimizer status at every profile point"
+    selection_rule: "mandatory calibration gate component"
+    related_experiment_ids: ["C06", "A04"]
+
+  - method_id: "DVE-V06"
+    title: "Full DerivGuard Validation Evidence"
+    category: "validation_framework"
+    role: "primary interpretable validator"
+    assumptions:
+      - "evidence features available before the evaluation point"
+      - "thresholds and regimes fixed on DEV/VALIDATION before LOCKED TEST"
+      - "material error labels are preregistered in synthetic truth"
+    strengths:
+      - "retains distinct data, numerical, calibration, identifiability, parameter, form, Greek, extrapolation, and outcome evidence"
+      - "supports transparent ablation and root-cause analysis"
+    weaknesses:
+      - "multiple signals can be correlated"
+      - "regime conditioning can overfit small samples"
+      - "not a probability of failure"
+    implementation_implications:
+      - "compare against V00-V05"
+      - "report evidence vector plus separate materiality"
+      - "evaluate Recall@5%FPR, AUPRC, AUROC, false alarms, and miss rate"
+    selection_rule: "freeze thresholds before synthetic and real locked tests"
+    related_experiment_ids: ["S01-S10", "A01-A11", "R01-R08", "P01-P06"]
+
+compute_backends:
+  - backend_id: "CPU-NUMPY-SCIPY"
+    role: "independent reference, orchestration, robust regression, statistics"
+    strengths: ["mature FP64", "broad solver availability", "easy deterministic spot checks"]
+    weaknesses: ["not acceptable for silent research-scale replacement of parallel GPU work"]
+    selection_rule: "default for bounded reference and nonparallel tasks"
+
+  - backend_id: "GPU-PYTORCH"
+    role: "batched CF, MC, synthetic generation, bootstrap/population evaluation, stress grids"
+    strengths: ["vectorized CUDA tensors", "autograd if justified", "mature memory/timing APIs"]
+    weaknesses: ["asynchronous timing pitfalls", "consumer-GPU FP64 throughput limitations", "OOM risk"]
+    required_controls:
+      - "CPython 3.12 on Windows per current support guidance"
+      - "FP64 default for final pricing"
+      - "synchronized timing"
+      - "adaptive chunks and logged OOM reduction"
+      - "CPU/reference numerical agreement before scale-up"
+    selection_rule: "mandatory for appropriate research-scale workloads after agreement gate"
+    primary_reference: "https://docs.pytorch.org/docs/main/notes/cuda.html"
+
+  - backend_id: "GPU-CUPY"
+    role: "candidate PDE/sparse and compatible array workloads"
+    strengths: ["NumPy/SciPy-like API", "cuSPARSE integration", "FP64/complex128 support"]
+    weaknesses: ["incomplete SciPy parity", "solver/index limitations", "transfer overhead"]
+    required_controls:
+      - "verify installed-version operations"
+      - "compare accuracy and end-to-end runtime with CPU"
+    selection_rule: "use only where accuracy is acceptable and acceleration meaningful"
+    primary_reference: "https://docs.cupy.dev/en/latest/reference/scipy_sparse.html"
+
+cross_cutting_rules:
+  numerical_precision:
+    default: "float64 / complex128 for final pricing and validation"
+    prohibited_default: "FP16/BF16"
+    sensitivity: "compare precision only in N10 and retain reference error"
+  independence:
+    - "M11 and M12 must not import or call the M10 characteristic-function kernel."
+    - "Validator Greeks and calibration code must be separate from developer implementations."
+    - "Shared immutable schemas, units, contracts, and basic containers are allowed."
+  threshold_freeze:
+    - "method/objective/optimizer choices use DEV only"
+    - "DVE thresholds/regimes use DEV and validation, then freeze"
+    - "no locked-test threshold adaptation"
+  real_data_inference:
+    sampling_unit: "market date / option surface"
+    prohibited_assumption: "individual option rows are IID"
+  materiality:
+    rule: "risk evidence and economic materiality remain separate outputs"

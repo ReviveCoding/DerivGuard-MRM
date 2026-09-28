@@ -1,0 +1,16 @@
+{
+  "all_rows_measured_or_explicitly_unavailable": true,
+  "canonical_t12": "C:\\Users\\bjw-0\\Downloads\\DerivGuard-MRM\\results\\aggregated\\T12_CPU_GPU_PERFORMANCE.csv",
+  "canonical_t12_sha256": "b0f560c19c2c38c73d4e750f77d2164231c49dbdefe706de095fab7162921f73",
+  "device": "cuda",
+  "end_timestamp": "2026-09-27T09:53:28.694351+00:00",
+  "profile": "research",
+  "result": "C:\\Users\\bjw-0\\Downloads\\DerivGuard-MRM\\results\\aggregated\\final_compute_benchmarks.csv",
+  "result_sha256": "814aaffc098938575dbc21d4ddc6ffd88f71f68211929c1d332fad131d7de3e5",
+  "rows": 8,
+  "schema_version": "1.0",
+  "selection_rule": "GPU only when measured accuracy passes and runtime improves",
+  "start_timestamp": "2026-09-27T09:52:23.932416+00:00",
+  "tolerance_registry": "C:\\Users\\bjw-0\\Downloads\\DerivGuard-MRM\\configs\\numerical_tolerances.yaml",
+  "tolerance_registry_sha256": "7ef34c0f3c48e80d23a22a166a2213c504059ec952be5f94a5e29adab145fa32"
+}

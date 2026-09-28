@@ -1,0 +1,82 @@
+schema_version: "1.0"
+registry_status: FROZEN_FOR_DEVELOPER_RELEASE_V1_0
+frozen_at_utc: "2026-09-27T09:03:00Z"
+scientific_values_unchanged_from_sha256: "1ca4fc50ef908b9b6ccd76fb9a4b861dc49e0014a4996e99555adc5b5f2de3e7"
+purpose: Central registry; no hidden numerical acceptance tolerances are permitted.
+governance:
+  change_policy: >-
+    Changes require rationale, reviewer sign-off, config-hash update, and rerun
+    of affected tests. Tolerances must never be weakened merely to pass tests.
+  freeze_before: developer_release_v1.0
+  default_reference_precision: float64
+  default_gpu_pricing_precision: float64
+  forbidden_default_precisions: [float16, bfloat16]
+
+tolerances:
+  black_scholes:
+    price_absolute: 1.0e-10
+    price_relative: 1.0e-10
+    put_call_parity_absolute: 1.0e-10
+    bound_slack_absolute: 1.0e-12
+    greek_finite_difference_relative: 2.0e-5
+    expiry_limit_absolute: 1.0e-9
+    rationale: Analytic FP64 formulas should agree close to floating-point and finite-difference truncation limits.
+  implied_volatility:
+    price_roundtrip_absolute: 1.0e-9
+    volatility_absolute: 1.0e-8
+    root_function_absolute: 1.0e-12
+    max_iterations: 200
+    minimum_volatility: 1.0e-8
+    maximum_volatility: 10.0
+    bound_slack_absolute: 1.0e-12
+    rationale: Bracketed inversion must reproduce price while safely handling flat-vega regions.
+  heston_cf_reference:
+    price_absolute: 2.0e-6
+    price_relative: 2.0e-6
+    stress_price_absolute: 2.0e-5
+    stress_price_relative: 2.0e-5
+    integration_error_target: 1.0e-8
+    rationale: Provisional FP64 cross-engine tolerance, subject to convergence and QuantLib convention checks.
+  cpu_gpu:
+    float64_absolute: 5.0e-7
+    float64_relative: 5.0e-7
+    monte_carlo_standard_error_multiple: 3.0
+    deterministic_repeat_absolute: 0.0
+    rationale: Deterministic pricing should agree tightly; Monte Carlo comparisons must incorporate sampling uncertainty.
+  monte_carlo:
+    confidence_level: 0.95
+    convergence_standard_error_multiple: 3.0
+    reference_bias_standard_error_multiple: 3.0
+    minimum_convergence_levels: 3
+    minimum_independent_seeds: 5
+    rationale: Acceptance is uncertainty-aware and requires path/time-step convergence, not a single seed.
+  pde:
+    reference_price_absolute: 5.0e-4
+    reference_price_relative: 5.0e-4
+    successive_grid_absolute: 2.5e-4
+    successive_grid_relative: 2.5e-4
+    minimum_grid_levels: 3
+    negative_price_slack: 1.0e-10
+    rationale: Provisional ADI convergence target to be validated across difficult regimes and boundaries.
+  svi_ssvi:
+    total_variance_floor: 1.0e-12
+    butterfly_density_slack: 1.0e-8
+    calendar_variance_slack: 1.0e-8
+    fit_optimizer_gradient_norm: 1.0e-6
+    rationale: Small numerical slack is separated from economically material static-arbitrage evidence.
+  local_volatility:
+    denominator_floor: 1.0e-10
+    local_variance_floor: 0.0
+    derivative_step_relative: 1.0e-4
+    rationale: Guard singular Dupire evaluations and explicitly flag repairs rather than hide them.
+  data_arbitrage_diagnostics:
+    price_bound_slack_absolute: 1.0e-8
+    monotonicity_slack_absolute: 1.0e-8
+    convexity_slack_absolute: 1.0e-8
+    parity_residual_spread_units_warning: 2.0
+    rationale: Numerical slack only; market-quality thresholds must be estimated and frozen separately.
+  optimization:
+    objective_relative_change: 1.0e-8
+    parameter_step_relative: 1.0e-8
+    gradient_norm: 1.0e-6
+    rationale: Convergence flags do not establish global optimality; multi-start and population checks remain required.

@@ -1,0 +1,86 @@
+{
+  "V00": {
+    "auprc": 1.0,
+    "auroc": 1.0,
+    "baseline": "V00",
+    "false_alarm_rate": 0.0,
+    "locked_false_positive_rate": 0.0,
+    "material_risk_miss_rate": 0.0,
+    "negatives": 14,
+    "observations": 17,
+    "positives": 3,
+    "recall_at_dev_5pct_fpr": 1.0
+  },
+  "V01": {
+    "auprc": 0.17647058823529413,
+    "auroc": 0.5,
+    "baseline": "V01",
+    "false_alarm_rate": 0.0,
+    "locked_false_positive_rate": 0.0,
+    "material_risk_miss_rate": 1.0,
+    "negatives": 14,
+    "observations": 17,
+    "positives": 3,
+    "recall_at_dev_5pct_fpr": 0.0
+  },
+  "V02": {
+    "auprc": 0.9166666666666666,
+    "auroc": 0.9761904761904762,
+    "baseline": "V02",
+    "false_alarm_rate": 0.0,
+    "locked_false_positive_rate": 0.0,
+    "material_risk_miss_rate": 0.33333333333333337,
+    "negatives": 14,
+    "observations": 17,
+    "positives": 3,
+    "recall_at_dev_5pct_fpr": 0.6666666666666666
+  },
+  "V03": {
+    "auprc": 0.29365079365079366,
+    "auroc": 0.5952380952380952,
+    "baseline": "V03",
+    "false_alarm_rate": 0.07142857142857142,
+    "locked_false_positive_rate": 0.07142857142857142,
+    "material_risk_miss_rate": 1.0,
+    "negatives": 14,
+    "observations": 17,
+    "positives": 3,
+    "recall_at_dev_5pct_fpr": 0.0
+  },
+  "V04": {
+    "auprc": 0.1227124183006536,
+    "auroc": 0.0,
+    "baseline": "V04",
+    "false_alarm_rate": 0.07142857142857142,
+    "locked_false_positive_rate": 0.07142857142857142,
+    "material_risk_miss_rate": 1.0,
+    "negatives": 14,
+    "observations": 17,
+    "positives": 3,
+    "recall_at_dev_5pct_fpr": 0.0
+  },
+  "V05": {
+    "auprc": 0.625,
+    "auroc": 0.8333333333333334,
+    "baseline": "V05",
+    "false_alarm_rate": 0.07142857142857142,
+    "locked_false_positive_rate": 0.07142857142857142,
+    "material_risk_miss_rate": 0.6666666666666667,
+    "negatives": 14,
+    "observations": 17,
+    "positives": 3,
+    "recall_at_dev_5pct_fpr": 0.3333333333333333
+  },
+  "V06": {
+    "auprc": 0.625,
+    "auroc": 0.8333333333333334,
+    "baseline": "V06",
+    "false_alarm_rate": 0.07142857142857142,
+    "locked_false_positive_rate": 0.07142857142857142,
+    "material_risk_miss_rate": 0.6666666666666667,
+    "negatives": 14,
+    "observations": 17,
+    "positives": 3,
+    "recall_at_dev_5pct_fpr": 0.3333333333333333
+  }
+}

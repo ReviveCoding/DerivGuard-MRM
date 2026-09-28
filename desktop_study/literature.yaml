@@ -1,0 +1,577 @@
+schema_version: "1.0"
+study_date: "2026-09-27"
+retrieval_date: "2026-09-27"
+scope_note: >-
+  Sources were selected for direct relevance to DerivGuard-MRM and prioritized
+  toward regulators, exchanges, official software documentation, original
+  research papers, and author or publisher records. Access status describes
+  what was verified during the desktop study, not what is licensed for bulk reuse.
+
+records:
+  - id: REG-SR26-2
+    title: "Revised Guidance on Model Risk Management"
+    authors:
+      - "Board of Governors of the Federal Reserve System"
+      - "Office of the Comptroller of the Currency"
+      - "Federal Deposit Insurance Corporation"
+    year: 2026
+    publication: "Federal Reserve Supervision and Regulation Letter SR 26-2"
+    url: "https://www.federalreserve.gov/supervisionreg/srletters/SR2602.htm"
+    doi: null
+    source_type: "regulatory_guidance"
+    access_status: "public full text; verified accessible"
+    retrieved_at: "2026-09-27"
+    method: "Risk-based model-risk-management principles and supervisory framing."
+    assumptions:
+      - "Practices should be tailored to model risk, model usage, and organizational size and complexity."
+      - "The guidance is principally relevant to banking organizations above the stated asset threshold."
+    strengths:
+      - "Current interagency guidance."
+      - "Explicitly links inherent risk, exposure, purpose, use, and materiality."
+      - "Covers development, use, validation, monitoring, governance, inventory, documentation, and third parties."
+    weaknesses:
+      - "Principles-based rather than a prescriptive validation test specification."
+      - "DerivGuard is research, not a supervised-bank approval process."
+    implementation_implications:
+      - "Use the guidance as a governance mapping, not as a claim of regulatory compliance."
+      - "Separate risk evidence from economic materiality."
+      - "Maintain inventory, intended use, limitations, effective challenge, findings, remediation, and monitoring."
+    related_experiment_ids: ["A01-A11", "R01-R08", "P01-P06"]
+
+  - id: REG-SR11-7-HIST
+    title: "Supervisory Guidance on Model Risk Management"
+    authors:
+      - "Board of Governors of the Federal Reserve System"
+      - "Office of the Comptroller of the Currency"
+    year: 2011
+    publication: "Federal Reserve SR 11-7 attachment"
+    url: "https://www.federalreserve.gov/boarddocs/srletters/2011/sr1107a1.pdf"
+    doi: null
+    source_type: "superseded_regulatory_guidance"
+    access_status: "public PDF; verified accessible; superseded by SR 26-2 on 2026-04-17"
+    retrieved_at: "2026-09-27"
+    method: "Historical three-pillar framing of development, validation, and governance."
+    assumptions:
+      - "Included here for historical continuity only."
+    strengths:
+      - "Influential articulation of conceptual soundness, ongoing monitoring, and outcomes analysis."
+    weaknesses:
+      - "No longer the current Federal Reserve model-risk guidance."
+    implementation_implications:
+      - "Do not cite SR 11-7 as the current controlling guidance."
+      - "Where legacy terminology is used, reconcile it to SR 26-2."
+    related_experiment_ids: []
+
+  - id: METH-HESTON-1993
+    title: "A Closed-Form Solution for Options with Stochastic Volatility with Applications to Bond and Currency Options"
+    authors: ["Steven L. Heston"]
+    year: 1993
+    publication: "The Review of Financial Studies 6(2), 327-343"
+    url: "https://doi.org/10.1093/rfs/6.2.327"
+    doi: "10.1093/rfs/6.2.327"
+    source_type: "peer_reviewed_article"
+    access_status: "publisher metadata verified; public copies exist; publisher full text may be access-controlled"
+    retrieved_at: "2026-09-27"
+    method: "Affine stochastic-variance model with a semi-analytic characteristic-function solution for European options."
+    assumptions:
+      - "Spot follows a diffusion with square-root stochastic variance."
+      - "Variance mean reverts and spot/variance Brownian motions have constant correlation."
+      - "Risk-neutral parameters and term structures are specified consistently."
+    strengths:
+      - "Captures smile/skew mechanisms absent from constant-volatility Black-Scholes."
+      - "Semi-analytic vanilla pricing is suitable for calibration and batching."
+    weaknesses:
+      - "Five parameters can be weakly identified."
+      - "Diffusion-only dynamics omit price jumps."
+      - "Naive characteristic-function implementations can suffer branch and integration problems."
+    implementation_implications:
+      - "Primary developer model M10."
+      - "Use stable characteristic function, explicit quadrature controls, and independent validators."
+      - "Test both Feller-satisfied and Feller-violating regions."
+    related_experiment_ids: ["N02", "N03", "N09", "N10", "C01-C09", "M03", "S01"]
+
+  - id: METH-SVI-2004
+    title: "A Parsimonious Arbitrage-Free Implied Volatility Parameterization with Application to the Valuation of Volatility Derivatives"
+    authors: ["Jim Gatheral"]
+    year: 2004
+    publication: "Global Derivatives conference presentation, Madrid"
+    url: "https://mfe.baruch.cuny.edu/wp-content/uploads/2013/01/OsakaSVI2012.pdf"
+    doi: null
+    source_type: "conference_methodology"
+    access_status: >-
+      The later author-presentation URL was identified, but the retrieval attempt
+      returned HTTP 502 during this study. The 2004 conference citation was
+      independently verified in the reference list of Guo et al. (2016),
+      https://doi.org/10.1137/120900320. No DOI is asserted for the 2004 item.
+    retrieved_at: "2026-09-27"
+    method: "Five-parameter raw SVI representation of implied total variance by log-moneyness."
+    assumptions:
+      - "A parsimonious parametric smile is adequate per maturity."
+      - "Additional constraints/checks are required for static arbitrage control."
+    strengths:
+      - "Flexible skew and wing representation with few parameters."
+      - "Fast calibration and widely used benchmark."
+    weaknesses:
+      - "Unconstrained slice calibration can create butterfly or calendar arbitrage."
+      - "Cross-maturity consistency is not automatic."
+    implementation_implications:
+      - "Implement raw SVI as M02 and diagnostic baseline."
+      - "Do not differentiate raw unconstrained fits for local volatility."
+    related_experiment_ids: ["M02", "C08", "S03"]
+
+  - id: METH-SSVI-2014
+    title: "Arbitrage-Free SVI Volatility Surfaces"
+    authors: ["Jim Gatheral", "Antoine Jacquier"]
+    year: 2014
+    publication: "Quantitative Finance 14(1), 59-71"
+    url: "https://doi.org/10.1080/14697688.2013.819986"
+    doi: "10.1080/14697688.2013.819986"
+    source_type: "peer_reviewed_article"
+    access_status: "publisher metadata verified; author preprint publicly accessible at https://arxiv.org/abs/1204.0646"
+    retrieved_at: "2026-09-27"
+    method: "Surface SVI parameterization with explicit sufficient conditions for absence of static arbitrage."
+    assumptions:
+      - "Total variance can be represented by the SSVI functional form."
+      - "Term-structure and skew functions satisfy stated conditions."
+    strengths:
+      - "Smooth cross-strike/cross-maturity construction."
+      - "Analytically tractable static-arbitrage constraints."
+      - "Natural input to Dupire differentiation."
+    weaknesses:
+      - "Sufficient conditions and functional restrictions can limit fit."
+      - "Numerical calibration and extrapolation can still leave practical violations."
+    implementation_implications:
+      - "Use as M03 and preferred smooth surface for local volatility."
+      - "Run independent discrete monotonicity, convexity, and calendar tests after calibration."
+    related_experiment_ids: ["M02", "M04", "C08", "S03", "A06"]
+
+  - id: METH-DUPIRE-1994
+    title: "Pricing with a Smile"
+    authors: ["Bruno Dupire"]
+    year: 1994
+    publication: "Risk, January 1994"
+    url: "https://www.risk.net/sites/default/files/import_unmanaged/risk.net/data/Pay_per_view/risk/technical/1994/risk_0194_volatility.pdf"
+    doi: null
+    source_type: "original_method_article"
+    access_status: "public Risk-hosted PDF verified; no DOI asserted"
+    retrieved_at: "2026-09-27"
+    method: "Derives a local-volatility diffusion consistent with a sufficiently smooth European option-price surface."
+    assumptions:
+      - "Underlying dynamics are a one-factor diffusion with deterministic local volatility."
+      - "A smooth, arbitrage-consistent option surface and consistent rates/dividends are available."
+    strengths:
+      - "Fits the contemporaneous vanilla surface by construction in the ideal continuum limit."
+      - "Provides a distinct state-dependent volatility challenger."
+    weaknesses:
+      - "Second derivatives amplify quote and interpolation noise."
+      - "Extrapolation and sparse maturities can destabilize local variance."
+      - "Surface fit does not imply correct dynamics."
+    implementation_implications:
+      - "Differentiate an SSVI/equivalent smooth total-variance surface, never raw IV quotes."
+      - "Flag negative/undefined local variance and report regularization sensitivity."
+    related_experiment_ids: ["M04", "S03", "S09", "A06"]
+
+  - id: METH-BATES-1996
+    title: "Jumps and Stochastic Volatility: Exchange Rate Processes Implicit in Deutsche Mark Options"
+    authors: ["David S. Bates"]
+    year: 1996
+    publication: "The Review of Financial Studies 9(1), 69-107"
+    url: "https://doi.org/10.1093/rfs/9.1.69"
+    doi: "10.1093/rfs/9.1.69"
+    source_type: "peer_reviewed_article"
+    access_status: "publisher metadata and DOI verified; full text may be access-controlled"
+    retrieved_at: "2026-09-27"
+    method: "Stochastic volatility augmented with discontinuous returns/jumps."
+    assumptions:
+      - "Jump arrival and jump-size distribution are parameterized and stable over the calibration window."
+      - "Risk-neutral jump parameters are identifiable from available options."
+    strengths:
+      - "Adds short-maturity tail and skew mechanisms unavailable to diffusion-only Heston."
+      - "Useful controlled misspecification truth and challenger."
+    weaknesses:
+      - "Additional parameters exacerbate identifiability and optimizer risk."
+      - "Calibration is costlier and can overfit sparse surfaces."
+    implementation_implications:
+      - "Use as M21 and SYN-BATES, subject to numerical-practicality gate."
+      - "Treat failed or weakly identified calibrations as results."
+    related_experiment_ids: ["M05", "S02", "S10", "A06"]
+
+  - id: NUM-KAHL-JAECKEL-2005
+    title: "Not-so-complex Logarithms in the Heston Model"
+    authors: ["Christian Kahl", "Peter Jäckel"]
+    year: 2005
+    publication: "Wilmott Magazine; author manuscript updated 2006"
+    url: "https://www2.math.uni-wuppertal.de/~kahl/publications/NotSoComplexLogarithmsInTheHestonModel.pdf"
+    doi: null
+    source_type: "technical_article"
+    access_status: "author/institution-hosted full text verified"
+    retrieved_at: "2026-09-27"
+    method: "Analyzes complex-log branch discontinuities and stable evaluation of the Heston characteristic function."
+    assumptions:
+      - "Semi-analytic Heston pricing is implemented through Fourier inversion."
+    strengths:
+      - "Directly addresses moderate/long-maturity and strong-mean-reversion instability."
+    weaknesses:
+      - "Stable log handling does not eliminate quadrature or cancellation error."
+    implementation_implications:
+      - "Build explicit branch-stability stress tests and avoid naive principal-log evaluation."
+    related_experiment_ids: ["N02", "N03", "N09", "N10"]
+
+  - id: NUM-ALBRECHER-2007
+    title: "The Little Heston Trap"
+    authors: ["Hansjörg Albrecher", "Philipp A. Mayer", "Wim Schoutens", "Jurgen Tistaert"]
+    year: 2007
+    publication: "Wilmott, issue 1, 83-92"
+    url: "https://tugraz.elsevierpure.com/en/publications/the-little-heston-trap/"
+    doi: null
+    source_type: "technical_article"
+    access_status: "institutional bibliographic record verified; preprint publicly available; no DOI found"
+    retrieved_at: "2026-09-27"
+    method: "Compares two Heston characteristic-function specifications and identifies a stable formulation."
+    assumptions:
+      - "European Heston valuation uses a characteristic-function representation with complex operations."
+    strengths:
+      - "Provides a practical formulation designed to avoid the branch trap across unrestricted parameters."
+    weaknesses:
+      - "Does not replace integration-tail and precision analysis."
+    implementation_implications:
+      - "Adopt a trap-resistant formulation and include long-maturity/extreme-parameter regression cases."
+    related_experiment_ids: ["N02", "N03", "N10"]
+
+  - id: NUM-LORD-KAHL-2010
+    title: "Complex Logarithms in Heston-Like Models"
+    authors: ["Roger Lord", "Christian Kahl"]
+    year: 2010
+    publication: "Mathematical Finance 20(4), 671-694"
+    url: "https://doi.org/10.1111/j.1467-9965.2010.00416.x"
+    doi: "10.1111/j.1467-9965.2010.00416.x"
+    source_type: "peer_reviewed_article"
+    access_status: "publisher abstract and metadata verified; full text may be access-controlled"
+    retrieved_at: "2026-09-27"
+    method: "General treatment of multivalued complex logarithms in affine transform models."
+    assumptions:
+      - "Pricing or simulation formulas contain complex logarithms."
+    strengths:
+      - "Extends branch-continuity analysis beyond one formula."
+    weaknesses:
+      - "Implementation still requires independent numerical verification."
+    implementation_implications:
+      - "Use as design and review reference for CF and transform-based Bates code."
+    related_experiment_ids: ["N03", "N10", "M05"]
+
+  - id: MC-LORD-2010
+    title: "A Comparison of Biased Simulation Schemes for Stochastic Volatility Models"
+    authors: ["Roger Lord", "Remmert Koekkoek", "Dick van Dijk"]
+    year: 2010
+    publication: "Quantitative Finance 10(2), 177-194"
+    url: "https://doi.org/10.1080/14697680802392496"
+    doi: "10.1080/14697680802392496"
+    source_type: "peer_reviewed_article"
+    access_status: "institutional record and repository full text verified"
+    retrieved_at: "2026-09-27"
+    method: "Unifies Euler fixes for nonnegative variance and compares biased Heston/CEV-SV simulation schemes."
+    assumptions:
+      - "Time-discretized simulation is acceptable with measured bias and convergence."
+    strengths:
+      - "Identifies full truncation as a strong Euler baseline."
+      - "Emphasizes that the negative-variance fix materially affects bias and RMSE."
+    weaknesses:
+      - "Results do not remove the need for project-specific GPU and payoff convergence tests."
+    implementation_implications:
+      - "Implement full-truncation Euler independently and compare time-step convergence."
+    related_experiment_ids: ["N04", "N05", "N06", "N09"]
+
+  - id: MC-ANDERSEN-2008
+    title: "Simple and Efficient Simulation of the Heston Stochastic Volatility Model"
+    authors: ["Leif Andersen"]
+    year: 2008
+    publication: "Journal of Computational Finance 11(3), 1-42"
+    url: "https://doi.org/10.21314/JCF.2008.189"
+    doi: "10.21314/JCF.2008.189"
+    source_type: "peer_reviewed_article"
+    access_status: "DOI and bibliographic metadata verified; full text access not assumed"
+    retrieved_at: "2026-09-27"
+    method: "Quadratic-exponential simulation schemes for the Heston variance process and asset evolution."
+    assumptions:
+      - "Conditional moment matching and regime-specific variance sampling approximate the transition law."
+    strengths:
+      - "High practical efficiency and accuracy relative to simple Euler schemes."
+      - "Suitable for vectorized GPU implementation."
+    weaknesses:
+      - "Branching/regime logic and martingale correction require careful implementation."
+      - "Still requires time-step and martingale-bias verification."
+    implementation_implications:
+      - "Implement an independent QE-type validator and compare with full truncation using common random numbers."
+    related_experiment_ids: ["N04", "N05", "N06", "N09", "N10"]
+
+  - id: MC-BROADIE-KAYA-2006
+    title: "Exact Simulation of Stochastic Volatility and Other Affine Jump Diffusion Processes"
+    authors: ["Mark Broadie", "Özgür Kaya"]
+    year: 2006
+    publication: "Operations Research 54(2), 217-231"
+    url: "https://doi.org/10.1287/opre.1050.0247"
+    doi: "10.1287/opre.1050.0247"
+    source_type: "peer_reviewed_article"
+    access_status: "publisher abstract and metadata verified; full text may be access-controlled"
+    retrieved_at: "2026-09-27"
+    method: "Exact terminal simulation for Heston and other affine jump diffusions using conditional distributions."
+    assumptions:
+      - "Required numerical inversion/integrated-variance sampling is implemented accurately."
+    strengths:
+      - "Eliminates time-discretization bias in principle."
+      - "Useful conceptual or small-case benchmark."
+    weaknesses:
+      - "Computationally complex and not necessarily efficient for research-scale GPU batching."
+    implementation_implications:
+      - "Use as literature benchmark; do not make exact simulation mandatory for the primary GPU MC validator."
+    related_experiment_ids: ["N04", "N05"]
+
+  - id: PDE-INTHOUT-FOULON-2010
+    title: "ADI Finite Difference Schemes for Option Pricing in the Heston Model with Correlation"
+    authors: ["Karel J. in 't Hout", "Samira Foulon"]
+    year: 2010
+    publication: "International Journal of Numerical Analysis and Modeling 7(2), 303-320"
+    url: "https://www.global-sci.com/ijnam/article/view/9955"
+    doi: null
+    source_type: "peer_reviewed_article"
+    access_status: "journal page and full-text link verified; arXiv preprint https://arxiv.org/abs/0811.3427"
+    retrieved_at: "2026-09-27"
+    method: "Nonuniform finite differences with Douglas, Craig-Sneyd, Modified Craig-Sneyd, and Hundsdorfer-Verwer ADI time stepping."
+    assumptions:
+      - "Heston PDE boundary conditions and spatial truncation are specified consistently."
+      - "Mixed derivative is handled explicitly within an ADI splitting."
+    strengths:
+      - "Directly addresses the correlated two-dimensional Heston PDE."
+      - "Provides realistic test cases and comparative scheme evidence."
+    weaknesses:
+      - "Boundary and grid choices remain problem dependent."
+      - "A literature-stable scheme can still be coded incorrectly."
+    implementation_implications:
+      - "Benchmark MCS and HV, use nonuniform grids, and conduct spot/variance/time convergence separately."
+    related_experiment_ids: ["N07", "N08", "N09", "N10"]
+
+  - id: PDE-INTHOUT-WELFERT-2007
+    title: "Stability of ADI Schemes Applied to Convection-Diffusion Equations with Mixed Derivative Terms"
+    authors: ["Karel J. in 't Hout", "Bruno D. Welfert"]
+    year: 2007
+    publication: "Applied Numerical Mathematics 57(1), 19-35"
+    url: "https://doi.org/10.1016/j.apnum.2005.11.011"
+    doi: "10.1016/j.apnum.2005.11.011"
+    source_type: "peer_reviewed_article"
+    access_status: "institutional record, DOI, and public manuscript verified"
+    retrieved_at: "2026-09-27"
+    method: "Von Neumann stability analysis for ADI schemes with mixed derivatives."
+    assumptions:
+      - "Model problem and spatial discretization satisfy the paper's stability conditions."
+    strengths:
+      - "Provides theoretical support for ADI parameter choices."
+    weaknesses:
+      - "Stability is not the same as accuracy or correct financial boundaries."
+    implementation_implications:
+      - "Select ADI parameters from supported regions, then verify accuracy empirically."
+    related_experiment_ids: ["N07", "N08"]
+
+  - id: ORACLE-QUANTLIB
+    title: "QuantLib Analytic Heston Engine"
+    authors: ["QuantLib contributors"]
+    year: 2026
+    publication: "QuantLib source documentation"
+    url: "https://github.com/lballabio/QuantLib/blob/master/ql/pricingengines/vanilla/analytichestonengine.hpp"
+    doi: null
+    source_type: "official_software_source"
+    access_status: "public source verified; living document, pin installed release"
+    retrieved_at: "2026-09-27"
+    method: "Fourier-based analytic Heston engine with selectable complex-log, integration, and control-variate formulations."
+    assumptions:
+      - "QuantLib conventions, term structures, dates, and parameter ordering are matched exactly."
+    strengths:
+      - "Mature external implementation with several Heston pricing formulations."
+      - "Useful for representative cross-checks and regression cases."
+    weaknesses:
+      - "Not mathematically independent from published Heston formulas."
+      - "Version and convention mismatches can masquerade as numerical errors."
+    implementation_implications:
+      - "Use as M90 external oracle, not as developer or validator implementation."
+      - "Record QuantLib version and engine settings in every cross-check."
+    related_experiment_ids: ["N02", "N03", "N08"]
+
+  - id: COMPUTE-PYTORCH-WINDOWS
+    title: "Start Locally: Installing PyTorch on Windows"
+    authors: ["PyTorch Project"]
+    year: 2026
+    publication: "Official PyTorch documentation"
+    url: "https://docs.pytorch.org/get-started/locally/"
+    doi: null
+    source_type: "official_software_documentation"
+    access_status: "public documentation verified; living document"
+    retrieved_at: "2026-09-27"
+    method: "Supported platform, Python, pip, CUDA selection, and GPU verification guidance."
+    assumptions:
+      - "The selected binary matches the NVIDIA driver and supported Windows/Python combination."
+    strengths:
+      - "Current official support boundary and verification commands."
+    weaknesses:
+      - "Interactive selector output can change; exact wheel index must be pinned in environment artifacts."
+    implementation_implications:
+      - "Use project-local CPython 3.12 because Windows support is currently documented through 3.12, not 3.13."
+      - "Verify torch.cuda.is_available and actual device before GPU research."
+    related_experiment_ids: ["N09", "N10"]
+
+  - id: COMPUTE-PYTORCH-CUDA
+    title: "CUDA Semantics"
+    authors: ["PyTorch Project"]
+    year: 2026
+    publication: "Official PyTorch documentation"
+    url: "https://docs.pytorch.org/docs/main/notes/cuda.html"
+    doi: null
+    source_type: "official_software_documentation"
+    access_status: "public documentation verified; page last updated 2026-09-05 when retrieved"
+    retrieved_at: "2026-09-27"
+    method: "CUDA devices, asynchronous execution, timing, streams, memory management, and precision controls."
+    assumptions:
+      - "Behavior depends on the pinned PyTorch/CUDA version and device architecture."
+    strengths:
+      - "Authoritative guidance on synchronized timing and allocator behavior."
+    weaknesses:
+      - "Main-branch documentation can describe APIs newer than an installed stable release."
+    implementation_implications:
+      - "Use CUDA events or synchronize around benchmarks."
+      - "Record allocated/reserved/peak memory and explicitly control precision."
+      - "Use adaptive chunking rather than a monolithic scenario tensor."
+    related_experiment_ids: ["N09", "N10"]
+
+  - id: COMPUTE-CUPY
+    title: "CuPy Installation and Sparse Array Documentation"
+    authors: ["CuPy developers"]
+    year: 2026
+    publication: "Official CuPy documentation"
+    url: "https://docs.cupy.dev/en/stable/"
+    doi: null
+    source_type: "official_software_documentation"
+    access_status: "public documentation verified; living document"
+    retrieved_at: "2026-09-27"
+    method: "NumPy/SciPy-compatible CUDA arrays and cuSPARSE-backed sparse linear algebra."
+    assumptions:
+      - "A compatible CUDA driver/runtime and wheel are installed."
+      - "Required SciPy-like sparse operations exist in the pinned version."
+    strengths:
+      - "Potentially low-friction GPU port for array and sparse workloads."
+      - "Supports float64 and complex128 in documented sparse formats."
+    weaknesses:
+      - "Incomplete SciPy parity and operation-specific limitations."
+      - "Host-device transfer and sparse-solver overhead can eliminate speedup."
+    implementation_implications:
+      - "Benchmark PDE CPU vs CuPy end-to-end; retain CPU if GPU is not meaningfully faster or accurate."
+    related_experiment_ids: ["N07", "N08", "N09", "N10"]
+
+  - id: DATA-CBOE-SPXW
+    title: "S&P 500 Weeklys Options Contract Specifications"
+    authors: ["Cboe Exchange, Inc."]
+    year: 2025
+    publication: "Cboe product documentation"
+    url: "https://www.cboe.com/tradable_products/sp_500/spx_weekly_options/specifications"
+    doi: null
+    source_type: "exchange_documentation"
+    access_status: "public full page verified; living documentation"
+    retrieved_at: "2026-09-27"
+    method: "Official product comparison and contract-convention documentation."
+    assumptions:
+      - "Contract conventions may change; use versioned retrieval date."
+    strengths:
+      - "Primary source for AM/PM settlement, exercise, and cash-settlement distinctions."
+    weaknesses:
+      - "Web page is not a historical contract master for every past series."
+    implementation_implications:
+      - "Make PM SPXW the core and AM traditional SPX a separate robustness universe."
+    related_experiment_ids: ["D06", "R07", "R08"]
+
+  - id: DATA-CBOE-MARKS
+    title: "Proprietary Index Marking Prices"
+    authors: ["Cboe Global Markets"]
+    year: 2026
+    publication: "Cboe U.S. options market-statistics documentation"
+    url: "https://www.cboe.com/markets/us/options/market-statistics/product-data/proprietary-index-marking-prices/"
+    doi: null
+    source_type: "exchange_data_documentation"
+    access_status: "public page and current CSV download links verified; rotating availability"
+    retrieved_at: "2026-09-27"
+    method: "Daily 3:00 p.m. CT indicative marks with actual BBO fields for proprietary index options."
+    assumptions:
+      - "Indicative marking methodology and publication schedule remain as documented."
+    strengths:
+      - "Official, free, machine-readable, timestamp-defined prospective source."
+    weaknesses:
+      - "Cboe explicitly states marks are not actual OPRA NBBO updates."
+      - "Public page does not promise a complete historical archive."
+    implementation_implications:
+      - "Collect prospectively, hash immutably, and label PROSPECTIVE_LOCKED_TEST."
+      - "Keep mark, BBO, and observation type distinct."
+    related_experiment_ids: ["D02", "D07", "R01-R08"]
+
+  - id: DATA-CBOE-DATASHOP
+    title: "Option Quote Intervals"
+    authors: ["Cboe DataShop"]
+    year: 2026
+    publication: "Official Cboe DataShop product and schema documentation"
+    url: "https://datashop.cboe.com/option-quote-intervals"
+    doi: null
+    source_type: "exchange_data_documentation"
+    access_status: "public documentation and sample link verified; full historical data are paid and were not acquired"
+    retrieved_at: "2026-09-27"
+    method: "One-minute or custom N-minute NBBO snapshots with sizes, OHLC, volume, and optional analytics/open interest."
+    assumptions:
+      - "Available fields depend on purchased options and index-data licensing."
+    strengths:
+      - "Official quote timestamp and NBBO interval schema."
+      - "Suitable future full-data adapter target."
+    weaknesses:
+      - "Full data are paid."
+      - "Index underlying fields can depend on CGIF licensing."
+      - "Quote-size capture methodology changed on 2026-06-22."
+    implementation_implications:
+      - "Use only legitimate free sample for adapter integration tests."
+      - "Record the 2026-06-22 methodology break in lineage."
+    related_experiment_ids: ["D02", "D07"]
+
+  - id: DATA-NYFED-SOFR
+    title: "Additional Information about Reference Rates Administered by the New York Fed"
+    authors: ["Federal Reserve Bank of New York"]
+    year: 2026
+    publication: "Official reference-rate methodology"
+    url: "https://www.newyorkfed.org/markets/reference-rates/additional-information-about-reference-rates"
+    doi: null
+    source_type: "official_data_methodology"
+    access_status: "public full page verified; page states last updated 2026-04-06"
+    retrieved_at: "2026-09-27"
+    method: "Volume-weighted-median SOFR methodology and compounded averages/index."
+    assumptions:
+      - "SOFR measures secured overnight Treasury financing, not an option-specific term discount curve."
+    strengths:
+      - "Authoritative methodology and publication conventions."
+    weaknesses:
+      - "Requires curve construction or another assumption for option maturities."
+    implementation_implications:
+      - "Use for consistency and rate sensitivity, not as automatic exact discount truth."
+    related_experiment_ids: ["D05", "S08"]
+
+  - id: DATA-TREASURY-CURVE
+    title: "Treasury Yield Curve Methodology"
+    authors: ["U.S. Department of the Treasury, Office of Debt Management"]
+    year: 2025
+    publication: "Official Treasury methodology"
+    url: "https://home.treasury.gov/policy-issues/financing-the-government/interest-rate-statistics/treasury-yield-curve-methodology"
+    doi: null
+    source_type: "official_data_methodology"
+    access_status: "public full page verified; methodology dated 2025-02-18"
+    retrieved_at: "2026-09-27"
+    method: "Daily par yield curve from indicative bid-side Treasury prices using monotone-convex interpolation."
+    assumptions:
+      - "Treasury par yields are public-market reference inputs, not derivative discount factors."
+    strengths:
+      - "Authoritative public curve with machine-readable XML/CSV delivery."
+    weaknesses:
+      - "Par yields require bootstrapping and differ from a collateralized derivatives curve."
+      - "Inputs are indicative quotes, not transactions."
+    implementation_implications:
+      - "Use for rate consistency and sensitivity with explicit curve transformation."
+    related_experiment_ids: ["D05", "S08"]

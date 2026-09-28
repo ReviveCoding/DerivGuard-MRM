@@ -1,0 +1,794 @@
+{
+  "derivation": "artifact inspection + semantic predicates + explicit availability manifest",
+  "generated_at": "2026-09-27T14:04:08.295155+00:00",
+  "phases": [
+    {
+      "artifacts": [
+        {
+          "detail": "validated",
+          "passed": true,
+          "path": "AGENTS.md"
+        }
+      ],
+      "blocker": null,
+      "evaluated_at": "2026-09-27T14:04:08.299161+00:00",
+      "name": "workspace reconciliation",
+      "phase_id": "00",
+      "status": "COMPLETED",
+      "test_status": "PASS"
+    },
+    {
+      "artifacts": [
+        {
+          "detail": "validated",
+          "passed": true,
+          "path": "desktop_study/DESKTOP_STUDY.md"
+        },
+        {
+          "detail": "validated",
+          "passed": true,
+          "path": "desktop_study/literature.yaml"
+        },
+        {
+          "detail": "validated",
+          "passed": true,
+          "path": "desktop_study/regulatory_mapping.yaml"
+        }
+      ],
+      "blocker": null,
+      "evaluated_at": "2026-09-27T14:04:08.299161+00:00",
+      "name": "desktop study",
+      "phase_id": "01",
+      "status": "COMPLETED",
+      "test_status": "PASS"
+    },
+    {
+      "artifacts": [
+        {
+          "detail": "validated",
+          "passed": true,
+          "path": "artifacts/system/environment.json"
+        }
+      ],
+      "blocker": null,
+      "evaluated_at": "2026-09-27T14:04:08.299161+00:00",
+      "name": "canonical Python environment",
+      "phase_id": "02",
+      "status": "COMPLETED",
+      "test_status": "PASS"
+    },
+    {
+      "artifacts": [
+        {
+          "detail": "validated",
+          "passed": true,
+          "path": "artifacts/system/environment.json"
+        }
+      ],
+      "blocker": null,
+      "evaluated_at": "2026-09-27T14:04:08.299161+00:00",
+      "name": "CUDA/GPU validation",
+      "phase_id": "03",
+      "status": "COMPLETED",
+      "test_status": "PASS"
+    },
+    {
+      "artifacts": [
+        {
+          "detail": "validated",
+          "passed": true,
+          "path": "results/aggregated/numerical_benchmarks.json"
+        }
+      ],
+      "blocker": null,
+      "evaluated_at": "2026-09-27T14:04:08.299161+00:00",
+      "name": "GPU and CPU numerical smoke benchmark",
+      "phase_id": "04",
+      "status": "COMPLETED",
+      "test_status": "PASS"
+    },
+    {
+      "artifacts": [
+        {
+          "detail": "validated",
+          "passed": true,
+          "path": "artifacts/data/acquisition_inspection.json"
+        }
+      ],
+      "blocker": null,
+      "evaluated_at": "2026-09-27T14:04:08.299161+00:00",
+      "name": "data acquisition",
+      "phase_id": "05",
+      "status": "COMPLETED",
+      "test_status": "PASS"
+    },
+    {
+      "artifacts": [
+        {
+          "detail": "validated",
+          "passed": true,
+          "path": "artifacts/data/processing_summary.json"
+        },
+        {
+          "detail": "validated",
+          "passed": true,
+          "path": "data/raw/historicaldata_spx_sample/options_sample_2022H2.zip.manifest.json"
+        }
+      ],
+      "blocker": null,
+      "evaluated_at": "2026-09-27T14:04:08.299161+00:00",
+      "name": "data lineage and raw audit",
+      "phase_id": "06",
+      "status": "COMPLETED",
+      "test_status": "PASS"
+    },
+    {
+      "artifacts": [
+        {
+          "detail": "validated",
+          "passed": true,
+          "path": "results/aggregated/data_eda.json"
+        }
+      ],
+      "blocker": null,
+      "evaluated_at": "2026-09-27T14:04:08.299161+00:00",
+      "name": "EDA and data-risk analysis",
+      "phase_id": "07",
+      "status": "COMPLETED",
+      "test_status": "PASS"
+    },
+    {
+      "artifacts": [
+        {
+          "detail": "validated",
+          "passed": true,
+          "path": "artifacts/data/processing_summary.json"
+        }
+      ],
+      "blocker": null,
+      "evaluated_at": "2026-09-27T14:04:08.299161+00:00",
+      "name": "preprocessing and settlement handling",
+      "phase_id": "08",
+      "status": "COMPLETED",
+      "test_status": "PASS"
+    },
+    {
+      "artifacts": [
+        {
+          "detail": "validated",
+          "passed": true,
+          "path": "results/raw/forward_estimator_comparison.parquet"
+        }
+      ],
+      "blocker": null,
+      "evaluated_at": "2026-09-27T14:04:08.299161+00:00",
+      "name": "forward/discount estimation",
+      "phase_id": "09",
+      "status": "COMPLETED",
+      "test_status": "PASS"
+    },
+    {
+      "artifacts": [
+        {
+          "detail": "validated",
+          "passed": true,
+          "path": "artifacts/tests/final_test_summary.json"
+        }
+      ],
+      "blocker": null,
+      "evaluated_at": "2026-09-27T14:04:08.299161+00:00",
+      "name": "Black-Scholes foundation",
+      "phase_id": "10",
+      "status": "COMPLETED",
+      "test_status": "PASS"
+    },
+    {
+      "artifacts": [
+        {
+          "detail": "validated",
+          "passed": true,
+          "path": "artifacts/tests/final_test_summary.json"
+        }
+      ],
+      "blocker": null,
+      "evaluated_at": "2026-09-27T14:04:08.299161+00:00",
+      "name": "IV inversion",
+      "phase_id": "11",
+      "status": "COMPLETED",
+      "test_status": "PASS"
+    },
+    {
+      "artifacts": [
+        {
+          "detail": "validated",
+          "passed": true,
+          "path": "artifacts/tests/final_test_summary.json"
+        }
+      ],
+      "blocker": null,
+      "evaluated_at": "2026-09-27T14:04:08.299161+00:00",
+      "name": "SVI/SSVI",
+      "phase_id": "12",
+      "status": "COMPLETED",
+      "test_status": "PASS"
+    },
+    {
+      "artifacts": [
+        {
+          "detail": "validated",
+          "passed": true,
+          "path": "results/aggregated/numerical_benchmarks.json"
+        }
+      ],
+      "blocker": null,
+      "evaluated_at": "2026-09-27T14:04:08.299161+00:00",
+      "name": "Heston developer CF",
+      "phase_id": "13",
+      "status": "COMPLETED",
+      "test_status": "PASS"
+    },
+    {
+      "artifacts": [
+        {
+          "detail": "validated",
+          "passed": true,
+          "path": "results/aggregated/mc_qe_qem_audit.csv"
+        },
+        {
+          "detail": "validated",
+          "passed": true,
+          "path": "results/aggregated/numerical_remediation_qualification.json"
+        }
+      ],
+      "blocker": null,
+      "evaluated_at": "2026-09-27T14:04:08.299161+00:00",
+      "name": "independent Heston MC",
+      "phase_id": "14",
+      "status": "COMPLETED",
+      "test_status": "PASS"
+    },
+    {
+      "artifacts": [
+        {
+          "detail": "validated",
+          "passed": true,
+          "path": "results/aggregated/pde_adi_convergence.csv"
+        }
+      ],
+      "blocker": "PDE status=PARTIAL; finest case/scheme errors=[{'case': 'base', 'scheme': 'hundsdorfer_verwer', 'absolute_error_cf': 0.0004325343067339}, {'case': 'base', 'scheme': 'modified_craig_sneyd', 'absolute_error_cf': 0.0004342999242687}, {'case': 'feller_violated', 'scheme': 'hundsdorfer_verwer', 'absolute_error_cf': 0.0008833263876515}, {'case': 'feller_violated', 'scheme': 'modified_craig_sneyd', 'absolute_error_cf': 0.0009157043198495}, {'case': 'positive_rho', 'scheme': 'hundsdorfer_verwer', 'absolute_error_cf': 0.1345919623197033}, {'case': 'positive_rho', 'scheme': 'modified_craig_sneyd', 'absolute_error_cf': 0.1346169402217416}]",
+      "evaluated_at": "2026-09-27T14:04:08.299161+00:00",
+      "name": "independent Heston PDE",
+      "phase_id": "15",
+      "status": "PARTIAL",
+      "test_status": "PARTIAL"
+    },
+    {
+      "artifacts": [
+        {
+          "detail": "validated",
+          "passed": true,
+          "path": "results/aggregated/numerical_benchmarks.json"
+        }
+      ],
+      "blocker": null,
+      "evaluated_at": "2026-09-27T14:04:08.299161+00:00",
+      "name": "QuantLib oracle",
+      "phase_id": "16",
+      "status": "COMPLETED",
+      "test_status": "PASS"
+    },
+    {
+      "artifacts": [
+        {
+          "detail": "validated",
+          "passed": true,
+          "path": "results/confirmatory/synthetic_v5/truth_qualification.json"
+        },
+        {
+          "detail": "validated",
+          "passed": true,
+          "path": "reports/tables/T06_PRICING_MODEL_COMPARISON.csv"
+        }
+      ],
+      "blocker": null,
+      "evaluated_at": "2026-09-27T14:04:08.299161+00:00",
+      "name": "Local Vol and Bates challengers",
+      "phase_id": "17",
+      "status": "COMPLETED",
+      "test_status": "PASS"
+    },
+    {
+      "artifacts": [
+        {
+          "detail": "validated",
+          "passed": true,
+          "path": "reports/tables/T04_CALIBRATION_OBJECTIVE_COMPARISON.csv"
+        }
+      ],
+      "blocker": null,
+      "evaluated_at": "2026-09-27T14:04:08.299161+00:00",
+      "name": "calibration objective study",
+      "phase_id": "18",
+      "status": "COMPLETED",
+      "test_status": "PASS"
+    },
+    {
+      "artifacts": [
+        {
+          "detail": "validated",
+          "passed": true,
+          "path": "reports/tables/T05_OPTIMIZER_IDENTIFIABILITY.csv"
+        }
+      ],
+      "blocker": null,
+      "evaluated_at": "2026-09-27T14:04:08.299161+00:00",
+      "name": "optimizer study",
+      "phase_id": "19",
+      "status": "COMPLETED",
+      "test_status": "PASS"
+    },
+    {
+      "artifacts": [
+        {
+          "detail": "validated",
+          "passed": true,
+          "path": "results/aggregated/feller_study.csv"
+        }
+      ],
+      "blocker": null,
+      "evaluated_at": "2026-09-27T14:04:08.299161+00:00",
+      "name": "Feller study",
+      "phase_id": "20",
+      "status": "COMPLETED",
+      "test_status": "PASS"
+    },
+    {
+      "artifacts": [
+        {
+          "detail": "validated",
+          "passed": true,
+          "path": "results/aggregated/bootstrap_calibration.parquet"
+        }
+      ],
+      "blocker": null,
+      "evaluated_at": "2026-09-27T14:04:08.299161+00:00",
+      "name": "bootstrap and calibration uncertainty",
+      "phase_id": "21",
+      "status": "COMPLETED",
+      "test_status": "PASS"
+    },
+    {
+      "artifacts": [
+        {
+          "detail": "validated",
+          "passed": true,
+          "path": "results/aggregated/identifiability_profiles.parquet"
+        }
+      ],
+      "blocker": null,
+      "evaluated_at": "2026-09-27T14:04:08.299161+00:00",
+      "name": "identifiability",
+      "phase_id": "22",
+      "status": "COMPLETED",
+      "test_status": "PASS"
+    },
+    {
+      "artifacts": [
+        {
+          "detail": "validated",
+          "passed": true,
+          "path": "results/aggregated/parameter_stability.parquet"
+        }
+      ],
+      "blocker": null,
+      "evaluated_at": "2026-09-27T14:04:08.299161+00:00",
+      "name": "parameter stability",
+      "phase_id": "23",
+      "status": "COMPLETED",
+      "test_status": "PASS"
+    },
+    {
+      "artifacts": [
+        {
+          "detail": "validated",
+          "passed": true,
+          "path": "artifacts/model_releases/model_release_v1.0.json"
+        },
+        {
+          "detail": "validated",
+          "passed": true,
+          "path": "artifacts/model_releases/model_release_v1.1.json"
+        }
+      ],
+      "blocker": null,
+      "evaluated_at": "2026-09-27T14:04:08.299161+00:00",
+      "name": "developer release history and corrected freeze",
+      "phase_id": "24",
+      "status": "COMPLETED",
+      "test_status": "PASS"
+    },
+    {
+      "artifacts": [
+        {
+          "detail": "validated",
+          "passed": true,
+          "path": "results/confirmatory/synthetic_v5/truth_qualification.json"
+        }
+      ],
+      "blocker": null,
+      "evaluated_at": "2026-09-27T14:04:08.299161+00:00",
+      "name": "synthetic market lab",
+      "phase_id": "25",
+      "status": "COMPLETED",
+      "test_status": "PASS"
+    },
+    {
+      "artifacts": [
+        {
+          "detail": "validated",
+          "passed": true,
+          "path": "results/confirmatory/synthetic_v5/fault_coverage.csv"
+        }
+      ],
+      "blocker": null,
+      "evaluated_at": "2026-09-27T14:04:08.299161+00:00",
+      "name": "fault-injection lab",
+      "phase_id": "26",
+      "status": "COMPLETED",
+      "test_status": "PASS"
+    },
+    {
+      "artifacts": [
+        {
+          "detail": "validated",
+          "passed": true,
+          "path": "results/confirmatory/synthetic_v5/dve_thresholds.freeze.json"
+        }
+      ],
+      "blocker": null,
+      "evaluated_at": "2026-09-27T14:04:08.299161+00:00",
+      "name": "DVE development using DEV only",
+      "phase_id": "27",
+      "status": "COMPLETED",
+      "test_status": "PASS"
+    },
+    {
+      "artifacts": [
+        {
+          "detail": "validated",
+          "passed": true,
+          "path": "artifacts/checkpoints/synthetic_confirmatory_v6.freeze.json"
+        }
+      ],
+      "blocker": null,
+      "evaluated_at": "2026-09-27T14:04:08.299161+00:00",
+      "name": "validation-period methodology freeze",
+      "phase_id": "28",
+      "status": "COMPLETED",
+      "test_status": "PASS"
+    },
+    {
+      "artifacts": [
+        {
+          "detail": "validated",
+          "passed": true,
+          "path": "reports/tables/T06_PRICING_MODEL_COMPARISON.csv"
+        },
+        {
+          "detail": "validated",
+          "passed": true,
+          "path": "results/aggregated/near_expiry_study.csv"
+        },
+        {
+          "detail": "validated",
+          "passed": true,
+          "path": "results/aggregated/liquidity_filter_study.csv"
+        },
+        {
+          "detail": "validated",
+          "passed": true,
+          "path": "results/aggregated/am_pm_robustness.csv"
+        }
+      ],
+      "blocker": null,
+      "evaluated_at": "2026-09-27T14:04:08.299161+00:00",
+      "name": "real-market experiments",
+      "phase_id": "29",
+      "status": "COMPLETED",
+      "test_status": "PASS"
+    },
+    {
+      "artifacts": [
+        {
+          "detail": "missing or empty",
+          "passed": false,
+          "path": "reports/tables/T10_REAL_OOS_OUTCOMES.csv"
+        }
+      ],
+      "blocker": "All 4,294,301 public historical rows lack quote_time and the prospective Cboe marking series currently contains one date. A synchronized next-date contract-continuity study cannot be constructed defensibly.",
+      "evaluated_at": "2026-09-27T14:04:08.299161+00:00",
+      "name": "outcome analysis",
+      "phase_id": "30",
+      "status": "UNAVAILABLE",
+      "test_status": "NOT_APPLICABLE"
+    },
+    {
+      "artifacts": [
+        {
+          "detail": "missing or empty",
+          "passed": false,
+          "path": "results/aggregated/one_day_hedge_proxy.parquet"
+        }
+      ],
+      "blocker": "Missing historical quote timestamps and only one prospective marking date prevent a defensible one-day option/underlying alignment. No live-P&L proxy is reported.",
+      "evaluated_at": "2026-09-27T14:04:08.299161+00:00",
+      "name": "hedging proxy",
+      "phase_id": "31",
+      "status": "UNAVAILABLE",
+      "test_status": "NOT_APPLICABLE"
+    },
+    {
+      "artifacts": [
+        {
+          "detail": "validated",
+          "passed": true,
+          "path": "reports/tables/T11_PORTFOLIO_MATERIALITY.csv"
+        }
+      ],
+      "blocker": null,
+      "evaluated_at": "2026-09-27T14:04:08.299161+00:00",
+      "name": "portfolio materiality",
+      "phase_id": "32",
+      "status": "COMPLETED",
+      "test_status": "PASS"
+    },
+    {
+      "artifacts": [
+        {
+          "detail": "validated",
+          "passed": true,
+          "path": "results/confirmatory/synthetic_v5/confirmatory_metrics.json"
+        },
+        {
+          "detail": "validated",
+          "passed": true,
+          "path": "results/confirmatory/synthetic_v5/calibration_diagnostics.parquet"
+        },
+        {
+          "detail": "validated",
+          "passed": true,
+          "path": "results/confirmatory/synthetic_v5/case_provenance.parquet"
+        }
+      ],
+      "blocker": null,
+      "evaluated_at": "2026-09-27T14:04:08.299161+00:00",
+      "name": "synthetic locked test",
+      "phase_id": "33",
+      "status": "COMPLETED",
+      "test_status": "PASS"
+    },
+    {
+      "artifacts": [
+        {
+          "detail": "validated",
+          "passed": true,
+          "path": "results/aggregated/real_locked_test.parquet"
+        }
+      ],
+      "blocker": null,
+      "evaluated_at": "2026-09-27T14:04:08.299161+00:00",
+      "name": "real locked test",
+      "phase_id": "34",
+      "status": "COMPLETED",
+      "test_status": "PASS"
+    },
+    {
+      "artifacts": [
+        {
+          "detail": "validated",
+          "passed": true,
+          "path": "results/confirmatory/synthetic_v5/T08_DVE_BASELINES.csv"
+        }
+      ],
+      "blocker": null,
+      "evaluated_at": "2026-09-27T14:04:08.299161+00:00",
+      "name": "DVE baseline comparisons",
+      "phase_id": "35",
+      "status": "COMPLETED",
+      "test_status": "PASS"
+    },
+    {
+      "artifacts": [
+        {
+          "detail": "validated",
+          "passed": true,
+          "path": "results/confirmatory/synthetic_v5/T09_DVE_ABLATION.csv"
+        }
+      ],
+      "blocker": null,
+      "evaluated_at": "2026-09-27T14:04:08.299161+00:00",
+      "name": "DVE ablations",
+      "phase_id": "36",
+      "status": "COMPLETED",
+      "test_status": "PASS"
+    },
+    {
+      "artifacts": [
+        {
+          "detail": "validated",
+          "passed": true,
+          "path": "results/aggregated/developer_method_ablation_summary.csv"
+        }
+      ],
+      "blocker": null,
+      "evaluated_at": "2026-09-27T14:04:08.299161+00:00",
+      "name": "developer-method ablations",
+      "phase_id": "37",
+      "status": "COMPLETED",
+      "test_status": "PASS"
+    },
+    {
+      "artifacts": [
+        {
+          "detail": "validated",
+          "passed": true,
+          "path": "results/statistics/date_level_inference.csv"
+        },
+        {
+          "detail": "validated",
+          "passed": true,
+          "path": "results/confirmatory/synthetic_v5/statistical_inference.json"
+        }
+      ],
+      "blocker": null,
+      "evaluated_at": "2026-09-27T14:04:08.299161+00:00",
+      "name": "statistical inference",
+      "phase_id": "38",
+      "status": "COMPLETED",
+      "test_status": "PASS"
+    },
+    {
+      "artifacts": [
+        {
+          "detail": "validated",
+          "passed": true,
+          "path": "results/confirmatory/synthetic_v5/false_positive_cases.parquet"
+        },
+        {
+          "detail": "validated",
+          "passed": true,
+          "path": "results/confirmatory/synthetic_v5/false_negative_cases.parquet"
+        }
+      ],
+      "blocker": null,
+      "evaluated_at": "2026-09-27T14:04:08.299161+00:00",
+      "name": "failure/case analysis",
+      "phase_id": "39",
+      "status": "COMPLETED",
+      "test_status": "PASS"
+    },
+    {
+      "artifacts": [
+        {
+          "detail": "validated",
+          "passed": true,
+          "path": "results/aggregated/monitoring_simulation.csv"
+        }
+      ],
+      "blocker": null,
+      "evaluated_at": "2026-09-27T14:04:08.299161+00:00",
+      "name": "ongoing-monitoring simulation",
+      "phase_id": "40",
+      "status": "COMPLETED",
+      "test_status": "PASS"
+    },
+    {
+      "artifacts": [
+        {
+          "detail": "validated",
+          "passed": true,
+          "path": "governance/findings_register.yaml"
+        },
+        {
+          "detail": "validated",
+          "passed": true,
+          "path": "governance/remediation_tracker.yaml"
+        }
+      ],
+      "blocker": null,
+      "evaluated_at": "2026-09-27T14:04:08.299161+00:00",
+      "name": "findings and remediation",
+      "phase_id": "41",
+      "status": "COMPLETED",
+      "test_status": "PASS"
+    },
+    {
+      "artifacts": [
+        {
+          "detail": "validated",
+          "passed": true,
+          "path": "results/aggregated/T12_CPU_GPU_PERFORMANCE.csv"
+        },
+        {
+          "detail": "validated",
+          "passed": true,
+          "path": "results/aggregated/final_compute_benchmarks.csv"
+        },
+        {
+          "detail": "validated",
+          "passed": true,
+          "path": "results/aggregated/final_compute_benchmarks.json"
+        }
+      ],
+      "blocker": null,
+      "evaluated_at": "2026-09-27T14:04:08.299161+00:00",
+      "name": "final compute benchmark",
+      "phase_id": "42",
+      "status": "COMPLETED",
+      "test_status": "PASS"
+    },
+    {
+      "artifacts": [
+        {
+          "detail": "validated",
+          "passed": true,
+          "path": "reports/FINAL_REVIEW.md"
+        },
+        {
+          "detail": "validated",
+          "passed": true,
+          "path": "artifacts/review/final_review.json"
+        }
+      ],
+      "blocker": null,
+      "evaluated_at": "2026-09-27T14:04:08.299161+00:00",
+      "name": "independent final review",
+      "phase_id": "43",
+      "status": "COMPLETED",
+      "test_status": "PASS"
+    },
+    {
+      "artifacts": [
+        {
+          "detail": "validated",
+          "passed": true,
+          "path": "reports/TECHNICAL_REPORT.md"
+        },
+        {
+          "detail": "validated",
+          "passed": true,
+          "path": "reports/INDEPENDENT_VALIDATION_MEMORANDUM.md"
+        }
+      ],
+      "blocker": null,
+      "evaluated_at": "2026-09-27T14:04:08.299161+00:00",
+      "name": "reports",
+      "phase_id": "44",
+      "status": "COMPLETED",
+      "test_status": "PASS"
+    },
+    {
+      "artifacts": [
+        {
+          "detail": "validated",
+          "passed": true,
+          "path": "artifacts/acceptance/gate_evidence.json"
+        }
+      ],
+      "blocker": null,
+      "evaluated_at": "2026-09-27T14:04:08.299161+00:00",
+      "name": "acceptance audit",
+      "phase_id": "45",
+      "status": "COMPLETED",
+      "test_status": "PASS"
+    }
+  ],
+  "schema_version": "2.0",
+  "summary": {
+    "COMPLETED": 43,
+    "FAILED": 0,
+    "PARTIAL": 1,
+    "PENDING": 0,
+    "UNAVAILABLE": 2
+  }
+}

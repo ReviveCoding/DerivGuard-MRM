@@ -1,0 +1,18 @@
+fault_id,status,reason
+F00,EXECUTED_REAL,
+F01,EXECUTED_REAL,
+F02,EXECUTED_REAL,
+F03,EXECUTED_REAL,
+F04,UNAVAILABLE_CONFIRMATORY_V1,isolated confirmatory mechanism not yet implemented
+F05,UNAVAILABLE_CONFIRMATORY_V1,isolated confirmatory mechanism not yet implemented
+F06,UNAVAILABLE_CONFIRMATORY_V1,isolated confirmatory mechanism not yet implemented
+F07,UNAVAILABLE_CONFIRMATORY_V1,isolated confirmatory mechanism not yet implemented
+F08,UNAVAILABLE_CONFIRMATORY_V1,isolated confirmatory mechanism not yet implemented
+F09,UNAVAILABLE_CONFIRMATORY_V1,isolated confirmatory mechanism not yet implemented
+F10,UNAVAILABLE_CONFIRMATORY_V1,isolated confirmatory mechanism not yet implemented
+F11,UNAVAILABLE_CONFIRMATORY_V1,isolated confirmatory mechanism not yet implemented
+F12,UNAVAILABLE_CONFIRMATORY_V1,isolated confirmatory mechanism not yet implemented
+F13,UNAVAILABLE_CONFIRMATORY_V1,isolated confirmatory mechanism not yet implemented
+F14,UNAVAILABLE_CONFIRMATORY_V1,isolated confirmatory mechanism not yet implemented
+F15,UNAVAILABLE_CONFIRMATORY_V1,isolated confirmatory mechanism not yet implemented
+F16,UNAVAILABLE_CONFIRMATORY_V1,isolated confirmatory mechanism not yet implemented

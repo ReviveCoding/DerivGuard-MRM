@@ -1,0 +1,265 @@
+schema_version: "1.0"
+as_of_date: "2026-09-27"
+primary_guidance:
+  id: "SR-26-2"
+  title: "Revised Guidance on Model Risk Management"
+  issued: "2026-04-17"
+  url: "https://www.federalreserve.gov/supervisionreg/srletters/SR2602.htm"
+  full_guidance_url: "https://www.federalreserve.gov/frrs/guidance/supervisory-guidance-on-model-risk-management.htm"
+  status: "current"
+  applicability_note: >-
+    The interagency guidance is principles-based and is expected to be most
+    relevant to banking organizations with over $30 billion in total assets.
+    DerivGuard-MRM is an independent research project and does not claim
+    regulatory compliance or institutional model approval.
+  supersedes:
+    - id: "SR-11-7"
+      issued: "2011-04-04"
+      status: "superseded; retained only as historical context"
+    - id: "SR-21-8"
+      issued: "2021-04-09"
+      status: "superseded"
+
+project_interpretation:
+  approach: >-
+    Apply SR 26-2 as a governance and effective-challenge reference. Tailor
+    rigor to the model's research purpose and standardized materiality, keep
+    intended use narrow, and make no claim of actual bank validation approval.
+  non_claims:
+    - "No assertion that DerivGuard-MRM is an institutional model-risk-management framework."
+    - "No assertion that a simulated validation conclusion is regulatory approval."
+    - "No use of SR 11-7 as current guidance after 2026-04-17."
+
+mappings:
+  - principle_id: "MRM-01"
+    principle: "Model inventory"
+    guidance_basis: >-
+      SR 26-2 states that a comprehensive set of information for models under
+      development or in use is common industry practice and should contain
+      sufficient information to understand individual and aggregate model risk.
+    project_components:
+      - "governance/model_inventory.yaml"
+      - "governance/intended_use.yaml"
+      - "artifacts/model_releases/model_release_v1.0.json"
+    required_controls:
+      - "model ID, role, version, methodology, inputs, outputs, assumptions, limitations"
+      - "developer/validator designation"
+      - "intended and prohibited uses"
+      - "code/content and config hashes"
+      - "validation status and release history"
+    evidence_dimensions: ["E_ident", "E_param", "E_form"]
+    acceptance_link: "GOVERNANCE GATE; RELEASE GATE"
+
+  - principle_id: "MRM-02"
+    principle: "Clear purpose, intended use, and limitations"
+    guidance_basis: >-
+      SR 26-2 says development begins with a clear statement of purpose and
+      warns that use beyond intended purpose introduces additional uncertainty and risk.
+    project_components:
+      - "governance/intended_use.yaml"
+      - "governance/limitations_register.yaml"
+      - "reports/MODEL_LIMITATIONS_REGISTER.md"
+    required_controls:
+      - "limit Heston v1.0 to European cash-settled SPXW research valuation and Greeks"
+      - "prohibit live trading, exotics, American options, capital, and production use"
+      - "separate AM SPX, PM SPXW, and near-expiry/0DTE analyses"
+    evidence_dimensions: ["E_extra", "E_form"]
+    acceptance_link: "GOVERNANCE GATE; REAL-DATA GATE"
+
+  - principle_id: "MRM-03"
+    principle: "Risk-based materiality"
+    guidance_basis: >-
+      SR 26-2 links model materiality to model exposure and purpose and expects
+      more rigorous oversight for higher-materiality models.
+    project_components:
+      - "src/derivguard/materiality/"
+      - "results/materiality/"
+      - "experiments P01-P06"
+    required_controls:
+      - "keep risk evidence separate from economic materiality"
+      - "standardized portfolio valuation and Greek materiality"
+      - "transparent evidence/materiality matrix"
+    evidence_dimensions: ["E_form", "E_greek", "E_outcome"]
+    acceptance_link: "MATERIALITY GATE"
+
+  - principle_id: "MRM-04"
+    principle: "Conceptual soundness"
+    guidance_basis: >-
+      SR 26-2 describes conceptual-soundness validation as assessment and
+      documentation of design choices, assumptions, judgments, data selection,
+      construction, developmental testing, interpretability, and benchmarking.
+    project_components:
+      - "desktop_study/methodology_matrix.yaml"
+      - "reports/MODEL_DEVELOPMENT_DOCUMENT.md"
+      - "reports/INDEPENDENT_VALIDATION_MEMORANDUM.md"
+      - "tests/numerical/"
+    required_controls:
+      - "document Heston assumptions and alternative models"
+      - "test stable characteristic function, MC, PDE, and external oracle"
+      - "evaluate Feller treatment rather than declaring violation invalid"
+    evidence_dimensions: ["E_num", "E_form", "E_ident"]
+    acceptance_link: "NUMERICAL GATE; CALIBRATION GATE"
+
+  - principle_id: "MRM-05"
+    principle: "Data quality, relevance, and constraints"
+    guidance_basis: >-
+      SR 26-2 includes input quality and data constraints within inherent risk
+      and includes critical assessment of data quality, relevance, and inputs in testing.
+    project_components:
+      - "src/derivguard/data/"
+      - "reports/DATA_QUALITY_REPORT.md"
+      - "experiments D01-D07"
+    required_controls:
+      - "immutable raw data and complete lineage manifests"
+      - "source-row exclusion codes and no undocumented dropna"
+      - "quote-asynchrony analysis"
+      - "explicit AM/PM settlement handling"
+      - "vendor/license and redistribution notes"
+    evidence_dimensions: ["E_data"]
+    acceptance_link: "DATA GATE; REAL-DATA GATE"
+
+  - principle_id: "MRM-06"
+    principle: "Effective challenge and independence"
+    guidance_basis: >-
+      SR 26-2 defines effective challenge as objective critical analysis by
+      experts with appropriate expertise, independence, standing, and influence.
+    project_components:
+      - "src/derivguard/development/"
+      - "src/derivguard/validation/"
+      - "src/derivguard/challengers/"
+      - "independent technical reviews at major milestones"
+    required_controls:
+      - "do not reuse developer CF kernel, Greeks, or calibration code in validators"
+      - "independent Heston MC and PDE"
+      - "external QuantLib checks"
+      - "review and resolve Critical/High findings before gates"
+    evidence_dimensions: ["E_num", "E_form", "E_greek"]
+    acceptance_link: "INDEPENDENCE GATE"
+
+  - principle_id: "MRM-07"
+    principle: "Benchmarking and alternative methodologies"
+    guidance_basis: >-
+      SR 26-2 recognizes benchmarking and interpretability as practical forms
+      of conceptual-soundness assessment and effective challenge.
+    project_components:
+      - "models M00-M03, M10-M12, M20-M21, M90"
+      - "experiments N01-N10 and M01-M05"
+    required_controls:
+      - "BS limit and analytic reference checks"
+      - "CF/MC/PDE/QuantLib disagreement analysis"
+      - "SSVI, LocalVol, and Bates challenger comparisons"
+      - "no developer Heston in independent challenger consensus"
+    evidence_dimensions: ["E_num", "E_form", "E_greek"]
+    acceptance_link: "NUMERICAL GATE; DVE GATE"
+
+  - principle_id: "MRM-08"
+    principle: "Outcomes analysis"
+    guidance_basis: >-
+      SR 26-2 defines outcomes analysis as comparing model outputs with
+      corresponding real-world outcomes relative to objectives and use.
+    project_components:
+      - "src/derivguard/outcomes/"
+      - "experiments R01-R08"
+      - "results/statistics/"
+    required_controls:
+      - "chronological surface-level splits"
+      - "next-date price outcomes only where contract continuity is defensible"
+      - "one-day discrete hedging proxy clearly distinguished from actual P&L"
+      - "date-level inference and qualified causal language"
+    evidence_dimensions: ["E_outcome"]
+    acceptance_link: "REAL-DATA GATE; STATISTICAL GATE"
+
+  - principle_id: "MRM-09"
+    principle: "Ongoing monitoring"
+    guidance_basis: >-
+      SR 26-2 calls for evaluation of performance as products, exposures,
+      activities, data relevance, and market conditions change.
+    project_components:
+      - "reports/ONGOING_MONITORING_PLAN.md"
+      - "monitoring simulation GREEN/AMBER/RED"
+      - "parameter, fit, numerical, challenger, Greek, and data-quality histories"
+    required_controls:
+      - "predefined thresholds and escalation actions"
+      - "regime-conditioned monitoring where validated"
+      - "limitations reassessment and performance-deterioration response"
+    evidence_dimensions:
+      - "E_data"
+      - "E_num"
+      - "E_cal"
+      - "E_ident"
+      - "E_param"
+      - "E_form"
+      - "E_greek"
+      - "E_extra"
+      - "E_outcome"
+    acceptance_link: "GOVERNANCE GATE"
+
+  - principle_id: "MRM-10"
+    principle: "Documentation and reproducibility"
+    guidance_basis: >-
+      SR 26-2 says adequate documentation supports continuity, tracking of
+      recommendations, responses, exceptions, and remediation.
+    project_components:
+      - "artifacts/run_state.json"
+      - "artifacts/execution_ledger.jsonl"
+      - "experiments/registry.yaml"
+      - "reports/COMPUTE_AND_REPRODUCIBILITY_REPORT.md"
+    required_controls:
+      - "durable checkpoints, seeds, hashes, hardware/backend/precision metadata"
+      - "restartable idempotent phases"
+      - "reports generated from machine-readable result artifacts"
+      - "negative and failed results retained"
+    evidence_dimensions: []
+    acceptance_link: "REPRODUCIBILITY GATE; REPORTING GATE"
+
+  - principle_id: "MRM-11"
+    principle: "Vendor and third-party oversight"
+    guidance_basis: >-
+      SR 26-2 states model-risk principles remain applicable when proprietary
+      vendor data, parameters, or complete models limit access to code or methodology.
+    project_components:
+      - "desktop_study/data_source_matrix.yaml"
+      - "raw-data lineage manifests"
+      - "QuantLib M90 oracle"
+    required_controls:
+      - "understand source methodology and limitations"
+      - "validate schema and performance independently"
+      - "pin third-party versions"
+      - "respect authentication, licensing, and redistribution restrictions"
+    evidence_dimensions: ["E_data", "E_num"]
+    acceptance_link: "DATA GATE; NUMERICAL GATE"
+
+  - principle_id: "MRM-12"
+    principle: "Limitations, findings, remediation, and residual risk"
+    guidance_basis: >-
+      SR 26-2 emphasizes identifying limitations/errors, clarifying appropriate
+      use, and considering adjustment, recalibration, redevelopment, or controls.
+    project_components:
+      - "governance/findings_register.*"
+      - "governance/remediation_tracker.*"
+      - "reports/FINDINGS_REGISTER.md"
+      - "reports/REMEDIATION_TRACKER.md"
+    required_controls:
+      - "findings backed only by actual evidence"
+      - "severity and materiality separated"
+      - "root cause, recommendation, response, status, and residual risk"
+      - "usage limitations for unsupported domains"
+    evidence_dimensions:
+      - "E_data"
+      - "E_num"
+      - "E_cal"
+      - "E_ident"
+      - "E_param"
+      - "E_form"
+      - "E_greek"
+      - "E_extra"
+      - "E_outcome"
+    acceptance_link: "GOVERNANCE GATE; FINAL ACCEPTANCE AUDIT"
+
+interpretive_cautions:
+  - "DVE evidence is not a probability of model failure unless separately calibrated as such."
+  - "An unsynchronized standing quote is not synchronized truth."
+  - "A one-day discrete hedging proxy is not live trading P&L."
+  - "A research validation conclusion is not institutional approval."
+  - "Correlation between DVE and later outcomes is not causation."
+  - "Synthetic detection performance does not prove production performance."

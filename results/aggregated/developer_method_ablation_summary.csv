@@ -1,0 +1,7 @@
+ablation_id,description,metric,selected_variant,ablated_variant,selected_value,ablated_value,evidence,difference_ablated_minus_selected
+DA01,no global optimization,DEV common C04 loss,O01,O00,3.691930961972046,3.691931126980028,results/aggregated/developer_method_ablations.csv,1.6500798194485355e-07
+DA02,no robust loss,DEV common C04 loss,C04,C00,3.691931126980028,3.807709989665545,results/aggregated/developer_method_ablations.csv,0.11577886268551696
+DA03,no spread weighting,DEV common C04 loss,C04,C01,3.691931126980028,263.0690411217228,results/aggregated/developer_method_ablations.csv,259.3771099947428
+DA04,no bootstrap,mean parameter standard deviation,bootstrap (8 successful draws),point estimate only,0.009865958987463298,0.0,results/aggregated/bootstrap_calibration.parquet,-0.009865958987463298
+DA05,Feller variants,median calibration objective,unconstrained,best of soft/hard,3.691930961702576,5.543879974805516,results/aggregated/feller_study.csv,1.85194901310294
+DA06,forward estimator variants,median parity residual RMSE,F3 spread-weighted robust,F0 ordinary least squares,0.22329161669299682,0.1819891373018493,results/raw/forward_estimator_comparison.parquet,-0.041302479391147534

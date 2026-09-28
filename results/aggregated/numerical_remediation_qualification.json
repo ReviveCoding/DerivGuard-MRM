@@ -1,0 +1,33 @@
+{
+  "device": "cuda",
+  "end_timestamp": "2026-09-27T08:24:53.171539+00:00",
+  "mc_qualification": {
+    "all_finest_qem_seed_biases_within_3se": true,
+    "minimum_seed_requirement_met": true,
+    "minimum_time_levels_met": true
+  },
+  "mc_result": "results\\aggregated\\mc_qe_qem_audit.csv",
+  "mc_result_sha256": "50d069531e89004d4bd03f9ae0564070aa0ec94b424be2e715e575e81cd84f2b",
+  "mc_status": "PASS",
+  "notes": [
+    "No tolerance was changed by this run.",
+    "PDE qualification requires both reference accuracy and successive-grid convergence.",
+    "Monte Carlo bias and sampling standard error are recorded separately for every seed."
+  ],
+  "pde_qualification": {
+    "all_finest_reference_errors_pass": false,
+    "all_finest_successive_changes_pass": false,
+    "minimum_grid_levels_met": true,
+    "nonnegative_within_registry_slack": false
+  },
+  "pde_result": "results\\aggregated\\pde_adi_convergence.csv",
+  "pde_result_sha256": "557dad19d6d3b74a8f4322d774a0cec28c56cbbd4c7088feb0e1ebf50982b978",
+  "pde_status": "PARTIAL",
+  "profile": "research",
+  "run_type": "NUMERICAL_REMEDIATION",
+  "runtime_seconds": 168.99770870000066,
+  "schema_version": "1.0",
+  "start_timestamp": "2026-09-27T08:22:04.173344+00:00",
+  "tolerance_registry": "configs\\numerical_tolerances.yaml",
+  "tolerance_registry_sha256": "1ca4fc50ef908b9b6ccd76fb9a4b861dc49e0014a4996e99555adc5b5f2de3e7"
+}

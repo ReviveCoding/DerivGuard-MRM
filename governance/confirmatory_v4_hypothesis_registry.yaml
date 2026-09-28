@@ -1,0 +1,43 @@
+schema_version: "4.0"
+registry_id: SYN-CONFIRMATORY-V4-HYPOTHESES
+status: PRE_EXECUTION_CANDIDATE
+prohibitions:
+  - No v2 or v3 outcome is an input to design, threshold, or interpretation selection.
+  - Latent truth is used only for material-error labels and final evaluation.
+  - LOCKED_TEST and OOD_LOCKED_TEST may not select methods or thresholds.
+primary_endpoint: recall_at_dev_fixed_5_percent_fpr
+secondary_endpoints: [AUPRC, AUROC, false_alarm_rate, material_risk_miss_rate]
+materiality_definition: absolute calibrated-developer pricing error divided by synthetic bid-ask spread
+hypotheses:
+  - id: H01
+    statement: Calibrated-developer FitOnly misses some material model-form risk.
+    comparison: V06_minus_V00_on_F01_F02_F03
+    interpretation: Support requires positive recall improvement without unacceptable false-alarm increase.
+  - id: H02
+    statement: Independent numerical evidence detects numerical implementation faults.
+    comparison: V04_and_V06_minus_V00_on_F04_F05_F06
+    interpretation: Only qualified independent-engine evidence is admissible.
+  - id: H03
+    statement: Observable-data challenger disagreement adds information beyond calibrated fit.
+    comparison: V02_and_V06_minus_V00_on_F01_F02_F03
+    interpretation: Report positive, null, or adverse locked differences with bootstrap intervals.
+  - id: H04
+    statement: Observable bid-ask bootstrap calibration uncertainty identifies unstable fits.
+    comparison: V03_and_V06_minus_V00_on_F07_F08_F14
+    interpretation: Bootstrap draws must be actual Heston recalibrations using quote perturbations.
+  - id: H05
+    statement: DEV-frozen regime thresholds improve the recall/false-alarm tradeoff.
+    comparison: V06_minus_V05_and_A09
+    interpretation: No locked regime redefinition is permitted.
+  - id: H06
+    statement: Greek disagreement adds information beyond price disagreement.
+    comparison: V06_minus_A07_on_F15
+    interpretation: Challenger Greeks must derive from observable-data fits.
+  - id: H07
+    statement: Economic-materiality prioritization is more useful than fault-presence ranking.
+    comparison: V06_minus_A11
+    interpretation: Targets differ and must be reported explicitly.
+  - id: H08
+    statement: Outcome evidence is unavailable in a contemporaneous synthetic surface study.
+    comparison: V06_minus_A10
+    interpretation: A null E_outcome effect is expected and must not be presented as support.

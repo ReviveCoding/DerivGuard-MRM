@@ -1,0 +1,2482 @@
+schema_version: '1.0'
+registry_status: ARTIFACT_DERIVED_RECONCILED
+scientific_integrity_note: Statuses are derived from hashed, semantically inspected artifacts. COMPLETED
+  requires non-placeholder measured rows and satisfied predicates; PARTIAL and UNAVAILABLE preserve attempted
+  limitations. Frozen confirmatory registries are not mutated by reconciliation.
+status_vocabulary:
+- PLANNED
+- READY
+- RUNNING
+- COMPLETED
+- FAILED
+- UNAVAILABLE
+- SUPERSEDED
+- PARTIAL
+profiles:
+  smoke: bounded deterministic and reduced-size checks before expensive execution
+  research: full feasible pre-registered execution using qualified GPU workloads
+  audit: artifact reconciliation and acceptance-gate verification
+split_policy:
+  real_data:
+    unit: complete_market_date_surface
+    initial_target:
+      DEV: 0.6
+      VALIDATION: 0.2
+      LOCKED_TEST: 0.2
+    randomize_option_rows: false
+    boundary_status: FROZEN_AND_EXECUTED
+    executed_surface_counts:
+      DEV: 76
+      VALIDATION: 25
+      LOCKED_TEST: 26
+    evidence:
+    - path: artifacts/calibration/empirical_methodology.json
+      sha256: a5c8156b3cb2eb92f15905eca6db51cc0e37ebe0f80466d88d6595208d02d319
+      rows: null
+  synthetic:
+    independent_partitions:
+    - DEV
+    - VALIDATION
+    - LOCKED_TEST
+    - OOD
+    seed_registry_status: FROZEN_BEFORE_LOCKED_EXECUTION
+    executed_case_counts:
+      DEV: 34
+      LOCKED_TEST: 34
+      OOD_LOCKED_TEST: 17
+      VALIDATION: 17
+    confirmatory_design: v6_release_aligned_prequalified_calibration
+    evidence:
+    - path: results/confirmatory/synthetic_v5/case_provenance.parquet
+      sha256: c0d874e0c370bbfe0c34885f967252ac49da352a4df49776a2dcfa339e4f1d1b
+      rows: 102
+  prospective:
+    label: PROSPECTIVE_LOCKED_TEST
+    tuning_permitted: false
+common_result_fields:
+- run_id
+- experiment_id
+- model_id
+- dataset_hash
+- source_hash
+- config_hash
+- seed
+- hardware_profile_hash
+- backend
+- precision
+- start_timestamp
+- end_timestamp
+- runtime_seconds
+- status
+validation_baselines:
+- id: V00
+  name: FitOnly
+  status: COMPLETED
+  feasibility: EXECUTED_MEASURED
+  status_reason: active confirmatory baseline=V00
+  evidence:
+  - path: artifacts/checkpoints/synthetic_confirmatory_v6.freeze.json
+    sha256: e6604a752b3ec13cd7ae4fb4f0cf7dffb61c90474b23cc4ae7c8a11a726790a7
+    rows: null
+  - path: results/confirmatory/synthetic_v5/confirmatory_metrics.json
+    sha256: 54ef5b52be4e58a66e580b9fbbaee04b8d48a206e0d8969523cb56eba699e378
+    rows: null
+  - path: results/confirmatory/synthetic_v5/dve_thresholds.freeze.json
+    sha256: 2af45ed9efdafeefa238a00c3c3240949c02196923114820acf8779ab81b755b
+    rows: null
+  - path: results/confirmatory/synthetic_v5/calibration_diagnostics.parquet
+    sha256: 036225d9b2ad95913ee530d65a4b84dc4dbcfbb26fb98ef8665bd9405d92f8a5
+    rows: 3060
+  - path: results/confirmatory/synthetic_v5/calibration_qualification.json
+    sha256: caf6fcfd61c0b7d18606451425c4d43e4d69948f406e9ebefc49ccaa39cd14b9
+    rows: null
+  - path: results/confirmatory/synthetic_v5/case_provenance.parquet
+    sha256: c0d874e0c370bbfe0c34885f967252ac49da352a4df49776a2dcfa339e4f1d1b
+    rows: 102
+  - path: src/derivguard/synthetic/confirmatory_v6.py
+    sha256: 2c2598ab8acee3edb28d71028b503a47c6b056ed405090384ddf7b008355787c
+    rows: null
+  - path: artifacts\model_releases\model_release_v1.1.json
+    sha256: 0fd53ee708e95f9666a95724b80937737d2b1b8406e33abbe304a2ee04efdccf
+    rows: null
+  - path: results/confirmatory/synthetic_v5/T08_DVE_BASELINES.csv
+    sha256: d0ec7b2b07baeb509263af3661c14b4a8e25d125ad031965da1802d6b1ac3f32
+    rows: 7
+  evidence_predicates:
+    primary_confirmatory_version_is_v6: true
+    locked_status_complete: true
+    freeze_hash_matches: true
+    observable_c04_calibrations_present: true
+    observable_provenance_present: true
+    all_primary_calibrations_converged: true
+    all_bootstrap_calibrations_converged: true
+    calibration_qualification_passed: true
+    developer_objective_is_c04: true
+    developer_optimizer_explicitly_o01: true
+    release_id_linked: true
+    release_hash_linked: true
+    source_and_frozen_registries_current: true
+    threshold_freeze_linked_and_precedes_locked: true
+    measured_baseline_row_present: true
+- id: V01
+  name: OOS-only
+  status: COMPLETED
+  feasibility: EXECUTED_MEASURED
+  status_reason: active confirmatory baseline=V01
+  evidence:
+  - path: artifacts/checkpoints/synthetic_confirmatory_v6.freeze.json
+    sha256: e6604a752b3ec13cd7ae4fb4f0cf7dffb61c90474b23cc4ae7c8a11a726790a7
+    rows: null
+  - path: results/confirmatory/synthetic_v5/confirmatory_metrics.json
+    sha256: 54ef5b52be4e58a66e580b9fbbaee04b8d48a206e0d8969523cb56eba699e378
+    rows: null
+  - path: results/confirmatory/synthetic_v5/dve_thresholds.freeze.json
+    sha256: 2af45ed9efdafeefa238a00c3c3240949c02196923114820acf8779ab81b755b
+    rows: null
+  - path: results/confirmatory/synthetic_v5/calibration_diagnostics.parquet
+    sha256: 036225d9b2ad95913ee530d65a4b84dc4dbcfbb26fb98ef8665bd9405d92f8a5
+    rows: 3060
+  - path: results/confirmatory/synthetic_v5/calibration_qualification.json
+    sha256: caf6fcfd61c0b7d18606451425c4d43e4d69948f406e9ebefc49ccaa39cd14b9
+    rows: null
+  - path: results/confirmatory/synthetic_v5/case_provenance.parquet
+    sha256: c0d874e0c370bbfe0c34885f967252ac49da352a4df49776a2dcfa339e4f1d1b
+    rows: 102
+  - path: src/derivguard/synthetic/confirmatory_v6.py
+    sha256: 2c2598ab8acee3edb28d71028b503a47c6b056ed405090384ddf7b008355787c
+    rows: null
+  - path: artifacts\model_releases\model_release_v1.1.json
+    sha256: 0fd53ee708e95f9666a95724b80937737d2b1b8406e33abbe304a2ee04efdccf
+    rows: null
+  - path: results/confirmatory/synthetic_v5/T08_DVE_BASELINES.csv
+    sha256: d0ec7b2b07baeb509263af3661c14b4a8e25d125ad031965da1802d6b1ac3f32
+    rows: 7
+  evidence_predicates:
+    primary_confirmatory_version_is_v6: true
+    locked_status_complete: true
+    freeze_hash_matches: true
+    observable_c04_calibrations_present: true
+    observable_provenance_present: true
+    all_primary_calibrations_converged: true
+    all_bootstrap_calibrations_converged: true
+    calibration_qualification_passed: true
+    developer_objective_is_c04: true
+    developer_optimizer_explicitly_o01: true
+    release_id_linked: true
+    release_hash_linked: true
+    source_and_frozen_registries_current: true
+    threshold_freeze_linked_and_precedes_locked: true
+    measured_baseline_row_present: true
+- id: V02
+  name: Challenger-only
+  status: COMPLETED
+  feasibility: EXECUTED_MEASURED
+  status_reason: active confirmatory baseline=V02
+  evidence:
+  - path: artifacts/checkpoints/synthetic_confirmatory_v6.freeze.json
+    sha256: e6604a752b3ec13cd7ae4fb4f0cf7dffb61c90474b23cc4ae7c8a11a726790a7
+    rows: null
+  - path: results/confirmatory/synthetic_v5/confirmatory_metrics.json
+    sha256: 54ef5b52be4e58a66e580b9fbbaee04b8d48a206e0d8969523cb56eba699e378
+    rows: null
+  - path: results/confirmatory/synthetic_v5/dve_thresholds.freeze.json
+    sha256: 2af45ed9efdafeefa238a00c3c3240949c02196923114820acf8779ab81b755b
+    rows: null
+  - path: results/confirmatory/synthetic_v5/calibration_diagnostics.parquet
+    sha256: 036225d9b2ad95913ee530d65a4b84dc4dbcfbb26fb98ef8665bd9405d92f8a5
+    rows: 3060
+  - path: results/confirmatory/synthetic_v5/calibration_qualification.json
+    sha256: caf6fcfd61c0b7d18606451425c4d43e4d69948f406e9ebefc49ccaa39cd14b9
+    rows: null
+  - path: results/confirmatory/synthetic_v5/case_provenance.parquet
+    sha256: c0d874e0c370bbfe0c34885f967252ac49da352a4df49776a2dcfa339e4f1d1b
+    rows: 102
+  - path: src/derivguard/synthetic/confirmatory_v6.py
+    sha256: 2c2598ab8acee3edb28d71028b503a47c6b056ed405090384ddf7b008355787c
+    rows: null
+  - path: artifacts\model_releases\model_release_v1.1.json
+    sha256: 0fd53ee708e95f9666a95724b80937737d2b1b8406e33abbe304a2ee04efdccf
+    rows: null
+  - path: results/confirmatory/synthetic_v5/T08_DVE_BASELINES.csv
+    sha256: d0ec7b2b07baeb509263af3661c14b4a8e25d125ad031965da1802d6b1ac3f32
+    rows: 7
+  evidence_predicates:
+    primary_confirmatory_version_is_v6: true
+    locked_status_complete: true
+    freeze_hash_matches: true
+    observable_c04_calibrations_present: true
+    observable_provenance_present: true
+    all_primary_calibrations_converged: true
+    all_bootstrap_calibrations_converged: true
+    calibration_qualification_passed: true
+    developer_objective_is_c04: true
+    developer_optimizer_explicitly_o01: true
+    release_id_linked: true
+    release_hash_linked: true
+    source_and_frozen_registries_current: true
+    threshold_freeze_linked_and_precedes_locked: true
+    measured_baseline_row_present: true
+- id: V03
+  name: Bootstrap-only
+  status: COMPLETED
+  feasibility: EXECUTED_MEASURED
+  status_reason: active confirmatory baseline=V03
+  evidence:
+  - path: artifacts/checkpoints/synthetic_confirmatory_v6.freeze.json
+    sha256: e6604a752b3ec13cd7ae4fb4f0cf7dffb61c90474b23cc4ae7c8a11a726790a7
+    rows: null
+  - path: results/confirmatory/synthetic_v5/confirmatory_metrics.json
+    sha256: 54ef5b52be4e58a66e580b9fbbaee04b8d48a206e0d8969523cb56eba699e378
+    rows: null
+  - path: results/confirmatory/synthetic_v5/dve_thresholds.freeze.json
+    sha256: 2af45ed9efdafeefa238a00c3c3240949c02196923114820acf8779ab81b755b
+    rows: null
+  - path: results/confirmatory/synthetic_v5/calibration_diagnostics.parquet
+    sha256: 036225d9b2ad95913ee530d65a4b84dc4dbcfbb26fb98ef8665bd9405d92f8a5
+    rows: 3060
+  - path: results/confirmatory/synthetic_v5/calibration_qualification.json
+    sha256: caf6fcfd61c0b7d18606451425c4d43e4d69948f406e9ebefc49ccaa39cd14b9
+    rows: null
+  - path: results/confirmatory/synthetic_v5/case_provenance.parquet
+    sha256: c0d874e0c370bbfe0c34885f967252ac49da352a4df49776a2dcfa339e4f1d1b
+    rows: 102
+  - path: src/derivguard/synthetic/confirmatory_v6.py
+    sha256: 2c2598ab8acee3edb28d71028b503a47c6b056ed405090384ddf7b008355787c
+    rows: null
+  - path: artifacts\model_releases\model_release_v1.1.json
+    sha256: 0fd53ee708e95f9666a95724b80937737d2b1b8406e33abbe304a2ee04efdccf
+    rows: null
+  - path: results/confirmatory/synthetic_v5/T08_DVE_BASELINES.csv
+    sha256: d0ec7b2b07baeb509263af3661c14b4a8e25d125ad031965da1802d6b1ac3f32
+    rows: 7
+  evidence_predicates:
+    primary_confirmatory_version_is_v6: true
+    locked_status_complete: true
+    freeze_hash_matches: true
+    observable_c04_calibrations_present: true
+    observable_provenance_present: true
+    all_primary_calibrations_converged: true
+    all_bootstrap_calibrations_converged: true
+    calibration_qualification_passed: true
+    developer_objective_is_c04: true
+    developer_optimizer_explicitly_o01: true
+    release_id_linked: true
+    release_hash_linked: true
+    source_and_frozen_registries_current: true
+    threshold_freeze_linked_and_precedes_locked: true
+    measured_baseline_row_present: true
+- id: V04
+  name: Numerical-only
+  status: COMPLETED
+  feasibility: EXECUTED_MEASURED
+  status_reason: active confirmatory baseline=V04
+  evidence:
+  - path: artifacts/checkpoints/synthetic_confirmatory_v6.freeze.json
+    sha256: e6604a752b3ec13cd7ae4fb4f0cf7dffb61c90474b23cc4ae7c8a11a726790a7
+    rows: null
+  - path: results/confirmatory/synthetic_v5/confirmatory_metrics.json
+    sha256: 54ef5b52be4e58a66e580b9fbbaee04b8d48a206e0d8969523cb56eba699e378
+    rows: null
+  - path: results/confirmatory/synthetic_v5/dve_thresholds.freeze.json
+    sha256: 2af45ed9efdafeefa238a00c3c3240949c02196923114820acf8779ab81b755b
+    rows: null
+  - path: results/confirmatory/synthetic_v5/calibration_diagnostics.parquet
+    sha256: 036225d9b2ad95913ee530d65a4b84dc4dbcfbb26fb98ef8665bd9405d92f8a5
+    rows: 3060
+  - path: results/confirmatory/synthetic_v5/calibration_qualification.json
+    sha256: caf6fcfd61c0b7d18606451425c4d43e4d69948f406e9ebefc49ccaa39cd14b9
+    rows: null
+  - path: results/confirmatory/synthetic_v5/case_provenance.parquet
+    sha256: c0d874e0c370bbfe0c34885f967252ac49da352a4df49776a2dcfa339e4f1d1b
+    rows: 102
+  - path: src/derivguard/synthetic/confirmatory_v6.py
+    sha256: 2c2598ab8acee3edb28d71028b503a47c6b056ed405090384ddf7b008355787c
+    rows: null
+  - path: artifacts\model_releases\model_release_v1.1.json
+    sha256: 0fd53ee708e95f9666a95724b80937737d2b1b8406e33abbe304a2ee04efdccf
+    rows: null
+  - path: results/confirmatory/synthetic_v5/T08_DVE_BASELINES.csv
+    sha256: d0ec7b2b07baeb509263af3661c14b4a8e25d125ad031965da1802d6b1ac3f32
+    rows: 7
+  evidence_predicates:
+    primary_confirmatory_version_is_v6: true
+    locked_status_complete: true
+    freeze_hash_matches: true
+    observable_c04_calibrations_present: true
+    observable_provenance_present: true
+    all_primary_calibrations_converged: true
+    all_bootstrap_calibrations_converged: true
+    calibration_qualification_passed: true
+    developer_objective_is_c04: true
+    developer_optimizer_explicitly_o01: true
+    release_id_linked: true
+    release_hash_linked: true
+    source_and_frozen_registries_current: true
+    threshold_freeze_linked_and_precedes_locked: true
+    measured_baseline_row_present: true
+- id: V05
+  name: Non-regime DVE
+  status: COMPLETED
+  feasibility: EXECUTED_MEASURED
+  status_reason: active confirmatory baseline=V05
+  evidence:
+  - path: artifacts/checkpoints/synthetic_confirmatory_v6.freeze.json
+    sha256: e6604a752b3ec13cd7ae4fb4f0cf7dffb61c90474b23cc4ae7c8a11a726790a7
+    rows: null
+  - path: results/confirmatory/synthetic_v5/confirmatory_metrics.json
+    sha256: 54ef5b52be4e58a66e580b9fbbaee04b8d48a206e0d8969523cb56eba699e378
+    rows: null
+  - path: results/confirmatory/synthetic_v5/dve_thresholds.freeze.json
+    sha256: 2af45ed9efdafeefa238a00c3c3240949c02196923114820acf8779ab81b755b
+    rows: null
+  - path: results/confirmatory/synthetic_v5/calibration_diagnostics.parquet
+    sha256: 036225d9b2ad95913ee530d65a4b84dc4dbcfbb26fb98ef8665bd9405d92f8a5
+    rows: 3060
+  - path: results/confirmatory/synthetic_v5/calibration_qualification.json
+    sha256: caf6fcfd61c0b7d18606451425c4d43e4d69948f406e9ebefc49ccaa39cd14b9
+    rows: null
+  - path: results/confirmatory/synthetic_v5/case_provenance.parquet
+    sha256: c0d874e0c370bbfe0c34885f967252ac49da352a4df49776a2dcfa339e4f1d1b
+    rows: 102
+  - path: src/derivguard/synthetic/confirmatory_v6.py
+    sha256: 2c2598ab8acee3edb28d71028b503a47c6b056ed405090384ddf7b008355787c
+    rows: null
+  - path: artifacts\model_releases\model_release_v1.1.json
+    sha256: 0fd53ee708e95f9666a95724b80937737d2b1b8406e33abbe304a2ee04efdccf
+    rows: null
+  - path: results/confirmatory/synthetic_v5/T08_DVE_BASELINES.csv
+    sha256: d0ec7b2b07baeb509263af3661c14b4a8e25d125ad031965da1802d6b1ac3f32
+    rows: 7
+  evidence_predicates:
+    primary_confirmatory_version_is_v6: true
+    locked_status_complete: true
+    freeze_hash_matches: true
+    observable_c04_calibrations_present: true
+    observable_provenance_present: true
+    all_primary_calibrations_converged: true
+    all_bootstrap_calibrations_converged: true
+    calibration_qualification_passed: true
+    developer_objective_is_c04: true
+    developer_optimizer_explicitly_o01: true
+    release_id_linked: true
+    release_hash_linked: true
+    source_and_frozen_registries_current: true
+    threshold_freeze_linked_and_precedes_locked: true
+    measured_baseline_row_present: true
+- id: V06
+  name: Full DerivGuard DVE
+  status: COMPLETED
+  feasibility: EXECUTED_MEASURED
+  status_reason: active confirmatory baseline=V06
+  evidence:
+  - path: artifacts/checkpoints/synthetic_confirmatory_v6.freeze.json
+    sha256: e6604a752b3ec13cd7ae4fb4f0cf7dffb61c90474b23cc4ae7c8a11a726790a7
+    rows: null
+  - path: results/confirmatory/synthetic_v5/confirmatory_metrics.json
+    sha256: 54ef5b52be4e58a66e580b9fbbaee04b8d48a206e0d8969523cb56eba699e378
+    rows: null
+  - path: results/confirmatory/synthetic_v5/dve_thresholds.freeze.json
+    sha256: 2af45ed9efdafeefa238a00c3c3240949c02196923114820acf8779ab81b755b
+    rows: null
+  - path: results/confirmatory/synthetic_v5/calibration_diagnostics.parquet
+    sha256: 036225d9b2ad95913ee530d65a4b84dc4dbcfbb26fb98ef8665bd9405d92f8a5
+    rows: 3060
+  - path: results/confirmatory/synthetic_v5/calibration_qualification.json
+    sha256: caf6fcfd61c0b7d18606451425c4d43e4d69948f406e9ebefc49ccaa39cd14b9
+    rows: null
+  - path: results/confirmatory/synthetic_v5/case_provenance.parquet
+    sha256: c0d874e0c370bbfe0c34885f967252ac49da352a4df49776a2dcfa339e4f1d1b
+    rows: 102
+  - path: src/derivguard/synthetic/confirmatory_v6.py
+    sha256: 2c2598ab8acee3edb28d71028b503a47c6b056ed405090384ddf7b008355787c
+    rows: null
+  - path: artifacts\model_releases\model_release_v1.1.json
+    sha256: 0fd53ee708e95f9666a95724b80937737d2b1b8406e33abbe304a2ee04efdccf
+    rows: null
+  - path: results/confirmatory/synthetic_v5/T08_DVE_BASELINES.csv
+    sha256: d0ec7b2b07baeb509263af3661c14b4a8e25d125ad031965da1802d6b1ac3f32
+    rows: 7
+  evidence_predicates:
+    primary_confirmatory_version_is_v6: true
+    locked_status_complete: true
+    freeze_hash_matches: true
+    observable_c04_calibrations_present: true
+    observable_provenance_present: true
+    all_primary_calibrations_converged: true
+    all_bootstrap_calibrations_converged: true
+    calibration_qualification_passed: true
+    developer_objective_is_c04: true
+    developer_optimizer_explicitly_o01: true
+    release_id_linked: true
+    release_hash_linked: true
+    source_and_frozen_registries_current: true
+    threshold_freeze_linked_and_precedes_locked: true
+    measured_baseline_row_present: true
+families:
+  DATA:
+  - id: D01
+    title: Raw versus filtered quote-quality comparison
+    status: COMPLETED
+    feasibility: EXECUTED_MEASURED
+    status_reason: normalized/filtered rows and 4 quote-quality subsets were inspected
+    evidence:
+    - path: artifacts/data/processing_summary.json
+      sha256: e05f888004a54e659f18501300e6e49b8da5a0585aed9906f0703d41f2890f3b
+      rows: null
+    - path: results/raw/forward_estimator_comparison.parquet
+      sha256: 8c9d962c8227adac33fa2b4597d6422430572127b172086a0a52740a6fc98101
+      rows: 107521
+    evidence_predicates:
+      raw_and_filtered_counts_measured: true
+      quote_quality_subsets_measured: true
+  - id: D02
+    title: Synchronized or prospective versus historical unsynchronized comparison
+    status: PARTIAL
+    feasibility: ATTEMPTED_INCOMPLETE
+    status_reason: All 4,294,301 public historical rows lack quote_time and the prospective Cboe marking
+      series currently contains one date. A synchronized next-date contract-continuity study cannot be
+      constructed defensibly.
+    evidence:
+    - path: artifacts/data/acquisition_inspection.json
+      sha256: 784cfea3225852325ca2a9cf4d708fafb19957e137f3faa8eb467d9f2a630051
+      rows: null
+    - path: results/RESULT_AVAILABILITY.json
+      sha256: da976d2eacd691e2bb26a5d9a323c7e5bf12e5a7a209af22ce29e00eacd3ec66
+      rows: null
+    evidence_predicates:
+      historical_asynchrony_documented: true
+      multi_date_synchronized_comparator_available: false
+  - id: D03
+    title: Liquidity filter comparison
+    status: COMPLETED
+    feasibility: EXECUTED_MEASURED
+    status_reason: cross-sectional supplement rows inspected
+    evidence:
+    - path: results/aggregated/liquidity_filter_study.csv
+      sha256: b0ca63645156e3d895fa6a28cd09b71870beb522773f100d0474ecd7edb8da8e
+      rows: 54
+    evidence_predicates:
+      measured_rows_present: true
+      model_metrics_present: true
+      multiple_quote_subsets: true
+  - id: D04
+    title: Forward estimator comparison F0-F3
+    status: COMPLETED
+    feasibility: EXECUTED_MEASURED
+    status_reason: successful estimators=['F0', 'F1', 'F2', 'F3']
+    evidence:
+    - path: results/raw/forward_estimator_comparison.parquet
+      sha256: 8c9d962c8227adac33fa2b4597d6422430572127b172086a0a52740a6fc98101
+      rows: 107521
+    evidence_predicates:
+      all_estimators_measured: true
+      residual_metrics_present: true
+  - id: D05
+    title: Option-implied versus external curve sensitivity
+    status: COMPLETED
+    feasibility: EXECUTED_MEASURED
+    status_reason: external Treasury curve sensitivity rows inspected
+    evidence:
+    - path: reports/tables/T02_EXTERNAL_CURVE_SENSITIVITY.csv
+      sha256: d81854febca2a720492e6c6f01a3c3a58dc1da87af7b3a915be84419df17d4cd
+      rows: 18
+    evidence_predicates:
+      measured_rows_present: true
+      price_shift_metrics_present: true
+      dev_validation_locked_covered: true
+  - id: D06
+    title: PM versus AM settlement analysis
+    status: COMPLETED
+    feasibility: EXECUTED_MEASURED
+    status_reason: cross-sectional supplement rows inspected
+    evidence:
+    - path: results/aggregated/am_pm_robustness.csv
+      sha256: fa3a3164fb0a9364e6a333ebfd4c1591e6bc8a4f2f16ec2ffebcad17fe5d46f3
+      rows: 36
+    evidence_predicates:
+      measured_rows_present: true
+      model_metrics_present: true
+      am_and_pm_measured: true
+  - id: D07
+    title: Source and schema comparison
+    status: COMPLETED
+    feasibility: EXECUTED_MEASURED
+    status_reason: hashed sources=['cboe_datashop_sample', 'cboe_marking', 'historical_spx_sample']
+    evidence:
+    - path: artifacts/data/acquisition_inspection.json
+      sha256: 784cfea3225852325ca2a9cf4d708fafb19957e137f3faa8eb467d9f2a630051
+      rows: null
+    evidence_predicates:
+      multiple_sources_hashed: true
+      datashop_schema_inspected: true
+  NUMERICAL:
+  - id: N01
+    title: Black-Scholes verification
+    status: COMPLETED
+    feasibility: EXECUTED_MEASURED
+    status_reason: analytic foundation and passing full tests inspected
+    evidence:
+    - path: src/derivguard/market/black_scholes.py
+      sha256: 941b58b42be34864293ac66a32ec647bb1a8db6caa1f59b81e65028bc8d16300
+      rows: null
+    - path: artifacts/tests/final_test_summary.json
+      sha256: 5237b828d3655d9fac0237cec1666bef9415e47c9d3a372cff510afdaec75bce
+      rows: null
+    evidence_predicates:
+      implementation_present: true
+      full_test_suite_passed: true
+  - id: N02
+    title: Heston CF versus QuantLib
+    status: COMPLETED
+    feasibility: EXECUTED_MEASURED
+    status_reason: CF/reference and stress-test evidence inspected
+    evidence:
+    - path: results/aggregated/numerical_benchmarks.json
+      sha256: 333812fd561015dc6f060b9b1767b3e02dd22508148fb3b17884659db8be9680
+      rows: null
+    - path: artifacts/tests/final_test_summary.json
+      sha256: 5237b828d3655d9fac0237cec1666bef9415e47c9d3a372cff510afdaec75bce
+      rows: null
+    evidence_predicates:
+      research_numerical_run: true
+      experiment_recorded: true
+      finite_reference_error: true
+      full_test_suite_passed: true
+  - id: N03
+    title: Heston characteristic-function stability stress
+    status: COMPLETED
+    feasibility: EXECUTED_MEASURED
+    status_reason: CF/reference and stress-test evidence inspected
+    evidence:
+    - path: results/aggregated/numerical_benchmarks.json
+      sha256: 333812fd561015dc6f060b9b1767b3e02dd22508148fb3b17884659db8be9680
+      rows: null
+    - path: artifacts/tests/final_test_summary.json
+      sha256: 5237b828d3655d9fac0237cec1666bef9415e47c9d3a372cff510afdaec75bce
+      rows: null
+    evidence_predicates:
+      research_numerical_run: true
+      experiment_recorded: true
+      finite_reference_error: true
+      full_test_suite_passed: true
+  - id: N04
+    title: Monte Carlo convergence
+    status: COMPLETED
+    feasibility: EXECUTED_MEASURED
+    status_reason: schemes=['full_truncation', 'qe', 'qe_m'], time levels=4, seeds=7
+    evidence:
+    - path: results/aggregated/mc_qe_qem_audit.csv
+      sha256: 50d069531e89004d4bd03f9ae0564070aa0ec94b424be2e715e575e81cd84f2b
+      rows: 65
+    - path: results/aggregated/numerical_remediation_qualification.json
+      sha256: 813caba940404ad7cba80c7148de65b07d38533233a42cf930c0c0ffffa39fe3
+      rows: null
+    evidence_predicates:
+      multiple_time_steps: true
+      multiple_seeds: true
+      bias_and_standard_error_separate: true
+  - id: N05
+    title: Full-truncation Euler versus QE
+    status: COMPLETED
+    feasibility: EXECUTED_MEASURED
+    status_reason: schemes=['full_truncation', 'qe', 'qe_m'], time levels=4, seeds=7
+    evidence:
+    - path: results/aggregated/mc_qe_qem_audit.csv
+      sha256: 50d069531e89004d4bd03f9ae0564070aa0ec94b424be2e715e575e81cd84f2b
+      rows: 65
+    - path: results/aggregated/numerical_remediation_qualification.json
+      sha256: 813caba940404ad7cba80c7148de65b07d38533233a42cf930c0c0ffffa39fe3
+      rows: null
+    evidence_predicates:
+      multiple_time_steps: true
+      multiple_seeds: true
+      bias_and_standard_error_separate: true
+      euler_qe_and_qem_measured: true
+  - id: N06
+    title: Monte Carlo variance reduction
+    status: COMPLETED
+    feasibility: EXECUTED_MEASURED
+    status_reason: variance-reduction variants=3; seeds=5
+    evidence:
+    - path: results/aggregated/mc_variance_reduction.csv
+      sha256: 50de510d983cd31acd950edc6dc82cd94c9082e1a46b7b9434355f0273e97b8a
+      rows: 15
+    - path: results/aggregated/mc_variance_reduction.json
+      sha256: a74dcf88308f3f7be4a90c423693241ce04991c379793ff3b0a87beaff32ad71
+      rows: null
+    evidence_predicates:
+      none_antithetic_control_variants_compared: true
+      multiple_independent_seeds: true
+      sampling_error_measured: true
+      manifest_identifies_n06: true
+  - id: N07
+    title: PDE ADI scheme comparison
+    status: PARTIAL
+    feasibility: ATTEMPTED_INCOMPLETE
+    status_reason: PDE was attempted with schemes=['hundsdorfer_verwer', 'modified_craig_sneyd']; frozen
+      status=PARTIAL
+    evidence:
+    - path: results/aggregated/pde_adi_convergence.csv
+      sha256: 557dad19d6d3b74a8f4322d774a0cec28c56cbbd4c7088feb0e1ebf50982b978
+      rows: 42
+    - path: results/aggregated/numerical_remediation_qualification.json
+      sha256: 813caba940404ad7cba80c7148de65b07d38533233a42cf930c0c0ffffa39fe3
+      rows: null
+    evidence_predicates:
+      mcs_and_hv_attempted: true
+      required_convergence_dimensions_attempted: true
+      frozen_pde_qualification_passed: false
+  - id: N08
+    title: PDE grid and time convergence
+    status: PARTIAL
+    feasibility: ATTEMPTED_INCOMPLETE
+    status_reason: PDE was attempted with schemes=['hundsdorfer_verwer', 'modified_craig_sneyd']; frozen
+      status=PARTIAL
+    evidence:
+    - path: results/aggregated/pde_adi_convergence.csv
+      sha256: 557dad19d6d3b74a8f4322d774a0cec28c56cbbd4c7088feb0e1ebf50982b978
+      rows: 42
+    - path: results/aggregated/numerical_remediation_qualification.json
+      sha256: 813caba940404ad7cba80c7148de65b07d38533233a42cf930c0c0ffffa39fe3
+      rows: null
+    evidence_predicates:
+      mcs_and_hv_attempted: true
+      required_convergence_dimensions_attempted: true
+      frozen_pde_qualification_passed: false
+  - id: N09
+    title: CPU versus GPU accuracy and runtime
+    status: COMPLETED
+    feasibility: EXECUTED_MEASURED
+    status_reason: selected backends=['scipy-sparse-cpu-fp64', 'torch-cuda-fp64']
+    evidence:
+    - path: results/aggregated/T12_CPU_GPU_PERFORMANCE.csv
+      sha256: b0f560c19c2c38c73d4e750f77d2164231c49dbdefe706de095fab7162921f73
+      rows: 4
+    evidence_predicates:
+      measured_runtime_rows_present: true
+      cpu_and_gpu_backends_represented: true
+      accuracy_fields_present: true
+  - id: N10
+    title: Precision sensitivity
+    status: COMPLETED
+    feasibility: EXECUTED_MEASURED
+    status_reason: FP32/FP64 sensitivity artifact inspected
+    evidence:
+    - path: results/aggregated/precision_sensitivity.csv
+      sha256: db0f1a14d965f3fe8e48a4f836800c67cebcd9e1596cbedab1f9d9438c607ce0
+      rows: 8
+    - path: results/aggregated/precision_sensitivity.json
+      sha256: 602e9725699448117d08dcd936d06ebb1572a596dd83006c4a3b9008ce1892db
+      rows: null
+    evidence_predicates:
+      fp32_and_fp64_measured: true
+      multiple_stress_cases: true
+      error_metrics_present: true
+      manifest_identifies_n10: true
+  CALIBRATION:
+  - id: C01
+    title: Objective comparison C00-C04
+    status: COMPLETED
+    feasibility: EXECUTED_MEASURED
+    status_reason: objectives=['C00', 'C01', 'C02', 'C03', 'C04']
+    evidence:
+    - path: reports/tables/T04_CALIBRATION_OBJECTIVE_COMPARISON.csv
+      sha256: e79812b2ab4c2656a99328095336362a7c89823c09b26853c24e05bb3baad7d9
+      rows: 18
+    evidence_predicates:
+      all_objectives_measured: true
+      dev_selection_and_validation_confirmation: true
+  - id: C02
+    title: Optimizer comparison O00-O04
+    status: COMPLETED
+    feasibility: EXECUTED_MEASURED
+    status_reason: optimizers=['O00', 'O01', 'O02', 'O03', 'O04']
+    evidence:
+    - path: reports/tables/T05_OPTIMIZER_IDENTIFIABILITY.csv
+      sha256: 439ee6581d933d5c8504cd6ec74190fcb4d3711cb0356496a30a7c93a09a0674
+      rows: 161
+    evidence_predicates:
+      all_optimizers_measured: true
+  - id: C03
+    title: Starting-value sensitivity
+    status: COMPLETED
+    feasibility: EXECUTED_MEASURED
+    status_reason: multistart parameters=['kappa', 'rho', 'sigma_v', 'theta', 'v0']
+    evidence:
+    - path: results/aggregated/identifiability_profiles.parquet
+      sha256: 1b084c40c7e8e908d97c489cae49ea0677afb50aad2be60e846f92b069418888
+      rows: 19
+    evidence_predicates:
+      all_parameters_multistarted: true
+      solution_dispersion_measured: true
+  - id: C04
+    title: Feller treatment comparison
+    status: COMPLETED
+    feasibility: EXECUTED_MEASURED
+    status_reason: Feller variants=['hard', 'soft', 'unconstrained']
+    evidence:
+    - path: results/aggregated/feller_study.csv
+      sha256: d774822c127e94af246b01bdd8100bb1402328f153a3da08d8830d8c71b8c2fb
+      rows: 3
+    evidence_predicates:
+      unconstrained_soft_hard_measured: true
+  - id: C05
+    title: Calibration uncertainty bootstrap
+    status: COMPLETED
+    feasibility: EXECUTED_MEASURED
+    status_reason: bootstrap rows=8
+    evidence:
+    - path: results/aggregated/bootstrap_calibration.parquet
+      sha256: 07a9720d3ee6f80d9527e79a268791f202f7308be55209fdac8a44544596606e
+      rows: 8
+    evidence_predicates:
+      multiple_bootstrap_draws: true
+      parameter_distribution_measured: true
+  - id: C06
+    title: Identifiability and profile-objective analysis
+    status: COMPLETED
+    feasibility: EXECUTED_MEASURED
+    status_reason: identifiability studies=['identifiability', 'profile_objective']
+    evidence:
+    - path: results/aggregated/identifiability_profiles.parquet
+      sha256: 1b084c40c7e8e908d97c489cae49ea0677afb50aad2be60e846f92b069418888
+      rows: 19
+    evidence_predicates:
+      multistart_and_profile_measured: true
+      profile_grid_values_present: true
+  - id: C07
+    title: Rolling parameter stability
+    status: COMPLETED
+    feasibility: EXECUTED_MEASURED
+    status_reason: stability rows=126
+    evidence:
+    - path: results/aggregated/parameter_stability.parquet
+      sha256: be8bb0b5ff06741587394049dc7d772e280f8436ee8bc5ada9abd9f586fa833b
+      rows: 126
+    evidence_predicates:
+      rolling_dates_measured: true
+      all_temporal_splits_present: true
+      jump_score_present: true
+  - id: C08
+    title: Surface-coverage sensitivity
+    status: COMPLETED
+    feasibility: EXECUTED_MEASURED
+    status_reason: model experiments=['cross_sectional', 'cross_sectional_challenger', 'cross_sectional_reference',
+      'maturity_holdout', 'wing_holdout']
+    evidence:
+    - path: reports/tables/T06_PRICING_MODEL_COMPARISON.csv
+      sha256: 82dfe2141949de1a6070b5d1e35d4eb69360072b7ef222b2c1ec4d9fb373735b
+      rows: 747
+    evidence_predicates:
+      wing_and_maturity_holdouts_measured: true
+  - id: C09
+    title: Quote weighting sensitivity
+    status: COMPLETED
+    feasibility: EXECUTED_MEASURED
+    status_reason: weighting-related objectives=['C00', 'C01', 'C02', 'C03', 'C04']
+    evidence:
+    - path: reports/tables/T04_CALIBRATION_OBJECTIVE_COMPARISON.csv
+      sha256: e79812b2ab4c2656a99328095336362a7c89823c09b26853c24e05bb3baad7d9
+      rows: 18
+    evidence_predicates:
+      raw_spread_and_robust_weightings_measured: true
+  MODEL_COMPARISON:
+  - id: M01
+    title: Black-Scholes comparison
+    models:
+    - M00
+    - M01
+    status: COMPLETED
+    feasibility: EXECUTED_MEASURED
+    status_reason: required model rows=['M00_BS_FLAT', 'M01_MARKET_IV_REFERENCE']; measured=['M00_BS_FLAT',
+      'M01_MARKET_IV_REFERENCE']
+    evidence:
+    - path: reports/tables/T06_PRICING_MODEL_COMPARISON.csv
+      sha256: 82dfe2141949de1a6070b5d1e35d4eb69360072b7ef222b2c1ec4d9fb373735b
+      rows: 747
+    evidence_predicates:
+      real_cross_sectional_models_measured: true
+      dev_validation_locked_splits_measured: true
+  - id: M02
+    title: SVI and SSVI comparison
+    models:
+    - M02
+    - M03
+    status: COMPLETED
+    feasibility: EXECUTED_MEASURED
+    status_reason: required model rows=['M02_SVI', 'M03_SSVI']; measured=['M02_SVI', 'M03_SSVI']
+    evidence:
+    - path: reports/tables/T06_PRICING_MODEL_COMPARISON.csv
+      sha256: 82dfe2141949de1a6070b5d1e35d4eb69360072b7ef222b2c1ec4d9fb373735b
+      rows: 747
+    evidence_predicates:
+      real_cross_sectional_models_measured: true
+      dev_validation_locked_splits_measured: true
+  - id: M03
+    title: Heston comparison
+    models:
+    - M10
+    - M11
+    - M12
+    - M90
+    status: PARTIAL
+    feasibility: ATTEMPTED_INCOMPLETE
+    status_reason: required model rows=['M10_HESTON']; measured=['M10_HESTON']
+    evidence:
+    - path: reports/tables/T06_PRICING_MODEL_COMPARISON.csv
+      sha256: 82dfe2141949de1a6070b5d1e35d4eb69360072b7ef222b2c1ec4d9fb373735b
+      rows: 747
+    - path: results/aggregated/numerical_remediation_qualification.json
+      sha256: 813caba940404ad7cba80c7148de65b07d38533233a42cf930c0c0ffffa39fe3
+      rows: null
+    evidence_predicates:
+      real_cross_sectional_models_measured: true
+      dev_validation_locked_splits_measured: true
+      mc_independent_validator_qualified: true
+      pde_independent_validator_qualified: false
+  - id: M04
+    title: Local Volatility comparison
+    models:
+    - M20
+    status: COMPLETED
+    feasibility: EXECUTED_MEASURED
+    status_reason: required model rows=['M20_LOCALVOL_MC']; measured=['M20_LOCALVOL_MC']
+    evidence:
+    - path: reports/tables/T06_PRICING_MODEL_COMPARISON.csv
+      sha256: 82dfe2141949de1a6070b5d1e35d4eb69360072b7ef222b2c1ec4d9fb373735b
+      rows: 747
+    - path: results/confirmatory/synthetic_v5/truth_qualification.json
+      sha256: 0725ed81b61b56feb9383bf914746d394fe16174abe8c123a5e2dfa3640d2953
+      rows: null
+    evidence_predicates:
+      real_cross_sectional_models_measured: true
+      dev_validation_locked_splits_measured: true
+      localvol_truth_engine_qualified: true
+  - id: M05
+    title: Bates comparison
+    models:
+    - M21
+    status: COMPLETED
+    feasibility: EXECUTED_MEASURED
+    status_reason: required model rows=['M21_BATES_SENSITIVITY']; measured=['M21_BATES_SENSITIVITY']
+    evidence:
+    - path: reports/tables/T06_PRICING_MODEL_COMPARISON.csv
+      sha256: 82dfe2141949de1a6070b5d1e35d4eb69360072b7ef222b2c1ec4d9fb373735b
+      rows: 747
+    - path: results/confirmatory/synthetic_v5/truth_qualification.json
+      sha256: 0725ed81b61b56feb9383bf914746d394fe16174abe8c123a5e2dfa3640d2953
+      rows: null
+    evidence_predicates:
+      real_cross_sectional_models_measured: true
+      dev_validation_locked_splits_measured: true
+      bates_truth_engine_qualified: true
+  SYNTHETIC_VALIDATION:
+  - id: S01
+    title: Correctly specified Heston
+    faults:
+    - F00
+    status: COMPLETED
+    feasibility: EXECUTED_MEASURED
+    status_reason: declared faults=['F00']; observed=['F00']
+    evidence:
+    - path: artifacts/checkpoints/synthetic_confirmatory_v6.freeze.json
+      sha256: e6604a752b3ec13cd7ae4fb4f0cf7dffb61c90474b23cc4ae7c8a11a726790a7
+      rows: null
+    - path: results/confirmatory/synthetic_v5/confirmatory_metrics.json
+      sha256: 54ef5b52be4e58a66e580b9fbbaee04b8d48a206e0d8969523cb56eba699e378
+      rows: null
+    - path: results/confirmatory/synthetic_v5/dve_thresholds.freeze.json
+      sha256: 2af45ed9efdafeefa238a00c3c3240949c02196923114820acf8779ab81b755b
+      rows: null
+    - path: results/confirmatory/synthetic_v5/calibration_diagnostics.parquet
+      sha256: 036225d9b2ad95913ee530d65a4b84dc4dbcfbb26fb98ef8665bd9405d92f8a5
+      rows: 3060
+    - path: results/confirmatory/synthetic_v5/calibration_qualification.json
+      sha256: caf6fcfd61c0b7d18606451425c4d43e4d69948f406e9ebefc49ccaa39cd14b9
+      rows: null
+    - path: results/confirmatory/synthetic_v5/case_provenance.parquet
+      sha256: c0d874e0c370bbfe0c34885f967252ac49da352a4df49776a2dcfa339e4f1d1b
+      rows: 102
+    - path: src/derivguard/synthetic/confirmatory_v6.py
+      sha256: 2c2598ab8acee3edb28d71028b503a47c6b056ed405090384ddf7b008355787c
+      rows: null
+    - path: artifacts\model_releases\model_release_v1.1.json
+      sha256: 0fd53ee708e95f9666a95724b80937737d2b1b8406e33abbe304a2ee04efdccf
+      rows: null
+    - path: results/confirmatory/synthetic_v5/fault_coverage.csv
+      sha256: 5f341c0b0858b5fdfa5c9cbc6eb037e0fb78ee3ce628150124893cadc0e72618
+      rows: 102
+    - path: results/confirmatory/synthetic_v5/truth_qualification.json
+      sha256: 0725ed81b61b56feb9383bf914746d394fe16174abe8c123a5e2dfa3640d2953
+      rows: null
+    evidence_predicates:
+      primary_confirmatory_version_is_v6: true
+      locked_status_complete: true
+      freeze_hash_matches: true
+      observable_c04_calibrations_present: true
+      observable_provenance_present: true
+      all_primary_calibrations_converged: true
+      all_bootstrap_calibrations_converged: true
+      calibration_qualification_passed: true
+      developer_objective_is_c04: true
+      developer_optimizer_explicitly_o01: true
+      release_id_linked: true
+      release_hash_linked: true
+      source_and_frozen_registries_current: true
+      threshold_freeze_linked_and_precedes_locked: true
+      declared_faults_executed: true
+      faults_have_real_implementation_labels: true
+  - id: S02
+    title: Bates misspecification
+    faults:
+    - F01
+    status: COMPLETED
+    feasibility: EXECUTED_MEASURED
+    status_reason: declared faults=['F01']; observed=['F01']
+    evidence:
+    - path: artifacts/checkpoints/synthetic_confirmatory_v6.freeze.json
+      sha256: e6604a752b3ec13cd7ae4fb4f0cf7dffb61c90474b23cc4ae7c8a11a726790a7
+      rows: null
+    - path: results/confirmatory/synthetic_v5/confirmatory_metrics.json
+      sha256: 54ef5b52be4e58a66e580b9fbbaee04b8d48a206e0d8969523cb56eba699e378
+      rows: null
+    - path: results/confirmatory/synthetic_v5/dve_thresholds.freeze.json
+      sha256: 2af45ed9efdafeefa238a00c3c3240949c02196923114820acf8779ab81b755b
+      rows: null
+    - path: results/confirmatory/synthetic_v5/calibration_diagnostics.parquet
+      sha256: 036225d9b2ad95913ee530d65a4b84dc4dbcfbb26fb98ef8665bd9405d92f8a5
+      rows: 3060
+    - path: results/confirmatory/synthetic_v5/calibration_qualification.json
+      sha256: caf6fcfd61c0b7d18606451425c4d43e4d69948f406e9ebefc49ccaa39cd14b9
+      rows: null
+    - path: results/confirmatory/synthetic_v5/case_provenance.parquet
+      sha256: c0d874e0c370bbfe0c34885f967252ac49da352a4df49776a2dcfa339e4f1d1b
+      rows: 102
+    - path: src/derivguard/synthetic/confirmatory_v6.py
+      sha256: 2c2598ab8acee3edb28d71028b503a47c6b056ed405090384ddf7b008355787c
+      rows: null
+    - path: artifacts\model_releases\model_release_v1.1.json
+      sha256: 0fd53ee708e95f9666a95724b80937737d2b1b8406e33abbe304a2ee04efdccf
+      rows: null
+    - path: results/confirmatory/synthetic_v5/fault_coverage.csv
+      sha256: 5f341c0b0858b5fdfa5c9cbc6eb037e0fb78ee3ce628150124893cadc0e72618
+      rows: 102
+    - path: results/confirmatory/synthetic_v5/truth_qualification.json
+      sha256: 0725ed81b61b56feb9383bf914746d394fe16174abe8c123a5e2dfa3640d2953
+      rows: null
+    evidence_predicates:
+      primary_confirmatory_version_is_v6: true
+      locked_status_complete: true
+      freeze_hash_matches: true
+      observable_c04_calibrations_present: true
+      observable_provenance_present: true
+      all_primary_calibrations_converged: true
+      all_bootstrap_calibrations_converged: true
+      calibration_qualification_passed: true
+      developer_objective_is_c04: true
+      developer_optimizer_explicitly_o01: true
+      release_id_linked: true
+      release_hash_linked: true
+      source_and_frozen_registries_current: true
+      threshold_freeze_linked_and_precedes_locked: true
+      declared_faults_executed: true
+      faults_have_real_implementation_labels: true
+  - id: S03
+    title: Local Volatility misspecification
+    faults:
+    - F02
+    status: COMPLETED
+    feasibility: EXECUTED_MEASURED
+    status_reason: declared faults=['F02']; observed=['F02']
+    evidence:
+    - path: artifacts/checkpoints/synthetic_confirmatory_v6.freeze.json
+      sha256: e6604a752b3ec13cd7ae4fb4f0cf7dffb61c90474b23cc4ae7c8a11a726790a7
+      rows: null
+    - path: results/confirmatory/synthetic_v5/confirmatory_metrics.json
+      sha256: 54ef5b52be4e58a66e580b9fbbaee04b8d48a206e0d8969523cb56eba699e378
+      rows: null
+    - path: results/confirmatory/synthetic_v5/dve_thresholds.freeze.json
+      sha256: 2af45ed9efdafeefa238a00c3c3240949c02196923114820acf8779ab81b755b
+      rows: null
+    - path: results/confirmatory/synthetic_v5/calibration_diagnostics.parquet
+      sha256: 036225d9b2ad95913ee530d65a4b84dc4dbcfbb26fb98ef8665bd9405d92f8a5
+      rows: 3060
+    - path: results/confirmatory/synthetic_v5/calibration_qualification.json
+      sha256: caf6fcfd61c0b7d18606451425c4d43e4d69948f406e9ebefc49ccaa39cd14b9
+      rows: null
+    - path: results/confirmatory/synthetic_v5/case_provenance.parquet
+      sha256: c0d874e0c370bbfe0c34885f967252ac49da352a4df49776a2dcfa339e4f1d1b
+      rows: 102
+    - path: src/derivguard/synthetic/confirmatory_v6.py
+      sha256: 2c2598ab8acee3edb28d71028b503a47c6b056ed405090384ddf7b008355787c
+      rows: null
+    - path: artifacts\model_releases\model_release_v1.1.json
+      sha256: 0fd53ee708e95f9666a95724b80937737d2b1b8406e33abbe304a2ee04efdccf
+      rows: null
+    - path: results/confirmatory/synthetic_v5/fault_coverage.csv
+      sha256: 5f341c0b0858b5fdfa5c9cbc6eb037e0fb78ee3ce628150124893cadc0e72618
+      rows: 102
+    - path: results/confirmatory/synthetic_v5/truth_qualification.json
+      sha256: 0725ed81b61b56feb9383bf914746d394fe16174abe8c123a5e2dfa3640d2953
+      rows: null
+    evidence_predicates:
+      primary_confirmatory_version_is_v6: true
+      locked_status_complete: true
+      freeze_hash_matches: true
+      observable_c04_calibrations_present: true
+      observable_provenance_present: true
+      all_primary_calibrations_converged: true
+      all_bootstrap_calibrations_converged: true
+      calibration_qualification_passed: true
+      developer_objective_is_c04: true
+      developer_optimizer_explicitly_o01: true
+      release_id_linked: true
+      release_hash_linked: true
+      source_and_frozen_registries_current: true
+      threshold_freeze_linked_and_precedes_locked: true
+      declared_faults_executed: true
+      faults_have_real_implementation_labels: true
+  - id: S04
+    title: Regime shift
+    faults:
+    - F03
+    status: COMPLETED
+    feasibility: EXECUTED_MEASURED
+    status_reason: declared faults=['F03']; observed=['F03']
+    evidence:
+    - path: artifacts/checkpoints/synthetic_confirmatory_v6.freeze.json
+      sha256: e6604a752b3ec13cd7ae4fb4f0cf7dffb61c90474b23cc4ae7c8a11a726790a7
+      rows: null
+    - path: results/confirmatory/synthetic_v5/confirmatory_metrics.json
+      sha256: 54ef5b52be4e58a66e580b9fbbaee04b8d48a206e0d8969523cb56eba699e378
+      rows: null
+    - path: results/confirmatory/synthetic_v5/dve_thresholds.freeze.json
+      sha256: 2af45ed9efdafeefa238a00c3c3240949c02196923114820acf8779ab81b755b
+      rows: null
+    - path: results/confirmatory/synthetic_v5/calibration_diagnostics.parquet
+      sha256: 036225d9b2ad95913ee530d65a4b84dc4dbcfbb26fb98ef8665bd9405d92f8a5
+      rows: 3060
+    - path: results/confirmatory/synthetic_v5/calibration_qualification.json
+      sha256: caf6fcfd61c0b7d18606451425c4d43e4d69948f406e9ebefc49ccaa39cd14b9
+      rows: null
+    - path: results/confirmatory/synthetic_v5/case_provenance.parquet
+      sha256: c0d874e0c370bbfe0c34885f967252ac49da352a4df49776a2dcfa339e4f1d1b
+      rows: 102
+    - path: src/derivguard/synthetic/confirmatory_v6.py
+      sha256: 2c2598ab8acee3edb28d71028b503a47c6b056ed405090384ddf7b008355787c
+      rows: null
+    - path: artifacts\model_releases\model_release_v1.1.json
+      sha256: 0fd53ee708e95f9666a95724b80937737d2b1b8406e33abbe304a2ee04efdccf
+      rows: null
+    - path: results/confirmatory/synthetic_v5/fault_coverage.csv
+      sha256: 5f341c0b0858b5fdfa5c9cbc6eb037e0fb78ee3ce628150124893cadc0e72618
+      rows: 102
+    - path: results/confirmatory/synthetic_v5/truth_qualification.json
+      sha256: 0725ed81b61b56feb9383bf914746d394fe16174abe8c123a5e2dfa3640d2953
+      rows: null
+    evidence_predicates:
+      primary_confirmatory_version_is_v6: true
+      locked_status_complete: true
+      freeze_hash_matches: true
+      observable_c04_calibrations_present: true
+      observable_provenance_present: true
+      all_primary_calibrations_converged: true
+      all_bootstrap_calibrations_converged: true
+      calibration_qualification_passed: true
+      developer_objective_is_c04: true
+      developer_optimizer_explicitly_o01: true
+      release_id_linked: true
+      release_hash_linked: true
+      source_and_frozen_registries_current: true
+      threshold_freeze_linked_and_precedes_locked: true
+      declared_faults_executed: true
+      faults_have_real_implementation_labels: true
+  - id: S05
+    title: Numerical faults
+    faults:
+    - F04
+    - F05
+    - F06
+    status: COMPLETED
+    feasibility: EXECUTED_MEASURED
+    status_reason: declared faults=['F04', 'F05', 'F06']; observed=['F04', 'F05', 'F06']
+    evidence:
+    - path: artifacts/checkpoints/synthetic_confirmatory_v6.freeze.json
+      sha256: e6604a752b3ec13cd7ae4fb4f0cf7dffb61c90474b23cc4ae7c8a11a726790a7
+      rows: null
+    - path: results/confirmatory/synthetic_v5/confirmatory_metrics.json
+      sha256: 54ef5b52be4e58a66e580b9fbbaee04b8d48a206e0d8969523cb56eba699e378
+      rows: null
+    - path: results/confirmatory/synthetic_v5/dve_thresholds.freeze.json
+      sha256: 2af45ed9efdafeefa238a00c3c3240949c02196923114820acf8779ab81b755b
+      rows: null
+    - path: results/confirmatory/synthetic_v5/calibration_diagnostics.parquet
+      sha256: 036225d9b2ad95913ee530d65a4b84dc4dbcfbb26fb98ef8665bd9405d92f8a5
+      rows: 3060
+    - path: results/confirmatory/synthetic_v5/calibration_qualification.json
+      sha256: caf6fcfd61c0b7d18606451425c4d43e4d69948f406e9ebefc49ccaa39cd14b9
+      rows: null
+    - path: results/confirmatory/synthetic_v5/case_provenance.parquet
+      sha256: c0d874e0c370bbfe0c34885f967252ac49da352a4df49776a2dcfa339e4f1d1b
+      rows: 102
+    - path: src/derivguard/synthetic/confirmatory_v6.py
+      sha256: 2c2598ab8acee3edb28d71028b503a47c6b056ed405090384ddf7b008355787c
+      rows: null
+    - path: artifacts\model_releases\model_release_v1.1.json
+      sha256: 0fd53ee708e95f9666a95724b80937737d2b1b8406e33abbe304a2ee04efdccf
+      rows: null
+    - path: results/confirmatory/synthetic_v5/fault_coverage.csv
+      sha256: 5f341c0b0858b5fdfa5c9cbc6eb037e0fb78ee3ce628150124893cadc0e72618
+      rows: 102
+    - path: results/confirmatory/synthetic_v5/truth_qualification.json
+      sha256: 0725ed81b61b56feb9383bf914746d394fe16174abe8c123a5e2dfa3640d2953
+      rows: null
+    evidence_predicates:
+      primary_confirmatory_version_is_v6: true
+      locked_status_complete: true
+      freeze_hash_matches: true
+      observable_c04_calibrations_present: true
+      observable_provenance_present: true
+      all_primary_calibrations_converged: true
+      all_bootstrap_calibrations_converged: true
+      calibration_qualification_passed: true
+      developer_objective_is_c04: true
+      developer_optimizer_explicitly_o01: true
+      release_id_linked: true
+      release_hash_linked: true
+      source_and_frozen_registries_current: true
+      threshold_freeze_linked_and_precedes_locked: true
+      declared_faults_executed: true
+      faults_have_real_implementation_labels: true
+  - id: S06
+    title: Calibration faults
+    faults:
+    - F07
+    - F08
+    - F14
+    status: COMPLETED
+    feasibility: EXECUTED_MEASURED
+    status_reason: declared faults=['F07', 'F08', 'F14']; observed=['F07', 'F08', 'F14']
+    evidence:
+    - path: artifacts/checkpoints/synthetic_confirmatory_v6.freeze.json
+      sha256: e6604a752b3ec13cd7ae4fb4f0cf7dffb61c90474b23cc4ae7c8a11a726790a7
+      rows: null
+    - path: results/confirmatory/synthetic_v5/confirmatory_metrics.json
+      sha256: 54ef5b52be4e58a66e580b9fbbaee04b8d48a206e0d8969523cb56eba699e378
+      rows: null
+    - path: results/confirmatory/synthetic_v5/dve_thresholds.freeze.json
+      sha256: 2af45ed9efdafeefa238a00c3c3240949c02196923114820acf8779ab81b755b
+      rows: null
+    - path: results/confirmatory/synthetic_v5/calibration_diagnostics.parquet
+      sha256: 036225d9b2ad95913ee530d65a4b84dc4dbcfbb26fb98ef8665bd9405d92f8a5
+      rows: 3060
+    - path: results/confirmatory/synthetic_v5/calibration_qualification.json
+      sha256: caf6fcfd61c0b7d18606451425c4d43e4d69948f406e9ebefc49ccaa39cd14b9
+      rows: null
+    - path: results/confirmatory/synthetic_v5/case_provenance.parquet
+      sha256: c0d874e0c370bbfe0c34885f967252ac49da352a4df49776a2dcfa339e4f1d1b
+      rows: 102
+    - path: src/derivguard/synthetic/confirmatory_v6.py
+      sha256: 2c2598ab8acee3edb28d71028b503a47c6b056ed405090384ddf7b008355787c
+      rows: null
+    - path: artifacts\model_releases\model_release_v1.1.json
+      sha256: 0fd53ee708e95f9666a95724b80937737d2b1b8406e33abbe304a2ee04efdccf
+      rows: null
+    - path: results/confirmatory/synthetic_v5/fault_coverage.csv
+      sha256: 5f341c0b0858b5fdfa5c9cbc6eb037e0fb78ee3ce628150124893cadc0e72618
+      rows: 102
+    - path: results/confirmatory/synthetic_v5/truth_qualification.json
+      sha256: 0725ed81b61b56feb9383bf914746d394fe16174abe8c123a5e2dfa3640d2953
+      rows: null
+    evidence_predicates:
+      primary_confirmatory_version_is_v6: true
+      locked_status_complete: true
+      freeze_hash_matches: true
+      observable_c04_calibrations_present: true
+      observable_provenance_present: true
+      all_primary_calibrations_converged: true
+      all_bootstrap_calibrations_converged: true
+      calibration_qualification_passed: true
+      developer_objective_is_c04: true
+      developer_optimizer_explicitly_o01: true
+      release_id_linked: true
+      release_hash_linked: true
+      source_and_frozen_registries_current: true
+      threshold_freeze_linked_and_precedes_locked: true
+      declared_faults_executed: true
+      faults_have_real_implementation_labels: true
+  - id: S07
+    title: Data faults
+    faults:
+    - F09
+    - F10
+    status: COMPLETED
+    feasibility: EXECUTED_MEASURED
+    status_reason: declared faults=['F09', 'F10']; observed=['F09', 'F10']
+    evidence:
+    - path: artifacts/checkpoints/synthetic_confirmatory_v6.freeze.json
+      sha256: e6604a752b3ec13cd7ae4fb4f0cf7dffb61c90474b23cc4ae7c8a11a726790a7
+      rows: null
+    - path: results/confirmatory/synthetic_v5/confirmatory_metrics.json
+      sha256: 54ef5b52be4e58a66e580b9fbbaee04b8d48a206e0d8969523cb56eba699e378
+      rows: null
+    - path: results/confirmatory/synthetic_v5/dve_thresholds.freeze.json
+      sha256: 2af45ed9efdafeefa238a00c3c3240949c02196923114820acf8779ab81b755b
+      rows: null
+    - path: results/confirmatory/synthetic_v5/calibration_diagnostics.parquet
+      sha256: 036225d9b2ad95913ee530d65a4b84dc4dbcfbb26fb98ef8665bd9405d92f8a5
+      rows: 3060
+    - path: results/confirmatory/synthetic_v5/calibration_qualification.json
+      sha256: caf6fcfd61c0b7d18606451425c4d43e4d69948f406e9ebefc49ccaa39cd14b9
+      rows: null
+    - path: results/confirmatory/synthetic_v5/case_provenance.parquet
+      sha256: c0d874e0c370bbfe0c34885f967252ac49da352a4df49776a2dcfa339e4f1d1b
+      rows: 102
+    - path: src/derivguard/synthetic/confirmatory_v6.py
+      sha256: 2c2598ab8acee3edb28d71028b503a47c6b056ed405090384ddf7b008355787c
+      rows: null
+    - path: artifacts\model_releases\model_release_v1.1.json
+      sha256: 0fd53ee708e95f9666a95724b80937737d2b1b8406e33abbe304a2ee04efdccf
+      rows: null
+    - path: results/confirmatory/synthetic_v5/fault_coverage.csv
+      sha256: 5f341c0b0858b5fdfa5c9cbc6eb037e0fb78ee3ce628150124893cadc0e72618
+      rows: 102
+    - path: results/confirmatory/synthetic_v5/truth_qualification.json
+      sha256: 0725ed81b61b56feb9383bf914746d394fe16174abe8c123a5e2dfa3640d2953
+      rows: null
+    evidence_predicates:
+      primary_confirmatory_version_is_v6: true
+      locked_status_complete: true
+      freeze_hash_matches: true
+      observable_c04_calibrations_present: true
+      observable_provenance_present: true
+      all_primary_calibrations_converged: true
+      all_bootstrap_calibrations_converged: true
+      calibration_qualification_passed: true
+      developer_objective_is_c04: true
+      developer_optimizer_explicitly_o01: true
+      release_id_linked: true
+      release_hash_linked: true
+      source_and_frozen_registries_current: true
+      threshold_freeze_linked_and_precedes_locked: true
+      declared_faults_executed: true
+      faults_have_real_implementation_labels: true
+  - id: S08
+    title: Forward and rate fault
+    faults:
+    - F11
+    status: COMPLETED
+    feasibility: EXECUTED_MEASURED
+    status_reason: declared faults=['F11']; observed=['F11']
+    evidence:
+    - path: artifacts/checkpoints/synthetic_confirmatory_v6.freeze.json
+      sha256: e6604a752b3ec13cd7ae4fb4f0cf7dffb61c90474b23cc4ae7c8a11a726790a7
+      rows: null
+    - path: results/confirmatory/synthetic_v5/confirmatory_metrics.json
+      sha256: 54ef5b52be4e58a66e580b9fbbaee04b8d48a206e0d8969523cb56eba699e378
+      rows: null
+    - path: results/confirmatory/synthetic_v5/dve_thresholds.freeze.json
+      sha256: 2af45ed9efdafeefa238a00c3c3240949c02196923114820acf8779ab81b755b
+      rows: null
+    - path: results/confirmatory/synthetic_v5/calibration_diagnostics.parquet
+      sha256: 036225d9b2ad95913ee530d65a4b84dc4dbcfbb26fb98ef8665bd9405d92f8a5
+      rows: 3060
+    - path: results/confirmatory/synthetic_v5/calibration_qualification.json
+      sha256: caf6fcfd61c0b7d18606451425c4d43e4d69948f406e9ebefc49ccaa39cd14b9
+      rows: null
+    - path: results/confirmatory/synthetic_v5/case_provenance.parquet
+      sha256: c0d874e0c370bbfe0c34885f967252ac49da352a4df49776a2dcfa339e4f1d1b
+      rows: 102
+    - path: src/derivguard/synthetic/confirmatory_v6.py
+      sha256: 2c2598ab8acee3edb28d71028b503a47c6b056ed405090384ddf7b008355787c
+      rows: null
+    - path: artifacts\model_releases\model_release_v1.1.json
+      sha256: 0fd53ee708e95f9666a95724b80937737d2b1b8406e33abbe304a2ee04efdccf
+      rows: null
+    - path: results/confirmatory/synthetic_v5/fault_coverage.csv
+      sha256: 5f341c0b0858b5fdfa5c9cbc6eb037e0fb78ee3ce628150124893cadc0e72618
+      rows: 102
+    - path: results/confirmatory/synthetic_v5/truth_qualification.json
+      sha256: 0725ed81b61b56feb9383bf914746d394fe16174abe8c123a5e2dfa3640d2953
+      rows: null
+    evidence_predicates:
+      primary_confirmatory_version_is_v6: true
+      locked_status_complete: true
+      freeze_hash_matches: true
+      observable_c04_calibrations_present: true
+      observable_provenance_present: true
+      all_primary_calibrations_converged: true
+      all_bootstrap_calibrations_converged: true
+      calibration_qualification_passed: true
+      developer_objective_is_c04: true
+      developer_optimizer_explicitly_o01: true
+      release_id_linked: true
+      release_hash_linked: true
+      source_and_frozen_registries_current: true
+      threshold_freeze_linked_and_precedes_locked: true
+      declared_faults_executed: true
+      faults_have_real_implementation_labels: true
+  - id: S09
+    title: Extrapolation faults
+    faults:
+    - F12
+    - F13
+    status: COMPLETED
+    feasibility: EXECUTED_MEASURED
+    status_reason: declared faults=['F12', 'F13']; observed=['F12', 'F13']
+    evidence:
+    - path: artifacts/checkpoints/synthetic_confirmatory_v6.freeze.json
+      sha256: e6604a752b3ec13cd7ae4fb4f0cf7dffb61c90474b23cc4ae7c8a11a726790a7
+      rows: null
+    - path: results/confirmatory/synthetic_v5/confirmatory_metrics.json
+      sha256: 54ef5b52be4e58a66e580b9fbbaee04b8d48a206e0d8969523cb56eba699e378
+      rows: null
+    - path: results/confirmatory/synthetic_v5/dve_thresholds.freeze.json
+      sha256: 2af45ed9efdafeefa238a00c3c3240949c02196923114820acf8779ab81b755b
+      rows: null
+    - path: results/confirmatory/synthetic_v5/calibration_diagnostics.parquet
+      sha256: 036225d9b2ad95913ee530d65a4b84dc4dbcfbb26fb98ef8665bd9405d92f8a5
+      rows: 3060
+    - path: results/confirmatory/synthetic_v5/calibration_qualification.json
+      sha256: caf6fcfd61c0b7d18606451425c4d43e4d69948f406e9ebefc49ccaa39cd14b9
+      rows: null
+    - path: results/confirmatory/synthetic_v5/case_provenance.parquet
+      sha256: c0d874e0c370bbfe0c34885f967252ac49da352a4df49776a2dcfa339e4f1d1b
+      rows: 102
+    - path: src/derivguard/synthetic/confirmatory_v6.py
+      sha256: 2c2598ab8acee3edb28d71028b503a47c6b056ed405090384ddf7b008355787c
+      rows: null
+    - path: artifacts\model_releases\model_release_v1.1.json
+      sha256: 0fd53ee708e95f9666a95724b80937737d2b1b8406e33abbe304a2ee04efdccf
+      rows: null
+    - path: results/confirmatory/synthetic_v5/fault_coverage.csv
+      sha256: 5f341c0b0858b5fdfa5c9cbc6eb037e0fb78ee3ce628150124893cadc0e72618
+      rows: 102
+    - path: results/confirmatory/synthetic_v5/truth_qualification.json
+      sha256: 0725ed81b61b56feb9383bf914746d394fe16174abe8c123a5e2dfa3640d2953
+      rows: null
+    evidence_predicates:
+      primary_confirmatory_version_is_v6: true
+      locked_status_complete: true
+      freeze_hash_matches: true
+      observable_c04_calibrations_present: true
+      observable_provenance_present: true
+      all_primary_calibrations_converged: true
+      all_bootstrap_calibrations_converged: true
+      calibration_qualification_passed: true
+      developer_objective_is_c04: true
+      developer_optimizer_explicitly_o01: true
+      release_id_linked: true
+      release_hash_linked: true
+      source_and_frozen_registries_current: true
+      threshold_freeze_linked_and_precedes_locked: true
+      declared_faults_executed: true
+      faults_have_real_implementation_labels: true
+  - id: S10
+    title: Combined faults
+    faults:
+    - F16
+    status: COMPLETED
+    feasibility: EXECUTED_MEASURED
+    status_reason: declared faults=['F16']; observed=['F16']
+    evidence:
+    - path: artifacts/checkpoints/synthetic_confirmatory_v6.freeze.json
+      sha256: e6604a752b3ec13cd7ae4fb4f0cf7dffb61c90474b23cc4ae7c8a11a726790a7
+      rows: null
+    - path: results/confirmatory/synthetic_v5/confirmatory_metrics.json
+      sha256: 54ef5b52be4e58a66e580b9fbbaee04b8d48a206e0d8969523cb56eba699e378
+      rows: null
+    - path: results/confirmatory/synthetic_v5/dve_thresholds.freeze.json
+      sha256: 2af45ed9efdafeefa238a00c3c3240949c02196923114820acf8779ab81b755b
+      rows: null
+    - path: results/confirmatory/synthetic_v5/calibration_diagnostics.parquet
+      sha256: 036225d9b2ad95913ee530d65a4b84dc4dbcfbb26fb98ef8665bd9405d92f8a5
+      rows: 3060
+    - path: results/confirmatory/synthetic_v5/calibration_qualification.json
+      sha256: caf6fcfd61c0b7d18606451425c4d43e4d69948f406e9ebefc49ccaa39cd14b9
+      rows: null
+    - path: results/confirmatory/synthetic_v5/case_provenance.parquet
+      sha256: c0d874e0c370bbfe0c34885f967252ac49da352a4df49776a2dcfa339e4f1d1b
+      rows: 102
+    - path: src/derivguard/synthetic/confirmatory_v6.py
+      sha256: 2c2598ab8acee3edb28d71028b503a47c6b056ed405090384ddf7b008355787c
+      rows: null
+    - path: artifacts\model_releases\model_release_v1.1.json
+      sha256: 0fd53ee708e95f9666a95724b80937737d2b1b8406e33abbe304a2ee04efdccf
+      rows: null
+    - path: results/confirmatory/synthetic_v5/fault_coverage.csv
+      sha256: 5f341c0b0858b5fdfa5c9cbc6eb037e0fb78ee3ce628150124893cadc0e72618
+      rows: 102
+    - path: results/confirmatory/synthetic_v5/truth_qualification.json
+      sha256: 0725ed81b61b56feb9383bf914746d394fe16174abe8c123a5e2dfa3640d2953
+      rows: null
+    evidence_predicates:
+      primary_confirmatory_version_is_v6: true
+      locked_status_complete: true
+      freeze_hash_matches: true
+      observable_c04_calibrations_present: true
+      observable_provenance_present: true
+      all_primary_calibrations_converged: true
+      all_bootstrap_calibrations_converged: true
+      calibration_qualification_passed: true
+      developer_objective_is_c04: true
+      developer_optimizer_explicitly_o01: true
+      release_id_linked: true
+      release_hash_linked: true
+      source_and_frozen_registries_current: true
+      threshold_freeze_linked_and_precedes_locked: true
+      declared_faults_executed: true
+      faults_have_real_implementation_labels: true
+  REAL_OUTCOMES:
+  - id: R01
+    title: Next-date pricing
+    status: UNAVAILABLE
+    feasibility: EXTERNAL_DATA_BLOCKER
+    status_reason: 'R01: All 4,294,301 public historical rows lack quote_time and the prospective Cboe
+      marking series currently contains one date. A synchronized next-date contract-continuity study cannot
+      be constructed defensibly. Missing historical quote timestamps and only one prospective marking
+      date prevent a defensible one-day option/underlying alignment. No live-P&L proxy is reported.'
+    evidence:
+    - path: results/RESULT_AVAILABILITY.json
+      sha256: da976d2eacd691e2bb26a5d9a323c7e5bf12e5a7a209af22ce29e00eacd3ec66
+      rows: null
+    evidence_predicates:
+      attempt_recorded: true
+      defensible_temporal_result_present: false
+  - id: R02
+    title: One-day discrete hedging proxy
+    status: UNAVAILABLE
+    feasibility: EXTERNAL_DATA_BLOCKER
+    status_reason: 'R02: All 4,294,301 public historical rows lack quote_time and the prospective Cboe
+      marking series currently contains one date. A synchronized next-date contract-continuity study cannot
+      be constructed defensibly. Missing historical quote timestamps and only one prospective marking
+      date prevent a defensible one-day option/underlying alignment. No live-P&L proxy is reported.'
+    evidence:
+    - path: results/RESULT_AVAILABILITY.json
+      sha256: da976d2eacd691e2bb26a5d9a323c7e5bf12e5a7a209af22ce29e00eacd3ec66
+      rows: null
+    evidence_predicates:
+      attempt_recorded: true
+      defensible_temporal_result_present: false
+  - id: R03
+    title: High-risk versus low-risk outcomes
+    status: UNAVAILABLE
+    feasibility: EXTERNAL_DATA_BLOCKER
+    status_reason: 'R03: All 4,294,301 public historical rows lack quote_time and the prospective Cboe
+      marking series currently contains one date. A synchronized next-date contract-continuity study cannot
+      be constructed defensibly. Missing historical quote timestamps and only one prospective marking
+      date prevent a defensible one-day option/underlying alignment. No live-P&L proxy is reported.'
+    evidence:
+    - path: results/RESULT_AVAILABILITY.json
+      sha256: da976d2eacd691e2bb26a5d9a323c7e5bf12e5a7a209af22ce29e00eacd3ec66
+      rows: null
+    evidence_predicates:
+      attempt_recorded: true
+      defensible_temporal_result_present: false
+  - id: R04
+    title: VIX-regime outcomes
+    status: UNAVAILABLE
+    feasibility: EXTERNAL_DATA_BLOCKER
+    status_reason: 'R04: All 4,294,301 public historical rows lack quote_time and the prospective Cboe
+      marking series currently contains one date. A synchronized next-date contract-continuity study cannot
+      be constructed defensibly. Missing historical quote timestamps and only one prospective marking
+      date prevent a defensible one-day option/underlying alignment. No live-P&L proxy is reported.'
+    evidence:
+    - path: results/RESULT_AVAILABILITY.json
+      sha256: da976d2eacd691e2bb26a5d9a323c7e5bf12e5a7a209af22ce29e00eacd3ec66
+      rows: null
+    evidence_predicates:
+      attempt_recorded: true
+      defensible_temporal_result_present: false
+  - id: R05
+    title: Liquidity-regime outcomes
+    status: UNAVAILABLE
+    feasibility: EXTERNAL_DATA_BLOCKER
+    status_reason: 'R05: All 4,294,301 public historical rows lack quote_time and the prospective Cboe
+      marking series currently contains one date. A synchronized next-date contract-continuity study cannot
+      be constructed defensibly. Missing historical quote timestamps and only one prospective marking
+      date prevent a defensible one-day option/underlying alignment. No live-P&L proxy is reported.'
+    evidence:
+    - path: results/RESULT_AVAILABILITY.json
+      sha256: da976d2eacd691e2bb26a5d9a323c7e5bf12e5a7a209af22ce29e00eacd3ec66
+      rows: null
+    evidence_predicates:
+      attempt_recorded: true
+      defensible_temporal_result_present: false
+  - id: R06
+    title: Maturity-regime outcomes
+    status: UNAVAILABLE
+    feasibility: EXTERNAL_DATA_BLOCKER
+    status_reason: 'R06: All 4,294,301 public historical rows lack quote_time and the prospective Cboe
+      marking series currently contains one date. A synchronized next-date contract-continuity study cannot
+      be constructed defensibly. Missing historical quote timestamps and only one prospective marking
+      date prevent a defensible one-day option/underlying alignment. No live-P&L proxy is reported.'
+    evidence:
+    - path: results/RESULT_AVAILABILITY.json
+      sha256: da976d2eacd691e2bb26a5d9a323c7e5bf12e5a7a209af22ce29e00eacd3ec66
+      rows: null
+    evidence_predicates:
+      attempt_recorded: true
+      defensible_temporal_result_present: false
+  - id: R07
+    title: AM versus PM outcomes
+    status: UNAVAILABLE
+    feasibility: EXTERNAL_DATA_BLOCKER
+    status_reason: 'R07: All 4,294,301 public historical rows lack quote_time and the prospective Cboe
+      marking series currently contains one date. A synchronized next-date contract-continuity study cannot
+      be constructed defensibly. Missing historical quote timestamps and only one prospective marking
+      date prevent a defensible one-day option/underlying alignment. No live-P&L proxy is reported.'
+    evidence:
+    - path: results/RESULT_AVAILABILITY.json
+      sha256: da976d2eacd691e2bb26a5d9a323c7e5bf12e5a7a209af22ce29e00eacd3ec66
+      rows: null
+    evidence_predicates:
+      attempt_recorded: true
+      defensible_temporal_result_present: false
+  - id: R08
+    title: Near-expiry and 0DTE outcomes
+    status: UNAVAILABLE
+    feasibility: EXTERNAL_DATA_BLOCKER
+    status_reason: 'R08: All 4,294,301 public historical rows lack quote_time and the prospective Cboe
+      marking series currently contains one date. A synchronized next-date contract-continuity study cannot
+      be constructed defensibly. Missing historical quote timestamps and only one prospective marking
+      date prevent a defensible one-day option/underlying alignment. No live-P&L proxy is reported.'
+    evidence:
+    - path: results/RESULT_AVAILABILITY.json
+      sha256: da976d2eacd691e2bb26a5d9a323c7e5bf12e5a7a209af22ce29e00eacd3ec66
+      rows: null
+    evidence_predicates:
+      attempt_recorded: true
+      defensible_temporal_result_present: false
+  MATERIALITY:
+  - id: P01
+    title: ATM straddle
+    status: COMPLETED
+    feasibility: EXECUTED_MEASURED
+    status_reason: P01 measured rows=18
+    evidence:
+    - path: reports/tables/T11_PORTFOLIO_MATERIALITY.csv
+      sha256: 81ada4eb98c961af8def97ef46ff3f51bf599fcec2b47da9b2e086097100de73
+      rows: 108
+    evidence_predicates:
+      portfolio_rows_measured: true
+      multiple_models_measured: true
+      value_and_greeks_measured: true
+      separate_materiality_measures: true
+  - id: P02
+    title: Risk reversal
+    status: COMPLETED
+    feasibility: EXECUTED_MEASURED
+    status_reason: P02 measured rows=18
+    evidence:
+    - path: reports/tables/T11_PORTFOLIO_MATERIALITY.csv
+      sha256: 81ada4eb98c961af8def97ef46ff3f51bf599fcec2b47da9b2e086097100de73
+      rows: 108
+    evidence_predicates:
+      portfolio_rows_measured: true
+      multiple_models_measured: true
+      value_and_greeks_measured: true
+      separate_materiality_measures: true
+  - id: P03
+    title: Butterfly
+    status: COMPLETED
+    feasibility: EXECUTED_MEASURED
+    status_reason: P03 measured rows=18
+    evidence:
+    - path: reports/tables/T11_PORTFOLIO_MATERIALITY.csv
+      sha256: 81ada4eb98c961af8def97ef46ff3f51bf599fcec2b47da9b2e086097100de73
+      rows: 108
+    evidence_predicates:
+      portfolio_rows_measured: true
+      multiple_models_measured: true
+      value_and_greeks_measured: true
+      separate_materiality_measures: true
+  - id: P04
+    title: Calendar spread
+    status: COMPLETED
+    feasibility: EXECUTED_MEASURED
+    status_reason: P04 measured rows=18
+    evidence:
+    - path: reports/tables/T11_PORTFOLIO_MATERIALITY.csv
+      sha256: 81ada4eb98c961af8def97ef46ff3f51bf599fcec2b47da9b2e086097100de73
+      rows: 108
+    evidence_predicates:
+      portfolio_rows_measured: true
+      multiple_models_measured: true
+      value_and_greeks_measured: true
+      separate_materiality_measures: true
+  - id: P05
+    title: Skew portfolio
+    status: COMPLETED
+    feasibility: EXECUTED_MEASURED
+    status_reason: P05 measured rows=18
+    evidence:
+    - path: reports/tables/T11_PORTFOLIO_MATERIALITY.csv
+      sha256: 81ada4eb98c961af8def97ef46ff3f51bf599fcec2b47da9b2e086097100de73
+      rows: 108
+    evidence_predicates:
+      portfolio_rows_measured: true
+      multiple_models_measured: true
+      value_and_greeks_measured: true
+      separate_materiality_measures: true
+  - id: P06
+    title: Mixed standardized book
+    status: COMPLETED
+    feasibility: EXECUTED_MEASURED
+    status_reason: P06 measured rows=18
+    evidence:
+    - path: reports/tables/T11_PORTFOLIO_MATERIALITY.csv
+      sha256: 81ada4eb98c961af8def97ef46ff3f51bf599fcec2b47da9b2e086097100de73
+      rows: 108
+    evidence_predicates:
+      portfolio_rows_measured: true
+      multiple_models_measured: true
+      value_and_greeks_measured: true
+      separate_materiality_measures: true
+  DVE_ABLATION:
+  - id: A01
+    title: Remove E_data
+    removed:
+    - E_data
+    status: COMPLETED
+    feasibility: EXECUTED_MEASURED
+    status_reason: confirmatory ablation=A01
+    evidence:
+    - path: artifacts/checkpoints/synthetic_confirmatory_v6.freeze.json
+      sha256: e6604a752b3ec13cd7ae4fb4f0cf7dffb61c90474b23cc4ae7c8a11a726790a7
+      rows: null
+    - path: results/confirmatory/synthetic_v5/confirmatory_metrics.json
+      sha256: 54ef5b52be4e58a66e580b9fbbaee04b8d48a206e0d8969523cb56eba699e378
+      rows: null
+    - path: results/confirmatory/synthetic_v5/dve_thresholds.freeze.json
+      sha256: 2af45ed9efdafeefa238a00c3c3240949c02196923114820acf8779ab81b755b
+      rows: null
+    - path: results/confirmatory/synthetic_v5/calibration_diagnostics.parquet
+      sha256: 036225d9b2ad95913ee530d65a4b84dc4dbcfbb26fb98ef8665bd9405d92f8a5
+      rows: 3060
+    - path: results/confirmatory/synthetic_v5/calibration_qualification.json
+      sha256: caf6fcfd61c0b7d18606451425c4d43e4d69948f406e9ebefc49ccaa39cd14b9
+      rows: null
+    - path: results/confirmatory/synthetic_v5/case_provenance.parquet
+      sha256: c0d874e0c370bbfe0c34885f967252ac49da352a4df49776a2dcfa339e4f1d1b
+      rows: 102
+    - path: src/derivguard/synthetic/confirmatory_v6.py
+      sha256: 2c2598ab8acee3edb28d71028b503a47c6b056ed405090384ddf7b008355787c
+      rows: null
+    - path: artifacts\model_releases\model_release_v1.1.json
+      sha256: 0fd53ee708e95f9666a95724b80937737d2b1b8406e33abbe304a2ee04efdccf
+      rows: null
+    - path: results/confirmatory/synthetic_v5/T09_DVE_ABLATION.csv
+      sha256: 75afc598b9f3bf4941e850d6d1374866b7645205454f335855269e317e988743
+      rows: 11
+    evidence_predicates:
+      confirmatory_ablation_row_present: true
+      required_changes_measured: true
+      primary_confirmatory_version_is_v6: true
+      locked_status_complete: true
+      freeze_hash_matches: true
+      observable_c04_calibrations_present: true
+      observable_provenance_present: true
+      all_primary_calibrations_converged: true
+      all_bootstrap_calibrations_converged: true
+      calibration_qualification_passed: true
+      developer_objective_is_c04: true
+      developer_optimizer_explicitly_o01: true
+      release_id_linked: true
+      release_hash_linked: true
+      source_and_frozen_registries_current: true
+      threshold_freeze_linked_and_precedes_locked: true
+  - id: A02
+    title: Remove E_num
+    removed:
+    - E_num
+    status: COMPLETED
+    feasibility: EXECUTED_MEASURED
+    status_reason: confirmatory ablation=A02
+    evidence:
+    - path: artifacts/checkpoints/synthetic_confirmatory_v6.freeze.json
+      sha256: e6604a752b3ec13cd7ae4fb4f0cf7dffb61c90474b23cc4ae7c8a11a726790a7
+      rows: null
+    - path: results/confirmatory/synthetic_v5/confirmatory_metrics.json
+      sha256: 54ef5b52be4e58a66e580b9fbbaee04b8d48a206e0d8969523cb56eba699e378
+      rows: null
+    - path: results/confirmatory/synthetic_v5/dve_thresholds.freeze.json
+      sha256: 2af45ed9efdafeefa238a00c3c3240949c02196923114820acf8779ab81b755b
+      rows: null
+    - path: results/confirmatory/synthetic_v5/calibration_diagnostics.parquet
+      sha256: 036225d9b2ad95913ee530d65a4b84dc4dbcfbb26fb98ef8665bd9405d92f8a5
+      rows: 3060
+    - path: results/confirmatory/synthetic_v5/calibration_qualification.json
+      sha256: caf6fcfd61c0b7d18606451425c4d43e4d69948f406e9ebefc49ccaa39cd14b9
+      rows: null
+    - path: results/confirmatory/synthetic_v5/case_provenance.parquet
+      sha256: c0d874e0c370bbfe0c34885f967252ac49da352a4df49776a2dcfa339e4f1d1b
+      rows: 102
+    - path: src/derivguard/synthetic/confirmatory_v6.py
+      sha256: 2c2598ab8acee3edb28d71028b503a47c6b056ed405090384ddf7b008355787c
+      rows: null
+    - path: artifacts\model_releases\model_release_v1.1.json
+      sha256: 0fd53ee708e95f9666a95724b80937737d2b1b8406e33abbe304a2ee04efdccf
+      rows: null
+    - path: results/confirmatory/synthetic_v5/T09_DVE_ABLATION.csv
+      sha256: 75afc598b9f3bf4941e850d6d1374866b7645205454f335855269e317e988743
+      rows: 11
+    evidence_predicates:
+      confirmatory_ablation_row_present: true
+      required_changes_measured: true
+      primary_confirmatory_version_is_v6: true
+      locked_status_complete: true
+      freeze_hash_matches: true
+      observable_c04_calibrations_present: true
+      observable_provenance_present: true
+      all_primary_calibrations_converged: true
+      all_bootstrap_calibrations_converged: true
+      calibration_qualification_passed: true
+      developer_objective_is_c04: true
+      developer_optimizer_explicitly_o01: true
+      release_id_linked: true
+      release_hash_linked: true
+      source_and_frozen_registries_current: true
+      threshold_freeze_linked_and_precedes_locked: true
+  - id: A03
+    title: Remove E_cal
+    removed:
+    - E_cal
+    status: COMPLETED
+    feasibility: EXECUTED_MEASURED
+    status_reason: confirmatory ablation=A03
+    evidence:
+    - path: artifacts/checkpoints/synthetic_confirmatory_v6.freeze.json
+      sha256: e6604a752b3ec13cd7ae4fb4f0cf7dffb61c90474b23cc4ae7c8a11a726790a7
+      rows: null
+    - path: results/confirmatory/synthetic_v5/confirmatory_metrics.json
+      sha256: 54ef5b52be4e58a66e580b9fbbaee04b8d48a206e0d8969523cb56eba699e378
+      rows: null
+    - path: results/confirmatory/synthetic_v5/dve_thresholds.freeze.json
+      sha256: 2af45ed9efdafeefa238a00c3c3240949c02196923114820acf8779ab81b755b
+      rows: null
+    - path: results/confirmatory/synthetic_v5/calibration_diagnostics.parquet
+      sha256: 036225d9b2ad95913ee530d65a4b84dc4dbcfbb26fb98ef8665bd9405d92f8a5
+      rows: 3060
+    - path: results/confirmatory/synthetic_v5/calibration_qualification.json
+      sha256: caf6fcfd61c0b7d18606451425c4d43e4d69948f406e9ebefc49ccaa39cd14b9
+      rows: null
+    - path: results/confirmatory/synthetic_v5/case_provenance.parquet
+      sha256: c0d874e0c370bbfe0c34885f967252ac49da352a4df49776a2dcfa339e4f1d1b
+      rows: 102
+    - path: src/derivguard/synthetic/confirmatory_v6.py
+      sha256: 2c2598ab8acee3edb28d71028b503a47c6b056ed405090384ddf7b008355787c
+      rows: null
+    - path: artifacts\model_releases\model_release_v1.1.json
+      sha256: 0fd53ee708e95f9666a95724b80937737d2b1b8406e33abbe304a2ee04efdccf
+      rows: null
+    - path: results/confirmatory/synthetic_v5/T09_DVE_ABLATION.csv
+      sha256: 75afc598b9f3bf4941e850d6d1374866b7645205454f335855269e317e988743
+      rows: 11
+    evidence_predicates:
+      confirmatory_ablation_row_present: true
+      required_changes_measured: true
+      primary_confirmatory_version_is_v6: true
+      locked_status_complete: true
+      freeze_hash_matches: true
+      observable_c04_calibrations_present: true
+      observable_provenance_present: true
+      all_primary_calibrations_converged: true
+      all_bootstrap_calibrations_converged: true
+      calibration_qualification_passed: true
+      developer_objective_is_c04: true
+      developer_optimizer_explicitly_o01: true
+      release_id_linked: true
+      release_hash_linked: true
+      source_and_frozen_registries_current: true
+      threshold_freeze_linked_and_precedes_locked: true
+  - id: A04
+    title: Remove E_ident
+    removed:
+    - E_ident
+    status: COMPLETED
+    feasibility: EXECUTED_MEASURED
+    status_reason: confirmatory ablation=A04
+    evidence:
+    - path: artifacts/checkpoints/synthetic_confirmatory_v6.freeze.json
+      sha256: e6604a752b3ec13cd7ae4fb4f0cf7dffb61c90474b23cc4ae7c8a11a726790a7
+      rows: null
+    - path: results/confirmatory/synthetic_v5/confirmatory_metrics.json
+      sha256: 54ef5b52be4e58a66e580b9fbbaee04b8d48a206e0d8969523cb56eba699e378
+      rows: null
+    - path: results/confirmatory/synthetic_v5/dve_thresholds.freeze.json
+      sha256: 2af45ed9efdafeefa238a00c3c3240949c02196923114820acf8779ab81b755b
+      rows: null
+    - path: results/confirmatory/synthetic_v5/calibration_diagnostics.parquet
+      sha256: 036225d9b2ad95913ee530d65a4b84dc4dbcfbb26fb98ef8665bd9405d92f8a5
+      rows: 3060
+    - path: results/confirmatory/synthetic_v5/calibration_qualification.json
+      sha256: caf6fcfd61c0b7d18606451425c4d43e4d69948f406e9ebefc49ccaa39cd14b9
+      rows: null
+    - path: results/confirmatory/synthetic_v5/case_provenance.parquet
+      sha256: c0d874e0c370bbfe0c34885f967252ac49da352a4df49776a2dcfa339e4f1d1b
+      rows: 102
+    - path: src/derivguard/synthetic/confirmatory_v6.py
+      sha256: 2c2598ab8acee3edb28d71028b503a47c6b056ed405090384ddf7b008355787c
+      rows: null
+    - path: artifacts\model_releases\model_release_v1.1.json
+      sha256: 0fd53ee708e95f9666a95724b80937737d2b1b8406e33abbe304a2ee04efdccf
+      rows: null
+    - path: results/confirmatory/synthetic_v5/T09_DVE_ABLATION.csv
+      sha256: 75afc598b9f3bf4941e850d6d1374866b7645205454f335855269e317e988743
+      rows: 11
+    evidence_predicates:
+      confirmatory_ablation_row_present: true
+      required_changes_measured: true
+      primary_confirmatory_version_is_v6: true
+      locked_status_complete: true
+      freeze_hash_matches: true
+      observable_c04_calibrations_present: true
+      observable_provenance_present: true
+      all_primary_calibrations_converged: true
+      all_bootstrap_calibrations_converged: true
+      calibration_qualification_passed: true
+      developer_objective_is_c04: true
+      developer_optimizer_explicitly_o01: true
+      release_id_linked: true
+      release_hash_linked: true
+      source_and_frozen_registries_current: true
+      threshold_freeze_linked_and_precedes_locked: true
+  - id: A05
+    title: Remove E_param
+    removed:
+    - E_param
+    status: COMPLETED
+    feasibility: EXECUTED_MEASURED
+    status_reason: confirmatory ablation=A05
+    evidence:
+    - path: artifacts/checkpoints/synthetic_confirmatory_v6.freeze.json
+      sha256: e6604a752b3ec13cd7ae4fb4f0cf7dffb61c90474b23cc4ae7c8a11a726790a7
+      rows: null
+    - path: results/confirmatory/synthetic_v5/confirmatory_metrics.json
+      sha256: 54ef5b52be4e58a66e580b9fbbaee04b8d48a206e0d8969523cb56eba699e378
+      rows: null
+    - path: results/confirmatory/synthetic_v5/dve_thresholds.freeze.json
+      sha256: 2af45ed9efdafeefa238a00c3c3240949c02196923114820acf8779ab81b755b
+      rows: null
+    - path: results/confirmatory/synthetic_v5/calibration_diagnostics.parquet
+      sha256: 036225d9b2ad95913ee530d65a4b84dc4dbcfbb26fb98ef8665bd9405d92f8a5
+      rows: 3060
+    - path: results/confirmatory/synthetic_v5/calibration_qualification.json
+      sha256: caf6fcfd61c0b7d18606451425c4d43e4d69948f406e9ebefc49ccaa39cd14b9
+      rows: null
+    - path: results/confirmatory/synthetic_v5/case_provenance.parquet
+      sha256: c0d874e0c370bbfe0c34885f967252ac49da352a4df49776a2dcfa339e4f1d1b
+      rows: 102
+    - path: src/derivguard/synthetic/confirmatory_v6.py
+      sha256: 2c2598ab8acee3edb28d71028b503a47c6b056ed405090384ddf7b008355787c
+      rows: null
+    - path: artifacts\model_releases\model_release_v1.1.json
+      sha256: 0fd53ee708e95f9666a95724b80937737d2b1b8406e33abbe304a2ee04efdccf
+      rows: null
+    - path: results/confirmatory/synthetic_v5/T09_DVE_ABLATION.csv
+      sha256: 75afc598b9f3bf4941e850d6d1374866b7645205454f335855269e317e988743
+      rows: 11
+    evidence_predicates:
+      confirmatory_ablation_row_present: true
+      required_changes_measured: true
+      primary_confirmatory_version_is_v6: true
+      locked_status_complete: true
+      freeze_hash_matches: true
+      observable_c04_calibrations_present: true
+      observable_provenance_present: true
+      all_primary_calibrations_converged: true
+      all_bootstrap_calibrations_converged: true
+      calibration_qualification_passed: true
+      developer_objective_is_c04: true
+      developer_optimizer_explicitly_o01: true
+      release_id_linked: true
+      release_hash_linked: true
+      source_and_frozen_registries_current: true
+      threshold_freeze_linked_and_precedes_locked: true
+  - id: A06
+    title: Remove E_form
+    removed:
+    - E_form
+    status: COMPLETED
+    feasibility: EXECUTED_MEASURED
+    status_reason: confirmatory ablation=A06
+    evidence:
+    - path: artifacts/checkpoints/synthetic_confirmatory_v6.freeze.json
+      sha256: e6604a752b3ec13cd7ae4fb4f0cf7dffb61c90474b23cc4ae7c8a11a726790a7
+      rows: null
+    - path: results/confirmatory/synthetic_v5/confirmatory_metrics.json
+      sha256: 54ef5b52be4e58a66e580b9fbbaee04b8d48a206e0d8969523cb56eba699e378
+      rows: null
+    - path: results/confirmatory/synthetic_v5/dve_thresholds.freeze.json
+      sha256: 2af45ed9efdafeefa238a00c3c3240949c02196923114820acf8779ab81b755b
+      rows: null
+    - path: results/confirmatory/synthetic_v5/calibration_diagnostics.parquet
+      sha256: 036225d9b2ad95913ee530d65a4b84dc4dbcfbb26fb98ef8665bd9405d92f8a5
+      rows: 3060
+    - path: results/confirmatory/synthetic_v5/calibration_qualification.json
+      sha256: caf6fcfd61c0b7d18606451425c4d43e4d69948f406e9ebefc49ccaa39cd14b9
+      rows: null
+    - path: results/confirmatory/synthetic_v5/case_provenance.parquet
+      sha256: c0d874e0c370bbfe0c34885f967252ac49da352a4df49776a2dcfa339e4f1d1b
+      rows: 102
+    - path: src/derivguard/synthetic/confirmatory_v6.py
+      sha256: 2c2598ab8acee3edb28d71028b503a47c6b056ed405090384ddf7b008355787c
+      rows: null
+    - path: artifacts\model_releases\model_release_v1.1.json
+      sha256: 0fd53ee708e95f9666a95724b80937737d2b1b8406e33abbe304a2ee04efdccf
+      rows: null
+    - path: results/confirmatory/synthetic_v5/T09_DVE_ABLATION.csv
+      sha256: 75afc598b9f3bf4941e850d6d1374866b7645205454f335855269e317e988743
+      rows: 11
+    evidence_predicates:
+      confirmatory_ablation_row_present: true
+      required_changes_measured: true
+      primary_confirmatory_version_is_v6: true
+      locked_status_complete: true
+      freeze_hash_matches: true
+      observable_c04_calibrations_present: true
+      observable_provenance_present: true
+      all_primary_calibrations_converged: true
+      all_bootstrap_calibrations_converged: true
+      calibration_qualification_passed: true
+      developer_objective_is_c04: true
+      developer_optimizer_explicitly_o01: true
+      release_id_linked: true
+      release_hash_linked: true
+      source_and_frozen_registries_current: true
+      threshold_freeze_linked_and_precedes_locked: true
+  - id: A07
+    title: Remove E_greek
+    removed:
+    - E_greek
+    status: COMPLETED
+    feasibility: EXECUTED_MEASURED
+    status_reason: confirmatory ablation=A07
+    evidence:
+    - path: artifacts/checkpoints/synthetic_confirmatory_v6.freeze.json
+      sha256: e6604a752b3ec13cd7ae4fb4f0cf7dffb61c90474b23cc4ae7c8a11a726790a7
+      rows: null
+    - path: results/confirmatory/synthetic_v5/confirmatory_metrics.json
+      sha256: 54ef5b52be4e58a66e580b9fbbaee04b8d48a206e0d8969523cb56eba699e378
+      rows: null
+    - path: results/confirmatory/synthetic_v5/dve_thresholds.freeze.json
+      sha256: 2af45ed9efdafeefa238a00c3c3240949c02196923114820acf8779ab81b755b
+      rows: null
+    - path: results/confirmatory/synthetic_v5/calibration_diagnostics.parquet
+      sha256: 036225d9b2ad95913ee530d65a4b84dc4dbcfbb26fb98ef8665bd9405d92f8a5
+      rows: 3060
+    - path: results/confirmatory/synthetic_v5/calibration_qualification.json
+      sha256: caf6fcfd61c0b7d18606451425c4d43e4d69948f406e9ebefc49ccaa39cd14b9
+      rows: null
+    - path: results/confirmatory/synthetic_v5/case_provenance.parquet
+      sha256: c0d874e0c370bbfe0c34885f967252ac49da352a4df49776a2dcfa339e4f1d1b
+      rows: 102
+    - path: src/derivguard/synthetic/confirmatory_v6.py
+      sha256: 2c2598ab8acee3edb28d71028b503a47c6b056ed405090384ddf7b008355787c
+      rows: null
+    - path: artifacts\model_releases\model_release_v1.1.json
+      sha256: 0fd53ee708e95f9666a95724b80937737d2b1b8406e33abbe304a2ee04efdccf
+      rows: null
+    - path: results/confirmatory/synthetic_v5/T09_DVE_ABLATION.csv
+      sha256: 75afc598b9f3bf4941e850d6d1374866b7645205454f335855269e317e988743
+      rows: 11
+    evidence_predicates:
+      confirmatory_ablation_row_present: true
+      required_changes_measured: true
+      primary_confirmatory_version_is_v6: true
+      locked_status_complete: true
+      freeze_hash_matches: true
+      observable_c04_calibrations_present: true
+      observable_provenance_present: true
+      all_primary_calibrations_converged: true
+      all_bootstrap_calibrations_converged: true
+      calibration_qualification_passed: true
+      developer_objective_is_c04: true
+      developer_optimizer_explicitly_o01: true
+      release_id_linked: true
+      release_hash_linked: true
+      source_and_frozen_registries_current: true
+      threshold_freeze_linked_and_precedes_locked: true
+  - id: A08
+    title: Remove E_extra
+    removed:
+    - E_extra
+    status: COMPLETED
+    feasibility: EXECUTED_MEASURED
+    status_reason: confirmatory ablation=A08
+    evidence:
+    - path: artifacts/checkpoints/synthetic_confirmatory_v6.freeze.json
+      sha256: e6604a752b3ec13cd7ae4fb4f0cf7dffb61c90474b23cc4ae7c8a11a726790a7
+      rows: null
+    - path: results/confirmatory/synthetic_v5/confirmatory_metrics.json
+      sha256: 54ef5b52be4e58a66e580b9fbbaee04b8d48a206e0d8969523cb56eba699e378
+      rows: null
+    - path: results/confirmatory/synthetic_v5/dve_thresholds.freeze.json
+      sha256: 2af45ed9efdafeefa238a00c3c3240949c02196923114820acf8779ab81b755b
+      rows: null
+    - path: results/confirmatory/synthetic_v5/calibration_diagnostics.parquet
+      sha256: 036225d9b2ad95913ee530d65a4b84dc4dbcfbb26fb98ef8665bd9405d92f8a5
+      rows: 3060
+    - path: results/confirmatory/synthetic_v5/calibration_qualification.json
+      sha256: caf6fcfd61c0b7d18606451425c4d43e4d69948f406e9ebefc49ccaa39cd14b9
+      rows: null
+    - path: results/confirmatory/synthetic_v5/case_provenance.parquet
+      sha256: c0d874e0c370bbfe0c34885f967252ac49da352a4df49776a2dcfa339e4f1d1b
+      rows: 102
+    - path: src/derivguard/synthetic/confirmatory_v6.py
+      sha256: 2c2598ab8acee3edb28d71028b503a47c6b056ed405090384ddf7b008355787c
+      rows: null
+    - path: artifacts\model_releases\model_release_v1.1.json
+      sha256: 0fd53ee708e95f9666a95724b80937737d2b1b8406e33abbe304a2ee04efdccf
+      rows: null
+    - path: results/confirmatory/synthetic_v5/T09_DVE_ABLATION.csv
+      sha256: 75afc598b9f3bf4941e850d6d1374866b7645205454f335855269e317e988743
+      rows: 11
+    evidence_predicates:
+      confirmatory_ablation_row_present: true
+      required_changes_measured: true
+      primary_confirmatory_version_is_v6: true
+      locked_status_complete: true
+      freeze_hash_matches: true
+      observable_c04_calibrations_present: true
+      observable_provenance_present: true
+      all_primary_calibrations_converged: true
+      all_bootstrap_calibrations_converged: true
+      calibration_qualification_passed: true
+      developer_objective_is_c04: true
+      developer_optimizer_explicitly_o01: true
+      release_id_linked: true
+      release_hash_linked: true
+      source_and_frozen_registries_current: true
+      threshold_freeze_linked_and_precedes_locked: true
+  - id: A09
+    title: Remove regime conditioning
+    removed:
+    - regime_conditioning
+    status: COMPLETED
+    feasibility: EXECUTED_MEASURED
+    status_reason: confirmatory ablation=A09
+    evidence:
+    - path: artifacts/checkpoints/synthetic_confirmatory_v6.freeze.json
+      sha256: e6604a752b3ec13cd7ae4fb4f0cf7dffb61c90474b23cc4ae7c8a11a726790a7
+      rows: null
+    - path: results/confirmatory/synthetic_v5/confirmatory_metrics.json
+      sha256: 54ef5b52be4e58a66e580b9fbbaee04b8d48a206e0d8969523cb56eba699e378
+      rows: null
+    - path: results/confirmatory/synthetic_v5/dve_thresholds.freeze.json
+      sha256: 2af45ed9efdafeefa238a00c3c3240949c02196923114820acf8779ab81b755b
+      rows: null
+    - path: results/confirmatory/synthetic_v5/calibration_diagnostics.parquet
+      sha256: 036225d9b2ad95913ee530d65a4b84dc4dbcfbb26fb98ef8665bd9405d92f8a5
+      rows: 3060
+    - path: results/confirmatory/synthetic_v5/calibration_qualification.json
+      sha256: caf6fcfd61c0b7d18606451425c4d43e4d69948f406e9ebefc49ccaa39cd14b9
+      rows: null
+    - path: results/confirmatory/synthetic_v5/case_provenance.parquet
+      sha256: c0d874e0c370bbfe0c34885f967252ac49da352a4df49776a2dcfa339e4f1d1b
+      rows: 102
+    - path: src/derivguard/synthetic/confirmatory_v6.py
+      sha256: 2c2598ab8acee3edb28d71028b503a47c6b056ed405090384ddf7b008355787c
+      rows: null
+    - path: artifacts\model_releases\model_release_v1.1.json
+      sha256: 0fd53ee708e95f9666a95724b80937737d2b1b8406e33abbe304a2ee04efdccf
+      rows: null
+    - path: results/confirmatory/synthetic_v5/T09_DVE_ABLATION.csv
+      sha256: 75afc598b9f3bf4941e850d6d1374866b7645205454f335855269e317e988743
+      rows: 11
+    evidence_predicates:
+      confirmatory_ablation_row_present: true
+      required_changes_measured: true
+      primary_confirmatory_version_is_v6: true
+      locked_status_complete: true
+      freeze_hash_matches: true
+      observable_c04_calibrations_present: true
+      observable_provenance_present: true
+      all_primary_calibrations_converged: true
+      all_bootstrap_calibrations_converged: true
+      calibration_qualification_passed: true
+      developer_objective_is_c04: true
+      developer_optimizer_explicitly_o01: true
+      release_id_linked: true
+      release_hash_linked: true
+      source_and_frozen_registries_current: true
+      threshold_freeze_linked_and_precedes_locked: true
+  - id: A10
+    title: Remove E_outcome
+    removed:
+    - E_outcome
+    status: COMPLETED
+    feasibility: EXECUTED_MEASURED
+    status_reason: confirmatory ablation=A10
+    evidence:
+    - path: artifacts/checkpoints/synthetic_confirmatory_v6.freeze.json
+      sha256: e6604a752b3ec13cd7ae4fb4f0cf7dffb61c90474b23cc4ae7c8a11a726790a7
+      rows: null
+    - path: results/confirmatory/synthetic_v5/confirmatory_metrics.json
+      sha256: 54ef5b52be4e58a66e580b9fbbaee04b8d48a206e0d8969523cb56eba699e378
+      rows: null
+    - path: results/confirmatory/synthetic_v5/dve_thresholds.freeze.json
+      sha256: 2af45ed9efdafeefa238a00c3c3240949c02196923114820acf8779ab81b755b
+      rows: null
+    - path: results/confirmatory/synthetic_v5/calibration_diagnostics.parquet
+      sha256: 036225d9b2ad95913ee530d65a4b84dc4dbcfbb26fb98ef8665bd9405d92f8a5
+      rows: 3060
+    - path: results/confirmatory/synthetic_v5/calibration_qualification.json
+      sha256: caf6fcfd61c0b7d18606451425c4d43e4d69948f406e9ebefc49ccaa39cd14b9
+      rows: null
+    - path: results/confirmatory/synthetic_v5/case_provenance.parquet
+      sha256: c0d874e0c370bbfe0c34885f967252ac49da352a4df49776a2dcfa339e4f1d1b
+      rows: 102
+    - path: src/derivguard/synthetic/confirmatory_v6.py
+      sha256: 2c2598ab8acee3edb28d71028b503a47c6b056ed405090384ddf7b008355787c
+      rows: null
+    - path: artifacts\model_releases\model_release_v1.1.json
+      sha256: 0fd53ee708e95f9666a95724b80937737d2b1b8406e33abbe304a2ee04efdccf
+      rows: null
+    - path: results/confirmatory/synthetic_v5/T09_DVE_ABLATION.csv
+      sha256: 75afc598b9f3bf4941e850d6d1374866b7645205454f335855269e317e988743
+      rows: 11
+    evidence_predicates:
+      confirmatory_ablation_row_present: true
+      required_changes_measured: true
+      primary_confirmatory_version_is_v6: true
+      locked_status_complete: true
+      freeze_hash_matches: true
+      observable_c04_calibrations_present: true
+      observable_provenance_present: true
+      all_primary_calibrations_converged: true
+      all_bootstrap_calibrations_converged: true
+      calibration_qualification_passed: true
+      developer_objective_is_c04: true
+      developer_optimizer_explicitly_o01: true
+      release_id_linked: true
+      release_hash_linked: true
+      source_and_frozen_registries_current: true
+      threshold_freeze_linked_and_precedes_locked: true
+  - id: A11
+    title: Remove materiality prioritization
+    removed:
+    - materiality_prioritization
+    status: COMPLETED
+    feasibility: EXECUTED_MEASURED
+    status_reason: confirmatory ablation=A11
+    evidence:
+    - path: artifacts/checkpoints/synthetic_confirmatory_v6.freeze.json
+      sha256: e6604a752b3ec13cd7ae4fb4f0cf7dffb61c90474b23cc4ae7c8a11a726790a7
+      rows: null
+    - path: results/confirmatory/synthetic_v5/confirmatory_metrics.json
+      sha256: 54ef5b52be4e58a66e580b9fbbaee04b8d48a206e0d8969523cb56eba699e378
+      rows: null
+    - path: results/confirmatory/synthetic_v5/dve_thresholds.freeze.json
+      sha256: 2af45ed9efdafeefa238a00c3c3240949c02196923114820acf8779ab81b755b
+      rows: null
+    - path: results/confirmatory/synthetic_v5/calibration_diagnostics.parquet
+      sha256: 036225d9b2ad95913ee530d65a4b84dc4dbcfbb26fb98ef8665bd9405d92f8a5
+      rows: 3060
+    - path: results/confirmatory/synthetic_v5/calibration_qualification.json
+      sha256: caf6fcfd61c0b7d18606451425c4d43e4d69948f406e9ebefc49ccaa39cd14b9
+      rows: null
+    - path: results/confirmatory/synthetic_v5/case_provenance.parquet
+      sha256: c0d874e0c370bbfe0c34885f967252ac49da352a4df49776a2dcfa339e4f1d1b
+      rows: 102
+    - path: src/derivguard/synthetic/confirmatory_v6.py
+      sha256: 2c2598ab8acee3edb28d71028b503a47c6b056ed405090384ddf7b008355787c
+      rows: null
+    - path: artifacts\model_releases\model_release_v1.1.json
+      sha256: 0fd53ee708e95f9666a95724b80937737d2b1b8406e33abbe304a2ee04efdccf
+      rows: null
+    - path: results/confirmatory/synthetic_v5/T09_DVE_ABLATION.csv
+      sha256: 75afc598b9f3bf4941e850d6d1374866b7645205454f335855269e317e988743
+      rows: 11
+    evidence_predicates:
+      confirmatory_ablation_row_present: true
+      required_changes_measured: true
+      primary_confirmatory_version_is_v6: true
+      locked_status_complete: true
+      freeze_hash_matches: true
+      observable_c04_calibrations_present: true
+      observable_provenance_present: true
+      all_primary_calibrations_converged: true
+      all_bootstrap_calibrations_converged: true
+      calibration_qualification_passed: true
+      developer_objective_is_c04: true
+      developer_optimizer_explicitly_o01: true
+      release_id_linked: true
+      release_hash_linked: true
+      source_and_frozen_registries_current: true
+      threshold_freeze_linked_and_precedes_locked: true
+  DEVELOPER_METHOD_ABLATION:
+  - id: DA01
+    title: No global optimization
+    status: COMPLETED
+    feasibility: EXECUTED_MEASURED
+    status_reason: measured developer-method ablation DA01
+    evidence:
+    - path: results/aggregated/developer_method_ablation_summary.csv
+      sha256: 839baff12ad88c4f1a20175af172b50696e608207d6c6d383d454d4752616dc8
+      rows: 6
+    evidence_predicates:
+      exactly_one_measured_ablation_row: true
+      quantitative_result_present: true
+      not_status_only: true
+  - id: DA02
+    title: No robust loss
+    status: COMPLETED
+    feasibility: EXECUTED_MEASURED
+    status_reason: measured developer-method ablation DA02
+    evidence:
+    - path: results/aggregated/developer_method_ablation_summary.csv
+      sha256: 839baff12ad88c4f1a20175af172b50696e608207d6c6d383d454d4752616dc8
+      rows: 6
+    evidence_predicates:
+      exactly_one_measured_ablation_row: true
+      quantitative_result_present: true
+      not_status_only: true
+  - id: DA03
+    title: No spread weighting
+    status: COMPLETED
+    feasibility: EXECUTED_MEASURED
+    status_reason: measured developer-method ablation DA03
+    evidence:
+    - path: results/aggregated/developer_method_ablation_summary.csv
+      sha256: 839baff12ad88c4f1a20175af172b50696e608207d6c6d383d454d4752616dc8
+      rows: 6
+    evidence_predicates:
+      exactly_one_measured_ablation_row: true
+      quantitative_result_present: true
+      not_status_only: true
+  - id: DA04
+    title: No bootstrap
+    status: COMPLETED
+    feasibility: EXECUTED_MEASURED
+    status_reason: measured developer-method ablation DA04
+    evidence:
+    - path: results/aggregated/developer_method_ablation_summary.csv
+      sha256: 839baff12ad88c4f1a20175af172b50696e608207d6c6d383d454d4752616dc8
+      rows: 6
+    evidence_predicates:
+      exactly_one_measured_ablation_row: true
+      quantitative_result_present: true
+      not_status_only: true
+  - id: DA05
+    title: Feller variants
+    status: COMPLETED
+    feasibility: EXECUTED_MEASURED
+    status_reason: measured developer-method ablation DA05
+    evidence:
+    - path: results/aggregated/developer_method_ablation_summary.csv
+      sha256: 839baff12ad88c4f1a20175af172b50696e608207d6c6d383d454d4752616dc8
+      rows: 6
+    evidence_predicates:
+      exactly_one_measured_ablation_row: true
+      quantitative_result_present: true
+      not_status_only: true
+  - id: DA06
+    title: Forward estimator variants
+    status: COMPLETED
+    feasibility: EXECUTED_MEASURED
+    status_reason: measured developer-method ablation DA06
+    evidence:
+    - path: results/aggregated/developer_method_ablation_summary.csv
+      sha256: 839baff12ad88c4f1a20175af172b50696e608207d6c6d383d454d4752616dc8
+      rows: 6
+    evidence_predicates:
+      exactly_one_measured_ablation_row: true
+      quantitative_result_present: true
+      not_status_only: true
+calibration_methods:
+  objectives:
+  - id: C00
+    name: raw_price_RMSE
+    formula_status: IMPLEMENTED_AND_MEASURED
+    evidence:
+    - path: reports/tables/T04_CALIBRATION_OBJECTIVE_COMPARISON.csv
+      sha256: e79812b2ab4c2656a99328095336362a7c89823c09b26853c24e05bb3baad7d9
+      rows: 18
+    evidence_predicates:
+      measured_rows_present: true
+  - id: C01
+    name: implied_volatility_RMSE
+    formula_status: IMPLEMENTED_AND_MEASURED
+    evidence:
+    - path: reports/tables/T04_CALIBRATION_OBJECTIVE_COMPARISON.csv
+      sha256: e79812b2ab4c2656a99328095336362a7c89823c09b26853c24e05bb3baad7d9
+      rows: 18
+    evidence_predicates:
+      measured_rows_present: true
+  - id: C02
+    name: vega_weighted_IV_loss
+    formula_status: IMPLEMENTED_AND_MEASURED
+    evidence:
+    - path: reports/tables/T04_CALIBRATION_OBJECTIVE_COMPARISON.csv
+      sha256: e79812b2ab4c2656a99328095336362a7c89823c09b26853c24e05bb3baad7d9
+      rows: 18
+    evidence_predicates:
+      measured_rows_present: true
+  - id: C03
+    name: spread_normalized_price_loss
+    formula_status: IMPLEMENTED_AND_MEASURED
+    evidence:
+    - path: reports/tables/T04_CALIBRATION_OBJECTIVE_COMPARISON.csv
+      sha256: e79812b2ab4c2656a99328095336362a7c89823c09b26853c24e05bb3baad7d9
+      rows: 18
+    evidence_predicates:
+      measured_rows_present: true
+  - id: C04
+    name: robust_Huber_style_loss
+    formula_status: IMPLEMENTED_AND_MEASURED
+    evidence:
+    - path: reports/tables/T04_CALIBRATION_OBJECTIVE_COMPARISON.csv
+      sha256: e79812b2ab4c2656a99328095336362a7c89823c09b26853c24e05bb3baad7d9
+      rows: 18
+    evidence_predicates:
+      measured_rows_present: true
+  optimizers:
+  - id: O00
+    name: bounded_local
+    status: COMPLETED
+    evidence:
+    - path: reports/tables/T05_OPTIMIZER_IDENTIFIABILITY.csv
+      sha256: 439ee6581d933d5c8504cd6ec74190fcb4d3711cb0356496a30a7c93a09a0674
+      rows: 161
+    evidence_predicates:
+      measured_rows_present: true
+  - id: O01
+    name: multi_start_local
+    status: COMPLETED
+    evidence:
+    - path: reports/tables/T05_OPTIMIZER_IDENTIFIABILITY.csv
+      sha256: 439ee6581d933d5c8504cd6ec74190fcb4d3711cb0356496a30a7c93a09a0674
+      rows: 161
+    evidence_predicates:
+      measured_rows_present: true
+  - id: O02
+    name: differential_evolution
+    status: COMPLETED
+    evidence:
+    - path: reports/tables/T05_OPTIMIZER_IDENTIFIABILITY.csv
+      sha256: 439ee6581d933d5c8504cd6ec74190fcb4d3711cb0356496a30a7c93a09a0674
+      rows: 161
+    evidence_predicates:
+      measured_rows_present: true
+  - id: O03
+    name: differential_evolution_then_local
+    status: COMPLETED
+    evidence:
+    - path: reports/tables/T05_OPTIMIZER_IDENTIFIABILITY.csv
+      sha256: 439ee6581d933d5c8504cd6ec74190fcb4d3711cb0356496a30a7c93a09a0674
+      rows: 161
+    evidence_predicates:
+      measured_rows_present: true
+  - id: O04
+    name: GPU_batched_population_then_local
+    status: COMPLETED
+    evidence:
+    - path: reports/tables/T05_OPTIMIZER_IDENTIFIABILITY.csv
+      sha256: 439ee6581d933d5c8504cd6ec74190fcb4d3711cb0356496a30a7c93a09a0674
+      rows: 161
+    evidence_predicates:
+      measured_rows_present: true
+  forward_estimators:
+  - id: F0
+    name: ordinary_least_squares
+    status: COMPLETED
+    evidence:
+    - path: results/raw/forward_estimator_comparison.parquet
+      sha256: 8c9d962c8227adac33fa2b4597d6422430572127b172086a0a52740a6fc98101
+      rows: 107521
+    evidence_predicates:
+      measured_rows_present: true
+  - id: F1
+    name: spread_weighted_least_squares
+    status: COMPLETED
+    evidence:
+    - path: results/raw/forward_estimator_comparison.parquet
+      sha256: 8c9d962c8227adac33fa2b4597d6422430572127b172086a0a52740a6fc98101
+      rows: 107521
+    evidence_predicates:
+      measured_rows_present: true
+  - id: F2
+    name: Huber_robust_regression
+    status: COMPLETED
+    evidence:
+    - path: results/raw/forward_estimator_comparison.parquet
+      sha256: 8c9d962c8227adac33fa2b4597d6422430572127b172086a0a52740a6fc98101
+      rows: 107521
+    evidence_predicates:
+      measured_rows_present: true
+  - id: F3
+    name: spread_weighted_robust_regression
+    status: COMPLETED
+    evidence:
+    - path: results/raw/forward_estimator_comparison.parquet
+      sha256: 8c9d962c8227adac33fa2b4597d6422430572127b172086a0a52740a6fc98101
+      rows: 107521
+    evidence_predicates:
+      measured_rows_present: true
+fault_catalog:
+- id: F00
+  name: no_fault
+- id: F01
+  name: Heston_on_Bates_truth
+- id: F02
+  name: Heston_on_LocalVol_truth
+- id: F03
+  name: regime_shift
+- id: F04
+  name: poor_integration_resolution
+- id: F05
+  name: coarse_PDE
+- id: F06
+  name: insufficient_Monte_Carlo
+- id: F07
+  name: calibration_local_minimum
+- id: F08
+  name: sparse_calibration_surface
+- id: F09
+  name: corrupt_quotes
+- id: F10
+  name: stale_or_asynchronous_like_observations
+- id: F11
+  name: incorrect_rate_or_forward
+- id: F12
+  name: wing_extrapolation
+- id: F13
+  name: maturity_extrapolation
+- id: F14
+  name: unstable_parameters
+- id: F15
+  name: biased_or_inconsistent_Greeks
+- id: F16
+  name: combined_faults
+  minimum_simultaneous_mechanisms: 2
+required_metrics:
+  model_comparison:
+  - in_sample
+  - held_out_wing
+  - held_out_maturity
+  - temporal_OOS
+  - Greeks
+  - runtime
+  synthetic_detection:
+  - recall_at_5_percent_FPR
+  - AUPRC
+  - AUROC
+  - false_alarm_rate
+  - material_risk_miss_rate
+  ablation:
+  - delta_recall_at_5_percent_FPR
+  - delta_AUPRC
+  - false_alarm_change
+  - material_risk_miss_rate_change
+  real_date_level:
+  - mean_paired_difference
+  - median_paired_difference
+  - effect_size
+  - bootstrap_95_percent_CI
+  - win_rate
+reconciliation:
+  schema_version: '1.0'
+  manifest: artifacts/experiment_reconciliation.json
+  method: artifact_content_predicates

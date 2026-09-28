@@ -1,0 +1,39 @@
+{
+  "config_sha256": "7ef34c0f3c48e80d23a22a166a2213c504059ec952be5f94a5e29adab145fa32",
+  "constraints": "unconstrained",
+  "intended_use": "European SPXW vanilla-option research valuation, Greeks, and model-risk research",
+  "known_limitations": [
+    "Public historical quotes are standing EOD observations without quote timestamps.",
+    "The model remains restricted to European vanilla research use."
+  ],
+  "methodology": "Little-Heston-Trap-style stable characteristic function with FP64 Gauss-Legendre integration",
+  "model_id": "M10",
+  "numerical_tolerances_file": "configs\\numerical_tolerances.yaml",
+  "objective": "C04",
+  "optimizer": "O01",
+  "parameter_schema": [
+    "v0",
+    "kappa",
+    "theta",
+    "sigma_v",
+    "rho"
+  ],
+  "prohibited_use": [
+    "live trading",
+    "brokerage execution",
+    "regulatory capital",
+    "American or exotic options",
+    "production institutional valuation"
+  ],
+  "release_id": "Developer Model Release v1.0",
+  "released_at": "2026-09-27T09:03:48.916254+00:00",
+  "selection_evidence": "results\\aggregated\\developer_method_selection.json",
+  "selection_evidence_hash": "042f771476ba9a168ee5808a0eb995948a06a024b6a1a5c1abc0b92270adf9a3",
+  "source_hashes": {
+    "development/calibration.py": "ca0907a0030843f11fdc7423f727bfa193ee35018acde08240796b0cdd49fdf7",
+    "development/heston_cf.py": "dacce10ee6d00ca7d94586f92893a1af92f8929e2d9b9ccb21f32a1b9065a2b2",
+    "empirical.py": "d0911e1d40e2ad65ddb0496f0dd5ce1378f5bde3d91a4793fabacc002111d8d0"
+  },
+  "source_sha256": "dacce10ee6d00ca7d94586f92893a1af92f8929e2d9b9ccb21f32a1b9065a2b2",
+  "status": "FROZEN_BEFORE_CALIBRATED_CONFIRMATORY_LOCKED_TEST"
+}

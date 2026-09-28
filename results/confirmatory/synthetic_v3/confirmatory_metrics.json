@@ -1,0 +1,335 @@
+{
+  "ablations": {
+    "A01": {
+      "ablation_id": "A01",
+      "auprc_change": 0.04807751697519125,
+      "description": "remove E_data",
+      "false_alarm_change": 0.0,
+      "metrics": {
+        "auprc": 0.6594866983767662,
+        "auroc": 0.8162393162393162,
+        "baseline": "V06",
+        "false_alarm_rate": 0.2564102564102564,
+        "locked_false_positive_rate": 0.2564102564102564,
+        "material_risk_miss_rate": 0.33333333333333337,
+        "negatives": 39,
+        "observations": 51,
+        "positives": 12,
+        "recall_at_dev_5pct_fpr": 0.6666666666666666
+      },
+      "miss_rate_change": -0.08333333333333326,
+      "recall_change": 0.08333333333333326
+    },
+    "A02": {
+      "ablation_id": "A02",
+      "auprc_change": 0.02984773773406013,
+      "description": "remove E_num",
+      "false_alarm_change": 0.0,
+      "metrics": {
+        "auprc": 0.6412569191356351,
+        "auroc": 0.8012820512820513,
+        "baseline": "V06",
+        "false_alarm_rate": 0.2564102564102564,
+        "locked_false_positive_rate": 0.2564102564102564,
+        "material_risk_miss_rate": 0.41666666666666663,
+        "negatives": 39,
+        "observations": 51,
+        "positives": 12,
+        "recall_at_dev_5pct_fpr": 0.5833333333333334
+      },
+      "miss_rate_change": 0.0,
+      "recall_change": 0.0
+    },
+    "A03": {
+      "ablation_id": "A03",
+      "auprc_change": 0.004759833185702167,
+      "description": "remove E_cal",
+      "false_alarm_change": -0.10256410256410253,
+      "metrics": {
+        "auprc": 0.6161690145872771,
+        "auroc": 0.7606837606837606,
+        "baseline": "V06",
+        "false_alarm_rate": 0.15384615384615385,
+        "locked_false_positive_rate": 0.15384615384615385,
+        "material_risk_miss_rate": 0.41666666666666663,
+        "negatives": 39,
+        "observations": 51,
+        "positives": 12,
+        "recall_at_dev_5pct_fpr": 0.5833333333333334
+      },
+      "miss_rate_change": 0.0,
+      "recall_change": 0.0
+    },
+    "A04": {
+      "ablation_id": "A04",
+      "auprc_change": 0.02368506463017095,
+      "description": "remove E_ident",
+      "false_alarm_change": 0.10256410256410259,
+      "metrics": {
+        "auprc": 0.6350942460317459,
+        "auroc": 0.8055555555555556,
+        "baseline": "V06",
+        "false_alarm_rate": 0.358974358974359,
+        "locked_false_positive_rate": 0.358974358974359,
+        "material_risk_miss_rate": 0.25,
+        "negatives": 39,
+        "observations": 51,
+        "positives": 12,
+        "recall_at_dev_5pct_fpr": 0.75
+      },
+      "miss_rate_change": -0.16666666666666663,
+      "recall_change": 0.16666666666666663
+    },
+    "A05": {
+      "ablation_id": "A05",
+      "auprc_change": 0.02368506463017095,
+      "description": "remove E_param",
+      "false_alarm_change": 0.10256410256410259,
+      "metrics": {
+        "auprc": 0.6350942460317459,
+        "auroc": 0.8055555555555556,
+        "baseline": "V06",
+        "false_alarm_rate": 0.358974358974359,
+        "locked_false_positive_rate": 0.358974358974359,
+        "material_risk_miss_rate": 0.25,
+        "negatives": 39,
+        "observations": 51,
+        "positives": 12,
+        "recall_at_dev_5pct_fpr": 0.75
+      },
+      "miss_rate_change": -0.16666666666666663,
+      "recall_change": 0.16666666666666663
+    },
+    "A06": {
+      "ablation_id": "A06",
+      "auprc_change": -0.31735925433431017,
+      "description": "remove E_form",
+      "false_alarm_change": -0.15384615384615383,
+      "metrics": {
+        "auprc": 0.2940499270672648,
+        "auroc": 0.5918803418803419,
+        "baseline": "V06",
+        "false_alarm_rate": 0.10256410256410256,
+        "locked_false_positive_rate": 0.10256410256410256,
+        "material_risk_miss_rate": 1.0,
+        "negatives": 39,
+        "observations": 51,
+        "positives": 12,
+        "recall_at_dev_5pct_fpr": 0.0
+      },
+      "miss_rate_change": 0.5833333333333334,
+      "recall_change": -0.5833333333333334
+    },
+    "A07": {
+      "ablation_id": "A07",
+      "auprc_change": 0.012311524479456049,
+      "description": "remove E_greek",
+      "false_alarm_change": -0.051282051282051266,
+      "metrics": {
+        "auprc": 0.623720705881031,
+        "auroc": 0.7970085470085471,
+        "baseline": "V06",
+        "false_alarm_rate": 0.20512820512820512,
+        "locked_false_positive_rate": 0.20512820512820512,
+        "material_risk_miss_rate": 0.41666666666666663,
+        "negatives": 39,
+        "observations": 51,
+        "positives": 12,
+        "recall_at_dev_5pct_fpr": 0.5833333333333334
+      },
+      "miss_rate_change": 0.0,
+      "recall_change": 0.0
+    },
+    "A08": {
+      "ablation_id": "A08",
+      "auprc_change": 0.011150275934540432,
+      "description": "remove E_extra",
+      "false_alarm_change": -0.025641025641025605,
+      "metrics": {
+        "auprc": 0.6225594573361154,
+        "auroc": 0.8141025641025641,
+        "baseline": "V06",
+        "false_alarm_rate": 0.23076923076923078,
+        "locked_false_positive_rate": 0.23076923076923078,
+        "material_risk_miss_rate": 0.41666666666666663,
+        "negatives": 39,
+        "observations": 51,
+        "positives": 12,
+        "recall_at_dev_5pct_fpr": 0.5833333333333334
+      },
+      "miss_rate_change": 0.0,
+      "recall_change": 0.0
+    },
+    "A09": {
+      "ablation_id": "A09",
+      "auprc_change": 0.0,
+      "description": "remove regime conditioning",
+      "false_alarm_change": -0.025641025641025605,
+      "metrics": {
+        "auprc": 0.611409181401575,
+        "auroc": 0.7884615384615384,
+        "baseline": "V06",
+        "false_alarm_rate": 0.23076923076923078,
+        "locked_false_positive_rate": 0.23076923076923078,
+        "material_risk_miss_rate": 0.41666666666666663,
+        "negatives": 39,
+        "observations": 51,
+        "positives": 12,
+        "recall_at_dev_5pct_fpr": 0.5833333333333334
+      },
+      "miss_rate_change": 0.0,
+      "recall_change": 0.0
+    },
+    "A10": {
+      "ablation_id": "A10",
+      "auprc_change": 0.0,
+      "description": "remove E_outcome",
+      "false_alarm_change": 0.0,
+      "metrics": {
+        "auprc": 0.611409181401575,
+        "auroc": 0.7884615384615384,
+        "baseline": "V06",
+        "false_alarm_rate": 0.2564102564102564,
+        "locked_false_positive_rate": 0.2564102564102564,
+        "material_risk_miss_rate": 0.41666666666666663,
+        "negatives": 39,
+        "observations": 51,
+        "positives": 12,
+        "recall_at_dev_5pct_fpr": 0.5833333333333334
+      },
+      "miss_rate_change": 0.0,
+      "recall_change": 0.0
+    },
+    "A11": {
+      "ablation_id": "A11",
+      "auprc_change": 0.3715383849620185,
+      "description": "remove economic-materiality prioritization",
+      "false_alarm_change": 0.41025641025641024,
+      "metrics": {
+        "auprc": 0.9829475663635935,
+        "auroc": 0.7569444444444444,
+        "baseline": "V06",
+        "false_alarm_rate": 0.6666666666666666,
+        "locked_false_positive_rate": 0.6666666666666666,
+        "material_risk_miss_rate": 0.16666666666666663,
+        "negatives": 3,
+        "observations": 51,
+        "positives": 48,
+        "recall_at_dev_5pct_fpr": 0.8333333333333334
+      },
+      "miss_rate_change": -0.25,
+      "recall_change": 0.25
+    }
+  },
+  "baselines": {
+    "V00": {
+      "auprc": 1.0,
+      "auroc": 1.0,
+      "baseline": "V00",
+      "false_alarm_rate": 0.07692307692307693,
+      "locked_false_positive_rate": 0.07692307692307693,
+      "material_risk_miss_rate": 0.0,
+      "negatives": 39,
+      "observations": 51,
+      "positives": 12,
+      "recall_at_dev_5pct_fpr": 1.0
+    },
+    "V01": {
+      "auprc": 0.23529411764705882,
+      "auroc": 0.5,
+      "baseline": "V01",
+      "false_alarm_rate": 0.0,
+      "locked_false_positive_rate": 0.0,
+      "material_risk_miss_rate": 1.0,
+      "negatives": 39,
+      "observations": 51,
+      "positives": 12,
+      "recall_at_dev_5pct_fpr": 0.0
+    },
+    "V02": {
+      "auprc": 0.7021671275347746,
+      "auroc": 0.8760683760683761,
+      "baseline": "V02",
+      "false_alarm_rate": 0.20512820512820512,
+      "locked_false_positive_rate": 0.20512820512820512,
+      "material_risk_miss_rate": 0.08333333333333337,
+      "negatives": 39,
+      "observations": 51,
+      "positives": 12,
+      "recall_at_dev_5pct_fpr": 0.9166666666666666
+    },
+    "V03": {
+      "auprc": 0.5735043372974407,
+      "auroc": 0.8076923076923077,
+      "baseline": "V03",
+      "false_alarm_rate": 0.05128205128205128,
+      "locked_false_positive_rate": 0.05128205128205128,
+      "material_risk_miss_rate": 0.75,
+      "negatives": 39,
+      "observations": 51,
+      "positives": 12,
+      "recall_at_dev_5pct_fpr": 0.25
+    },
+    "V04": {
+      "auprc": 0.2637071258143637,
+      "auroc": 0.3504273504273504,
+      "baseline": "V04",
+      "false_alarm_rate": 0.05128205128205128,
+      "locked_false_positive_rate": 0.05128205128205128,
+      "material_risk_miss_rate": 0.9166666666666666,
+      "negatives": 39,
+      "observations": 51,
+      "positives": 12,
+      "recall_at_dev_5pct_fpr": 0.08333333333333333
+    },
+    "V05": {
+      "auprc": 0.611409181401575,
+      "auroc": 0.7884615384615384,
+      "baseline": "V05",
+      "false_alarm_rate": 0.23076923076923078,
+      "locked_false_positive_rate": 0.23076923076923078,
+      "material_risk_miss_rate": 0.41666666666666663,
+      "negatives": 39,
+      "observations": 51,
+      "positives": 12,
+      "recall_at_dev_5pct_fpr": 0.5833333333333334
+    },
+    "V06": {
+      "auprc": 0.611409181401575,
+      "auroc": 0.7884615384615384,
+      "baseline": "V06",
+      "false_alarm_rate": 0.2564102564102564,
+      "locked_false_positive_rate": 0.2564102564102564,
+      "material_risk_miss_rate": 0.41666666666666663,
+      "negatives": 39,
+      "observations": 51,
+      "positives": 12,
+      "recall_at_dev_5pct_fpr": 0.5833333333333334
+    }
+  },
+  "calibration_successes": 20,
+  "calibrations": 510,
+  "faults_executed": [
+    "F00",
+    "F01",
+    "F02",
+    "F03",
+    "F04",
+    "F05",
+    "F06",
+    "F07",
+    "F08",
+    "F09",
+    "F10",
+    "F11",
+    "F12",
+    "F13",
+    "F14",
+    "F15",
+    "F16"
+  ],
+  "freeze_hash": "36122f5ad49c3aa9c51f4dc1ad9761330bdc65067600652d9c0ab4aded07a71b",
+  "locked_cases": 51,
+  "run_id": "SYN-CONFIRMATORY-V4-36122f5ad49c",
+  "status": "CONFIRMATORY_LOCKED_COMPLETE"
+}

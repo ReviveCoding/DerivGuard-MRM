@@ -1,0 +1,14 @@
+{
+  "ablation_ids": [
+    "DA01",
+    "DA02",
+    "DA03",
+    "DA04",
+    "DA05",
+    "DA06"
+  ],
+  "artifact": "results\\aggregated\\developer_method_ablation_summary.csv",
+  "generated_at": "2026-09-27T14:04:00.180534+00:00",
+  "rows": 6,
+  "status": "MEASURED"
+}

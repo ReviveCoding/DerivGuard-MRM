@@ -1,0 +1,67 @@
+{
+  "bootstrap_seed": 89000001,
+  "method": "paired case-level bootstrap over locked synthetic cases",
+  "paired_bootstrap": {
+    "V00": {
+      "auprc_difference_ci95": [
+        -0.7020993392168507,
+        -0.27420216953592974
+      ],
+      "recall_difference_ci95": [
+        -0.7110714285714286,
+        -0.16887254901960777
+      ]
+    },
+    "V01": {
+      "auprc_difference_ci95": [
+        0.05903689592053996,
+        0.4457495602215859
+      ],
+      "recall_difference_ci95": [
+        0.27386363636363636,
+        0.7462500000000001
+      ]
+    },
+    "V02": {
+      "auprc_difference_ci95": [
+        -0.3648521885916533,
+        -0.13666265425657814
+      ],
+      "recall_difference_ci95": [
+        -0.619375,
+        -0.16887254901960774
+      ]
+    },
+    "V03": {
+      "auprc_difference_ci95": [
+        -0.1623911360857349,
+        0.37524357680587195
+      ],
+      "recall_difference_ci95": [
+        -0.04305555555555554,
+        0.6338068181818183
+      ]
+    },
+    "V04": {
+      "auprc_difference_ci95": [
+        0.1194381344673234,
+        0.46517513413877865
+      ],
+      "recall_difference_ci95": [
+        0.27095238095238094,
+        0.7333333333333333
+      ]
+    },
+    "V05": {
+      "auprc_difference_ci95": [
+        0.0,
+        0.0
+      ],
+      "recall_difference_ci95": [
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "replicates": 250
+}

@@ -1,0 +1,76 @@
+{
+  "paired_case_bootstrap": {
+    "V00": {
+      "auprc_difference_V06_minus_baseline_ci95": [
+        -0.22975908846904539,
+        -0.034004146722559664
+      ],
+      "bootstrap_replicates": 250,
+      "recall_difference_V06_minus_baseline_ci95": [
+        -0.5,
+        -0.1552307692307692
+      ],
+      "seed": 79000001
+    },
+    "V01": {
+      "auprc_difference_V06_minus_baseline_ci95": [
+        0.15163799791464672,
+        0.39472196226993533
+      ],
+      "bootstrap_replicates": 250,
+      "recall_difference_V06_minus_baseline_ci95": [
+        0.5209694989106753,
+        0.8333333333333334
+      ],
+      "seed": 79000001
+    },
+    "V02": {
+      "auprc_difference_V06_minus_baseline_ci95": [
+        -0.10195878247610429,
+        -0.012137878146796002
+      ],
+      "bootstrap_replicates": 250,
+      "recall_difference_V06_minus_baseline_ci95": [
+        -0.27515673981191224,
+        -0.034482758620689724
+      ],
+      "seed": 79000001
+    },
+    "V03": {
+      "auprc_difference_V06_minus_baseline_ci95": [
+        0.07859188392503125,
+        0.3636670190893288
+      ],
+      "bootstrap_replicates": 250,
+      "recall_difference_V06_minus_baseline_ci95": [
+        0.45125994694960214,
+        0.8532857142857143
+      ],
+      "seed": 79000001
+    },
+    "V04": {
+      "auprc_difference_V06_minus_baseline_ci95": [
+        0.15628152427872882,
+        0.4984790482700698
+      ],
+      "bootstrap_replicates": 250,
+      "recall_difference_V06_minus_baseline_ci95": [
+        0.5274259868421053,
+        0.8546703296703297
+      ],
+      "seed": 79000001
+    },
+    "V05": {
+      "auprc_difference_V06_minus_baseline_ci95": [
+        0.0,
+        0.0
+      ],
+      "bootstrap_replicates": 250,
+      "recall_difference_V06_minus_baseline_ci95": [
+        0.0,
+        0.0
+      ],
+      "seed": 79000001
+    }
+  }
+}

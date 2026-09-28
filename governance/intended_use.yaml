@@ -1,0 +1,57 @@
+schema_version: "1.0"
+status: DRAFT_PENDING_VALIDATION
+project: DerivGuard-MRM
+primary_model: M10
+
+research_purpose:
+  question: >-
+    Can independent, multi-dimensional validation detect economically material
+    derivatives model risk that conventional fit-based validation fails to detect?
+  primary_domain: European cash-settled S&P 500 index options
+  core_universe: PM-settled SPXW
+  separate_robustness_universes:
+    - AM-settled standard SPX
+    - near-expiry PM-settled SPXW
+    - 0DTE SPXW only where data support a defensible study
+
+permitted_research_uses:
+  - European SPXW vanilla-option research valuation
+  - European vanilla price and Greek implementation verification
+  - structural volatility and calibration research
+  - independent model-risk validation research
+  - synthetic ground-truth and labeled fault-detection experiments
+  - standardized hypothetical portfolio materiality analysis
+  - qualified historical cross-sectional and temporal proxy analysis
+
+prohibited_uses:
+  - American options
+  - single-name early-exercise options
+  - barriers or complex exotic products
+  - live trading or investment decisions
+  - brokerage connectivity or order execution
+  - regulatory capital
+  - production institutional valuation
+  - claims of institutional model approval
+  - use of a one-day discrete hedging proxy as actual desk P&L
+  - characterization of unsynchronized historical EOD quotes as synchronized NBBO truth
+
+controls:
+  settlement:
+    rule: Never silently mix AM and PM settlement.
+    core: PM
+    robustness: AM analyzed separately
+  evidence:
+    rule: Preserve separate evidence dimensions and economic materiality.
+    dimensions: [E_data, E_num, E_cal, E_ident, E_param, E_form, E_greek, E_extra, E_outcome]
+    prohibited_summary: arbitrary_weighted_score_as_only_output
+  locked_testing:
+    rule: Methodology and thresholds must be frozen before locked-test evaluation.
+    prospective_data_label: PROSPECTIVE_LOCKED_TEST
+  validation_conclusion:
+    institutional_approval: false
+    allowed_labels:
+      - Validated for intended research use
+      - Validated with limitations
+      - Conditionally validated
+      - Not validated for specified research use
+

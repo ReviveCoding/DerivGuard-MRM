@@ -1,0 +1,37 @@
+schema_version: "5.0"
+registry_id: SYN-CONFIRMATORY-V5-HYPOTHESES
+status: PRE_EXECUTION_CANDIDATE
+primary_endpoint: recall_at_dev_fixed_5_percent_fpr
+secondary_endpoints: [AUPRC, AUROC, false_alarm_rate, material_risk_miss_rate]
+materiality_definition: absolute calibrated-developer pricing error divided by synthetic bid-ask spread
+calibration_qualification_rule: Only converged C04/O01 fits enter DVE; any unqualified primary or bootstrap fit stops the run as CALIBRATION_UNQUALIFIED.
+locked_test_rule: No method, threshold, convergence rule, or materiality rule may change after freeze.
+hypotheses:
+  - id: H01
+    statement: FitOnly misses some material model-form risk after release-aligned Heston calibration.
+    comparison: V06_minus_V00_on_F01_F02_F03
+  - id: H02
+    statement: Independent numerical evidence detects material numerical implementation risk after qualified calibration.
+    comparison: V04_and_V06_minus_V00_on_F04_F05_F06
+  - id: H03
+    statement: Observable SSVI and flat-BS disagreement adds information beyond developer fit.
+    comparison: V02_and_V06_minus_V00_on_F01_F02_F03
+  - id: H04
+    statement: Bid-ask bootstrap Heston recalibration uncertainty detects unstable calibration.
+    comparison: V03_and_V06_minus_V00_on_F07_F08_F14
+  - id: H05
+    statement: DEV-frozen regime conditioning improves the detection tradeoff.
+    comparison: V06_minus_V05_and_A09
+  - id: H06
+    statement: Greek disagreement adds information beyond price disagreement.
+    comparison: V06_minus_A07_on_F15
+  - id: H07
+    statement: Materiality prioritization improves finding usefulness.
+    comparison: V06_minus_A11
+  - id: H08
+    statement: E_outcome has no contemporaneous synthetic information.
+    comparison: V06_minus_A10
+prohibitions:
+  - V4 outcomes are preserved but are not used to select v5 thresholds or preferred results.
+  - Latent truth is used only for labels and final evaluation.
+  - Non-converged calibration output may not be fed into DVE.

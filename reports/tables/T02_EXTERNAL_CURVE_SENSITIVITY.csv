@@ -1,0 +1,19 @@
+quote_date,split,settlement_class,observations,external_series,mean_absolute_price_shift,maximum_absolute_price_shift,rmse_price_shift,interpretation
+2022-07-01,DEV,PM,30,"DGS1,DGS1MO",1.8234453759670664,8.134420181860833,2.9942666050445,Treasury par-yield sensitivity; not a derivatives discount curve
+2022-07-01,DEV,AM,30,"DGS1,DGS1MO,DGS6MO",2.6251540918770706,10.134790573055852,4.212064905839208,Treasury par-yield sensitivity; not a derivatives discount curve
+2022-08-25,DEV,PM,30,"DGS1MO,DGS6MO",0.8228750403363041,4.247463701609149,1.4017192463840713,Treasury par-yield sensitivity; not a derivatives discount curve
+2022-08-25,DEV,AM,30,"DGS1,DGS1MO,DGS6MO",2.5861110841879795,11.657157118683926,4.118200443908923,Treasury par-yield sensitivity; not a derivatives discount curve
+2022-10-18,DEV,PM,30,"DGS1,DGS1MO",1.306014710747376,5.501214964713199,2.116208170936344,Treasury par-yield sensitivity; not a derivatives discount curve
+2022-10-18,DEV,AM,30,"DGS1,DGS1MO,DGS6MO",1.4085064213364895,4.618668609527731,1.9690352696484412,Treasury par-yield sensitivity; not a derivatives discount curve
+2022-10-19,VALIDATION,PM,30,"DGS1,DGS1MO",1.1738186084793092,4.796522409943464,1.841837673855893,Treasury par-yield sensitivity; not a derivatives discount curve
+2022-10-19,VALIDATION,AM,30,"DGS1,DGS1MO,DGS6MO",1.4874515393981758,5.781991078309829,2.2534047526585828,Treasury par-yield sensitivity; not a derivatives discount curve
+2022-11-04,VALIDATION,PM,30,"DGS1,DGS1MO",0.5521919703473073,2.8022180499344813,1.0320495196530928,Treasury par-yield sensitivity; not a derivatives discount curve
+2022-11-04,VALIDATION,AM,30,"DGS1,DGS1MO,DGS6MO",1.38161377249587,4.96143253703849,1.9732759810537486,Treasury par-yield sensitivity; not a derivatives discount curve
+2022-11-22,VALIDATION,PM,30,"DGS1,DGS1MO",0.7249442014871653,3.6586095863394803,1.2677932151985596,Treasury par-yield sensitivity; not a derivatives discount curve
+2022-11-22,VALIDATION,AM,30,"DGS1,DGS1MO,DGS6MO",1.3420104378489126,5.144694891017252,1.946939560517143,Treasury par-yield sensitivity; not a derivatives discount curve
+2022-11-23,LOCKED_TEST,PM,30,"DGS1,DGS1MO",0.8961007260978856,4.710491896503072,1.662933781017318,Treasury par-yield sensitivity; not a derivatives discount curve
+2022-11-23,LOCKED_TEST,AM,30,"DGS1,DGS1MO,DGS6MO",1.5204926534109797,5.970548919136263,2.2673606787339122,Treasury par-yield sensitivity; not a derivatives discount curve
+2022-12-12,LOCKED_TEST,PM,30,"DGS1,DGS1MO",1.0944918785321003,3.733651575224485,1.5942800221458215,Treasury par-yield sensitivity; not a derivatives discount curve
+2022-12-12,LOCKED_TEST,AM,30,"DGS1,DGS1MO,DGS6MO",1.576484090552338,4.807741371957036,2.051892218324429,Treasury par-yield sensitivity; not a derivatives discount curve
+2022-12-30,LOCKED_TEST,PM,30,"DGS1,DGS1MO",0.9349728311847907,4.279406634574116,1.7115498890559544,Treasury par-yield sensitivity; not a derivatives discount curve
+2022-12-30,LOCKED_TEST,AM,30,"DGS1,DGS1MO,DGS6MO",0.4555165482905134,1.7714939697036698,0.6582951000909629,Treasury par-yield sensitivity; not a derivatives discount curve

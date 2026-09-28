@@ -1,0 +1,31 @@
+{
+  "cases_attempted": 5,
+  "cases_passed": 5,
+  "config_hash": "934bbcc8c2a21890a9399a3d0fbb2b420283f2bfaecc7b3d82a4d4d5a4742fe7",
+  "developer_release_hash": "0fd53ee708e95f9666a95724b80937737d2b1b8406e33abbe304a2ee04efdccf",
+  "diagnostics_path": "results/raw/confirmatory_v6_prequalification_diagnostics.parquet",
+  "faults_attempted": [
+    "F00",
+    "F01",
+    "F02",
+    "F09",
+    "F16"
+  ],
+  "module_hash": "2c2598ab8acee3edb28d71028b503a47c6b056ed405090384ddf7b008355787c",
+  "official_seed_regions": [
+    "107m",
+    "108m",
+    "109m",
+    "110m"
+  ],
+  "runtime_seconds": 129.60775139999896,
+  "schema_version": "1.0",
+  "seed_overlap": false,
+  "status": "PASS",
+  "study_role": "PRE_LOCK_TUNING_QUALIFICATION_NOT_INFERENTIAL",
+  "summary_path": "results/aggregated/confirmatory_v6_prequalification.csv",
+  "tuning_seed_region": "101m",
+  "v5_dependency_hash": "e3762a1b408ce01d041652064f5e865bbecae3295350ffa2625d5698a85ed464",
+  "v5_locked_results_used": false,
+  "v5_validation_failure_used_for_remediation": true
+}

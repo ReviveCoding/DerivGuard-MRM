@@ -1,0 +1,4 @@
+metric,challenger_model_id,market_dates,mean_difference,median_difference,bootstrap_ci_low,bootstrap_ci_high,challenger_win_rate,sampling_unit
+date_level_price_rmse_difference_challenger_minus_heston,M00_BS_FLAT,126,30.146862225235832,30.49028965033146,29.320549752908388,30.94455930099344,0.0,market date
+date_level_price_rmse_difference_challenger_minus_heston,M02_SVI,126,-0.2435144573142723,0.033269369734134024,-0.4633084524151524,-0.06066745044184124,0.4603174603174603,market date
+date_level_price_rmse_difference_challenger_minus_heston,M03_SSVI,126,4.196081837536461,3.9339956668881206,3.7553438189720127,4.637336285588655,0.031746031746031744,market date

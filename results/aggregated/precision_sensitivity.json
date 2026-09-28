@@ -1,0 +1,16 @@
+{
+  "artifact": "results\\aggregated\\precision_sensitivity.csv",
+  "cases": 4,
+  "device": "cuda",
+  "experiment_id": "N10",
+  "generated_at": "2026-09-27T10:03:50.150972+00:00",
+  "maximum_fp32_absolute_error": 5.87573004114007e-05,
+  "maximum_fp64_absolute_error": 4.263256414560601e-14,
+  "precisions": [
+    "float64",
+    "float32"
+  ],
+  "rows": 8,
+  "scientific_rule": "FP64 remains mandatory; FP32 is diagnostic only",
+  "status": "MEASURED"
+}

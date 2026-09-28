@@ -1,0 +1,392 @@
+schema_version: '1.0'
+inventory_status: IMPLEMENTED_WITH_PARTIAL_VALIDATION
+as_of: '2026-09-27T08:04:39.838440+00:00'
+project: DerivGuard-MRM
+scientific_integrity_note: Inventory presence is not evidence of implementation, execution,
+  validation, approval, or fitness. Validation status remains PENDING until supported
+  by machine-readable results and an independent review record.
+models:
+- model_id: M00
+  name: Black-Scholes flat-volatility baseline
+  role: baseline
+  version: implemented-v0.1
+  developer_validator_status: developer_baseline
+  intended_use: European SPX/SPXW vanilla research benchmark and analytic Greek reference
+  prohibited_use:
+  - live_trading
+  - brokerage_execution
+  - production_valuation
+  - regulatory_capital
+  - American_options
+  - exotic_options
+  methodology: Black-Scholes-Merton analytic European option formula with explicit
+    dividend yield
+  inputs:
+  - spot
+  - strike
+  - time_to_expiry
+  - risk_free_rate
+  - dividend_yield
+  - volatility
+  - option_type
+  outputs:
+  - price
+  - delta
+  - gamma
+  - vega
+  - theta
+  assumptions:
+  - lognormal_diffusion
+  - constant_volatility
+  - deterministic_rates
+  - deterministic_dividends
+  - frictionless_market
+  limitations:
+  - flat_smile
+  - no_stochastic_volatility
+  - no_jumps
+  - European_only
+  materiality_concept: standardized_portfolio_valuation_and_Greek_difference
+  validation_status: VERIFIED_FOUNDATION
+  code_hash: 941b58b42be34864293ac66a32ec647bb1a8db6caa1f59b81e65028bc8d16300
+  config_hash: 1ca4fc50ef908b9b6ccd76fb9a4b861dc49e0014a4996e99555adc5b5f2de3e7
+- model_id: M01
+  name: Black-Scholes market-IV interpolation reference
+  role: market_reference
+  version: implemented-v0.1
+  developer_validator_status: independent_reference
+  intended_use: European vanilla cross-sectional interpolation reference within observed
+    support
+  prohibited_use:
+  - uncontrolled_extrapolation
+  - live_trading
+  - brokerage_execution
+  - production_valuation
+  - regulatory_capital
+  methodology: Black-Scholes valuation using an independently interpolated market
+    implied volatility
+  inputs:
+  - clean_quotes
+  - forward
+  - discount_factor
+  - strike
+  - expiry
+  - option_type
+  outputs:
+  - price
+  - implied_volatility
+  - delta
+  - gamma
+  - vega
+  assumptions:
+  - European_exercise
+  - usable_market_surface
+  - stable_interpolation
+  limitations:
+  - not_structural
+  - quote_quality_sensitive
+  - extrapolation_risk
+  materiality_concept: standardized_portfolio_valuation_and_Greek_difference
+  validation_status: PARTIAL_INTERPOLATION_STUDY_NOT_EXECUTED
+  code_hash: 3aaec43209ccdba3943ed0151b5644a4f659220d7a344398c60f702bcb627228
+  config_hash: 1ca4fc50ef908b9b6ccd76fb9a4b861dc49e0014a4996e99555adc5b5f2de3e7
+- model_id: M02
+  name: SVI surface
+  role: surface_challenger
+  version: implemented-v0.1
+  developer_validator_status: independent_challenger
+  intended_use: Per-expiry implied-total-variance smoothing and diagnostic comparison
+  prohibited_use:
+  - unconstrained_wing_truth
+  - live_trading
+  - production_valuation
+  - regulatory_capital
+  methodology: Raw SVI total-variance parameterization with explicit arbitrage diagnostics
+  inputs:
+  - log_forward_moneyness
+  - total_variance
+  - quote_weights
+  - expiry
+  outputs:
+  - smooth_total_variance
+  - implied_volatility
+  - fitted_prices
+  assumptions:
+  - European_exercise
+  - reliable_forward
+  - adequate_strike_support
+  limitations:
+  - calendar_consistency_not_automatic
+  - extrapolation_sensitive
+  - optimizer_sensitive
+  materiality_concept: challenger_disagreement_scaled_by_standardized_exposure
+  validation_status: VERIFIED_BOUNDED
+  code_hash: 4143e7dcb69e1d9eb61b5858046b495cbbc72b2a87f1e1971dec368f134a86d8
+  config_hash: 1ca4fc50ef908b9b6ccd76fb9a4b861dc49e0014a4996e99555adc5b5f2de3e7
+- model_id: M03
+  name: Arbitrage-aware SSVI surface
+  role: surface_and_local_vol_input
+  version: implemented-v0.1
+  developer_validator_status: independent_challenger
+  intended_use: Smooth total-variance surface with controlled static-arbitrage behavior
+    and Dupire input
+  prohibited_use:
+  - claim_of_exact_arbitrage_freedom_without_tests
+  - live_trading
+  - production_valuation
+  - regulatory_capital
+  methodology: SSVI or documented equivalent arbitrage-aware total-variance construction
+  inputs:
+  - log_forward_moneyness
+  - total_variance
+  - quote_weights
+  - expiry
+  outputs:
+  - smooth_total_variance_surface
+  - implied_volatility_surface
+  - derivatives
+  assumptions:
+  - European_exercise
+  - reliable_forward_and_discount
+  - sufficiently_dense_surface
+  limitations:
+  - residual_arbitrage_possible
+  - derivative_noise
+  - sparse_surface_risk
+  - extrapolation_risk
+  materiality_concept: challenger_disagreement_scaled_by_standardized_exposure
+  validation_status: VERIFIED_BOUNDED
+  code_hash: 4143e7dcb69e1d9eb61b5858046b495cbbc72b2a87f1e1971dec368f134a86d8
+  config_hash: 1ca4fc50ef908b9b6ccd76fb9a4b861dc49e0014a4996e99555adc5b5f2de3e7
+- model_id: M10
+  name: Heston characteristic-function developer model
+  role: primary_developer_model
+  version: v1.0
+  developer_validator_status: developer
+  intended_use: European PM-settled SPXW vanilla research valuation, Greeks, and structural-volatility
+    research
+  prohibited_use:
+  - American_options
+  - single_name_early_exercise_options
+  - barriers
+  - complex_exotics
+  - live_trading
+  - brokerage_execution
+  - regulatory_capital
+  - production_institutional_valuation
+  methodology: Stable Heston characteristic-function integration designed to avoid
+    complex-log branch failures
+  inputs:
+  - spot_or_forward
+  - strike
+  - time_to_expiry
+  - discount_factor
+  - dividend_or_carry
+  - v0
+  - kappa
+  - theta
+  - sigma_v
+  - rho
+  outputs:
+  - price
+  - calibrated_parameters
+  - developer_Greeks
+  assumptions:
+  - European_exercise
+  - continuous_paths
+  - CIR_variance
+  - constant_parameters_per_calibration
+  - deterministic_rates_and_carry
+  limitations:
+  - no_jumps
+  - calibration_nonuniqueness
+  - parameter_instability
+  - possible_Feller_violation
+  - numerical_integration_risk
+  materiality_concept: developer_challenger_value_and_Greek_difference_times_standardized_exposure
+  validation_status: PROVISIONAL_RELEASE_NUMERICALLY_VERIFIED
+  code_hash: dacce10ee6d00ca7d94586f92893a1af92f8929e2d9b9ccb21f32a1b9065a2b2
+  config_hash: 1ca4fc50ef908b9b6ccd76fb9a4b861dc49e0014a4996e99555adc5b5f2de3e7
+- model_id: M11
+  name: Independent Heston Monte Carlo validator
+  role: independent_numerical_validator
+  version: implemented-v0.1
+  developer_validator_status: validator
+  intended_use: Independent stochastic cross-check of representative European Heston
+    valuations and sensitivities
+  prohibited_use:
+  - developer_calibration_kernel
+  - production_valuation
+  - live_trading
+  - regulatory_capital
+  methodology: Independently implemented full-truncation Euler and QE-type variance
+    discretizations with uncertainty intervals
+  inputs:
+  - contract
+  - market_state
+  - Heston_parameters
+  - path_count
+  - time_steps
+  - seed
+  - discretization
+  outputs:
+  - price_estimate
+  - standard_error
+  - confidence_interval
+  - convergence_diagnostics
+  assumptions:
+  - pseudo_random_sampling
+  - documented_discretization
+  - adequate_paths_and_steps
+  limitations:
+  - sampling_error
+  - discretization_bias
+  - GPU_precision_and_memory_constraints
+  - expensive_Greeks
+  materiality_concept: numerical_disagreement_and_uncertainty_scaled_by_exposure
+  validation_status: VERIFIED_WITH_CONVERGENCE_LIMITATIONS
+  code_hash: 114d873fce4aee373d2d6094cde0bda4f109877be44869ba80727e7600d27fb5
+  config_hash: 1ca4fc50ef908b9b6ccd76fb9a4b861dc49e0014a4996e99555adc5b5f2de3e7
+- model_id: M12
+  name: Independent Heston PDE validator
+  role: independent_numerical_validator
+  version: implemented-v0.1
+  developer_validator_status: validator
+  intended_use: Independent two-dimensional PDE cross-check for representative European
+    Heston valuations
+  prohibited_use:
+  - developer_pricing_kernel_reuse
+  - production_valuation
+  - live_trading
+  - regulatory_capital
+  methodology: Independently implemented Heston PDE with ADI schemes and convergence
+    analysis
+  inputs:
+  - contract
+  - market_state
+  - Heston_parameters
+  - spatial_grid
+  - variance_grid
+  - time_grid
+  - scheme
+  outputs:
+  - price_grid
+  - interpolated_price
+  - convergence_and_boundary_diagnostics
+  assumptions:
+  - adequate_domain
+  - stable_ADI_configuration
+  - defensible_boundaries
+  limitations:
+  - truncation_error
+  - grid_bias
+  - boundary_sensitivity
+  - mixed_derivative_stability
+  - computational_cost
+  materiality_concept: numerical_disagreement_scaled_by_exposure
+  validation_status: PARTIAL_PDE_TOLERANCE_FAIL
+  code_hash: 48f5221484f8d5a30ae3f8cb92d9f6de1e2fa25ee98df18e22ece61d6c16e5ce
+  config_hash: 1ca4fc50ef908b9b6ccd76fb9a4b861dc49e0014a4996e99555adc5b5f2de3e7
+- model_id: M20
+  name: Dupire Local Volatility challenger
+  role: independent_model_form_challenger
+  version: implemented-v0.1
+  developer_validator_status: validator_challenger
+  intended_use: European vanilla valuation and Greek challenge derived from a smooth
+    arbitrage-aware surface
+  prohibited_use:
+  - differentiating_raw_noisy_IV
+  - live_trading
+  - production_valuation
+  - regulatory_capital
+  methodology: Dupire local volatility derived from SSVI or documented equivalent
+    smooth total variance
+  inputs:
+  - smooth_total_variance_surface
+  - forward_curve
+  - discount_curve
+  - contract
+  outputs:
+  - local_volatility
+  - price
+  - challenger_Greeks
+  assumptions:
+  - sufficient_surface_smoothness
+  - deterministic_rates_and_carry
+  - valid_Dupire_denominator
+  limitations:
+  - surface_derivative_instability
+  - extrapolation_risk
+  - dynamics_not_smile_consistent
+  - discretization_error
+  materiality_concept: developer_challenger_value_and_Greek_difference_times_standardized_exposure
+  validation_status: IMPLEMENTED_NOT_RESEARCH_QUALIFIED
+  code_hash: 7d29c8b8b249e0262921676931d105c165f4fc7c60c09c448a7ee2544d646599
+  config_hash: 1ca4fc50ef908b9b6ccd76fb9a4b861dc49e0014a4996e99555adc5b5f2de3e7
+- model_id: M21
+  name: Bates stochastic-volatility-with-jumps challenger
+  role: independent_model_form_challenger
+  version: implemented-v0.1
+  developer_validator_status: validator_challenger
+  intended_use: Model-form challenge and synthetic jump-diffusion ground truth when
+    numerically practical
+  prohibited_use:
+  - production_valuation
+  - live_trading
+  - regulatory_capital
+  - automatic_preference_over_simpler_models
+  methodology: Heston stochastic volatility augmented with documented jump-size and
+    intensity dynamics
+  inputs:
+  - contract
+  - market_state
+  - stochastic_volatility_parameters
+  - jump_parameters
+  outputs:
+  - price
+  - challenger_parameters
+  - challenger_Greeks
+  assumptions:
+  - specified_jump_law
+  - constant_parameters_per_calibration
+  - European_exercise
+  limitations:
+  - greater_identifiability_risk
+  - optimizer_cost
+  - parameter_instability
+  - numerical_integration_risk
+  materiality_concept: developer_challenger_value_and_Greek_difference_times_standardized_exposure
+  validation_status: IMPLEMENTED_NOT_EXTERNALLY_QUALIFIED
+  code_hash: a64e7a98c0cea451ba55b8994dd6a41c7469cd50722816490022e4ad39a336d7
+  config_hash: 1ca4fc50ef908b9b6ccd76fb9a4b861dc49e0014a4996e99555adc5b5f2de3e7
+- model_id: M90
+  name: QuantLib Heston external oracle
+  role: external_implementation_oracle
+  version: implemented-v0.1
+  developer_validator_status: external_reference
+  intended_use: Representative implementation and convention cross-check, not replacement
+    for independent project code
+  prohibited_use:
+  - sole_validation_evidence
+  - production_approval
+  - live_trading
+  - regulatory_capital
+  methodology: QuantLib analytic Heston engine and documented conventions
+  inputs:
+  - contract
+  - term_structures
+  - Heston_parameters
+  - engine_configuration
+  outputs:
+  - reference_price
+  assumptions:
+  - correct_convention_mapping
+  - compatible_QuantLib_build
+  limitations:
+  - third_party_implementation
+  - convention_mismatch_risk
+  - package_availability
+  materiality_concept: numerical_disagreement_scaled_by_exposure
+  validation_status: VERIFIED_EXTERNAL_REFERENCE
+  code_hash: 91143d0ec4c0a3a9c6cc6ffaab80dd80d4fd063e37f17b3029e36efd0e8bd806
+  config_hash: 1ca4fc50ef908b9b6ccd76fb9a4b861dc49e0014a4996e99555adc5b5f2de3e7

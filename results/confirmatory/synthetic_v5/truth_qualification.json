@@ -1,0 +1,30 @@
+[
+  {
+    "engine": "HESTON_FIXED_QUAD",
+    "evidence": "Torch CUDA FP64 versus bounded NumPy FP64 spot check",
+    "measured_error": 7.105427357601002e-15,
+    "status": "PASS",
+    "tolerance": 5e-07
+  },
+  {
+    "engine": "BATES_CF",
+    "evidence": "Torch CUDA FP64 versus bounded NumPy FP64 spot check",
+    "measured_error": 1.4210854715202004e-14,
+    "status": "PASS",
+    "tolerance": 5e-07
+  },
+  {
+    "engine": "LOCALVOL_SSVI_MARGINAL",
+    "evidence": "Torch CUDA FP64 versus bounded NumPy FP64 spot check",
+    "measured_error": 1.4210854715202004e-14,
+    "status": "PASS",
+    "tolerance": 5e-07
+  },
+  {
+    "engine": "PIECEWISE_REGIME_MARGINAL",
+    "evidence": "Torch CUDA FP64 versus bounded NumPy FP64 spot check",
+    "measured_error": 4.4291619261116466e-08,
+    "status": "PASS",
+    "tolerance": 5e-07
+  }
+]

@@ -1,0 +1,32 @@
+{
+  "status": "SELECTED_ON_DEV_CONFIRMED_ON_VALIDATION",
+  "profile": "research",
+  "selected_on": "DEV",
+  "confirmed_on": "VALIDATION",
+  "selected_objective": "C04",
+  "objective_selection_rule": "highest DEV convergence rate, then lowest mean common C04 robust loss",
+  "selected_optimizer": "O01",
+  "selected_feller_treatment": "unconstrained",
+  "selected_parameters": {
+    "v0": 0.038253380960055455,
+    "kappa": 1.7871883520395908,
+    "theta": 0.10601487964083421,
+    "sigma_v": 0.8605240685702221,
+    "rho": -0.7835434798268633
+  },
+  "config_hash": "4a137cf6bb3b83f30be988a4ab67c33c9dbd26d51f02d2f8896b070bbaae2bd1",
+  "validation_confirmation_dates": [
+    "2022-10-19",
+    "2022-11-04",
+    "2022-11-22"
+  ],
+  "locked_test_used_for_selection": false,
+  "evidence": [
+    "results/raw/calibration_objective_study.parquet",
+    "results/raw/optimizer_study.parquet",
+    "results/aggregated/feller_study.csv",
+    "results/aggregated/bootstrap_calibration.parquet",
+    "results/aggregated/identifiability_profiles.parquet",
+    "results/aggregated/parameter_stability.parquet"
+  ]
+}

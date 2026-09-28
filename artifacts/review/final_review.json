@@ -1,0 +1,182 @@
+{
+  "schema_version": "2.0",
+  "reviewed_at": "2026-09-27T13:58:17Z",
+  "status": "PASS",
+  "decision": "PASS_TO_FINAL_EVIDENCE_EVALUATION_WITH_DOCUMENTED_PARTIAL_GATES",
+  "reviewed_source_sha256": "9bda28e21b3ee28f7689264f7834d3285eba499e5eee8f55b8c83f64f8122e4e",
+  "reviewed_source_tree_sha256": "9bda28e21b3ee28f7689264f7834d3285eba499e5eee8f55b8c83f64f8122e4e",
+  "review_report": "reports/reviews/FINAL_INDEPENDENT_REVIEW_V2.md",
+  "review_scope": [
+    "developer_validator_independence",
+    "heston_cf",
+    "mc_qe_qem",
+    "pde_adi",
+    "calibration_leakage",
+    "developer_release_v1_1",
+    "locked_test_discipline",
+    "dve",
+    "synthetic_faults",
+    "statistics",
+    "phase_state",
+    "gpu_correctness",
+    "report_claims",
+    "real_data_cross_sectional",
+    "temporal_outcome_availability",
+    "portfolio_materiality"
+  ],
+  "unresolved_severity_counts": {
+    "Critical": 0,
+    "High": 0,
+    "Medium": 5,
+    "Low": 1
+  },
+  "accepted_project_limitations": [
+    {
+      "finding_id": "FR2-AH01",
+      "severity": "High",
+      "status": "ACCEPTED_USAGE_LIMITATION",
+      "title": "Independent ADI PDE remains unqualified",
+      "evidence": [
+        "results/aggregated/numerical_remediation_qualification.json",
+        "results/aggregated/pde_adi_convergence.csv"
+      ],
+      "acceptance_effect": "NUMERICAL gate must remain PARTIAL; PDE is not a qualified oracle"
+    },
+    {
+      "finding_id": "FR2-AH02",
+      "severity": "High",
+      "status": "USAGE_LIMITATION_APPLIED",
+      "title": "Synchronized temporal outcomes remain unavailable",
+      "evidence": [
+        "results/RESULT_AVAILABILITY.json",
+        "artifacts/data/acquisition_inspection.json"
+      ],
+      "acceptance_effect": "real temporal OOS and one-day hedge proxy remain UNAVAILABLE"
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "FR2-M01",
+      "severity": "Medium",
+      "status": "OPEN_LIMITATION",
+      "title": "Real model-form truths generated no locked material-positive cases at the frozen threshold",
+      "evidence": [
+        "results/confirmatory/synthetic_v5/T07_SYNTHETIC_FAULT_DETECTION.csv",
+        "results/confirmatory/synthetic_v5/evidence_score_records.parquet"
+      ]
+    },
+    {
+      "finding_id": "FR2-M02",
+      "severity": "Medium",
+      "status": "OPEN_LIMITATION",
+      "title": "F04-F16 remain controlled perturbation proxies",
+      "evidence": [
+        "artifacts/checkpoints/synthetic_confirmatory_v6.freeze.json",
+        "results/confirmatory/synthetic_v5/case_provenance.parquet"
+      ]
+    },
+    {
+      "finding_id": "FR2-M03",
+      "severity": "Medium",
+      "status": "OPEN_LIMITATION",
+      "title": "Confirmatory precision is small-sample and descriptive",
+      "evidence": [
+        "results/confirmatory/synthetic_v5/statistical_inference.json",
+        "results/confirmatory/synthetic_v5/T08_DVE_BASELINES.csv"
+      ]
+    },
+    {
+      "finding_id": "FR2-M04",
+      "severity": "Medium",
+      "status": "OPEN_PROVENANCE_IMPROVEMENT",
+      "title": "V6 freeze does not individually hash every transitive truth/fault/DVE module",
+      "evidence": [
+        "artifacts/checkpoints/synthetic_confirmatory_v6.freeze.json",
+        "artifacts/review/final_review.json"
+      ]
+    },
+    {
+      "finding_id": "FR2-M05",
+      "severity": "Medium",
+      "status": "OPEN_LIMITATION",
+      "title": "Public real-data inference remains cross-sectional and sampled",
+      "evidence": [
+        "artifacts/calibration/empirical_methodology.json",
+        "results/RESULT_AVAILABILITY.json",
+        "reports/tables/T06_PRICING_MODEL_COMPARISON.csv"
+      ]
+    },
+    {
+      "finding_id": "FR2-L01",
+      "severity": "Low",
+      "status": "MONITOR",
+      "title": "Some individual v6 calibration starts do not converge, while all selected fits qualify",
+      "evidence": [
+        "results/confirmatory/synthetic_v5/calibration_diagnostics.parquet",
+        "results/confirmatory/synthetic_v5/calibration_qualification.json"
+      ]
+    }
+  ],
+  "resolved_during_review": [
+    {
+      "finding_id": "FR2-R01",
+      "severity": "Medium",
+      "status": "RESOLVED",
+      "title": "Report generator conflated individual starts with selected calibrations",
+      "changed_file": "src/derivguard/reporting/final_reports.py",
+      "frozen_artifacts_changed": false,
+      "verification": "full ruff/mypy/pytest rerun passed against reviewed hash"
+    }
+  ],
+  "test_summary": {
+    "artifact": "artifacts/tests/final_test_summary.json",
+    "ruff_format_exit_code": 0,
+    "ruff_exit_code": 0,
+    "mypy_exit_code": 0,
+    "mypy_source_files": 57,
+    "pytest_exit_code": 0,
+    "pytest_tests": 275,
+    "pytest_passed": 275,
+    "pytest_failures": 0,
+    "pytest_errors": 0,
+    "pytest_skipped": 0,
+    "focused_tests_passed": 39,
+    "focused_test_runtime_seconds": 14.70
+  },
+  "key_evidence": {
+    "developer_release": "artifacts/model_releases/model_release_v1.1.json",
+    "empirical_methodology": "artifacts/calibration/empirical_methodology.json",
+    "v6_design_freeze": "artifacts/checkpoints/synthetic_confirmatory_v6.freeze.json",
+    "v6_threshold_freeze": "results/confirmatory/synthetic_v5/dve_thresholds.freeze.json",
+    "v6_metrics": "results/confirmatory/synthetic_v5/confirmatory_metrics.json",
+    "v6_calibration_qualification": "results/confirmatory/synthetic_v5/calibration_qualification.json",
+    "v6_calibration_diagnostics": "results/confirmatory/synthetic_v5/calibration_diagnostics.parquet",
+    "pde_qualification": "results/aggregated/numerical_remediation_qualification.json",
+    "mc_audit": "results/aggregated/mc_qe_qem_audit.csv",
+    "gpu_benchmarks": "results/aggregated/final_compute_benchmarks.json",
+    "real_model_comparison": "reports/tables/T06_PRICING_MODEL_COMPARISON.csv",
+    "portfolio_materiality": "reports/tables/T11_PORTFOLIO_MATERIALITY.csv",
+    "availability": "results/RESULT_AVAILABILITY.json"
+  },
+  "measured_review_facts": {
+    "v6_cases": 102,
+    "v6_locked_and_ood_cases": 51,
+    "v6_material_positives": 10,
+    "selected_calibrations": 510,
+    "selected_calibrations_qualified": 510,
+    "individual_start_attempts": 2550,
+    "individual_start_successes": 2491,
+    "fit_only_recall": 1.0,
+    "fit_only_auprc": 0.990909090909091,
+    "full_dve_recall": 0.6,
+    "full_dve_auprc": 0.6575294612794612,
+    "full_dve_false_positive_rate": 0.14634146341463414,
+    "portfolio_rows": 108,
+    "real_date_jobs_converged": 135,
+    "real_date_jobs_expected": 136
+  },
+  "frozen_scientific_artifacts_modified_by_review": false,
+  "source_edits_made_by_review": [
+    "src/derivguard/reporting/final_reports.py"
+  ]
+}

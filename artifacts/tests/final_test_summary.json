@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.1",
+  "captured_at": "2026-09-27T13:57:51.3984250+00:00",
+  "python": "C:\\Users\\bjw-0\\Downloads\\DerivGuard-MRM\\.venv\\Scripts\\python.exe",
+  "ruff_format_exit_code": 0,
+  "ruff_exit_code": 0,
+  "mypy_exit_code": 0,
+  "pytest_exit_code": 0,
+  "pytest_tests": 275,
+  "pytest_failures": 0,
+  "pytest_errors": 0,
+  "pytest_skipped": 0,
+  "pytest_junit": "C:\\Users\\bjw-0\\Downloads\\DerivGuard-MRM\\artifacts\\tests\\pytest_results.xml",
+  "pytest_basetemp": "C:\\Users\\bjw-0\\Downloads\\DerivGuard-MRM\\.tmp\\derivguard-pytest-18912",
+  "source_tree_sha256": "9bda28e21b3ee28f7689264f7834d3285eba499e5eee8f55b8c83f64f8122e4e",
+  "status": "PASS"
+}

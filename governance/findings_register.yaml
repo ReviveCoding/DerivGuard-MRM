@@ -1,0 +1,102 @@
+schema_version: '2.0'
+generated_at: '2026-09-27T14:04:06.785323+00:00'
+derivation: machine-readable numerical, synthetic, and data-availability evidence
+findings:
+- finding_id: FND-001
+  title: Independent ADI PDE remains outside full qualification
+  risk_category: numerical
+  evidence: results/aggregated/numerical_remediation_qualification.json
+  severity: HIGH
+  materiality: difficult-regime accuracy, convergence, or grid nonnegativity criteria
+    remain unmet
+  root_cause: nonuniform MCS/HV remediation improved the base case but did not satisfy
+    every frozen criterion
+  recommendation: retain PDE as a bounded diagnostic and continue boundary/grid research
+  status: OPEN
+  residual_risk: MEDIUM
+- finding_id: FND-002
+  title: Historical quote asynchrony limits temporal conclusions
+  risk_category: data
+  evidence: results/RESULT_AVAILABILITY.json
+  severity: HIGH
+  materiality: next-date OOS and a defensible one-day hedge proxy are unavailable
+  root_cause: historical quote_time is absent and the prospective series has one date
+  recommendation: accumulate synchronized prospective observations or obtain licensed
+    synchronized history
+  status: USAGE_LIMITATION_APPLIED
+  residual_risk: MEDIUM
+- finding_id: FND-003
+  title: Exploratory Full DVE underperformed FitOnly
+  risk_category: validation_framework
+  evidence: results/exploratory/synthetic_bs_proxy_v1/synthetic_locked_test.json
+  severity: MEDIUM
+  materiality: negative evidence against assuming multi-dimensional evidence dominates
+    fit
+  root_cause: BS-only truth and proxy fault design; the result remains descriptive,
+    not tunable evidence
+  recommendation: retain unchanged and compare with prospectively frozen studies
+  status: RETAINED_NEGATIVE_RESULT
+  residual_risk: MEDIUM
+- finding_id: FND-004
+  title: Full DVE confirmatory performance (confirmatory v6 release-aligned prequalified
+    observable-quote study)
+  risk_category: validation_framework
+  evidence: results/confirmatory/synthetic_v5/confirmatory_metrics.json
+  severity: MEDIUM
+  materiality: baseline comparison must be interpreted from measured locked metrics
+  root_cause: heterogeneous evidence dimensions need not improve every fault class
+  recommendation: do not tune from locked outcomes; retain fault-stratified and ablation
+    results
+  status: EVALUATED
+  residual_risk: MEDIUM
+- finding_id: FND-005
+  title: Monte Carlo discretization and seed sensitivity
+  risk_category: numerical
+  evidence: results/aggregated/mc_qe_qem_audit.csv
+  severity: LOW
+  materiality: bias and sampling error vary by scheme, time step, path count, and
+    seed
+  root_cause: discretization error and stochastic sampling
+  recommendation: use qualified QE-M settings and report bias separately from standard
+    error
+  status: REMEDIATED_WITH_LIMITATION
+  residual_risk: LOW
+- finding_id: FND-006
+  title: Confirmatory v3 used oracle DGP parameters for developer pricing
+  risk_category: synthetic_design
+  evidence: results/confirmatory/synthetic_v2/confirmatory_metrics.json
+  severity: MEDIUM
+  materiality: v3 isolates model form but is not evidence for observable-quote Heston
+    calibration
+  root_cause: developer Heston values were generated from latent truth parameters
+    rather than parameters calibrated exclusively from observed synthetic quotes
+  recommendation: retain v3 as an oracle-parameter isolation and use release-aligned
+    v6 for the primary confirmatory conclusion
+  status: SUPERSEDED_FOR_PRIMARY_CONFIRMATORY_INFERENCE
+  residual_risk: LOW
+- finding_id: FND-007
+  title: Confirmatory multistart calibration qualification
+  risk_category: calibration
+  evidence: results/confirmatory/synthetic_v5/calibration_diagnostics.parquet
+  severity: LOW
+  materiality: 510/510 selected observable-quote fits qualified; 2491/2550 individual
+    multistart attempts reported optimizer success
+  root_cause: some individual starts reached the prospectively frozen iteration limit;
+    selection admitted only converged starts
+  recommendation: retain selected-fit qualification and continue reporting individual-start
+    convergence separately
+  status: QUALIFIED_WITH_ATTEMPT_DIAGNOSTICS
+  residual_risk: LOW
+- finding_id: FND-008
+  title: Confirmatory v5 failed its frozen validation calibration qualification
+  risk_category: calibration
+  evidence: results/confirmatory/synthetic_v4/confirmatory_metrics.json
+  severity: HIGH
+  materiality: v5 is not eligible as primary confirmatory evidence and its locked
+    stage was not used to tune the replacement study
+  root_cause: the prospectively frozen observable-quote calibration design did not
+    qualify on VALIDATION
+  recommendation: preserve v5 as CALIBRATION_UNQUALIFIED history and require v6 prequalification
+    before any new locked generation
+  status: PRESERVED_PARTIAL_CALIBRATION_UNQUALIFIED
+  residual_risk: MEDIUM

@@ -1,0 +1,134 @@
+schema_version: "1.0"
+status: OPEN_INITIAL_REGISTER
+as_of: "2026-09-27"
+severity_scale: [LOW, MEDIUM, HIGH, CRITICAL]
+limitations:
+  - limitation_id: LIM-001
+    title: Public historical quote synchronization
+    category: data
+    description: Historical EOD standing quotes may lack quote_time and cannot automatically be treated as a synchronized NBBO surface.
+    affected_scope: [parity, static_arbitrage, calibration, temporal_outcomes, hedge_proxy]
+    severity: HIGH
+    mitigation: Compare progressively higher-quality quote subsets and keep data-quality evidence separate from model-risk evidence.
+    status: OPEN
+  - limitation_id: LIM-002
+    title: Public sample availability and licensing
+    category: data
+    description: HistoricalData.net and Cboe sample availability, schema, dates, rights, and redistribution constraints require verification.
+    affected_scope: [real_market_experiments, reproducibility, redistribution]
+    severity: HIGH
+    mitigation: Preserve immutable source manifests; never assume coverage; continue synthetic and other public-source work if unavailable.
+    status: OPEN
+  - limitation_id: LIM-003
+    title: Sparse surface and wing coverage
+    category: data
+    description: Some date-expiry surfaces may not support stable SVI/SSVI, forward, wing, or maturity experiments.
+    affected_scope: [surface_fit, local_vol, extrapolation, held_out_tests]
+    severity: HIGH
+    mitigation: Apply auditable sufficiency rules and mark unavailable experiments rather than manufacture results.
+    status: OPEN
+  - limitation_id: LIM-004
+    title: Settlement and timestamp approximations
+    category: conventions
+    description: Public fields may not fully determine settlement-aware timestamps or time-to-expiry.
+    affected_scope: [SPXW, SPX, near_expiry, 0DTE]
+    severity: HIGH
+    mitigation: Separate AM and PM universes and document every timing approximation.
+    status: OPEN
+  - limitation_id: LIM-005
+    title: Discount curve approximation
+    category: market_inputs
+    description: Treasury par yields and SOFR are consistency or sensitivity inputs, not automatically the exact derivatives discount curve.
+    affected_scope: [forward, discounting, calibration, challenger_comparison]
+    severity: MEDIUM
+    mitigation: Prefer option-implied forward/discount estimates and report external-curve sensitivity.
+    status: OPEN
+  - limitation_id: LIM-006
+    title: Heston structural misspecification
+    category: model_form
+    description: Constant-parameter continuous-path Heston dynamics omit jumps and may not reproduce all observed smile dynamics.
+    affected_scope: [M10, extrapolation, stress, outcomes]
+    severity: HIGH
+    mitigation: Challenge with SSVI, Local Vol, Bates, synthetic jump/local-vol truth, and held-out tests.
+    status: OPEN
+  - limitation_id: LIM-007
+    title: Calibration non-identifiability
+    category: calibration
+    description: Multiple parameter sets can yield similar fit, making parameters and Greeks unstable despite low RMSE.
+    affected_scope: [M10, M21, Greeks, parameter_interpretation]
+    severity: HIGH
+    mitigation: Multi-start dispersion, bootstrap covariance, profile objectives, and rolling stability analysis.
+    status: OPEN
+  - limitation_id: LIM-008
+    title: Feller condition ambiguity
+    category: model_assumption
+    description: Feller violation is not automatically invalid, but can affect simulation and interpretation.
+    affected_scope: [M10, M11, calibration]
+    severity: MEDIUM
+    mitigation: Compare unconstrained, soft-penalty, and hard-constrained methods without redefining tolerances after results.
+    status: OPEN
+  - limitation_id: LIM-009
+    title: Numerical branch, quadrature, grid, and discretization risk
+    category: numerical
+    description: CF branch behavior, MC bias, and PDE grid/boundary choices can create material errors.
+    affected_scope: [M10, M11, M12, M20, M21]
+    severity: HIGH
+    mitigation: Independent implementations, stress cases, convergence studies, and external-oracle checks.
+    status: OPEN
+  - limitation_id: LIM-010
+    title: Consumer GPU FP64 characteristics
+    category: compute
+    description: GPU acceleration and FP64 accuracy vary by workload and cannot be presumed from hardware name.
+    affected_scope: [CF, MC, PDE, calibration, synthetic]
+    severity: MEDIUM
+    mitigation: CPU-reference agreement and workload-specific timing before research-scale GPU use.
+    status: OPEN
+  - limitation_id: LIM-011
+    title: Synthetic-to-real generalization
+    category: validation
+    description: Controlled synthetic fault detection does not prove production or real-market effectiveness.
+    affected_scope: [DVE, conclusions, materiality]
+    severity: HIGH
+    mitigation: Stratify by DGP/fault/regime, retain negative results, and qualify real-data evidence separately.
+    status: OPEN
+  - limitation_id: LIM-012
+    title: Limited date-level sample size
+    category: statistics
+    description: Public historical coverage may provide few independent market-date surfaces and weak power for outcome inference.
+    affected_scope: [confidence_intervals, p_values, regime_analysis, outcomes]
+    severity: HIGH
+    mitigation: Use date-level paired inference, date/block bootstrap, effect sizes, and cautious interpretation.
+    status: OPEN
+  - limitation_id: LIM-013
+    title: Hedge measure is a proxy
+    category: outcomes
+    description: Unsynchronized EOD inputs, discrete rebalancing, and simplified financing prevent interpretation as actual trading P&L.
+    affected_scope: [R02, E_outcome]
+    severity: HIGH
+    mitigation: Name it one-day discrete hedging proxy and analyze prospective synchronized data separately.
+    status: OPEN
+  - limitation_id: LIM-014
+    title: Challenger dependence
+    category: validation
+    description: Challengers can share data, curve, surface, optimization, or convention errors, reducing effective independence.
+    affected_scope: [E_form, E_num, consensus]
+    severity: HIGH
+    mitigation: Document shared components, physically separate developer and validator kernels, and exclude developer Heston from independent consensus.
+    status: OPEN
+  - limitation_id: LIM-015
+    title: Prospective locked-test horizon
+    category: data
+    description: Cboe observations collected after project start may be too few for strong prospective inference.
+    affected_scope: [PROSPECTIVE_LOCKED_TEST, real_outcomes]
+    severity: MEDIUM
+    mitigation: Preserve collection timestamps and do not reconstruct unavailable history or tune on prospective observations.
+    status: OPEN
+  - limitation_id: LIM-016
+    title: Research-only governance framework
+    category: governance
+    description: Findings, monitoring statuses, responses, and conclusions are simulated research governance and not institutional policy or approval.
+    affected_scope: [reports, monitoring, findings]
+    severity: HIGH
+    mitigation: Prominent report labeling and strict intended-use controls.
+    status: OPEN
+
