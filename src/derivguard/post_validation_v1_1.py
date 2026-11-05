@@ -692,7 +692,7 @@ BOOTSTRAP_METRICS = (
 def _block_intervals(group: pd.DataFrame, draws: int, seed: int) -> dict[str, tuple[float, float]]:
     dates = np.asarray(sorted(group["quote_date"].unique()))
     if dates.size < 2:
-        return {metric: (np.nan, np.nan) for metric in BOOTSTRAP_METRICS}
+        return dict.fromkeys(BOOTSTRAP_METRICS, (np.nan, np.nan))
     blocks: dict[object, dict[str, FloatArray]] = {}
     for date in dates:
         block = group[group["quote_date"] == date]
@@ -768,7 +768,7 @@ def slice_metrics(rows: pd.DataFrame, config: AnalyticsConfig) -> pd.DataFrame:
             intervals = (
                 _block_intervals(group, config.bootstrap_draws, config.seed + len(records) * 17)
                 if result["defensible"]
-                else {metric: (np.nan, np.nan) for metric in BOOTSTRAP_METRICS}
+                else dict.fromkeys(BOOTSTRAP_METRICS, (np.nan, np.nan))
             )
             for metric, (low, high) in intervals.items():
                 result[f"{metric}_ci_low"] = low
@@ -806,7 +806,7 @@ def two_dimensional_metrics(rows: pd.DataFrame, config: AnalyticsConfig) -> pd.D
             intervals = (
                 _block_intervals(group, config.bootstrap_draws, config.seed + len(records) * 29)
                 if result["defensible"]
-                else {metric: (np.nan, np.nan) for metric in BOOTSTRAP_METRICS}
+                else dict.fromkeys(BOOTSTRAP_METRICS, (np.nan, np.nan))
             )
             for metric, (low, high) in intervals.items():
                 result[f"{metric}_ci_low"] = low

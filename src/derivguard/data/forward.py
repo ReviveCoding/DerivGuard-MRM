@@ -181,37 +181,42 @@ def estimate_forward_discount(
     spread-weighted Huber IRLS. The spread weight is inverse variance using
     the root-sum-square of call and put quoted spreads.
     """
-    k = _as_vector(strikes, "strikes")
-    c = _as_vector(calls, "calls")
-    p = _as_vector(puts, "puts")
-    if not (len(k) == len(c) == len(p)) or len(k) < 3:
+    strike_prices = _as_vector(strikes, "strikes")
+    call_prices = _as_vector(calls, "calls")
+    put_prices = _as_vector(puts, "puts")
+    if not (len(strike_prices) == len(call_prices) == len(put_prices)) or len(strike_prices) < 3:
         raise ValueError("at least three equally sized call/put pairs are required")
-    if np.any(k <= 0) or np.any(c < 0) or np.any(p < 0):
+    if np.any(strike_prices <= 0) or np.any(call_prices < 0) or np.any(put_prices < 0):
         raise ValueError("strikes must be positive and option prices nonnegative")
     if method not in {"F0", "F1", "F2", "F3"}:
         raise ValueError(f"unknown forward estimator: {method}")
     spread_weighted = method in {"F1", "F3"}
     robust = method in {"F2", "F3"}
-    base_weights = np.ones_like(k)
+    base_weights = np.ones_like(strike_prices)
     if spread_weighted:
         if call_spreads is None or put_spreads is None:
             raise ValueError(f"{method} requires call_spreads and put_spreads")
-        cs = _as_vector(call_spreads, "call_spreads")
-        ps = _as_vector(put_spreads, "put_spreads")
-        if len(cs) != len(k) or len(ps) != len(k) or np.any(cs < 0) or np.any(ps < 0):
+        call_spread_values = _as_vector(call_spreads, "call_spreads")
+        put_spread_values = _as_vector(put_spreads, "put_spreads")
+        if (
+            len(call_spread_values) != len(strike_prices)
+            or len(put_spread_values) != len(strike_prices)
+            or np.any(call_spread_values < 0)
+            or np.any(put_spread_values < 0)
+        ):
             raise ValueError("spreads must be nonnegative and match pair count")
-        scale = np.maximum(np.hypot(cs, ps), spread_floor)
+        scale = np.maximum(np.hypot(call_spread_values, put_spread_values), spread_floor)
         base_weights = 1.0 / np.square(scale)
         base_weights /= np.mean(base_weights)
-    differences = c - p
+    call_minus_put = call_prices - put_prices
     weights = base_weights.copy()
-    beta = _weighted_fit(k, differences, weights)
+    beta = _weighted_fit(strike_prices, call_minus_put, weights)
     converged = not robust
     iterations = 1
     if robust:
         for iteration in range(1, max_iterations + 1):
             iterations = iteration
-            residual = differences - (beta[0] + beta[1] * k)
+            residual = call_minus_put - (beta[0] + beta[1] * strike_prices)
             median = np.median(residual)
             mad = np.median(np.abs(residual - median))
             robust_scale = max(1.4826 * mad, np.finfo(np.float64).eps)
@@ -219,7 +224,7 @@ def estimate_forward_discount(
             huber_weights = np.ones_like(standardized)
             outside = standardized > huber_delta
             huber_weights[outside] = huber_delta / standardized[outside]
-            new_beta = _weighted_fit(k, differences, base_weights * huber_weights)
+            new_beta = _weighted_fit(strike_prices, call_minus_put, base_weights * huber_weights)
             if np.linalg.norm(new_beta - beta) <= tolerance * (1.0 + np.linalg.norm(beta)):
                 beta = new_beta
                 weights = base_weights * huber_weights
@@ -234,7 +239,7 @@ def estimate_forward_discount(
     forward = intercept / discount
     if forward <= 0:
         raise ValueError(f"parity regression produced nonpositive forward {forward}")
-    residual = differences - (intercept + slope * k)
+    residual = call_minus_put - (intercept + slope * strike_prices)
     return ForwardEstimate(
         method=method,
         forward=forward,
@@ -243,7 +248,7 @@ def estimate_forward_discount(
         slope=slope,
         residual_rmse=float(np.sqrt(np.mean(np.square(residual)))),
         weighted_rmse=float(np.sqrt(np.average(np.square(residual), weights=weights))),
-        observations=len(k),
+        observations=len(strike_prices),
         iterations=iterations,
         converged=converged,
     )
