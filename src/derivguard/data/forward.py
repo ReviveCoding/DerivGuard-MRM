@@ -184,10 +184,7 @@ def estimate_forward_discount(
     strike_prices = _as_vector(strikes, "strikes")
     call_prices = _as_vector(calls, "calls")
     put_prices = _as_vector(puts, "puts")
-    if (
-        not (len(strike_prices) == len(call_prices) == len(put_prices))
-        or len(strike_prices) < 3
-    ):
+    if not (len(strike_prices) == len(call_prices) == len(put_prices)) or len(strike_prices) < 3:
         raise ValueError("at least three equally sized call/put pairs are required")
     if np.any(strike_prices <= 0) or np.any(call_prices < 0) or np.any(put_prices < 0):
         raise ValueError("strikes must be positive and option prices nonnegative")
@@ -208,9 +205,7 @@ def estimate_forward_discount(
             or np.any(put_spread_values < 0)
         ):
             raise ValueError("spreads must be nonnegative and match pair count")
-        scale = np.maximum(
-            np.hypot(call_spread_values, put_spread_values), spread_floor
-        )
+        scale = np.maximum(np.hypot(call_spread_values, put_spread_values), spread_floor)
         base_weights = 1.0 / np.square(scale)
         base_weights /= np.mean(base_weights)
     call_minus_put = call_prices - put_prices
@@ -229,12 +224,8 @@ def estimate_forward_discount(
             huber_weights = np.ones_like(standardized)
             outside = standardized > huber_delta
             huber_weights[outside] = huber_delta / standardized[outside]
-            new_beta = _weighted_fit(
-                strike_prices, call_minus_put, base_weights * huber_weights
-            )
-            if np.linalg.norm(new_beta - beta) <= tolerance * (
-                1.0 + np.linalg.norm(beta)
-            ):
+            new_beta = _weighted_fit(strike_prices, call_minus_put, base_weights * huber_weights)
+            if np.linalg.norm(new_beta - beta) <= tolerance * (1.0 + np.linalg.norm(beta)):
                 beta = new_beta
                 weights = base_weights * huber_weights
                 converged = True
@@ -244,9 +235,7 @@ def estimate_forward_discount(
     intercept, slope = float(beta[0]), float(beta[1])
     discount = -slope
     if not (0.0 < discount <= 1.5):
-        raise ValueError(
-            f"parity regression produced implausible discount factor {discount}"
-        )
+        raise ValueError(f"parity regression produced implausible discount factor {discount}")
     forward = intercept / discount
     if forward <= 0:
         raise ValueError(f"parity regression produced nonpositive forward {forward}")
